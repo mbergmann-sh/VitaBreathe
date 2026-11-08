@@ -27,7 +27,7 @@ class Database : public QObject
     Q_OBJECT
 public:
     static Database &instance();
-    static constexpr int kSchemaVersion = 1;
+    static constexpr int kSchemaVersion = 3;   // 2: Einschlaf-Einträge (sleep_plans), 3: Atemtrainer-Ergebnisse
 
     enum class OpenResult { Ok, WrongPassword, Error };
     OpenResult open(const QString &path, const QString &password, QString *error = nullptr);
@@ -77,8 +77,10 @@ public:
     bool saveAlarm(Alarm &a, QString *error = nullptr);
     bool deleteAlarm(qint64 id, QString *error = nullptr);
 
-    SleepSettings sleepSettings(qint64 userId);
-    void saveSleepSettings(qint64 userId, const SleepSettings &s);
+    // Einschlaffunktion (userId = 0: alle Benutzer)
+    QList<SleepPlan> sleepPlans(qint64 userId = 0);
+    bool saveSleepPlan(SleepPlan &p, QString *error = nullptr);
+    bool deleteSleepPlan(qint64 id, QString *error = nullptr);
 
     // Abgleich
     struct SyncTable { const char *name; const char *parentColumn; };
@@ -96,6 +98,8 @@ private:
     SqlDb db() const { return SqlDb(m_db); }
     bool createSchema(QString *error);
     bool ensureSyncSchema(QString *error);
+    bool ensureColumn(const QString &table, const QString &column, const QString &type, QString *error);
+    void migrateSleepSettings();     // Schema 1 → 2: Einstellung "sleep" → erster Eintrag
 
     sqlite3 *m_db = nullptr;
     QString  m_path;

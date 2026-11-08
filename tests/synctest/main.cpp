@@ -46,6 +46,8 @@ int main(int argc, char **argv)
     db.setUserSetting(ub, "module/box", "{\"total\":600}");
     const qint64 ubert = db.addUser("Bert");
     BreathEvent e; e.userId = ubert; e.name = "Einschlafübung"; e.moduleId = "four_six"; db.saveEvent(e);
+    SleepPlan sp; sp.userId = ub; sp.label = "Wochentags"; sp.scheduled = true; sp.time = QTime(22, 15);
+    sp.weekdays = 0x1F; sp.playlist = QStringList{ "C:/Musik/Regen.mp3" }; sp.moduleId = "four_six"; db.saveSleepPlan(sp);
     CHECK(DbSync::instance().syncBlocking(&msg), qPrintable("B Abgleich: " + msg));
     db.close();
 
@@ -57,6 +59,9 @@ int main(int argc, char **argv)
     CHECK(db.sessions(annaA).size() == 2, "A: Anna hat 2 Einheiten");
     CHECK(db.userSetting(annaA, "module/box") == "{\"total\":600}", "A: neuere Einstellung von B gewinnt");
     CHECK(db.events().size() == 1, "A: Ereignis von B übernommen");
+    CHECK(db.sleepPlans(annaA).size() == 1 && db.sleepPlans(annaA).first().scheduled
+          && db.sleepPlans(annaA).first().time == QTime(22, 15) && db.sleepPlans(annaA).first().playlist.size() == 1,
+          "A: geplanter Einschlaf-Eintrag von B übernommen");
     for (const SessionRecord &x : db.sessions(annaA)) if (x.moduleId == "box") db.deleteSession(x.id);
     CHECK(DbSync::instance().syncBlocking(&msg), qPrintable("A Abgleich nach Löschen: " + msg));
     db.close();

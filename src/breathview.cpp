@@ -3,6 +3,8 @@
 #include "breathengine.h"
 #include "icons.h"
 
+#include <QPainterPath>
+
 #include <QDateTime>
 #include <QPainter>
 #include <QTimer>
@@ -52,6 +54,7 @@ void BreathView::paintEvent(QPaintEvent *)
     if (!m_module) return;
 
     if (m_module->visual == ModuleDef::Visual::Box) paintBox(p, area);
+    else if (m_module->visual == ModuleDef::Visual::TriBall) paintTriBall(p, area);
     else paintCircle(p, area);
 
     // Beschriftung unter der Grafik: Phase und Hinweis
@@ -72,7 +75,7 @@ void BreathView::paintEvent(QPaintEvent *)
         const StepDef &st = m_engine->step();
         title = phaseName(st.kind);
         if (m_hints) sub = st.hint;
-        if (m_module->hasSegments() && !st.segmentTitle.isEmpty())
+        if (m_module->hasSegments() && !m_module->singleRound && !st.segmentTitle.isEmpty())
             sub = st.segmentTitle + (sub.isEmpty() ? QString() : QStringLiteral(" · ") + sub);
         if (m_engine->state() == BreathEngine::State::Paused) sub = tr("Pause");
         else if (m_engine->lastCycle()) sub += (sub.isEmpty() ? QString() : QStringLiteral(" · ")) + tr("letzte Runde");
@@ -95,7 +98,7 @@ void BreathView::paintCaption(QPainter &p, const QRectF &r, const QString &title
     QColor c = palette().color(QPalette::WindowText);
     c.setAlphaF(0.7);
     p.setPen(c);
-    p.drawText(QRectF(r.left(), t.bottom() + 2, r.width(), r.height() - t.height() - 2), Qt::AlignHCenter | Qt::AlignTop, sub);
+    p.drawText(QRectF(r.left(), t.bottom() + 2, r.width(), r.height() - t.height() - 2), Qt::AlignHCenter | Qt::AlignTop | Qt::TextWordWrap, sub);
 }
 
 void BreathView::paintBox(QPainter &p, const QRectF &area)
@@ -265,4 +268,106 @@ void BreathView::paintCircle(QPainter &p, const QRectF &area)
         p.setPen(Qt::white);
         p.drawText(QRectF(ctr.x() - R, ctr.y() - R, 2 * R, 2 * R), Qt::AlignCenter, center);
     }
+}
+
+void BreathView::paintTriBall(QPainter &p, const QRectF &area)
+{
+    const bool dark = palette().color(QPalette::Window).lightness() < 110;
+    const QColor blue = dark ? QColor(0x4A, 0x9E, 0xE0) : Icons::primary();
+    const QColor ballColors[3] = { blue, dark ? QColor(0x4C, 0xC2, 0x8A) : QColor(0x2E, 0x9E, 0x6B),
+                                   dark ? QColor(0xF5, 0x8A, 0x3C) : Icons::accent() };
+    const QColor fg = palette().color(QPalette::WindowText);
+
+    // Ballhöhen (0 = unten, 1 = oben) aus Phase und Fortschritt
+    double up[3] = { 0, 0, 0 };
+    const auto st = m_engine ? m_engine->state() : BreathEngine::State::Idle;
+    const bool active = st == BreathEngine::State::Running || st == BreathEngine::State::Paused;
+    if (active) {
+        const StepDef &step = m_engine->step();
+        const double prog = m_engine->phaseProgress();
+        for (int i = 0; i < m_target; ++i) {
+            switch (step.kind) {
+            case PhaseKind::Inhale: {          // Bälle steigen nacheinander bis zum Ziel
+                const double start = m_target > 1 ? 0.55 * i / (m_target - 1) : 0.0;
+                up[i] = ease(qBound(0.0, (prog - start) / 0.45, 1.0));
+                break;
+            }
+            case PhaseKind::HoldIn:            // oben halten, leichtes Tanzen
+                up[i] = 0.96 + 0.04 * qSin(m_engine->phaseElapsed() * 7 + i);
+                break;
+            case PhaseKind::Exhale:            // nach dem Halten: Bälle fallen
+                up[i] = step.phaseIndex > 0 ? 1 - ease(qMin(1.0, prog * 3)) : 0;
+                break;
+            default:
+                break;
+            }
+        }
+    }
+
+    // Gerät: drei Kammern auf einem Sockel, Mundstück mit Schlauch rechts
+    const double devH = qMin(area.height() * 0.62, area.width() * 0.62);
+    const double cw = devH * 0.26, gap = devH * 0.07, ch = devH;
+    const double devW = 3 * cw + 2 * gap;
+    const double x0 = area.center().x() - devW / 2 - devH * 0.12, y0 = area.center().y() - ch / 2 - devH * 0.04;
+    const double pen = qMax(3.0, devH * 0.018);
+    QColor fill = blue;
+    fill.setAlphaF(dark ? 0.10 : 0.06);
+    p.setPen(QPen(blue, pen, Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin));
+    p.setBrush(fill);
+    const QRectF base(x0 - cw * 0.25, y0 + ch, devW + cw * 0.5, ch * 0.13);
+    p.drawRoundedRect(base, ch * 0.04, ch * 0.04);
+    for (int i = 0; i < 3; ++i) {
+        const QRectF chamber(x0 + i * (cw + gap), y0, cw, ch);
+        p.setPen(QPen(blue, pen));
+        p.setBrush(fill);
+        p.drawRoundedRect(chamber, cw / 2, cw / 2);
+        const double r = cw / 2 - pen * 1.6;
+        const double travel = ch - 2 * r - pen * 3.2;
+        const QPointF c(chamber.center().x(), chamber.bottom() - r - pen * 1.6 - up[i] * travel);
+        // Zielmarke: welche Bälle angehoben werden sollen
+        if (i < m_target) {
+            QColor mark = ballColors[i];
+            mark.setAlphaF(0.35);
+            p.setPen(QPen(mark, pen * 0.7, Qt::DashLine));
+            p.setBrush(Qt::NoBrush);
+            p.drawEllipse(QPointF(chamber.center().x(), chamber.top() + r + pen * 1.6), r, r);
+        }
+        p.setPen(Qt::NoPen);
+        p.setBrush(ballColors[i]);
+        p.drawEllipse(c, r, r);
+    }
+    // Schlauch und Mundstück
+    const QPointF hoseStart(base.right(), base.center().y());
+    const QPointF mouth(base.right() + devH * 0.32, y0 + ch * 0.05);
+    QPainterPath hose(hoseStart);
+    hose.cubicTo(hoseStart + QPointF(devH * 0.2, 0), mouth + QPointF(-devH * 0.05, devH * 0.45), mouth);
+    p.setBrush(Qt::NoBrush);
+    p.setPen(QPen(blue, pen * 2.2, Qt::SolidLine, Qt::RoundCap));
+    p.drawPath(hose);
+    p.setPen(QPen(blue, pen));
+    p.setBrush(fill);
+    p.drawRoundedRect(QRectF(mouth.x() - devH * 0.03, mouth.y() - devH * 0.09, devH * 0.1, devH * 0.09), 3, 3);
+
+    // Restsekunden des Schritts links oben
+    if (st == BreathEngine::State::Preroll || active) {
+        QFont f = font();
+        f.setPixelSize(int(qMax(18.0, devH * 0.16)));
+        f.setBold(true);
+        p.setFont(f);
+        QColor tc = fg;
+        tc.setAlphaF(0.75);
+        p.setPen(tc);
+        const QString n = st == BreathEngine::State::Preroll ? QString::number(qCeil(m_engine->prerollRemaining()))
+                                                              : QString::number(qMax(1, qCeil(m_engine->phaseRemaining() - 0.001)));
+        p.drawText(QRectF(area.left() + 12, area.top() + 8, devH * 0.5, devH * 0.25), Qt::AlignLeft | Qt::AlignTop, n);
+    }
+    // Ziel
+    QFont sf = font();
+    sf.setPointSizeF(qMax(9.0, sf.pointSizeF()));
+    p.setFont(sf);
+    QColor tc = fg;
+    tc.setAlphaF(0.7);
+    p.setPen(tc);
+    p.drawText(QRectF(base.left(), base.bottom() + 4, base.width(), 24), Qt::AlignHCenter | Qt::AlignTop,
+               tr("Ziel: %n Ball/Bälle oben halten", nullptr, m_target));
 }

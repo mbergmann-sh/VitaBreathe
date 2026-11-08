@@ -14,29 +14,34 @@ Technisch und optisch an [VitaParms](https://github.com/mbergmann-sh/VitaParms) 
 | ![Box-Atmen](docs/images/box-atmen.png) | ![4-7-8](docs/images/4-7-8.png) | ![Verlauf](docs/images/verlauf.png) |
 | **Atemnot-Hilfe** | **ACBT – Abhusten** | **English** |
 | ![Atemnot-Hilfe](docs/images/atemnot-hilfe.png) | ![ACBT](docs/images/acbt.png) | ![English](docs/images/mainwindow-en.png) |
+| **Wecker & Einschlafen** | **Einschlaf-Eintrag planen** | **Atemtrainer TriBall** |
+| ![Wecker und Einschlafen](docs/images/wecker-einschlafen.png) | ![Einschlaf-Eintrag](docs/images/einschlaf-eintrag.png) | ![TriBall](docs/images/triball.png) |
+| **TriBall – bebilderte Anleitung** | **Haltungsbilder (Bauchatmung)** | |
+| ![TriBall-Anleitung](docs/images/triball-anleitung.png) | ![Haltung](docs/images/haltung-bauchatmung.png) | |
 
 ## Funktionen
 
 | Bereich | Umsetzung |
 |---|---|
 | **Übungsmodule** | **Box-Atmen (4-4-4-4)**: ein Punkt wandert im Uhrzeigersinn, beginnend links oben, von Ecke zu Ecke eines Quadrats; darunter die Atemphase · **Langes Ausatmen (4-7-8)**: der Kreis dehnt sich 4 s aus, bleibt 7 s stehen, zieht sich 8 s zusammen · **4-6-Methode** für Einsteiger ohne Atemanhalten. Animation folgt den eingestellten Phasendauern. Modular erweiterbar (`src/breathmodules.cpp`) |
-| **Atemwege – Asthma und COPD** | **Atemnot-Hilfe**: Schnellstart ohne Vorbereitung (`F2`, eigene Schaltfläche), Lippenbremse im Kutschersitz, deutlicher Hinweis auf Notfallspray nach ärztlichem Plan und Notruf 112 · **Lippenbremse** (dosiertes Ausatmen, 2 s ein / 4 s aus) · **Bauchatmung** (Zwerchfellatmung mit Lippenbremse) · **Ruhige Nasenatmung** gegen Überatmung (in Anlehnung an Papworth-Methode und Atemschule) · **ACBT – Abhusten** (Active Cycle of Breathing Techniques): Atemkontrolle, tiefe Atemzüge, Huffen in Abschnitten mit einstellbaren Wiederholungen, danach „Abhusten bei Bedarf – weiter mit Leertaste“. Jede Übung mit Haltungshinweis und Tipps; Hinweis, Atemübungen mit Ärztin/Arzt bzw. Atemphysiotherapie abzustimmen |
+| **Atemwege – Asthma und COPD** | **Atemnot-Hilfe**: Schnellstart ohne Vorbereitung (`F2`, eigene Schaltfläche), Lippenbremse im Kutschersitz, deutlicher Hinweis auf Notfallspray nach ärztlichem Plan und Notruf 112 · **Lippenbremse** (dosiertes Ausatmen, 2 s ein / 4 s aus) · **Bauchatmung** (Zwerchfellatmung mit Lippenbremse) · **Ruhige Nasenatmung** gegen Überatmung (in Anlehnung an Papworth-Methode und Atemschule) · **ACBT – Abhusten** (Active Cycle of Breathing Techniques): Atemkontrolle, tiefe Atemzüge, Huffen in Abschnitten mit einstellbaren Wiederholungen, danach „Abhusten bei Bedarf – weiter mit Leertaste“. **Atemtrainer TriBall** (Einatemtraining mit floworientiertem Gerät): animiertes Gerät mit drei Bällen, Ziel 1/2/3 Bälle (600/900/1200 ml/s), Takt für Ausatmen – Einatmen – Bälle oben halten – Ausatmen – Ausruhen, gezählte Wiederholungen statt Gesamtdauer, Ergebnis (erreichte Bälle, Haltezeit) im Tagebuch, in Grafik, Druck und CSV · **Bebilderte Anleitungen und Haltungsbilder** (Kutschersitz, Torwarthaltung, aufrechter Sitz, Rückenlage, Lippenbremse, Huffen, TriBall in sechs Schritten) in der Vorbereitung und als eigenes Fenster (*Anleitung …*); die Atemnot-Hilfe zeigt die Haltung auch während der Übung. Jede Übung mit Haltungshinweis und Tipps; Hinweis, Atemübungen mit Ärztin/Arzt bzw. Atemphysiotherapie abzustimmen |
 | **Ablauf einer Sitzung** | 1. Vorbereitung mit Tipps, Gesamtdauer (Standard 5 min) und Atemdauer je Phase, **Reset** auf die Standardwerte · 2. optional Messwerte vorher · 3. minimalistische Übung mit Vorlauf (3-2-1), Pause (Leertaste), Vollbild (F11), Ende nach dem laufenden Atemzug · 4. optional Messwerte nachher · 5. Zusammenfassung mit Notiz, Speichern im Tagebuch |
-| **Signale** | optionaler Signalton beim Phasenwechsel (wahlweise unterschiedliche Töne für Ein-, Ausatmen und Halten), Lautstärke einstellbar; **Vibrationsimpuls** auf Android-Geräten (vorbereitet) |
+| **Signale** | Signalton (Beep) beim Phasenwechsel und Gong am Ende – **einzeln abschaltbar**, wahlweise unterschiedliche Töne für Ein-, Ausatmen und Halten, Lautstärke einstellbar; während der Übung Schaltfläche **„Töne“** bzw. Taste `M` zum Stummschalten (wird gemerkt); **Vibrationsimpuls** auf Android-Geräten (vorbereitet) |
 | **Hintergrundmusik** | für **jedes** Modul (auch künftige) eine MP3-Datei mit eigener Lautstärke, sanft ein- und ausgeblendet, Lautstärke während der Übung regelbar, Probehören |
 | **Trainingsmodus** | vor und nach der Übung **SpO₂**, **Peak Flow**, Puls und Befinden erfassen (einzeln abwählbar, leere Felder werden nicht gespeichert) |
 | **Tagebuch / Verlauf** | alle Übungseinheiten mit Anlass, Muster, Dauer, Zyklen und Messwerten; Zeitraum- und Übungsfilter; nachtragen, bearbeiten, löschen |
-| **Verlaufsgrafik** | Übungsminuten je Tag (nach Übung gefärbt), SpO₂, Peak Flow und Puls jeweils vorher/nachher – eigene QPainter-Zeichnung (kein Qt Charts/GPL) |
+| **Verlaufsgrafik** | Übungsminuten je Tag (nach Übung gefärbt), SpO₂, Peak Flow und Puls jeweils vorher/nachher, Atemtrainer-Ergebnisse; rollbar, wenn viele Bereiche angezeigt werden – eigene QPainter-Zeichnung (kein Qt Charts/GPL) |
 | **Ausgabe** | **Drucken** mit Druckvorschau (DIN A4), **PDF**, **CSV** (Excel) |
 | **Ereignisse & Erinnerungen** | eigene Ereignisse wie „Einschlafübung“ oder „Stressbewältigung“ mit Übung, Uhrzeit und Wochentagen; Erinnerung mit Gong und Meldung im Infobereich, „Jetzt starten“ / „In 10 Minuten erinnern“ |
 | **Weckfunktion** | beliebig viele Wecker je Benutzer, Wochentage, **MP3-Wiedergabeliste** (oder eingebauter Weckton), sanft lauter werden, Schlummern, danach optional eine Übung |
-| **Einschlaffunktion** | MP3-Wiedergabeliste mit Dauer und Ausblenden, optional vorher eine Übung (Standard: 4-6-Methode) |
+| **Einschlaffunktion** | beliebig viele **gespeicherte Einträge** je Benutzer (wie beim Wecker): MP3-Wiedergabeliste, Zufallsreihenfolge, Lautstärke, Dauer und Ausblenden, optional vorher eine Übung; **planbar** mit Uhrzeit und Wochentagen – zur Uhrzeit Erinnerung mit „Jetzt einschlafen / In 10 Minuten erinnern“ oder automatischer Start; Start auch über Werkzeugleiste, Menü und Infobereich |
 | **Benutzer** | beliebig viele, Auswahl über die Werkzeugleiste; Einstellungen, Tagebuch, Erinnerungen und Wecker je Benutzer |
 | **Datenschutz** | Datenbank **vollständig verschlüsselt** mit dem **Master-Passwort** (SQLite3 Multiple Ciphers, ChaCha20-Poly1305), Abfrage beim Start, änderbar; Sicherungen ebenso verschlüsselt |
 | **Abgleich** | über die eigene Website (`website/`, PHP) zwischen beliebig vielen Geräten – zeilenweises Zusammenführen wie in VitaParms; weiteres Gerät einrichten per *Vom Server laden …* |
 | **Sprachen** | **Deutsch** (Standard) und **Englisch**, umschaltbar im Anmeldefenster und unter *Extras → Einstellungen → Darstellung*; vollständige Übersetzung (`translations/vitabreathe_en.ts`), Datums- und Zahlenformate passend |
 | **Windows-Installer** | Qt Installer Framework, Zielordner `C:\VitaBreathe`, je ein Setup für **deutsche** und **englische** Installation; setzt die Programmsprache passend, Update über vorhandene Installation – siehe `installer/README.md` |
 | **Themes** | alle Qt-Styles der Plattform sowie „Dark“ und „Visual Studio Code Dark“ (aus VitaParms/AmigaED), sofort umschaltbar; Symbole passen sich hell/dunkel an |
+| **Fenster** | Position und Größe des Hauptfensters (inkl. Werkzeugleiste) und aller Dialoge – Übung, Einstellungen, Druckvorschau, Erinnerungen … – sowie die Aufteilung Tabelle/Grafik werden gemerkt und beim nächsten Öffnen wiederhergestellt (je Gerät; passt sich an, wenn ein Bildschirm fehlt) |
 | **Kleine Bildschirme** | Inhalte in rollbaren Flächen; Dialoge werden automatisch an den Bildschirm angepasst (`screenfit` aus VitaParms) |
 | **Demo** | `VitaBreathe --demo`: zwei erfundene Personen mit 60 Tagen Tagebuch in einer eigenen, temporären Datenbank (Master-Passwort `demo`) |
 
@@ -66,7 +71,8 @@ macOS/Linux: `macdeployqt` bzw. `linuxdeployqt`. Das Programmsymbol liegt als `.
 
 ```sh
 lupdate VitaBreathe.pro          # neue/geänderte Texte erfassen
-python3 tools/fill_ts.py         # Englisch aus tools/translations_en.py eintragen (meldet Fehlendes)
+lupdate -pluralonly -no-obsolete src -ts translations/vitabreathe_de.ts   # deutsche Mehrzahlformen (%n)
+python3 tools/fill_ts.py         # Englisch und deutsche Mehrzahlformen aus tools/translations_en.py eintragen
 ```
 Alternativ in Qt Linguist bearbeiten. Quellsprache ist Deutsch.
 
@@ -87,6 +93,7 @@ src/
   breathmodules.*    Übungsmodule (Phasen, Abschnitte, Haltung, Hinweise) und Einstellungen  ← neue Module hier
   breathengine.*     Taktgeber: Vorlauf, Schritte einer Runde, Pause, „weiter, wenn bereit“
   i18n.*             Sprache (Deutsch/Englisch), Übersetzungen laden
+  windowstate.*      Fensterpositionen und -größen merken (app-weiter Ereignisfilter)
   breathview.*       Animation (Quadrat mit Punkt, atmender Kreis)
   sessiondialog.*    Ablauf: Vorbereitung → Messung → Übung → Messung → Zusammenfassung
   audio.*            Signaltöne (QSoundEffect), MP3-Wiedergabe mit Überblenden, Vibration (Android)
@@ -94,11 +101,14 @@ src/
   eventspage.*, alarmpage.*, reminderservice.*, schedule.*   Erinnerungen, Wecker, Einschlafen
   dbsync.*           Abgleich über website/api/sync.php
   themes.*, screenfit.*, sqlquery.*, qtcompat.h   aus VitaParms übernommen
-translations/        vitabreathe_en.ts (Englisch)
+translations/        vitabreathe_en.ts (Englisch), vitabreathe_de.ts (nur deutsche Mehrzahlformen)
+resources/illustrations/  Anleitungs- und Haltungsbilder (SVG, erzeugt mit tools/make_illustrations.py)
 installer/           Windows-Installer (Qt Installer Framework, DE/EN), siehe installer/README.md
 website/             Abgleich-Server (PHP), siehe website/README.md
 tests/synctest/      Test des Abgleichs gegen einen lokalen PHP-Server
 tests/enginetest/    Test des Taktgebers (Abschnitte, Warten, Pause, Ende nach der Runde)
+tests/windowtest/    Test: Fensterlage merken und wiederherstellen
+tests/migrationtest/ Test: Datenbank aus Version 0.2 (Format 1) auf das aktuelle Format bringen
 tools/               Symbole (make_icons.py), Signaltöne (make_sounds.py), Übersetzung (fill_ts.py)
 ```
 
@@ -106,9 +116,11 @@ tools/               Symbole (make_icons.py), Signaltöne (make_sounds.py), Übe
 
 In `BreathModules::all()` (`src/breathmodules.cpp`) einen weiteren `ModuleDef` anlegen: Kennung,
 Name, Kategorie, Beschreibung, Tipps, Phasen (Einatmen, Halten, Ausatmen, Ruhig atmen, Huffen –
-mit Standarddauer, Grenzen, Hinweis), Standard-Gesamtdauer, Animation (`Box` oder `Circle`), Symbol
+mit Standarddauer, Grenzen, Hinweis), Standard-Gesamtdauer, Animation (`Box`, `Circle` oder `TriBall`), Symbol
 und vorgeschlagener Anlass; optional Haltung, Notfallhinweis, Schnellstart (`quickHelp`) und
-Abschnitte (`segments`) mit Wiederholungen und „weiter, wenn bereit“ wie bei ACBT. Danach
+Abschnitte (`segments`) mit Wiederholungen und „weiter, wenn bereit“ wie bei ACBT, eine
+bebilderte Anleitung (`guide`: Bild aus `resources/illustrations/` + Text), ein Haltungsbild
+(`postureImage`) sowie Gerätetraining (`deviceTraining`, `singleRound`) wie beim TriBall. Danach
 `lupdate` und `tools/fill_ts.py` für die englischen Texte. Einstellungen mit Reset,
 Hintergrundmusik, Signaltöne, Trainingsmodus, Erinnerungen, Tagebuch, Grafik, Druck und Abgleich
 stehen dem Modul ohne weiteren Code zur Verfügung.
@@ -123,7 +135,14 @@ cd tests/synctest && qmake6 && make && VB_URL=http://127.0.0.1:8099/ ./synctest
 Prüft zwei Geräte über den Server: Ersteinrichtung per Download, Zusammenführen neuer Zeilen,
 „jüngere Änderung gewinnt“, Übertragen von Löschungen, falsches Master-Passwort, Passwortwechsel.
 `tests/enginetest` prüft den Taktgeber (ACBT-Runde mit 18 Schritten, Warten auf „Weiter“ ohne
-Zeitzählung, Ende erst nach der Runde, abgeschaltete Phasen, Pause).
+Zeitzählung, Ende erst nach der Runde, abgeschaltete Phasen, Pause), `tests/windowtest` das Merken
+und Wiederherstellen der Fensterlage. Der Abgleich-Test prüft auch geplante Einschlaf-Einträge.
+`tests/migrationtest` baut eine Datenbank auf das Format von Version 0.2 zurück und prüft, dass
+beim Öffnen nichts verloren geht: Tagebuch unverändert, neue Spalten und Tabellen ergänzt, die
+alte Einschlaf-Einstellung wird zum ersten Einschlaf-Eintrag, erneutes Öffnen ist idempotent.
+
+Datenbankformat: 1 = Version 0.2, 2 = 0.3 (Einschlaf-Einträge), 3 = 0.4 (Atemtrainer-Ergebnisse).
+Die Umstellung geschieht automatisch beim ersten Öffnen; vorher empfiehlt sich *Datei → Datenbank sichern …*.
 
 `VitaBreathe --demo --screenshots <ordner>` erzeugt die Bildschirmfotos dieser Seite.
 

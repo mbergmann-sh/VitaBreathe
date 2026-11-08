@@ -1,4 +1,8 @@
-// VitaBreathe – Weckfunktion und Einschlaffunktion (jeweils mit eigener MP3-Wiedergabeliste)
+// VitaBreathe – Weckfunktion und Einschlaffunktion
+//
+// Beide verwalten beliebig viele gespeicherte Einträge je Benutzer (Wecker bzw. Einschlafen) mit
+// eigener MP3-Wiedergabeliste. Einschlaf-Einträge lassen sich planen (Uhrzeit, Wochentage): Zur
+// Uhrzeit erinnert VitaBreathe daran oder startet sie automatisch (siehe ReminderService).
 // SPDX-License-Identifier: MIT
 #pragma once
 
@@ -40,6 +44,25 @@ private:
     QComboBox      *m_module;
 };
 
+class SleepPlanDialog : public QDialog
+{
+    Q_OBJECT
+public:
+    SleepPlanDialog(const SleepPlan &p, QWidget *parent = nullptr);
+    SleepPlan plan() const;
+
+private:
+    SleepPlan       m_plan;
+    QLineEdit      *m_label;
+    QCheckBox      *m_scheduled, *m_autoStart, *m_shuffle;
+    QTimeEdit      *m_time;
+    WeekdayPicker  *m_days;
+    PlaylistWidget *m_playlist;
+    QSlider        *m_volume;
+    QSpinBox       *m_minutes, *m_fade;
+    QComboBox      *m_module;
+};
+
 class AlarmPage : public QWidget
 {
     Q_OBJECT
@@ -48,8 +71,10 @@ public:
     void setUser(qint64 userId);
     void reload();
     void addAlarm();
-    void startSleep();                 // Einschlaffunktion starten (ggf. mit Übung vorher)
-    void startSleepMusic();            // nach der Übung: Musik mit Ausblenden
+    void addSleepPlan();
+    void startSleep();                     // gewählten bzw. einzigen Eintrag starten (fragt bei mehreren)
+    void startSleep(const SleepPlan &p);   // ggf. erst die Übung, dann Musik
+    void startSleepMusic();                // nach der Übung: Musik des laufenden Eintrags
     void stopSleep();
     bool sleepRunning() const;
 
@@ -58,9 +83,10 @@ signals:
     void testAlarm(const Alarm &a);
 
 private:
-    qint64 selectedId() const;
-    void editSelected();
-    void saveSleep();
+    qint64 selectedAlarm() const;
+    qint64 selectedPlan() const;
+    void editAlarm();
+    void editPlan();
     void updateSleepStatus();
 
     qint64          m_userId = 0;
@@ -68,16 +94,13 @@ private:
     QPushButton    *m_edit, *m_delete, *m_test;
     QList<Alarm>    m_alarms;
     // Einschlafen
-    PlaylistWidget *m_sleepList;
-    QCheckBox      *m_sleepShuffle;
-    QSlider        *m_sleepVolume;
-    QSpinBox       *m_sleepMinutes, *m_sleepFade;
-    QComboBox      *m_sleepModule;
-    QPushButton    *m_sleepStart, *m_sleepStop;
+    QTableWidget   *m_sleepTable;
+    QPushButton    *m_sleepEdit, *m_sleepDelete, *m_sleepStart, *m_sleepStop;
     QLabel         *m_sleepStatus;
+    QList<SleepPlan> m_plans;
+    SleepPlan       m_active;              // laufender Eintrag
     MusicPlayer    *m_sleepPlayer;
     QTimer         *m_sleepTimer;
-    qint64          m_sleepEnd = 0;      // ms seit Epoche
+    qint64          m_sleepEnd = 0;        // ms seit Epoche
     bool            m_sleepFading = false;
-    bool            m_loading = false;
 };

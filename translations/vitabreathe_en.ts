@@ -4,93 +4,93 @@
 <context>
     <name>AlarmDialog</name>
     <message>
-        <location filename="../src/alarmpage.cpp" line="55" />
+        <location filename="../src/alarmpage.cpp" line="56" />
         <source>Wecker bearbeiten</source>
         <translation>Edit alarm</translation>
     </message>
     <message>
-        <location filename="../src/alarmpage.cpp" line="55" />
+        <location filename="../src/alarmpage.cpp" line="56" />
         <source>Neuer Wecker</source>
         <translation>New alarm</translation>
     </message>
     <message>
-        <location filename="../src/alarmpage.cpp" line="59" />
+        <location filename="../src/alarmpage.cpp" line="60" />
         <source>z. B. Arbeitstag</source>
         <translation>e.g. workday</translation>
     </message>
     <message>
-        <location filename="../src/alarmpage.cpp" line="60" />
+        <location filename="../src/alarmpage.cpp" line="61" />
         <source>Bezeichnung:</source>
         <translation>Label:</translation>
     </message>
     <message>
-        <location filename="../src/alarmpage.cpp" line="63" />
+        <location filename="../src/alarmpage.cpp" line="64" />
         <source>Weckzeit:</source>
         <translation>Alarm time:</translation>
     </message>
     <message>
-        <location filename="../src/alarmpage.cpp" line="66" />
+        <location filename="../src/alarmpage.cpp" line="67" />
         <source>Tage:</source>
         <translation>Days:</translation>
     </message>
     <message>
-        <location filename="../src/alarmpage.cpp" line="67" />
+        <location filename="../src/alarmpage.cpp" line="68" />
         <source>Wecker aktiv</source>
         <translation>Alarm active</translation>
     </message>
     <message>
-        <location filename="../src/alarmpage.cpp" line="73" />
+        <location filename="../src/alarmpage.cpp" line="74" />
         <source>Musik:</source>
         <translation>Music:</translation>
     </message>
     <message>
-        <location filename="../src/alarmpage.cpp" line="74" />
+        <location filename="../src/alarmpage.cpp" line="75" />
         <source>Ohne Musik ertönt der eingebaute Weckton.</source>
         <translation>Without music, the built-in alarm tone sounds.</translation>
     </message>
     <message>
-        <location filename="../src/alarmpage.cpp" line="77" />
+        <location filename="../src/alarmpage.cpp" line="78" />
         <source>Zufällige Reihenfolge</source>
         <translation>Shuffle</translation>
     </message>
     <message>
-        <location filename="../src/alarmpage.cpp" line="82" />
+        <location filename="../src/alarmpage.cpp" line="83" />
         <source>Lautstärke:</source>
         <translation>Volume:</translation>
     </message>
     <message>
-        <location filename="../src/alarmpage.cpp" line="85" />
-        <location filename="../src/alarmpage.cpp" line="91" />
+        <location filename="../src/alarmpage.cpp" line="86" />
+        <location filename="../src/alarmpage.cpp" line="92" />
         <source> min</source>
         <translation> min</translation>
     </message>
     <message>
-        <location filename="../src/alarmpage.cpp" line="86" />
+        <location filename="../src/alarmpage.cpp" line="87" />
         <source>sofort volle Lautstärke</source>
         <translation>full volume immediately</translation>
     </message>
     <message>
-        <location filename="../src/alarmpage.cpp" line="88" />
+        <location filename="../src/alarmpage.cpp" line="89" />
         <source>Sanft lauter werden über:</source>
         <translation>Gently increase volume over:</translation>
     </message>
     <message>
-        <location filename="../src/alarmpage.cpp" line="93" />
+        <location filename="../src/alarmpage.cpp" line="94" />
         <source>Schlummern:</source>
         <translation>Snooze:</translation>
     </message>
     <message>
-        <location filename="../src/alarmpage.cpp" line="94" />
+        <location filename="../src/alarmpage.cpp" line="95" />
         <source>keine Übung anbieten</source>
         <translation>do not offer an exercise</translation>
     </message>
     <message>
-        <location filename="../src/alarmpage.cpp" line="95" />
+        <location filename="../src/alarmpage.cpp" line="96" />
         <source>Nach dem Wecken:</source>
         <translation>After waking up:</translation>
     </message>
     <message>
-        <location filename="../src/alarmpage.cpp" line="100" />
+        <location filename="../src/alarmpage.cpp" line="101" />
         <source>Bitte mindestens einen Wochentag wählen.</source>
         <translation>Please select at least one weekday.</translation>
     </message>
@@ -98,177 +98,214 @@
 <context>
     <name>AlarmPage</name>
     <message>
-        <location filename="../src/alarmpage.cpp" line="135" />
+        <location filename="../src/alarmpage.cpp" line="250" />
         <source>Weckfunktion</source>
         <translation>Alarm clock</translation>
     </message>
     <message>
-        <location filename="../src/alarmpage.cpp" line="138" />
+        <location filename="../src/alarmpage.cpp" line="252" />
         <source>Weckzeit</source>
         <translation>Alarm time</translation>
     </message>
     <message>
-        <location filename="../src/alarmpage.cpp" line="138" />
+        <location filename="../src/alarmpage.cpp" line="252" />
+        <location filename="../src/alarmpage.cpp" line="273" />
         <source>Bezeichnung</source>
         <translation>Label</translation>
     </message>
     <message>
-        <location filename="../src/alarmpage.cpp" line="138" />
+        <location filename="../src/alarmpage.cpp" line="252" />
+        <location filename="../src/alarmpage.cpp" line="273" />
         <source>Tage</source>
         <translation>Days</translation>
     </message>
     <message>
-        <location filename="../src/alarmpage.cpp" line="138" />
+        <location filename="../src/alarmpage.cpp" line="252" />
         <source>Aktiv</source>
         <translation>Active</translation>
     </message>
     <message>
-        <location filename="../src/alarmpage.cpp" line="138" />
+        <location filename="../src/alarmpage.cpp" line="252" />
+        <location filename="../src/alarmpage.cpp" line="273" />
         <source>Musik</source>
         <translation>Music</translation>
     </message>
     <message>
-        <location filename="../src/alarmpage.cpp" line="139" />
+        <location filename="../src/alarmpage.cpp" line="252" />
         <source>Nächstes Wecken</source>
         <translation>Next alarm</translation>
     </message>
     <message>
-        <location filename="../src/alarmpage.cpp" line="148" />
+        <location filename="../src/alarmpage.cpp" line="255" />
         <source>Neuer Wecker …</source>
         <translation>New alarm …</translation>
     </message>
     <message>
-        <location filename="../src/alarmpage.cpp" line="149" />
+        <location filename="../src/alarmpage.cpp" line="256" />
+        <location filename="../src/alarmpage.cpp" line="278" />
         <source>Bearbeiten …</source>
         <translation>Edit …</translation>
     </message>
     <message>
-        <location filename="../src/alarmpage.cpp" line="150" />
-        <location filename="../src/alarmpage.cpp" line="224" />
+        <location filename="../src/alarmpage.cpp" line="257" />
+        <location filename="../src/alarmpage.cpp" line="279" />
+        <location filename="../src/alarmpage.cpp" line="322" />
+        <location filename="../src/alarmpage.cpp" line="342" />
         <source>Löschen</source>
         <translation>Delete</translation>
     </message>
     <message>
-        <location filename="../src/alarmpage.cpp" line="151" />
+        <location filename="../src/alarmpage.cpp" line="258" />
         <source>Testen</source>
         <translation>Test</translation>
     </message>
     <message>
-        <location filename="../src/alarmpage.cpp" line="156" />
+        <location filename="../src/alarmpage.cpp" line="263" />
         <source>Der Wecker klingelt, solange VitaBreathe läuft (auch minimiert im Infobereich). Bitte verlassen Sie sich nicht allein darauf, wenn Sie einen wichtigen Termin haben.</source>
         <translation>The alarm rings as long as VitaBreathe is running (also minimised to the notification area). Please do not rely on it alone when you have an important appointment.</translation>
     </message>
     <message>
-        <location filename="../src/alarmpage.cpp" line="164" />
+        <location filename="../src/alarmpage.cpp" line="271" />
         <source>Einschlaffunktion</source>
         <translation>Sleep function</translation>
     </message>
     <message>
-        <location filename="../src/alarmpage.cpp" line="166" />
-        <source>Musik:</source>
-        <translation>Music:</translation>
+        <location filename="../src/alarmpage.cpp" line="273" />
+        <source>Geplant</source>
+        <translation>Scheduled</translation>
     </message>
     <message>
-        <location filename="../src/alarmpage.cpp" line="170" />
-        <source>Zufällige Reihenfolge</source>
-        <translation>Shuffle</translation>
+        <location filename="../src/alarmpage.cpp" line="273" />
+        <source>Start</source>
+        <translation>Start</translation>
     </message>
     <message>
-        <location filename="../src/alarmpage.cpp" line="172" />
-        <source>Lautstärke:</source>
-        <translation>Volume:</translation>
+        <location filename="../src/alarmpage.cpp" line="273" />
+        <source>Dauer</source>
+        <translation>Duration</translation>
     </message>
     <message>
-        <location filename="../src/alarmpage.cpp" line="175" />
-        <source>Wiedergabedauer:</source>
-        <translation>Playing time:</translation>
+        <location filename="../src/alarmpage.cpp" line="274" />
+        <source>Vorher üben</source>
+        <translation>Exercise first</translation>
     </message>
     <message>
-        <location filename="../src/alarmpage.cpp" line="179" />
-        <location filename="../src/alarmpage.cpp" line="184" />
-        <source> min</source>
-        <translation> min</translation>
+        <location filename="../src/alarmpage.cpp" line="274" />
+        <source>Nächster Termin</source>
+        <translation>Next time</translation>
     </message>
     <message>
-        <location filename="../src/alarmpage.cpp" line="181" />
-        <source>davon leiser werden:</source>
-        <translation>fade out during the last:</translation>
+        <location filename="../src/alarmpage.cpp" line="277" />
+        <source>Neuer Eintrag …</source>
+        <translation>New entry …</translation>
     </message>
     <message>
-        <location filename="../src/alarmpage.cpp" line="186" />
-        <source>Vorher üben:</source>
-        <translation>Exercise first:</translation>
+        <location filename="../src/alarmpage.cpp" line="280" />
+        <source>Jetzt einschlafen</source>
+        <translation>Fall asleep now</translation>
     </message>
     <message>
-        <location filename="../src/alarmpage.cpp" line="187" />
-        <source>keine Übung – nur Musik</source>
-        <translation>no exercise – music only</translation>
+        <location filename="../src/alarmpage.cpp" line="474" />
+        <source>Es gibt noch keinen Einschlaf-Eintrag. Jetzt einen anlegen?</source>
+        <translation>There is no sleep entry yet. Create one now?</translation>
     </message>
     <message>
-        <location filename="../src/alarmpage.cpp" line="190" />
-        <source>Einschlafen starten</source>
-        <translation>Start sleep function</translation>
+        <location filename="../src/alarmpage.cpp" line="486" />
+        <source>Welcher Eintrag soll starten?</source>
+        <translation>Which entry should start?</translation>
     </message>
     <message>
-        <location filename="../src/alarmpage.cpp" line="191" />
+        <location filename="../src/alarmpage.cpp" line="494" />
+        <source>„%1“ enthält noch keine Musik. Bitte MP3-Dateien hinzufügen.</source>
+        <translation>“%1” does not contain any music yet. Please add MP3 files.</translation>
+    </message>
+    <message>
+        <location filename="../src/alarmpage.cpp" line="544" />
+        <source>&lt;b&gt;%1:&lt;/b&gt; Gute Nacht – Musik endet in %2:%3 min  ·  %4</source>
+        <translation>&lt;b&gt;%1:&lt;/b&gt; Good night – music ends in %2:%3 min  ·  %4</translation>
+    </message>
+    <message>
+        <location filename="../src/alarmpage.cpp" line="281" />
         <source>Stopp</source>
         <translation>Stop</translation>
     </message>
     <message>
-        <location filename="../src/alarmpage.cpp" line="224" />
+        <location filename="../src/alarmpage.cpp" line="290" />
+        <source>Geplante Einträge erinnern zur Uhrzeit an das Einschlafen oder starten automatisch. Ungeplante Einträge starten Sie hier, über die Werkzeugleiste oder das Symbol im Infobereich.</source>
+        <translation>Scheduled entries remind you to go to sleep at the set time or start automatically. Start unscheduled entries here, from the toolbar or via the icon in the notification area.</translation>
+    </message>
+    <message>
+        <location filename="../src/alarmpage.cpp" line="322" />
         <source>Diesen Wecker löschen?</source>
         <translation>Delete this alarm?</translation>
     </message>
     <message>
-        <location filename="../src/alarmpage.cpp" line="252" />
+        <location filename="../src/alarmpage.cpp" line="342" />
+        <source>Diesen Einschlaf-Eintrag löschen?</source>
+        <translation>Delete this sleep entry?</translation>
+    </message>
+    <message>
+        <location filename="../src/alarmpage.cpp" line="355" />
         <source>Ohne Qt Multimedia übersetzt – keine Musikwiedergabe.</source>
         <translation>Built without Qt Multimedia – no music playback.</translation>
     </message>
     <message>
-        <location filename="../src/alarmpage.cpp" line="282" />
+        <location filename="../src/alarmpage.cpp" line="381" />
         <source>ja</source>
         <translation>yes</translation>
     </message>
     <message>
-        <location filename="../src/alarmpage.cpp" line="282" />
+        <location filename="../src/alarmpage.cpp" line="381" />
+        <location filename="../src/alarmpage.cpp" line="399" />
         <source>nein</source>
         <translation>no</translation>
     </message>
     <message>
-        <location filename="../src/alarmpage.cpp" line="283" />
+        <location filename="../src/alarmpage.cpp" line="382" />
         <source>Weckton</source>
         <translation>Alarm tone</translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/alarmpage.cpp" line="283" />
+        <location filename="../src/alarmpage.cpp" line="382" />
+        <location filename="../src/alarmpage.cpp" line="403" />
         <source>%n Titel</source>
         <translation><numerusform>%n track</numerusform><numerusform>%n tracks</numerusform></translation>
     </message>
     <message>
-        <location filename="../src/alarmpage.cpp" line="326" />
-        <location filename="../src/alarmpage.cpp" line="338" />
+        <location filename="../src/alarmpage.cpp" line="402" />
+        <source>automatisch</source>
+        <translation>automatically</translation>
+    </message>
+    <message>
+        <location filename="../src/alarmpage.cpp" line="402" />
+        <source>mit Rückfrage</source>
+        <translation>after asking</translation>
+    </message>
+    <message>
+        <location filename="../src/alarmpage.cpp" line="404" />
+        <source>%1 min</source>
+        <translation>%1 min</translation>
+    </message>
+    <message>
+        <location filename="../src/alarmpage.cpp" line="425" />
+        <location filename="../src/alarmpage.cpp" line="437" />
         <source>Wecker</source>
         <translation>Alarm</translation>
     </message>
     <message>
-        <location filename="../src/alarmpage.cpp" line="348" />
+        <location filename="../src/alarmpage.cpp" line="446" />
+        <location filename="../src/alarmpage.cpp" line="452" />
+        <location filename="../src/alarmpage.cpp" line="464" />
+        <location filename="../src/alarmpage.cpp" line="474" />
+        <location filename="../src/alarmpage.cpp" line="486" />
+        <location filename="../src/alarmpage.cpp" line="494" />
         <source>Einschlafen</source>
         <translation>Fall asleep</translation>
     </message>
     <message>
-        <location filename="../src/alarmpage.cpp" line="348" />
-        <source>Bitte zuerst Musik (MP3-Dateien) zur Liste hinzufügen.</source>
-        <translation>Please add music (MP3 files) to the list first.</translation>
-    </message>
-    <message>
-        <location filename="../src/alarmpage.cpp" line="388" />
+        <location filename="../src/alarmpage.cpp" line="533" />
         <source>wird ausgeblendet …</source>
         <translation>fading out …</translation>
-    </message>
-    <message>
-        <location filename="../src/alarmpage.cpp" line="399" />
-        <source>Gute Nacht – Musik endet in %1:%2 min  ·  %3</source>
-        <translation>Good night – music ends in %1:%2 min  ·  %3</translation>
     </message>
 </context>
 <context>
@@ -328,7 +365,7 @@
     </message>
     <message>
         <location filename="../src/breathmodules.cpp" line="22" />
-        <location filename="../src/breathmodules.cpp" line="234" />
+        <location filename="../src/breathmodules.cpp" line="250" />
         <source>Huffen</source>
         <translation>Huff</translation>
     </message>
@@ -379,7 +416,7 @@
     </message>
     <message>
         <location filename="../src/breathmodules.cpp" line="76" />
-        <location filename="../src/breathmodules.cpp" line="160" />
+        <location filename="../src/breathmodules.cpp" line="167" />
         <source>ruhig durch die Nase</source>
         <translation>calmly through the nose</translation>
     </message>
@@ -559,280 +596,435 @@
         <translation>Use your reliever or emergency inhaler according to your medical plan. If the breathlessness does not improve or gets worse: call the emergency services immediately (112 in Europe).</translation>
     </message>
     <message>
-        <location filename="../src/breathmodules.cpp" line="150" />
+        <location filename="../src/breathmodules.cpp" line="147" />
+        <source>Kutschersitz: Oberkörper nach vorn, Unterarme auf den Oberschenkeln, Schultern locker.</source>
+        <translation>Coachman's seat: lean forward, forearms resting on your thighs, shoulders relaxed.</translation>
+    </message>
+    <message>
+        <location filename="../src/breathmodules.cpp" line="149" />
+        <source>Im Stehen: Hände auf Tisch, Fensterbank oder Geländer stützen (Torwarthaltung).</source>
+        <translation>Standing: rest your hands on a table, windowsill or railing (goalkeeper stance).</translation>
+    </message>
+    <message>
+        <location filename="../src/breathmodules.cpp" line="151" />
+        <source>Lange mit der Lippenbremse ausatmen – Lippen locker aufeinander, nicht pressen.</source>
+        <translation>Breathe out slowly through pursed lips – lips loosely together, do not press.</translation>
+    </message>
+    <message>
+        <location filename="../src/breathmodules.cpp" line="157" />
         <source>Lippenbremse (dosiertes Ausatmen)</source>
         <translation>Pursed-lip breathing</translation>
     </message>
     <message>
-        <location filename="../src/breathmodules.cpp" line="151" />
+        <location filename="../src/breathmodules.cpp" line="158" />
         <source>Lippenbremse</source>
         <translation>Pursed-lip breathing</translation>
     </message>
     <message>
-        <location filename="../src/breathmodules.cpp" line="153" />
+        <location filename="../src/breathmodules.cpp" line="160" />
         <source>Die Standardtechnik der Atemphysiotherapie: Ausatmen gegen den leichten Widerstand der Lippen hält die Atemwege länger offen. Hilft bei Atemnot und unter Belastung.</source>
         <translation>The standard technique of respiratory physiotherapy: breathing out against the slight resistance of the lips keeps the airways open longer. Helps with breathlessness and during exertion.</translation>
     </message>
     <message>
-        <location filename="../src/breathmodules.cpp" line="155" />
+        <location filename="../src/breathmodules.cpp" line="162" />
         <source>Durch die Nase einatmen, dann durch die locker aufeinanderliegenden Lippen ausatmen – als wollten Sie eine Kerzenflamme nur zum Flackern bringen.</source>
         <translation>Breathe in through your nose, then breathe out through loosely closed lips – as if you only wanted to make a candle flame flicker.</translation>
     </message>
     <message>
-        <location filename="../src/breathmodules.cpp" line="157" />
+        <location filename="../src/breathmodules.cpp" line="164" />
         <source>Die Wangen dürfen sich leicht blähen, aber nicht pressen: Das Ausatmen soll ruhig und lang sein.</source>
         <translation>Your cheeks may puff out slightly, but do not force it: the exhale should be calm and long.</translation>
     </message>
     <message>
-        <location filename="../src/breathmodules.cpp" line="158" />
+        <location filename="../src/breathmodules.cpp" line="165" />
         <source>Ausatmen etwa doppelt so lang wie einatmen. Üben Sie regelmäßig, damit Sie die Lippenbremse auch beim Treppensteigen und anderen Belastungen ganz automatisch einsetzen.</source>
         <translation>Breathe out for about twice as long as you breathe in. Practise regularly so that you use pursed-lip breathing automatically when climbing stairs and during other exertion.</translation>
     </message>
     <message>
-        <location filename="../src/breathmodules.cpp" line="161" />
+        <location filename="../src/breathmodules.cpp" line="168" />
         <source>lange durch die locker geschlossenen Lippen</source>
         <translation>slowly through loosely closed lips</translation>
     </message>
     <message>
-        <location filename="../src/breathmodules.cpp" line="163" />
-        <location filename="../src/breathmodules.cpp" line="183" />
-        <location filename="../src/breathmodules.cpp" line="204" />
+        <location filename="../src/breathmodules.cpp" line="170" />
+        <location filename="../src/breathmodules.cpp" line="194" />
+        <location filename="../src/breathmodules.cpp" line="219" />
         <source>Atemtraining</source>
         <translation>Breathing training</translation>
     </message>
     <message>
-        <location filename="../src/breathmodules.cpp" line="164" />
+        <location filename="../src/breathmodules.cpp" line="171" />
         <source>Aufrecht sitzen, Schultern locker.</source>
         <translation>Sit upright, shoulders relaxed.</translation>
     </message>
     <message>
-        <location filename="../src/breathmodules.cpp" line="171" />
+        <location filename="../src/breathmodules.cpp" line="174" />
+        <source>Aufrecht sitzen, Füße auf dem Boden, Schultern locker.</source>
+        <translation>Sit upright, feet on the floor, shoulders relaxed.</translation>
+    </message>
+    <message>
+        <location filename="../src/breathmodules.cpp" line="176" />
+        <source>Durch die Nase einatmen, dann lange durch die locker aufeinanderliegenden Lippen ausatmen.</source>
+        <translation>Breathe in through your nose, then breathe out slowly through loosely closed lips.</translation>
+    </message>
+    <message>
+        <location filename="../src/breathmodules.cpp" line="182" />
         <source>Bauchatmung (Zwerchfellatmung)</source>
         <translation>Belly breathing (diaphragmatic breathing)</translation>
     </message>
     <message>
-        <location filename="../src/breathmodules.cpp" line="172" />
+        <location filename="../src/breathmodules.cpp" line="183" />
         <source>Bauchatmung</source>
         <translation>Belly breathing</translation>
     </message>
     <message>
-        <location filename="../src/breathmodules.cpp" line="174" />
+        <location filename="../src/breathmodules.cpp" line="185" />
         <source>Atmen mit dem Zwerchfell statt mit der Atemhilfsmuskulatur von Hals und Brust: braucht weniger Kraft und entlastet. Ausatmen gern mit der Lippenbremse.</source>
         <translation>Breathing with the diaphragm instead of the accessory muscles of the neck and chest: takes less effort and gives relief. Breathe out through pursed lips if you like.</translation>
     </message>
     <message>
-        <location filename="../src/breathmodules.cpp" line="176" />
+        <location filename="../src/breathmodules.cpp" line="187" />
         <source>Legen Sie eine Hand auf den Bauch und eine auf die Brust. Beim Einatmen hebt sich der Bauch, die Brust bleibt möglichst ruhig.</source>
         <translation>Place one hand on your belly and one on your chest. When you breathe in, your belly rises while your chest stays as still as possible.</translation>
     </message>
     <message>
-        <location filename="../src/breathmodules.cpp" line="178" />
+        <location filename="../src/breathmodules.cpp" line="189" />
         <source>Im Liegen mit angewinkelten Beinen fällt die Bauchatmung am Anfang leichter.</source>
         <translation>At first, belly breathing is easier lying down with your knees bent.</translation>
     </message>
     <message>
-        <location filename="../src/breathmodules.cpp" line="179" />
+        <location filename="../src/breathmodules.cpp" line="190" />
         <source>Schultern nicht hochziehen. Ausatmen ruhig mit der Lippenbremse – der Bauch senkt sich.</source>
         <translation>Do not raise your shoulders. Breathe out calmly through pursed lips – your belly falls.</translation>
     </message>
     <message>
-        <location filename="../src/breathmodules.cpp" line="180" />
+        <location filename="../src/breathmodules.cpp" line="191" />
         <source>durch die Nase – der Bauch hebt sich unter der Hand</source>
         <translation>through the nose – your belly rises under your hand</translation>
     </message>
     <message>
-        <location filename="../src/breathmodules.cpp" line="181" />
+        <location filename="../src/breathmodules.cpp" line="192" />
         <source>mit der Lippenbremse – der Bauch senkt sich</source>
         <translation>through pursed lips – your belly falls</translation>
     </message>
     <message>
-        <location filename="../src/breathmodules.cpp" line="184" />
+        <location filename="../src/breathmodules.cpp" line="195" />
         <source>Bequem sitzen oder auf dem Rücken liegen, Beine angewinkelt.</source>
         <translation>Sit comfortably or lie on your back with your knees bent.</translation>
     </message>
     <message>
-        <location filename="../src/breathmodules.cpp" line="191" />
+        <location filename="../src/breathmodules.cpp" line="199" />
+        <source>Auf dem Rücken liegen, Beine angewinkelt. Eine Hand auf den Bauch, eine auf die Brust.</source>
+        <translation>Lie on your back with knees bent. One hand on your belly, one on your chest.</translation>
+    </message>
+    <message>
+        <location filename="../src/breathmodules.cpp" line="200" />
+        <source>Geht auch im Sitzen: aufrecht, Schultern locker.</source>
+        <translation>Also works sitting: upright, shoulders relaxed.</translation>
+    </message>
+    <message>
+        <location filename="../src/breathmodules.cpp" line="206" />
         <source>Ruhige Nasenatmung (gegen Überatmung)</source>
         <translation>Calm nose breathing (against over-breathing)</translation>
     </message>
     <message>
-        <location filename="../src/breathmodules.cpp" line="192" />
+        <location filename="../src/breathmodules.cpp" line="207" />
         <source>Ruhige Nasenatmung</source>
         <translation>Calm nose breathing</translation>
     </message>
     <message>
-        <location filename="../src/breathmodules.cpp" line="194" />
+        <location filename="../src/breathmodules.cpp" line="209" />
         <source>Atemschulung in Anlehnung an Papworth-Methode und Atemschule: langsam, leise und klein durch die Nase atmen. Kann bei Asthma Symptome einer Überatmung (Hyperventilation) lindern.</source>
         <translation>Breathing retraining based on the Papworth method and breathing school: breathe slowly, quietly and gently through your nose. May ease symptoms of over-breathing (hyperventilation) in asthma.</translation>
     </message>
     <message>
-        <location filename="../src/breathmodules.cpp" line="196" />
+        <location filename="../src/breathmodules.cpp" line="211" />
         <source>Mund geschlossen halten, leise und eher flach durch die Nase atmen – keine tiefen Atemzüge.</source>
         <translation>Keep your mouth closed and breathe quietly and rather shallowly through your nose – no deep breaths.</translation>
     </message>
     <message>
-        <location filename="../src/breathmodules.cpp" line="197" />
+        <location filename="../src/breathmodules.cpp" line="212" />
         <source>Ein leichtes Gefühl von „etwas weniger Luft“ ist in Ordnung, Stress oder Luftnot nicht: dann normal weiteratmen.</source>
         <translation>A slight feeling of “a little less air” is fine, stress or breathlessness is not: then simply breathe normally again.</translation>
     </message>
     <message>
-        <location filename="../src/breathmodules.cpp" line="199" />
+        <location filename="../src/breathmodules.cpp" line="214" />
         <source>Diese Übung ersetzt keine Asthma-Medikamente. Sie dient der Entspannung und einem ruhigeren Atemmuster.</source>
         <translation>This exercise does not replace asthma medication. It is meant for relaxation and a calmer breathing pattern.</translation>
     </message>
     <message>
-        <location filename="../src/breathmodules.cpp" line="200" />
+        <location filename="../src/breathmodules.cpp" line="215" />
         <source>leise und klein durch die Nase</source>
         <translation>quietly and gently through the nose</translation>
     </message>
     <message>
-        <location filename="../src/breathmodules.cpp" line="201" />
+        <location filename="../src/breathmodules.cpp" line="216" />
         <source>entspannt durch die Nase ausströmen lassen</source>
         <translation>let the air flow out through your nose, relaxed</translation>
     </message>
     <message>
-        <location filename="../src/breathmodules.cpp" line="202" />
+        <location filename="../src/breathmodules.cpp" line="217" />
         <source>kurze, entspannte Pause</source>
         <translation>short, relaxed pause</translation>
     </message>
     <message>
-        <location filename="../src/breathmodules.cpp" line="205" />
+        <location filename="../src/breathmodules.cpp" line="220" />
         <source>Aufrecht und bequem sitzen, Schultern und Kiefer locker.</source>
         <translation>Sit upright and comfortably, shoulders and jaw relaxed.</translation>
     </message>
     <message>
-        <location filename="../src/breathmodules.cpp" line="212" />
+        <location filename="../src/breathmodules.cpp" line="228" />
         <source>Abhusten mit ACBT (aktiver Atemzyklus)</source>
         <translation>Airway clearance with ACBT (active cycle of breathing)</translation>
     </message>
     <message>
-        <location filename="../src/breathmodules.cpp" line="213" />
+        <location filename="../src/breathmodules.cpp" line="229" />
         <source>ACBT – Abhusten</source>
         <translation>ACBT – airway clearance</translation>
     </message>
     <message>
-        <location filename="../src/breathmodules.cpp" line="215" />
+        <location filename="../src/breathmodules.cpp" line="231" />
         <source>„Active Cycle of Breathing Techniques“ zum Lösen und Abhusten von Schleim ohne Hilfsmittel: Atemkontrolle, tiefe Atemzüge und Huffen im Wechsel. Nach jeder Runde husten Sie bei Bedarf ab.</source>
         <translation>“Active Cycle of Breathing Techniques” to loosen and clear mucus without any equipment: breathing control, deep breaths and huffing in turn. After each round you cough up if needed.</translation>
     </message>
     <message>
-        <location filename="../src/breathmodules.cpp" line="217" />
+        <location filename="../src/breathmodules.cpp" line="233" />
         <source>Am besten nach Anleitung durch Ihre Atemphysiotherapie üben. Ein bronchienerweiterndes Spray bzw. Inhalieren nach Ihrem ärztlichen Plan vorher erleichtert das Abhusten.</source>
         <translation>Ideally practise as instructed by your respiratory physiotherapist. Using a bronchodilator inhaler or nebuliser beforehand, according to your medical plan, makes clearing easier.</translation>
     </message>
     <message>
-        <location filename="../src/breathmodules.cpp" line="219" />
+        <location filename="../src/breathmodules.cpp" line="235" />
         <source>Huffen: mit offenem Mund und offenem Rachen kräftig aushauchen – als wollten Sie eine Brille anhauchen. Nicht zu kräftig, sonst kann die Atmung pfeifen.</source>
         <translation>Huffing: breathe out firmly through an open mouth and throat – as if steaming up a pair of glasses. Not too hard, or your breathing may become wheezy.</translation>
     </message>
     <message>
-        <location filename="../src/breathmodules.cpp" line="221" />
+        <location filename="../src/breathmodules.cpp" line="237" />
         <source>Nur husten, wenn Sie Schleim im Rachen spüren – dauerndes Husten ermüdet und kann die Atemwege reizen.</source>
         <translation>Only cough when you feel mucus in your throat – constant coughing is tiring and can irritate the airways.</translation>
     </message>
     <message>
-        <location filename="../src/breathmodules.cpp" line="222" />
+        <location filename="../src/breathmodules.cpp" line="238" />
         <source>Ausreichend trinken hilft, den Schleim zu lösen. Nicht direkt vor dem Schlafengehen üben.</source>
         <translation>Drinking enough helps to loosen the mucus. Do not practise right before going to bed.</translation>
     </message>
     <message>
-        <location filename="../src/breathmodules.cpp" line="223" />
+        <location filename="../src/breathmodules.cpp" line="239" />
         <source>ruhig und entspannt atmen, Schultern locker</source>
         <translation>breathe calmly and relaxed, shoulders loose</translation>
     </message>
     <message>
-        <location filename="../src/breathmodules.cpp" line="224" />
+        <location filename="../src/breathmodules.cpp" line="240" />
         <source>langsam und tief einatmen – die unteren Rippen weiten sich</source>
         <translation>breathe in slowly and deeply – your lower ribs expand</translation>
     </message>
     <message>
-        <location filename="../src/breathmodules.cpp" line="225" />
+        <location filename="../src/breathmodules.cpp" line="241" />
         <source>kurz halten</source>
         <translation>hold briefly</translation>
     </message>
     <message>
-        <location filename="../src/breathmodules.cpp" line="226" />
+        <location filename="../src/breathmodules.cpp" line="242" />
         <source>locker ausatmen, nicht pressen</source>
         <translation>breathe out gently, do not force it</translation>
     </message>
     <message>
-        <location filename="../src/breathmodules.cpp" line="227" />
+        <location filename="../src/breathmodules.cpp" line="243" />
         <source>ruhig und entspannt atmen</source>
         <translation>breathe calmly and relaxed</translation>
     </message>
     <message>
-        <location filename="../src/breathmodules.cpp" line="228" />
+        <location filename="../src/breathmodules.cpp" line="244" />
         <source>mittelgroß einatmen</source>
         <translation>take a medium-sized breath</translation>
     </message>
     <message>
-        <location filename="../src/breathmodules.cpp" line="229" />
+        <location filename="../src/breathmodules.cpp" line="245" />
         <source>mit offenem Mund kräftig aushauchen</source>
         <translation>breathe out firmly through an open mouth</translation>
     </message>
     <message>
-        <location filename="../src/breathmodules.cpp" line="230" />
+        <location filename="../src/breathmodules.cpp" line="246" />
         <source>ruhig atmen</source>
         <translation>breathe calmly</translation>
     </message>
     <message>
-        <location filename="../src/breathmodules.cpp" line="231" />
-        <location filename="../src/breathmodules.cpp" line="233" />
+        <location filename="../src/breathmodules.cpp" line="247" />
+        <location filename="../src/breathmodules.cpp" line="249" />
         <source>Atemkontrolle</source>
         <translation>Breathing control</translation>
     </message>
     <message>
-        <location filename="../src/breathmodules.cpp" line="232" />
+        <location filename="../src/breathmodules.cpp" line="248" />
         <source>Tiefe Atemzüge</source>
         <translation>Deep breaths</translation>
     </message>
     <message>
-        <location filename="../src/breathmodules.cpp" line="235" />
+        <location filename="../src/breathmodules.cpp" line="251" />
         <source>Spüren Sie Schleim im Rachen? Jetzt abhusten. Danach mit „Weiter“ (Leertaste) die nächste Runde beginnen.</source>
         <translation>Do you feel mucus in your throat? Cough it up now. Then start the next round with “Continue” (space bar).</translation>
     </message>
     <message>
-        <location filename="../src/breathmodules.cpp" line="241" />
+        <location filename="../src/breathmodules.cpp" line="257" />
         <source>Abhusten</source>
         <translation>Airway clearance</translation>
     </message>
     <message>
-        <location filename="../src/breathmodules.cpp" line="242" />
+        <location filename="../src/breathmodules.cpp" line="258" />
         <source>Aufrecht sitzen, Füße auf dem Boden – oder die Lagerung, die Ihre Physiotherapie empfiehlt.</source>
         <translation>Sit upright with your feet on the floor – or use the position your physiotherapist recommends.</translation>
     </message>
     <message>
-        <location filename="../src/breathmodules.cpp" line="267" />
+        <location filename="../src/breathmodules.cpp" line="261" />
+        <source>Aufrecht sitzen, Füße auf dem Boden.</source>
+        <translation>Sit upright, feet on the floor.</translation>
+    </message>
+    <message>
+        <location filename="../src/breathmodules.cpp" line="263" />
+        <source>Huffen: Mund und Rachen weit offen und kräftig aushauchen – wie beim Anhauchen einer Brille.</source>
+        <translation>Huffing: mouth and throat wide open, breathe out forcefully – like fogging up a pair of glasses.</translation>
+    </message>
+    <message>
+        <location filename="../src/breathmodules.cpp" line="269" />
+        <source>Atemtrainer TriBall (Einatemtraining)</source>
+        <translation>TriBall breathing trainer (inspiratory training)</translation>
+    </message>
+    <message>
+        <location filename="../src/breathmodules.cpp" line="270" />
+        <source>TriBall-Training</source>
+        <translation>TriBall training</translation>
+    </message>
+    <message>
+        <location filename="../src/breathmodules.cpp" line="272" />
+        <source>Training mit dem floworientierten Atemtrainer TriBall: langsam und gleichmäßig durch das Mundstück einatmen, sodass die Bälle steigen, und sie möglichst lange oben halten. Fördert ein tiefes, gleichmäßiges Einatmen. VitaBreathe gibt den Takt vor und zählt die Wiederholungen.</source>
+        <translation>Training with the flow-oriented TriBall breathing trainer: breathe in slowly and steadily through the mouthpiece so the balls rise, and keep them up as long as possible. Encourages deep, even inhalation. VitaBreathe sets the pace and counts the repetitions.</translation>
+    </message>
+    <message>
+        <location filename="../src/breathmodules.cpp" line="275" />
+        <source>Das Gerät beim Üben immer senkrecht halten.</source>
+        <translation>Always hold the device upright while practising.</translation>
+    </message>
+    <message>
+        <location filename="../src/breathmodules.cpp" line="276" />
+        <source>Niemals in das Gerät hineinblasen – Feuchtigkeit beeinträchtigt die Funktion. Trocken aufbewahren.</source>
+        <translation>Never blow into the device – moisture impairs its function. Store it dry.</translation>
+    </message>
+    <message>
+        <location filename="../src/breathmodules.cpp" line="277" />
+        <source>Langsam und gleichmäßig einatmen statt kräftig ruckartig: Ziel ist ein langer, gleichmäßiger Atemzug.</source>
+        <translation>Breathe in slowly and steadily rather than in a hard jerk: the goal is one long, even breath.</translation>
+    </message>
+    <message>
+        <location filename="../src/breathmodules.cpp" line="278" />
+        <source>Steigern Sie erst, wenn das Ziel sicher gelingt: zuerst nur der erste Ball, dann zwei, dann alle drei Bälle.</source>
+        <translation>Only increase once you reliably reach the goal: first just the first ball, then two, then all three.</translation>
+    </message>
+    <message>
+        <location filename="../src/breathmodules.cpp" line="279" />
+        <source>Wie oft am Tag und wie viele Wiederholungen, legt am besten Ihre Ärztin, Ihr Arzt oder Ihre Physiotherapie fest. Bei Schwindel kurz pausieren.</source>
+        <translation>How often per day and how many repetitions is best decided by your doctor or physiotherapist. Pause briefly if you feel dizzy.</translation>
+    </message>
+    <message>
+        <location filename="../src/breathmodules.cpp" line="281" />
+        <source>normal ausatmen (nicht ins Gerät), dann Mundstück fest mit den Lippen umschließen</source>
+        <translation>breathe out normally (not into the device), then seal your lips firmly around the mouthpiece</translation>
+    </message>
+    <message>
+        <location filename="../src/breathmodules.cpp" line="282" />
+        <source>langsam und gleichmäßig durch das Mundstück einatmen – die Bälle steigen</source>
+        <translation>breathe in slowly and steadily through the mouthpiece – the balls rise</translation>
+    </message>
+    <message>
+        <location filename="../src/breathmodules.cpp" line="283" />
+        <source>weiter einatmen und die Bälle oben halten</source>
+        <translation>keep breathing in and hold the balls up</translation>
+    </message>
+    <message>
+        <location filename="../src/breathmodules.cpp" line="284" />
+        <source>Mundstück absetzen und langsam ausatmen</source>
+        <translation>remove the mouthpiece and breathe out slowly</translation>
+    </message>
+    <message>
+        <location filename="../src/breathmodules.cpp" line="285" />
+        <source>ausruhen und normal atmen</source>
+        <translation>rest and breathe normally</translation>
+    </message>
+    <message>
+        <location filename="../src/breathmodules.cpp" line="286" />
+        <source>Wiederholungen</source>
+        <translation>Repetitions</translation>
+    </message>
+    <message>
+        <location filename="../src/breathmodules.cpp" line="292" />
+        <source>Atemtrainer</source>
+        <translation>Breathing trainer</translation>
+    </message>
+    <message>
+        <location filename="../src/breathmodules.cpp" line="293" />
+        <source>Aufrecht sitzen, das Gerät senkrecht vor sich halten.</source>
+        <translation>Sit upright and hold the device vertically in front of you.</translation>
+    </message>
+    <message>
+        <location filename="../src/breathmodules.cpp" line="297" />
+        <source>1. Aufrecht sitzen und das Gerät senkrecht vor sich halten.</source>
+        <translation>1. Sit upright and hold the device vertically in front of you.</translation>
+    </message>
+    <message>
+        <location filename="../src/breathmodules.cpp" line="298" />
+        <source>2. Normal ausatmen – dabei nicht in das Gerät blasen.</source>
+        <translation>2. Breathe out normally – do not blow into the device.</translation>
+    </message>
+    <message>
+        <location filename="../src/breathmodules.cpp" line="299" />
+        <source>3. Das Mundstück fest mit den Lippen umschließen.</source>
+        <translation>3. Seal your lips firmly around the mouthpiece.</translation>
+    </message>
+    <message>
+        <location filename="../src/breathmodules.cpp" line="300" />
+        <source>4. Langsam und gleichmäßig einatmen: Der erste Ball steigt, die anderen bleiben unten (Anfangsziel).</source>
+        <translation>4. Breathe in slowly and steadily: the first ball rises, the others stay down (starting goal).</translation>
+    </message>
+    <message>
+        <location filename="../src/breathmodules.cpp" line="302" />
+        <source>5. Weiter einatmen und den Ball möglichst 3 Sekunden oder länger oben halten.</source>
+        <translation>5. Keep breathing in and hold the ball up for 3 seconds or longer if you can.</translation>
+    </message>
+    <message>
+        <location filename="../src/breathmodules.cpp" line="303" />
+        <source>6. Mundstück absetzen, langsam ausatmen und kurz ausruhen. Später steigern: zwei, dann drei Bälle.</source>
+        <translation>6. Remove the mouthpiece, breathe out slowly and rest briefly. Increase later: two, then three balls.</translation>
+    </message>
+    <message>
+        <location filename="../src/breathmodules.cpp" line="328" />
         <source>Setzen oder legen Sie sich bequem hin und lockern Sie enge Kleidung.</source>
         <translation>Sit or lie down comfortably and loosen tight clothing.</translation>
     </message>
     <message>
-        <location filename="../src/breathmodules.cpp" line="268" />
+        <location filename="../src/breathmodules.cpp" line="329" />
         <source>Sie können die Augen schließen – ein Signalton kündigt jede neue Phase an.</source>
         <translation>You can close your eyes – a signal tone announces each new phase.</translation>
     </message>
     <message>
-        <location filename="../src/breathmodules.cpp" line="269" />
+        <location filename="../src/breathmodules.cpp" line="330" />
         <source>Atmen Sie nie gegen Widerstand. Bei Schwindel, Unwohlsein oder Atemnot brechen Sie die Übung ab.</source>
         <translation>Never force your breathing. Stop the exercise if you feel dizzy, unwell or short of breath.</translation>
     </message>
     <message>
-        <location filename="../src/breathmodules.cpp" line="270" />
+        <location filename="../src/breathmodules.cpp" line="331" />
         <source>VitaBreathe ist ein Übungs-Tagebuch und kein Medizinprodukt; es ersetzt keine ärztliche Beratung.</source>
         <translation>VitaBreathe is an exercise diary and not a medical device; it does not replace medical advice.</translation>
     </message>
     <message>
-        <location filename="../src/breathmodules.cpp" line="275" />
+        <location filename="../src/breathmodules.cpp" line="336" />
         <source>Besprechen Sie Atemübungen bei Asthma oder COPD mit Ihrer Ärztin, Ihrem Arzt oder Ihrer Atemphysiotherapie – sie ergänzen die Behandlung, ersetzen aber keine Medikamente.</source>
         <translation>Discuss breathing exercises for asthma or COPD with your doctor or respiratory physiotherapist – they complement your treatment but do not replace medication.</translation>
     </message>
     <message>
-        <location filename="../src/breathmodules.cpp" line="277" />
+        <location filename="../src/breathmodules.cpp" line="338" />
         <source>Brechen Sie ab, wenn Schwindel, Engegefühl oder zunehmende Atemnot auftreten, und handeln Sie nach Ihrem Notfallplan.</source>
         <translation>Stop if you feel dizzy, tight-chested or increasingly short of breath, and follow your emergency plan.</translation>
     </message>
     <message>
-        <location filename="../src/breathmodules.cpp" line="279" />
+        <location filename="../src/breathmodules.cpp" line="340" />
         <source>VitaBreathe ist ein Übungs-Tagebuch und kein Medizinprodukt.</source>
         <translation>VitaBreathe is an exercise diary and not a medical device.</translation>
     </message>
@@ -840,95 +1032,110 @@
 <context>
     <name>BreathView</name>
     <message>
-        <location filename="../src/breathview.cpp" line="60" />
+        <location filename="../src/breathview.cpp" line="63" />
         <source>Bereit</source>
         <translation>Ready</translation>
     </message>
     <message>
-        <location filename="../src/breathview.cpp" line="61" />
+        <location filename="../src/breathview.cpp" line="64" />
         <source>Muster %1</source>
         <translation>Pattern %1</translation>
     </message>
     <message>
-        <location filename="../src/breathview.cpp" line="63" />
+        <location filename="../src/breathview.cpp" line="66" />
         <source>Gleich geht's los …</source>
         <translation>Starting in a moment …</translation>
     </message>
     <message>
-        <location filename="../src/breathview.cpp" line="64" />
+        <location filename="../src/breathview.cpp" line="67" />
         <source>Atmen Sie entspannt aus.</source>
         <translation>Breathe out, relaxed.</translation>
     </message>
     <message>
-        <location filename="../src/breathview.cpp" line="66" />
+        <location filename="../src/breathview.cpp" line="69" />
         <source>Geschafft</source>
         <translation>Well done</translation>
     </message>
     <message>
-        <location filename="../src/breathview.cpp" line="67" />
+        <location filename="../src/breathview.cpp" line="70" />
         <source>Atmen Sie wieder ganz normal weiter.</source>
         <translation>Now breathe normally again.</translation>
     </message>
     <message>
-        <location filename="../src/breathview.cpp" line="70" />
+        <location filename="../src/breathview.cpp" line="73" />
         <source>(Leertaste = weiter)</source>
         <translation>(space bar = continue)</translation>
     </message>
     <message>
-        <location filename="../src/breathview.cpp" line="77" />
+        <location filename="../src/breathview.cpp" line="80" />
         <source>Pause</source>
         <translation>Pause</translation>
     </message>
     <message>
-        <location filename="../src/breathview.cpp" line="78" />
+        <location filename="../src/breathview.cpp" line="81" />
         <source>letzte Runde</source>
         <translation>last round</translation>
+    </message>
+    <message numerus="yes">
+        <location filename="../src/breathview.cpp" line="372" />
+        <source>Ziel: %n Ball/Bälle oben halten</source>
+        <translation><numerusform>Goal: keep %n ball up</numerusform><numerusform>Goal: keep %n balls up</numerusform></translation>
     </message>
 </context>
 <context>
     <name>ChartRenderer</name>
     <message>
-        <location filename="../src/chartwidget.cpp" line="136" />
+        <location filename="../src/chartwidget.cpp" line="137" />
         <source>vorher</source>
         <translation>before</translation>
     </message>
     <message>
-        <location filename="../src/chartwidget.cpp" line="136" />
+        <location filename="../src/chartwidget.cpp" line="137" />
         <source>nachher</source>
         <translation>after</translation>
     </message>
     <message>
-        <location filename="../src/chartwidget.cpp" line="148" />
+        <location filename="../src/chartwidget.cpp" line="149" />
         <source>Übungsminuten je Tag</source>
         <translation>Exercise minutes per day</translation>
     </message>
     <message>
-        <location filename="../src/chartwidget.cpp" line="152" />
+        <location filename="../src/chartwidget.cpp" line="153" />
         <source>SpO₂ (%)</source>
         <translation>SpO₂ (%)</translation>
     </message>
     <message>
-        <location filename="../src/chartwidget.cpp" line="154" />
+        <location filename="../src/chartwidget.cpp" line="155" />
         <source>Peak Flow (l/min)</source>
         <translation>Peak flow (l/min)</translation>
     </message>
     <message>
-        <location filename="../src/chartwidget.cpp" line="156" />
+        <location filename="../src/chartwidget.cpp" line="157" />
         <source>Puls (/min)</source>
         <translation>Pulse (/min)</translation>
     </message>
     <message>
-        <location filename="../src/chartwidget.cpp" line="160" />
+        <location filename="../src/chartwidget.cpp" line="163" />
+        <source>Atemtrainer: erreichte Bälle</source>
+        <translation>Breathing trainer: balls reached</translation>
+    </message>
+    <message>
+        <location filename="../src/chartwidget.cpp" line="164" />
+        <source>Atemtrainer: Haltezeit (s)</source>
+        <translation>Breathing trainer: hold time (s)</translation>
+    </message>
+    <message>
+        <location filename="../src/chartwidget.cpp" line="168" />
         <source>Keine Daten im gewählten Zeitraum.</source>
         <translation>No data in the selected period.</translation>
     </message>
     <message>
-        <location filename="../src/chartwidget.cpp" line="195" />
+        <location filename="../src/chartwidget.cpp" line="203" />
         <source>vor der Übung</source>
         <translation>before the exercise</translation>
     </message>
     <message>
-        <location filename="../src/chartwidget.cpp" line="196" />
+        <location filename="../src/chartwidget.cpp" line="204" />
         <source>nach der Übung</source>
         <translation>after the exercise</translation>
     </message>
@@ -956,39 +1163,44 @@
         <translation>The target file cannot be created.</translation>
     </message>
     <message>
-        <location filename="../src/database.cpp" line="208" />
+        <location filename="../src/database.cpp" line="212" />
         <source>Die Datenbank stammt von einer neueren VitaBreathe-Version (Format %1). Bitte VitaBreathe aktualisieren.</source>
         <translation>The database comes from a newer version of VitaBreathe (format %1). Please update VitaBreathe.</translation>
     </message>
     <message>
-        <location filename="../src/database.cpp" line="483" />
+        <location filename="../src/database.cpp" line="507" />
         <source>Einschlafübung</source>
         <translation>Sleep exercise</translation>
     </message>
     <message>
-        <location filename="../src/database.cpp" line="483" />
+        <location filename="../src/database.cpp" line="507" />
         <source>Stressbewältigung</source>
         <translation>Stress relief</translation>
     </message>
     <message>
-        <location filename="../src/database.cpp" line="483" />
+        <location filename="../src/database.cpp" line="507" />
         <source>Morgenroutine</source>
         <translation>Morning routine</translation>
     </message>
     <message>
-        <location filename="../src/database.cpp" line="483" />
+        <location filename="../src/database.cpp" line="507" />
         <source>Konzentration</source>
         <translation>Concentration</translation>
     </message>
     <message>
-        <location filename="../src/database.cpp" line="484" />
+        <location filename="../src/database.cpp" line="508" />
         <source>Entspannung</source>
         <translation>Relaxation</translation>
     </message>
     <message>
-        <location filename="../src/database.cpp" line="484" />
+        <location filename="../src/database.cpp" line="508" />
         <source>Atemtraining</source>
         <translation>Breathing training</translation>
+    </message>
+    <message>
+        <location filename="../src/database.cpp" line="700" />
+        <source>Einschlafen</source>
+        <translation>Fall asleep</translation>
     </message>
 </context>
 <context>
@@ -1234,6 +1446,14 @@
     </message>
 </context>
 <context>
+    <name>GuideDialog</name>
+    <message>
+        <location filename="../src/guidewidget.cpp" line="52" />
+        <source>Anleitung – %1</source>
+        <translation>Instructions – %1</translation>
+    </message>
+</context>
+<context>
     <name>HistoryPage</name>
     <message>
         <location filename="../src/historypage.cpp" line="52" />
@@ -1372,6 +1592,12 @@ after</translation>
         <translation>Note</translation>
     </message>
     <message>
+        <location filename="../src/historypage.cpp" line="86" />
+        <location filename="../src/historypage.cpp" line="104" />
+        <source>Atemtrainer</source>
+        <translation>Breathing trainer</translation>
+    </message>
+    <message>
         <location filename="../src/historypage.cpp" line="99" />
         <source>Grafik:</source>
         <translation>Chart:</translation>
@@ -1397,93 +1623,103 @@ after</translation>
         <translation>Pulse</translation>
     </message>
     <message>
-        <location filename="../src/historypage.cpp" line="123" />
+        <location filename="../src/historypage.cpp" line="128" />
         <source>Nachtragen …</source>
         <translation>Add later …</translation>
     </message>
     <message>
-        <location filename="../src/historypage.cpp" line="124" />
+        <location filename="../src/historypage.cpp" line="129" />
         <source>Bearbeiten …</source>
         <translation>Edit …</translation>
     </message>
     <message>
-        <location filename="../src/historypage.cpp" line="125" />
-        <location filename="../src/historypage.cpp" line="284" />
+        <location filename="../src/historypage.cpp" line="130" />
+        <location filename="../src/historypage.cpp" line="294" />
         <source>Löschen</source>
         <translation>Delete</translation>
     </message>
     <message>
-        <location filename="../src/historypage.cpp" line="130" />
+        <location filename="../src/historypage.cpp" line="135" />
         <source>Verlauf drucken …</source>
         <translation>Print history …</translation>
     </message>
     <message>
-        <location filename="../src/historypage.cpp" line="131" />
+        <location filename="../src/historypage.cpp" line="136" />
         <source>Als PDF speichern …</source>
         <translation>Save as PDF …</translation>
     </message>
     <message>
-        <location filename="../src/historypage.cpp" line="132" />
+        <location filename="../src/historypage.cpp" line="137" />
         <source>CSV exportieren …</source>
         <translation>Export CSV …</translation>
     </message>
     <message>
-        <location filename="../src/historypage.cpp" line="213" />
+        <location filename="../src/historypage.cpp" line="218" />
         <source>vorzeitig beendet</source>
         <translation>stopped early</translation>
     </message>
+    <message numerus="yes">
+        <location filename="../src/historypage.cpp" line="230" />
+        <source>%n Ball/Bälle</source>
+        <translation><numerusform>%n ball</numerusform><numerusform>%n balls</numerusform></translation>
+    </message>
     <message>
-        <location filename="../src/historypage.cpp" line="229" />
+        <location filename="../src/historypage.cpp" line="231" />
+        <source>%1 s</source>
+        <translation>%1 s</translation>
+    </message>
+    <message>
+        <location filename="../src/historypage.cpp" line="238" />
         <source>%1 Übungseinheit(en) · %2 min</source>
         <translation>%1 session(s) · %2 min</translation>
     </message>
     <message>
-        <location filename="../src/historypage.cpp" line="261" />
+        <location filename="../src/historypage.cpp" line="271" />
         <source>Nachtragen</source>
         <translation>Add later</translation>
     </message>
     <message>
-        <location filename="../src/historypage.cpp" line="275" />
+        <location filename="../src/historypage.cpp" line="285" />
         <source>Bearbeiten</source>
         <translation>Edit</translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/historypage.cpp" line="284" />
+        <location filename="../src/historypage.cpp" line="294" />
         <source>%n Übungseinheit(en) endgültig löschen?</source>
         <translation><numerusform>Permanently delete %n session?</numerusform><numerusform>Permanently delete %n sessions?</numerusform></translation>
     </message>
     <message>
-        <location filename="../src/historypage.cpp" line="306" />
+        <location filename="../src/historypage.cpp" line="316" />
         <source>Verlauf als PDF speichern</source>
         <translation>Save history as PDF</translation>
     </message>
     <message>
-        <location filename="../src/historypage.cpp" line="306" />
+        <location filename="../src/historypage.cpp" line="316" />
         <source>PDF (*.pdf)</source>
         <translation>PDF (*.pdf)</translation>
     </message>
     <message>
-        <location filename="../src/historypage.cpp" line="309" />
+        <location filename="../src/historypage.cpp" line="319" />
         <source>PDF</source>
         <translation>PDF</translation>
     </message>
     <message>
-        <location filename="../src/historypage.cpp" line="309" />
+        <location filename="../src/historypage.cpp" line="319" />
         <source>Die PDF-Datei konnte nicht geschrieben werden.</source>
         <translation>The PDF file could not be written.</translation>
     </message>
     <message>
-        <location filename="../src/historypage.cpp" line="314" />
+        <location filename="../src/historypage.cpp" line="324" />
         <source>Verlauf als CSV exportieren</source>
         <translation>Export history as CSV</translation>
     </message>
     <message>
-        <location filename="../src/historypage.cpp" line="317" />
+        <location filename="../src/historypage.cpp" line="327" />
         <source>CSV (*.csv)</source>
         <translation>CSV (*.csv)</translation>
     </message>
     <message>
-        <location filename="../src/historypage.cpp" line="321" />
+        <location filename="../src/historypage.cpp" line="331" />
         <source>CSV</source>
         <translation>CSV</translation>
     </message>
@@ -1623,37 +1859,37 @@ after</translation>
         <translation>VitaBreathe database (*.sqlite *.vbdb);;All files (*)</translation>
     </message>
     <message>
-        <location filename="../src/logindialog.cpp" line="209" />
+        <location filename="../src/logindialog.cpp" line="210" />
         <source>Datenbank vom Server laden</source>
         <translation>Load database from server</translation>
     </message>
     <message>
-        <location filename="../src/logindialog.cpp" line="211" />
+        <location filename="../src/logindialog.cpp" line="212" />
         <source>Geben Sie die Adresse Ihres Abgleich-Servers und den Zugangsschlüssel ein (in VitaBreathe auf dem anderen Gerät unter Extras → Einstellungen → Abgleich). Danach melden Sie sich mit dem gemeinsamen Master-Passwort an.</source>
         <translation>Enter the address of your sync server and the access key (in VitaBreathe on the other device under Extras → Settings → Synchronisation). Then sign in with the shared master password.</translation>
     </message>
     <message>
-        <location filename="../src/logindialog.cpp" line="220" />
+        <location filename="../src/logindialog.cpp" line="221" />
         <source>Adresse:</source>
         <translation>Address:</translation>
     </message>
     <message>
-        <location filename="../src/logindialog.cpp" line="221" />
+        <location filename="../src/logindialog.cpp" line="222" />
         <source>Zugangsschlüssel:</source>
         <translation>Access key:</translation>
     </message>
     <message>
-        <location filename="../src/logindialog.cpp" line="230" />
+        <location filename="../src/logindialog.cpp" line="231" />
         <source>Die vorhandene Datenbank auf diesem Gerät wird ersetzt (eine Kopie bleibt als .bak erhalten). Fortfahren?</source>
         <translation>The existing database on this device will be replaced (a copy is kept as .bak). Continue?</translation>
     </message>
     <message>
-        <location filename="../src/logindialog.cpp" line="243" />
+        <location filename="../src/logindialog.cpp" line="244" />
         <source>Laden fehlgeschlagen: %1</source>
         <translation>Loading failed: %1</translation>
     </message>
     <message>
-        <location filename="../src/logindialog.cpp" line="248" />
+        <location filename="../src/logindialog.cpp" line="249" />
         <source>Datenbank übernommen – bitte mit dem Master-Passwort anmelden.</source>
         <translation>Database taken over – please sign in with the master password.</translation>
     </message>
@@ -1661,362 +1897,387 @@ after</translation>
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../src/mainwindow.cpp" line="78" />
+        <location filename="../src/mainwindow.cpp" line="79" />
         <source>Übungen</source>
         <translation>Exercises</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="80" />
+        <location filename="../src/mainwindow.cpp" line="81" />
         <source>Verlauf &amp;&amp; Grafik</source>
         <translation>History &amp;&amp; chart</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="82" />
+        <location filename="../src/mainwindow.cpp" line="83" />
         <source>Ereignisse &amp;&amp; Erinnerungen</source>
         <translation>Events &amp;&amp; reminders</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="84" />
+        <location filename="../src/mainwindow.cpp" line="85" />
         <source>Wecker &amp;&amp; Einschlafen</source>
         <translation>Alarm &amp;&amp; sleep</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="97" />
+        <location filename="../src/mainwindow.cpp" line="98" />
         <source>🔒 verschlüsselt</source>
         <translation>🔒 encrypted</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="98" />
+        <location filename="../src/mainwindow.cpp" line="99" />
         <source>Die Datenbank ist mit dem Master-Passwort verschlüsselt (ChaCha20-Poly1305).</source>
         <translation>The database is encrypted with the master password (ChaCha20-Poly1305).</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="100" />
+        <location filename="../src/mainwindow.cpp" line="101" />
         <source>Datenbank: %1</source>
         <translation>Database: %1</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="117" />
+        <location filename="../src/mainwindow.cpp" line="118" />
         <source>Einschlafübung</source>
         <translation>Sleep exercise</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="128" />
+        <location filename="../src/mainwindow.cpp" line="134" />
         <source>Abgleich läuft …</source>
         <translation>Synchronising …</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="130" />
+        <location filename="../src/mainwindow.cpp" line="136" />
         <source>Abgeglichen %1</source>
         <translation>Synchronised %1</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="131" />
+        <location filename="../src/mainwindow.cpp" line="137" />
         <source>Abgleich fehlgeschlagen</source>
         <translation>Synchronisation failed</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="153" />
+        <location filename="../src/mainwindow.cpp" line="160" />
         <source>&amp;Datei</source>
         <translation>&amp;File</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="154" />
+        <location filename="../src/mainwindow.cpp" line="161" />
         <source>Datenbank &amp;abgleichen</source>
         <translation>&amp;Synchronise database</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="156" />
+        <location filename="../src/mainwindow.cpp" line="163" />
         <source>Datenbank &amp;sichern …</source>
         <translation>&amp;Back up database …</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="158" />
+        <location filename="../src/mainwindow.cpp" line="165" />
         <source>&amp;Beenden</source>
         <translation>&amp;Quit</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="164" />
+        <location filename="../src/mainwindow.cpp" line="171" />
         <source>&amp;Benutzer</source>
         <translation>&amp;Users</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="165" />
+        <location filename="../src/mainwindow.cpp" line="172" />
         <source>&amp;Neuer Benutzer …</source>
         <translation>&amp;New user …</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="168" />
+        <location filename="../src/mainwindow.cpp" line="175" />
         <source>Benutzer &amp;verwalten …</source>
         <translation>&amp;Manage users …</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="172" />
+        <location filename="../src/mainwindow.cpp" line="179" />
         <source>Üb&amp;ungen</source>
         <translation>&amp;Exercises</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="186" />
+        <location filename="../src/mainwindow.cpp" line="193" />
         <source>&amp;Verlauf</source>
         <translation>H&amp;istory</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="187" />
+        <location filename="../src/mainwindow.cpp" line="194" />
         <source>Übungseinheit &amp;nachtragen …</source>
         <translation>&amp;Add session later …</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="191" />
+        <location filename="../src/mainwindow.cpp" line="198" />
         <source>Verlauf &amp;drucken …</source>
         <translation>&amp;Print history …</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="193" />
+        <location filename="../src/mainwindow.cpp" line="200" />
         <source>Verlauf als &amp;PDF speichern …</source>
         <translation>Save history as P&amp;DF …</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="195" />
+        <location filename="../src/mainwindow.cpp" line="202" />
         <source>&amp;Erinnerungen</source>
         <translation>&amp;Reminders</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="196" />
+        <location filename="../src/mainwindow.cpp" line="203" />
         <source>Neues &amp;Ereignis …</source>
         <translation>New &amp;event …</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="200" />
+        <location filename="../src/mainwindow.cpp" line="207" />
         <source>Neuer &amp;Wecker …</source>
         <translation>New &amp;alarm …</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="204" />
+        <location filename="../src/mainwindow.cpp" line="211" />
+        <source>Neuer Ein&amp;schlaf-Eintrag …</source>
+        <translation>New s&amp;leep entry …</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="215" />
         <source>E&amp;inschlafen starten</source>
         <translation>Start &amp;sleep function</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="209" />
+        <location filename="../src/mainwindow.cpp" line="220" />
         <source>E&amp;xtras</source>
         <translation>E&amp;xtras</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="210" />
+        <location filename="../src/mainwindow.cpp" line="221" />
         <source>&amp;Einstellungen …</source>
         <translation>&amp;Settings …</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="213" />
+        <location filename="../src/mainwindow.cpp" line="224" />
         <source>&amp;Theme</source>
         <translation>&amp;Theme</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="226" />
+        <location filename="../src/mainwindow.cpp" line="237" />
         <source>&amp;Hilfe</source>
         <translation>&amp;Help</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="227" />
+        <location filename="../src/mainwindow.cpp" line="238" />
         <source>Ü&amp;ber VitaBreathe …</source>
         <translation>&amp;About VitaBreathe …</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="228" />
+        <location filename="../src/mainwindow.cpp" line="239" />
         <source>Über &amp;Qt …</source>
         <translation>About &amp;Qt …</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="233" />
+        <location filename="../src/mainwindow.cpp" line="244" />
         <source>Werkzeugleiste</source>
         <translation>Toolbar</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="237" />
+        <location filename="../src/mainwindow.cpp" line="248" />
         <source> Benutzer: </source>
         <translation> User: </translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="241" />
+        <location filename="../src/mainwindow.cpp" line="252" />
         <source>Benutzer auswählen – Einstellungen, Tagebuch und Erinnerungen gelten je Benutzer</source>
         <translation>Select a user – settings, diary and reminders apply per user</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="249" />
+        <location filename="../src/mainwindow.cpp" line="260" />
         <source>Neuer Benutzer</source>
         <translation>New user</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="254" />
+        <location filename="../src/mainwindow.cpp" line="265" />
         <source>Übung starten</source>
         <translation>Start exercise</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="272" />
+        <location filename="../src/mainwindow.cpp" line="283" />
         <source>%1 – sofort starten (F2)</source>
         <translation>%1 – start immediately (F2)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="274" />
+        <location filename="../src/mainwindow.cpp" line="285" />
         <source>Erinnerungen</source>
         <translation>Reminders</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="275" />
+        <location filename="../src/mainwindow.cpp" line="286" />
         <source>Wecker</source>
         <translation>Alarm</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="276" />
+        <location filename="../src/mainwindow.cpp" line="287" />
         <source>Einschlafen</source>
         <translation>Fall asleep</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="281" />
+        <location filename="../src/mainwindow.cpp" line="292" />
         <source>Verlauf drucken</source>
         <translation>Print history</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="282" />
+        <location filename="../src/mainwindow.cpp" line="293" />
         <source>Abgleichen</source>
         <translation>Synchronise</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="283" />
+        <location filename="../src/mainwindow.cpp" line="294" />
         <source>Einstellungen</source>
         <translation>Settings</translation>
     </message>
+    <message numerus="yes">
+        <location filename="../src/mainwindow.cpp" line="361" />
+        <source>%n Wiederholung(en)</source>
+        <translation><numerusform>%n repetition</numerusform><numerusform>%n repetitions</numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <location filename="../src/mainwindow.cpp" line="362" />
+        <source>Ziel: %n Ball/Bälle</source>
+        <translation><numerusform>Goal: %n ball</numerusform><numerusform>Goal: %n balls</numerusform></translation>
+    </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="363" />
+        <location filename="../src/mainwindow.cpp" line="377" />
         <source>%1 min</source>
         <translation>%1 min</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="364" />
+        <location filename="../src/mainwindow.cpp" line="378" />
         <source>mit Musik</source>
         <translation>with music</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="365" />
+        <location filename="../src/mainwindow.cpp" line="379" />
         <source>Trainingsmodus</source>
         <translation>Training mode</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="366" />
+        <location filename="../src/mainwindow.cpp" line="380" />
         <source>&lt;b&gt;Ihre Einstellung:&lt;/b&gt; %1</source>
         <translation>&lt;b&gt;Your settings:&lt;/b&gt; %1</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="367" />
+        <location filename="../src/mainwindow.cpp" line="381" />
         <source>&lt;br/&gt;&lt;b&gt;Zuletzt geübt:&lt;/b&gt; %1</source>
         <translation>&lt;br/&gt;&lt;b&gt;Last practised:&lt;/b&gt; %1</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="372" />
+        <location filename="../src/mainwindow.cpp" line="386" />
         <source>Sofort starten</source>
         <translation>Start now</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="372" />
+        <location filename="../src/mainwindow.cpp" line="386" />
         <source>Üben …</source>
         <translation>Practise …</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="374" />
+        <location filename="../src/mainwindow.cpp" line="388" />
         <source>Startet ohne Vorbereitung</source>
         <translation>Starts without preparation</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="374" />
+        <location filename="../src/mainwindow.cpp" line="388" />
         <source>Einstellungen prüfen und Übung starten</source>
         <translation>Check the settings and start the exercise</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="386" />
+        <location filename="../src/mainwindow.cpp" line="401" />
+        <source>Anleitung …</source>
+        <translation>Instructions …</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="402" />
+        <source>Bebilderte Anleitung anzeigen</source>
+        <translation>Show illustrated instructions</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="414" />
         <source>Weitere Übungsmodule folgen in künftigen Versionen. VitaBreathe ist ein persönliches Übungs-Tagebuch und kein Medizinprodukt – bei Beschwerden fragen Sie bitte Ihre Ärztin oder Ihren Arzt.</source>
         <translation>More exercise modules will follow in future versions. VitaBreathe is a personal exercise diary and not a medical device – if you have symptoms, please consult your doctor.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="397" />
+        <location filename="../src/mainwindow.cpp" line="425" />
         <source>Bitte zuerst einen Benutzer anlegen.</source>
         <translation>Please create a user first.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="439" />
+        <location filename="../src/mainwindow.cpp" line="467" />
         <source>Kein Benutzer</source>
         <translation>No user</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="440" />
+        <location filename="../src/mainwindow.cpp" line="468" />
         <source>VitaBreathe – %1</source>
         <translation>VitaBreathe – %1</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="442" />
+        <location filename="../src/mainwindow.cpp" line="470" />
         <source>Legen Sie über &lt;i&gt;Benutzer → Neuer Benutzer&lt;/i&gt; eine Person an.</source>
         <translation>Create a person via &lt;i&gt;Users → New user&lt;/i&gt;.</translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/mainwindow.cpp" line="458" />
+        <location filename="../src/mainwindow.cpp" line="486" />
         <source>&lt;b&gt;Heute:&lt;/b&gt; %n Übung(en)</source>
         <translation><numerusform>&lt;b&gt;Today:&lt;/b&gt; %n exercise</numerusform><numerusform>&lt;b&gt;Today:&lt;/b&gt; %n exercises</numerusform></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="458" />
+        <location filename="../src/mainwindow.cpp" line="486" />
         <source>, %1 min</source>
         <translation>, %1 min</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="459" />
+        <location filename="../src/mainwindow.cpp" line="487" />
         <source>&lt;b&gt;Letzte 7 Tage:&lt;/b&gt; %1 min</source>
         <translation>&lt;b&gt;Last 7 days:&lt;/b&gt; %1 min</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="460" />
+        <location filename="../src/mainwindow.cpp" line="488" />
         <source>&lt;b&gt;%1 Tage in Folge&lt;/b&gt; geübt</source>
         <translation>practised &lt;b&gt;%1 days in a row&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="462" />
+        <location filename="../src/mainwindow.cpp" line="490" />
         <source>&lt;b&gt;Nächste Erinnerung:&lt;/b&gt; %1</source>
         <translation>&lt;b&gt;Next reminder:&lt;/b&gt; %1</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="463" />
+        <location filename="../src/mainwindow.cpp" line="491" />
         <source>&lt;span style='color:#8e5bc7'&gt;&lt;b&gt;Einschlafmusik läuft&lt;/b&gt;&lt;/span&gt;</source>
         <translation>&lt;span style='color:#8e5bc7'&gt;&lt;b&gt;Sleep music is playing&lt;/b&gt;&lt;/span&gt;</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="481" />
+        <location filename="../src/mainwindow.cpp" line="509" />
         <source>VitaBreathe anzeigen</source>
         <translation>Show VitaBreathe</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="491" />
+        <location filename="../src/mainwindow.cpp" line="519" />
         <source>Einschlafen starten</source>
         <translation>Start sleep function</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="493" />
+        <location filename="../src/mainwindow.cpp" line="525" />
         <source>Beenden</source>
         <translation>Quit</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="530" />
+        <location filename="../src/mainwindow.cpp" line="563" />
         <source>VitaBreathe läuft im Infobereich weiter, damit Erinnerungen und Wecker funktionieren. Beenden über das Symbol oder Datei → Beenden.</source>
         <translation>VitaBreathe keeps running in the notification area so that reminders and alarms work. Quit via the icon or File → Quit.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="541" />
+        <location filename="../src/mainwindow.cpp" line="574" />
         <source>Abgleich vor dem Beenden …</source>
         <translation>Synchronising before quitting …</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="562" />
+        <location filename="../src/mainwindow.cpp" line="595" />
         <source>Sprache / Language</source>
         <translation>Language / Sprache</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="563" />
+        <location filename="../src/mainwindow.cpp" line="596" />
         <source>Die Sprache wird nach einem Neustart von VitaBreathe wirksam. Jetzt neu starten?
 
 The language takes effect after restarting VitaBreathe. Restart now?</source>
@@ -2025,39 +2286,39 @@ The language takes effect after restarting VitaBreathe. Restart now?</source>
 Die Sprache wird nach einem Neustart von VitaBreathe wirksam. Jetzt neu starten?</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="576" />
+        <location filename="../src/mainwindow.cpp" line="609" />
         <source>Datenbank sichern</source>
         <translation>Back up database</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="577" />
+        <location filename="../src/mainwindow.cpp" line="610" />
         <source>VitaBreathe-Datenbank (*.sqlite)</source>
         <translation>VitaBreathe database (*.sqlite)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="581" />
-        <location filename="../src/mainwindow.cpp" line="584" />
+        <location filename="../src/mainwindow.cpp" line="614" />
+        <location filename="../src/mainwindow.cpp" line="617" />
         <source>Sicherung</source>
         <translation>Backup</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="581" />
+        <location filename="../src/mainwindow.cpp" line="614" />
         <source>Die Sicherung wurde gespeichert. Sie ist mit demselben Master-Passwort verschlüsselt.</source>
         <translation>The backup has been saved. It is encrypted with the same master password.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="584" />
+        <location filename="../src/mainwindow.cpp" line="617" />
         <source>Sicherung fehlgeschlagen: %1</source>
         <translation>Backup failed: %1</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="592" />
-        <location filename="../src/mainwindow.cpp" line="603" />
+        <location filename="../src/mainwindow.cpp" line="625" />
+        <location filename="../src/mainwindow.cpp" line="636" />
         <source>Abgleich</source>
         <translation>Synchronisation</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="592" />
+        <location filename="../src/mainwindow.cpp" line="625" />
         <source>%1
 
 Jetzt einrichten?</source>
@@ -2066,12 +2327,12 @@ Jetzt einrichten?</source>
 Set it up now?</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="611" />
+        <location filename="../src/mainwindow.cpp" line="644" />
         <source>Über VitaBreathe</source>
         <translation>About VitaBreathe</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="614" />
+        <location filename="../src/mainwindow.cpp" line="647" />
         <source>&lt;h3&gt;VitaBreathe %1&lt;/h3&gt;&lt;p&gt;Geführte Atemübungen mit audiovisueller Unterstützung und Übungs-Tagebuch.&lt;/p&gt;&lt;p&gt;&lt;b&gt;Kein Medizinprodukt.&lt;/b&gt; VitaBreathe ist ein persönliches Tagebuch. Es stellt keine Diagnosen und ersetzt keine ärztliche Beratung. Die Verwendung erfolgt auf eigene Gefahr.&lt;/p&gt;&lt;p&gt;© 2026 Michael Bergmann – MIT-Lizenz&lt;br/&gt;Datenbank: SQLite3 Multiple Ciphers (MIT, Ulrich Telle)&lt;br/&gt;Qt %2&lt;/p&gt;</source>
         <translation>&lt;h3&gt;VitaBreathe %1&lt;/h3&gt;&lt;p&gt;Guided breathing exercises with audiovisual support and an exercise diary.&lt;/p&gt;&lt;p&gt;&lt;b&gt;Not a medical device.&lt;/b&gt; VitaBreathe is a personal diary. It does not make diagnoses and does not replace medical advice. Use at your own risk.&lt;/p&gt;&lt;p&gt;© 2026 Michael Bergmann – MIT licence&lt;br/&gt;Database: SQLite3 Multiple Ciphers (MIT, Ulrich Telle)&lt;br/&gt;Qt %2&lt;/p&gt;</translation>
     </message>
@@ -2196,75 +2457,90 @@ Set it up now?</translation>
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../src/main.cpp" line="46" />
+        <location filename="../src/main.cpp" line="48" />
         <source>Erika Mustermann</source>
         <translation>Jane Doe</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="47" />
+        <location filename="../src/main.cpp" line="49" />
         <source>Max Mustermann</source>
         <translation>John Doe</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="58" />
-        <location filename="../src/main.cpp" line="122" />
+        <location filename="../src/main.cpp" line="60" />
+        <location filename="../src/main.cpp" line="138" />
         <source>Einschlafübung</source>
         <translation>Sleep exercise</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="58" />
+        <location filename="../src/main.cpp" line="60" />
         <source>Entspannung</source>
         <translation>Relaxation</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="76" />
+        <location filename="../src/main.cpp" line="78" />
         <source>Sehr ruhig geworden, schnell eingeschlafen.</source>
         <translation>Became very calm, fell asleep quickly.</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="83" />
-        <location filename="../src/main.cpp" line="124" />
+        <location filename="../src/main.cpp" line="85" />
+        <location filename="../src/main.cpp" line="140" />
         <source>Stressbewältigung</source>
         <translation>Stress relief</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="96" />
+        <location filename="../src/main.cpp" line="98" />
         <source>Atemtraining</source>
         <translation>Breathing training</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="113" />
-        <location filename="../src/main.cpp" line="125" />
+        <location filename="../src/main.cpp" line="115" />
+        <source>Atemtrainer</source>
+        <translation>Breathing trainer</translation>
+    </message>
+    <message>
+        <location filename="../src/main.cpp" line="129" />
+        <location filename="../src/main.cpp" line="141" />
         <source>Konzentration</source>
         <translation>Concentration</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="123" />
+        <location filename="../src/main.cpp" line="139" />
         <source>Im Bett, Licht aus</source>
         <translation>In bed, lights off</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="131" />
+        <location filename="../src/main.cpp" line="147" />
         <source>Arbeitstag</source>
         <translation>Workday</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="161" />
+        <location filename="../src/main.cpp" line="153" />
+        <source>Wochentags</source>
+        <translation>Weekdays</translation>
+    </message>
+    <message>
+        <location filename="../src/main.cpp" line="162" />
+        <source>Wochenende – länger</source>
+        <translation>Weekend – longer</translation>
+    </message>
+    <message>
+        <location filename="../src/main.cpp" line="192" />
         <source>Das Master-Passwort ist falsch.</source>
         <translation>The master password is wrong.</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="278" />
+        <location filename="../src/main.cpp" line="316" />
         <source>Hinweis</source>
         <translation>Note</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="280" />
+        <location filename="../src/main.cpp" line="318" />
         <source>&lt;b&gt;VitaBreathe ist kein Medizinprodukt.&lt;/b&gt;&lt;br/&gt;Es ist ein persönliches Übungs-Tagebuch und ersetzt keine ärztliche Beratung. Brechen Sie eine Übung bei Schwindel, Unwohlsein oder Atemnot sofort ab.</source>
         <translation>&lt;b&gt;VitaBreathe is not a medical device.&lt;/b&gt;&lt;br/&gt;It is a personal exercise diary and does not replace medical advice. Stop an exercise immediately if you feel dizzy, unwell or short of breath.</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="283" />
+        <location filename="../src/main.cpp" line="321" />
         <source>Nicht mehr anzeigen</source>
         <translation>Do not show again</translation>
     </message>
@@ -2278,61 +2554,104 @@ Set it up now?</translation>
     <name>ReminderService</name>
     <message>
         <location filename="../src/reminderservice.cpp" line="137" />
-        <location filename="../src/reminderservice.cpp" line="235" />
+        <location filename="../src/reminderservice.cpp" line="253" />
         <source>Wecker</source>
         <translation>Alarm</translation>
     </message>
     <message>
-        <location filename="../src/reminderservice.cpp" line="140" />
+        <location filename="../src/reminderservice.cpp" line="145" />
         <source>%1 %2</source>
         <translation>%1 %2</translation>
     </message>
     <message>
-        <location filename="../src/reminderservice.cpp" line="178" />
+        <location filename="../src/reminderservice.cpp" line="165" />
+        <location filename="../src/reminderservice.cpp" line="265" />
+        <source>Einschlafen: %1</source>
+        <translation>Sleep: %1</translation>
+    </message>
+    <message>
+        <location filename="../src/reminderservice.cpp" line="165" />
+        <source>Gute Nacht!</source>
+        <translation>Good night!</translation>
+    </message>
+    <message>
+        <location filename="../src/reminderservice.cpp" line="195" />
         <source>Zeit für: %1</source>
         <translation>Time for: %1</translation>
     </message>
     <message>
-        <location filename="../src/reminderservice.cpp" line="178" />
+        <location filename="../src/reminderservice.cpp" line="195" />
         <source>%1 – %2</source>
         <translation>%1 – %2</translation>
     </message>
     <message>
-        <location filename="../src/reminderservice.cpp" line="182" />
+        <location filename="../src/reminderservice.cpp" line="200" />
         <source>Erinnerung – VitaBreathe</source>
         <translation>Reminder – VitaBreathe</translation>
     </message>
     <message>
-        <location filename="../src/reminderservice.cpp" line="190" />
+        <location filename="../src/reminderservice.cpp" line="208" />
         <source>&lt;p style='font-size:large'&gt;&lt;b&gt;Zeit für: %1&lt;/b&gt;&lt;/p&gt;&lt;p&gt;für &lt;b&gt;%2&lt;/b&gt; · %3 um %4&lt;/p&gt;%5</source>
         <translation>&lt;p style='font-size:large'&gt;&lt;b&gt;Time for: %1&lt;/b&gt;&lt;/p&gt;&lt;p&gt;for &lt;b&gt;%2&lt;/b&gt; · %3 at %4&lt;/p&gt;%5</translation>
     </message>
     <message>
-        <location filename="../src/reminderservice.cpp" line="199" />
+        <location filename="../src/reminderservice.cpp" line="217" />
         <source>Jetzt starten</source>
         <translation>Start now</translation>
     </message>
     <message>
-        <location filename="../src/reminderservice.cpp" line="200" />
+        <location filename="../src/reminderservice.cpp" line="218" />
+        <location filename="../src/reminderservice.cpp" line="287" />
         <source>In 10 Minuten erinnern</source>
         <translation>Remind me in 10 minutes</translation>
     </message>
     <message>
-        <location filename="../src/reminderservice.cpp" line="201" />
+        <location filename="../src/reminderservice.cpp" line="219" />
+        <location filename="../src/reminderservice.cpp" line="288" />
         <source>Schließen</source>
         <translation>Close</translation>
     </message>
     <message>
-        <location filename="../src/reminderservice.cpp" line="233" />
+        <location filename="../src/reminderservice.cpp" line="251" />
         <source>Morgenroutine</source>
         <translation>Morning routine</translation>
+    </message>
+    <message>
+        <location filename="../src/reminderservice.cpp" line="270" />
+        <source>Einschlafen – VitaBreathe</source>
+        <translation>Sleep – VitaBreathe</translation>
+    </message>
+    <message numerus="yes">
+        <location filename="../src/reminderservice.cpp" line="278" />
+        <source>%n Titel</source>
+        <translation><numerusform>%n track</numerusform><numerusform>%n tracks</numerusform></translation>
+    </message>
+    <message>
+        <location filename="../src/reminderservice.cpp" line="278" />
+        <source>%1 min</source>
+        <translation>%1 min</translation>
+    </message>
+    <message>
+        <location filename="../src/reminderservice.cpp" line="279" />
+        <source>vorher: %1</source>
+        <translation>first: %1</translation>
+    </message>
+    <message>
+        <location filename="../src/reminderservice.cpp" line="280" />
+        <source>&lt;p style='font-size:large'&gt;&lt;b&gt;Zeit zum Einschlafen: %1&lt;/b&gt;&lt;/p&gt;&lt;p&gt;für &lt;b&gt;%2&lt;/b&gt; · %3&lt;/p&gt;</source>
+        <translation>&lt;p style='font-size:large'&gt;&lt;b&gt;Time to go to sleep: %1&lt;/b&gt;&lt;/p&gt;&lt;p&gt;for &lt;b&gt;%2&lt;/b&gt; · %3&lt;/p&gt;</translation>
+    </message>
+    <message>
+        <location filename="../src/reminderservice.cpp" line="286" />
+        <source>Jetzt einschlafen</source>
+        <translation>Fall asleep now</translation>
     </message>
 </context>
 <context>
     <name>ReportPrinter</name>
     <message>
         <location filename="../src/reportprinter.cpp" line="50" />
-        <location filename="../src/reportprinter.cpp" line="124" />
+        <location filename="../src/reportprinter.cpp" line="130" />
         <source>VitaBreathe – Übungstagebuch</source>
         <translation>VitaBreathe – exercise diary</translation>
     </message>
@@ -2397,17 +2716,27 @@ Set it up now?</translation>
         <translation>Well-being before/after</translation>
     </message>
     <message>
-        <location filename="../src/reportprinter.cpp" line="98" />
+        <location filename="../src/reportprinter.cpp" line="77" />
+        <source>Atemtrainer</source>
+        <translation>Breathing trainer</translation>
+    </message>
+    <message numerus="yes">
+        <location filename="../src/reportprinter.cpp" line="82" />
+        <source>%n Ball/Bälle</source>
+        <translation><numerusform>%n ball</numerusform><numerusform>%n balls</numerusform></translation>
+    </message>
+    <message>
+        <location filename="../src/reportprinter.cpp" line="104" />
         <source>* vorzeitig beendet. SpO₂ in %, Peak Flow in l/min, Puls in Schlägen/min, Befinden 1–10.</source>
         <translation>* stopped early. SpO₂ in %, peak flow in l/min, pulse in beats/min, well-being 1–10.</translation>
     </message>
     <message>
-        <location filename="../src/reportprinter.cpp" line="101" />
+        <location filename="../src/reportprinter.cpp" line="107" />
         <source>Erstellt mit VitaBreathe %1 am %2. VitaBreathe ist ein persönliches Übungs-Tagebuch und kein Medizinprodukt.</source>
         <translation>Created with VitaBreathe %1 on %2. VitaBreathe is a personal exercise diary and not a medical device.</translation>
     </message>
     <message>
-        <location filename="../src/reportprinter.cpp" line="112" />
+        <location filename="../src/reportprinter.cpp" line="118" />
         <source>Druckvorschau – Übungstagebuch</source>
         <translation>Print preview – exercise diary</translation>
     </message>
@@ -2433,283 +2762,345 @@ Set it up now?</translation>
 <context>
     <name>SessionDialog</name>
     <message>
-        <location filename="../src/main.cpp" line="198" />
-        <location filename="../src/sessiondialog.cpp" line="302" />
+        <location filename="../src/main.cpp" line="235" />
+        <location filename="../src/sessiondialog.cpp" line="349" />
         <source>Trainingsmodus: Messwerte vor und nach der Übung erfassen</source>
         <translation>Training mode: record measurements before and after the exercise</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="199" />
-        <location filename="../src/sessiondialog.cpp" line="316" />
+        <location filename="../src/main.cpp" line="236" />
+        <location filename="../src/sessiondialog.cpp" line="363" />
         <source>Übung starten</source>
         <translation>Start exercise</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="203" />
-        <location filename="../src/sessiondialog.cpp" line="430" />
+        <location filename="../src/main.cpp" line="240" />
+        <location filename="../src/sessiondialog.cpp" line="486" />
         <source>Weiter zur Übung</source>
         <translation>Continue to the exercise</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="214" />
-        <location filename="../src/sessiondialog.cpp" line="430" />
-        <location filename="../src/sessiondialog.cpp" line="497" />
+        <location filename="../src/main.cpp" line="251" />
+        <location filename="../src/sessiondialog.cpp" line="486" />
+        <location filename="../src/sessiondialog.cpp" line="561" />
         <source>Weiter</source>
         <translation>Continue</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="218" />
-        <location filename="../src/sessiondialog.cpp" line="668" />
+        <location filename="../src/main.cpp" line="255" />
+        <location filename="../src/sessiondialog.cpp" line="785" />
         <source>Im Tagebuch speichern</source>
         <translation>Save to diary</translation>
     </message>
     <message>
-        <location filename="../src/sessiondialog.cpp" line="93" />
+        <location filename="../src/sessiondialog.cpp" line="94" />
         <source>%1 – VitaBreathe</source>
         <translation>%1 – VitaBreathe</translation>
     </message>
     <message>
-        <location filename="../src/sessiondialog.cpp" line="161" />
+        <location filename="../src/sessiondialog.cpp" line="162" />
         <source>Tipps vor dem Start</source>
         <translation>Tips before you start</translation>
     </message>
     <message>
-        <location filename="../src/sessiondialog.cpp" line="162" />
+        <location filename="../src/sessiondialog.cpp" line="163" />
+        <location filename="../src/sessiondialog.cpp" line="180" />
         <source>anzeigen</source>
         <translation>show</translation>
     </message>
     <message>
-        <location filename="../src/sessiondialog.cpp" line="176" />
-        <location filename="../src/sessiondialog.cpp" line="479" />
+        <location filename="../src/sessiondialog.cpp" line="178" />
+        <source>Bebilderte Anleitung</source>
+        <translation>Illustrated instructions</translation>
+    </message>
+    <message>
+        <location filename="../src/sessiondialog.cpp" line="194" />
+        <location filename="../src/sessiondialog.cpp" line="542" />
         <source>&lt;b&gt;Haltung:&lt;/b&gt; %1</source>
         <translation>&lt;b&gt;Position:&lt;/b&gt; %1</translation>
     </message>
     <message>
-        <location filename="../src/sessiondialog.cpp" line="183" />
+        <location filename="../src/sessiondialog.cpp" line="201" />
         <source>Dauer und Atemrhythmus</source>
         <translation>Duration and breathing rhythm</translation>
     </message>
     <message>
-        <location filename="../src/sessiondialog.cpp" line="185" />
+        <location filename="../src/sessiondialog.cpp" line="203" />
         <source>Gesamtdauer:</source>
         <translation>Total duration:</translation>
     </message>
     <message>
-        <location filename="../src/sessiondialog.cpp" line="188" />
+        <location filename="../src/sessiondialog.cpp" line="207" />
         <source> min</source>
         <translation> min</translation>
     </message>
     <message>
-        <location filename="../src/sessiondialog.cpp" line="203" />
+        <location filename="../src/sessiondialog.cpp" line="215" />
+        <source>Ziel:</source>
+        <translation>Goal:</translation>
+    </message>
+    <message>
+        <location filename="../src/sessiondialog.cpp" line="218" />
+        <source>1 Ball (600 ml/s)</source>
+        <translation>1 ball (600 ml/s)</translation>
+    </message>
+    <message>
+        <location filename="../src/sessiondialog.cpp" line="219" />
+        <source>2 Bälle (900 ml/s)</source>
+        <translation>2 balls (900 ml/s)</translation>
+    </message>
+    <message>
+        <location filename="../src/sessiondialog.cpp" line="220" />
+        <source>3 Bälle (1200 ml/s)</source>
+        <translation>3 balls (1200 ml/s)</translation>
+    </message>
+    <message>
+        <location filename="../src/sessiondialog.cpp" line="221" />
+        <source>Wie viele Bälle Sie anheben und oben halten möchten. Erst steigern, wenn das Ziel sicher gelingt.</source>
+        <translation>How many balls you want to lift and hold up. Only increase once you reliably reach the goal.</translation>
+    </message>
+    <message>
+        <location filename="../src/sessiondialog.cpp" line="223" />
+        <source>Anleitung …</source>
+        <translation>Instructions …</translation>
+    </message>
+    <message>
+        <location filename="../src/sessiondialog.cpp" line="239" />
         <source> ×</source>
         <translation> ×</translation>
     </message>
     <message>
-        <location filename="../src/sessiondialog.cpp" line="204" />
+        <location filename="../src/sessiondialog.cpp" line="240" />
         <source>Wiederholungen je Runde</source>
         <translation>Repetitions per round</translation>
     </message>
     <message>
-        <location filename="../src/sessiondialog.cpp" line="209" />
+        <location filename="../src/sessiondialog.cpp" line="245" />
         <source>danach: abhusten, weiter mit Leertaste</source>
         <translation>then: cough up, continue with the space bar</translation>
     </message>
     <message>
-        <location filename="../src/sessiondialog.cpp" line="223" />
+        <location filename="../src/sessiondialog.cpp" line="259" />
+        <location filename="../src/sessiondialog.cpp" line="774" />
         <source> s</source>
         <translation> s</translation>
     </message>
     <message>
-        <location filename="../src/sessiondialog.cpp" line="224" />
+        <location filename="../src/sessiondialog.cpp" line="260" />
         <source>aus</source>
         <translation>off</translation>
     </message>
     <message>
-        <location filename="../src/sessiondialog.cpp" line="238" />
+        <location filename="../src/sessiondialog.cpp" line="274" />
         <source>Reset</source>
         <translation>Reset</translation>
     </message>
     <message>
-        <location filename="../src/sessiondialog.cpp" line="239" />
+        <location filename="../src/sessiondialog.cpp" line="275" />
         <source>Standardwerte wiederherstellen (%1, %2 min)</source>
         <translation>Restore the default values (%1, %2 min)</translation>
     </message>
     <message>
-        <location filename="../src/sessiondialog.cpp" line="254" />
-        <location filename="../src/sessiondialog.cpp" line="704" />
+        <location filename="../src/sessiondialog.cpp" line="291" />
+        <location filename="../src/sessiondialog.cpp" line="825" />
         <source>Anlass:</source>
         <translation>Occasion:</translation>
     </message>
     <message>
-        <location filename="../src/sessiondialog.cpp" line="258" />
+        <location filename="../src/sessiondialog.cpp" line="295" />
         <source>Wird im Tagebuch vermerkt, z. B. „Einschlafübung“ oder „Stressbewältigung“.</source>
         <translation>Recorded in the diary, e.g. “Sleep exercise” or “Stress relief”.</translation>
     </message>
     <message>
-        <location filename="../src/sessiondialog.cpp" line="263" />
-        <source>Signal beim Phasenwechsel</source>
-        <translation>Signal when the phase changes</translation>
+        <location filename="../src/sessiondialog.cpp" line="300" />
+        <source>Signaltöne</source>
+        <translation>Signal tones</translation>
     </message>
     <message>
-        <location filename="../src/sessiondialog.cpp" line="265" />
-        <source>Signalton – so können Sie die Augen schließen</source>
-        <translation>Signal tone – so you can close your eyes</translation>
+        <location filename="../src/sessiondialog.cpp" line="302" />
+        <source>Signalton (Beep) beim Phasenwechsel – so können Sie die Augen schließen</source>
+        <translation>Signal tone (beep) when the phase changes – so you can close your eyes</translation>
     </message>
     <message>
-        <location filename="../src/sessiondialog.cpp" line="267" />
+        <location filename="../src/sessiondialog.cpp" line="304" />
         <source>unterschiedliche Töne für Ein-, Ausatmen und Halten</source>
         <translation>different tones for breathing in, breathing out and holding</translation>
     </message>
     <message>
-        <location filename="../src/sessiondialog.cpp" line="269" />
-        <location filename="../src/sessiondialog.cpp" line="291" />
+        <location filename="../src/sessiondialog.cpp" line="306" />
+        <source>Gong am Ende der Übung</source>
+        <translation>Gong at the end of the exercise</translation>
+    </message>
+    <message>
+        <location filename="../src/sessiondialog.cpp" line="308" />
+        <location filename="../src/sessiondialog.cpp" line="338" />
         <source>Lautstärke:</source>
         <translation>Volume:</translation>
     </message>
     <message>
-        <location filename="../src/sessiondialog.cpp" line="272" />
+        <location filename="../src/sessiondialog.cpp" line="311" />
         <source>Probe</source>
         <translation>Test</translation>
     </message>
     <message>
-        <location filename="../src/sessiondialog.cpp" line="277" />
+        <location filename="../src/sessiondialog.cpp" line="316" />
+        <source>Während der Übung schalten Sie die Töne mit der Schaltfläche „Töne“ oder der Taste M ab.</source>
+        <translation>During the exercise, switch the tones off with the “Tones” button or the M key.</translation>
+    </message>
+    <message>
+        <location filename="../src/sessiondialog.cpp" line="320" />
         <source>Vibrationsimpuls (Android-Geräte)</source>
         <translation>Vibration pulse (Android devices)</translation>
     </message>
     <message>
-        <location filename="../src/sessiondialog.cpp" line="286" />
+        <location filename="../src/sessiondialog.cpp" line="333" />
         <source>Hintergrundmusik</source>
         <translation>Background music</translation>
     </message>
     <message>
-        <location filename="../src/sessiondialog.cpp" line="297" />
+        <location filename="../src/sessiondialog.cpp" line="344" />
         <source>Ohne Qt Multimedia übersetzt – keine Musikwiedergabe.</source>
         <translation>Built without Qt Multimedia – no music playback.</translation>
     </message>
     <message>
-        <location filename="../src/sessiondialog.cpp" line="305" />
-        <location filename="../src/sessiondialog.cpp" line="718" />
+        <location filename="../src/sessiondialog.cpp" line="352" />
+        <location filename="../src/sessiondialog.cpp" line="839" />
         <source>SpO₂</source>
         <translation>SpO₂</translation>
     </message>
     <message>
-        <location filename="../src/sessiondialog.cpp" line="306" />
-        <location filename="../src/sessiondialog.cpp" line="719" />
+        <location filename="../src/sessiondialog.cpp" line="353" />
+        <location filename="../src/sessiondialog.cpp" line="840" />
         <source>Peak Flow</source>
         <translation>Peak flow</translation>
     </message>
     <message>
-        <location filename="../src/sessiondialog.cpp" line="307" />
-        <location filename="../src/sessiondialog.cpp" line="720" />
+        <location filename="../src/sessiondialog.cpp" line="354" />
+        <location filename="../src/sessiondialog.cpp" line="841" />
         <source>Puls</source>
         <translation>Pulse</translation>
     </message>
     <message>
-        <location filename="../src/sessiondialog.cpp" line="308" />
-        <location filename="../src/sessiondialog.cpp" line="721" />
+        <location filename="../src/sessiondialog.cpp" line="355" />
+        <location filename="../src/sessiondialog.cpp" line="842" />
         <source>Befinden</source>
         <translation>Well-being</translation>
     </message>
     <message>
-        <location filename="../src/sessiondialog.cpp" line="387" />
+        <location filename="../src/sessiondialog.cpp" line="439" />
         <source>Bitte mindestens eine Phase einstellen.</source>
         <translation>Please set at least one phase.</translation>
     </message>
     <message>
-        <location filename="../src/sessiondialog.cpp" line="392" />
+        <location filename="../src/sessiondialog.cpp" line="444" />
+        <source>Dauer der Übung: etwa %1</source>
+        <translation>Duration of the exercise: about %1</translation>
+    </message>
+    <message>
+        <location filename="../src/sessiondialog.cpp" line="448" />
         <source>Eine Runde: %1 (ohne Abhusten) · etwa %2 Runden</source>
         <translation>One round: %1 (without coughing up) · about %2 rounds</translation>
     </message>
     <message>
-        <location filename="../src/sessiondialog.cpp" line="396" />
+        <location filename="../src/sessiondialog.cpp" line="452" />
         <source>Ein Atemzyklus: %1 s · %2 Atemzüge pro Minute · etwa %3 Zyklen</source>
         <translation>One breathing cycle: %1 s · %2 breaths per minute · about %3 cycles</translation>
     </message>
     <message>
-        <location filename="../src/sessiondialog.cpp" line="409" />
+        <location filename="../src/sessiondialog.cpp" line="465" />
         <source>Vor der Übung messen</source>
         <translation>Measure before the exercise</translation>
     </message>
     <message>
-        <location filename="../src/sessiondialog.cpp" line="409" />
+        <location filename="../src/sessiondialog.cpp" line="465" />
         <source>Nach der Übung messen</source>
         <translation>Measure after the exercise</translation>
     </message>
     <message>
-        <location filename="../src/sessiondialog.cpp" line="410" />
+        <location filename="../src/sessiondialog.cpp" line="466" />
         <source>Messen Sie in Ruhe, bevor Sie beginnen. Felder, die Sie nicht messen möchten, lassen Sie einfach leer.</source>
         <translation>Measure at rest before you begin. Simply leave fields empty that you do not want to measure.</translation>
     </message>
     <message>
-        <location filename="../src/sessiondialog.cpp" line="412" />
+        <location filename="../src/sessiondialog.cpp" line="468" />
         <source>Bleiben Sie noch einen Moment ruhig sitzen und messen Sie dann erneut – so lässt sich die Wirkung der Übung im Verlauf vergleichen.</source>
         <translation>Stay seated quietly for a moment and then measure again – this lets you compare the effect of the exercise over time.</translation>
     </message>
     <message>
-        <location filename="../src/sessiondialog.cpp" line="420" />
+        <location filename="../src/sessiondialog.cpp" line="476" />
         <source>Notiz (optional):</source>
         <translation>Note (optional):</translation>
     </message>
     <message>
-        <location filename="../src/sessiondialog.cpp" line="422" />
-        <location filename="../src/sessiondialog.cpp" line="663" />
+        <location filename="../src/sessiondialog.cpp" line="478" />
+        <location filename="../src/sessiondialog.cpp" line="780" />
         <source>Wie ging es Ihnen bei der Übung?</source>
         <translation>How did you feel during the exercise?</translation>
     </message>
     <message>
-        <location filename="../src/sessiondialog.cpp" line="432" />
+        <location filename="../src/sessiondialog.cpp" line="488" />
         <source>Überspringen</source>
         <translation>Skip</translation>
     </message>
     <message>
-        <location filename="../src/sessiondialog.cpp" line="491" />
-        <location filename="../src/sessiondialog.cpp" line="569" />
-        <location filename="../src/sessiondialog.cpp" line="611" />
+        <location filename="../src/sessiondialog.cpp" line="555" />
+        <location filename="../src/sessiondialog.cpp" line="645" />
+        <location filename="../src/sessiondialog.cpp" line="694" />
         <source>Pause</source>
         <translation>Pause</translation>
     </message>
     <message>
-        <location filename="../src/sessiondialog.cpp" line="492" />
+        <location filename="../src/sessiondialog.cpp" line="556" />
         <source>Pause / Fortsetzen (Leertaste)</source>
         <translation>Pause / resume (space bar)</translation>
     </message>
     <message>
-        <location filename="../src/sessiondialog.cpp" line="493" />
+        <location filename="../src/sessiondialog.cpp" line="557" />
         <source>Beenden</source>
         <translation>Stop</translation>
     </message>
     <message>
-        <location filename="../src/sessiondialog.cpp" line="494" />
+        <location filename="../src/sessiondialog.cpp" line="558" />
         <source>Übung vorzeitig beenden (Esc)</source>
         <translation>Stop the exercise early (Esc)</translation>
     </message>
     <message>
-        <location filename="../src/sessiondialog.cpp" line="495" />
+        <location filename="../src/sessiondialog.cpp" line="559" />
         <source>Vollbild</source>
         <translation>Full screen</translation>
     </message>
     <message>
-        <location filename="../src/sessiondialog.cpp" line="496" />
+        <location filename="../src/sessiondialog.cpp" line="560" />
         <source>Vollbild ein/aus (F11)</source>
         <translation>Full screen on/off (F11)</translation>
     </message>
     <message>
-        <location filename="../src/sessiondialog.cpp" line="498" />
+        <location filename="../src/sessiondialog.cpp" line="562" />
         <source>Nächste Runde beginnen (Leertaste)</source>
         <translation>Start the next round (space bar)</translation>
     </message>
     <message>
-        <location filename="../src/sessiondialog.cpp" line="509" />
+        <location filename="../src/sessiondialog.cpp" line="571" />
+        <source>Töne</source>
+        <translation>Tones</translation>
+    </message>
+    <message>
+        <location filename="../src/sessiondialog.cpp" line="573" />
+        <source>Signaltöne (Beeps) und Gong ein/aus (M)</source>
+        <translation>Signal tones (beeps) and gong on/off (M)</translation>
+    </message>
+    <message>
+        <location filename="../src/sessiondialog.cpp" line="579" />
         <source>Lautstärke der Hintergrundmusik</source>
         <translation>Background music volume</translation>
     </message>
     <message>
-        <location filename="../src/sessiondialog.cpp" line="532" />
+        <location filename="../src/sessiondialog.cpp" line="602" />
         <source>Bitte mindestens eine Phase mit einer Dauer einstellen.</source>
         <translation>Please set at least one phase with a duration.</translation>
     </message>
     <message>
-        <location filename="../src/sessiondialog.cpp" line="536" />
+        <location filename="../src/sessiondialog.cpp" line="606" />
         <source>Die Musikdatei wurde nicht gefunden:
 %1
 
@@ -2720,117 +3111,153 @@ Ohne Musik fortfahren?</source>
 Continue without music?</translation>
     </message>
     <message>
-        <location filename="../src/sessiondialog.cpp" line="596" />
+        <location filename="../src/sessiondialog.cpp" line="672" />
         <source>Start in %1 s</source>
         <translation>Start in %1 s</translation>
     </message>
     <message>
-        <location filename="../src/sessiondialog.cpp" line="601" />
+        <location filename="../src/sessiondialog.cpp" line="681" />
+        <source>Wiederholung %1 von %2 · vergangen %3</source>
+        <translation>Repetition %1 of %2 · elapsed %3</translation>
+    </message>
+    <message>
+        <location filename="../src/sessiondialog.cpp" line="684" />
         <source>Runde %1 · vergangen %2 · noch %3</source>
         <translation>Round %1 · elapsed %2 · remaining %3</translation>
     </message>
     <message>
-        <location filename="../src/sessiondialog.cpp" line="601" />
+        <location filename="../src/sessiondialog.cpp" line="684" />
         <source>Zyklus %1 · vergangen %2 · noch %3</source>
         <translation>Cycle %1 · elapsed %2 · remaining %3</translation>
     </message>
     <message>
-        <location filename="../src/sessiondialog.cpp" line="616" />
+        <location filename="../src/sessiondialog.cpp" line="699" />
         <source>Fortsetzen</source>
         <translation>Resume</translation>
     </message>
     <message>
-        <location filename="../src/sessiondialog.cpp" line="656" />
+        <location filename="../src/sessiondialog.cpp" line="756" />
         <source>Zusammenfassung</source>
         <translation>Summary</translation>
     </message>
     <message>
-        <location filename="../src/sessiondialog.cpp" line="661" />
+        <location filename="../src/sessiondialog.cpp" line="762" />
+        <source>Ergebnis mit dem Atemtrainer</source>
+        <translation>Result with the breathing trainer</translation>
+    </message>
+    <message>
+        <location filename="../src/sessiondialog.cpp" line="767" />
+        <location filename="../src/sessiondialog.cpp" line="769" />
+        <source> Bälle</source>
+        <translation> balls</translation>
+    </message>
+    <message>
+        <location filename="../src/sessiondialog.cpp" line="769" />
+        <source> Ball</source>
+        <translation> ball</translation>
+    </message>
+    <message>
+        <location filename="../src/sessiondialog.cpp" line="770" />
+        <source>Meist erreicht:</source>
+        <translation>Mostly reached:</translation>
+    </message>
+    <message>
+        <location filename="../src/sessiondialog.cpp" line="775" />
+        <source>Längste Haltezeit:</source>
+        <translation>Longest hold:</translation>
+    </message>
+    <message>
+        <location filename="../src/sessiondialog.cpp" line="778" />
         <source>Notiz:</source>
         <translation>Note:</translation>
     </message>
     <message>
-        <location filename="../src/sessiondialog.cpp" line="671" />
+        <location filename="../src/sessiondialog.cpp" line="788" />
         <source>Verwerfen</source>
         <translation>Discard</translation>
     </message>
     <message>
-        <location filename="../src/sessiondialog.cpp" line="672" />
+        <location filename="../src/sessiondialog.cpp" line="789" />
         <source>Noch einmal</source>
         <translation>Once more</translation>
     </message>
     <message>
-        <location filename="../src/sessiondialog.cpp" line="677" />
+        <location filename="../src/sessiondialog.cpp" line="798" />
         <source>Speichern fehlgeschlagen: %1</source>
         <translation>Saving failed: %1</translation>
     </message>
     <message>
-        <location filename="../src/sessiondialog.cpp" line="684" />
+        <location filename="../src/sessiondialog.cpp" line="805" />
         <source>Diese Übungseinheit nicht im Tagebuch speichern?</source>
         <translation>Do not save this session to the diary?</translation>
     </message>
     <message>
-        <location filename="../src/sessiondialog.cpp" line="703" />
+        <location filename="../src/sessiondialog.cpp" line="824" />
         <source>Übung:</source>
         <translation>Exercise:</translation>
     </message>
     <message>
-        <location filename="../src/sessiondialog.cpp" line="705" />
+        <location filename="../src/sessiondialog.cpp" line="826" />
         <source>Muster:</source>
         <translation>Pattern:</translation>
     </message>
     <message>
-        <location filename="../src/sessiondialog.cpp" line="705" />
+        <location filename="../src/sessiondialog.cpp" line="826" />
         <source> Sekunden</source>
         <translation> seconds</translation>
     </message>
     <message>
-        <location filename="../src/sessiondialog.cpp" line="706" />
+        <location filename="../src/sessiondialog.cpp" line="827" />
         <source>Dauer:</source>
         <translation>Duration:</translation>
     </message>
     <message>
-        <location filename="../src/sessiondialog.cpp" line="706" />
+        <location filename="../src/sessiondialog.cpp" line="827" />
         <source>%1 von geplant %2</source>
         <translation>%1 of planned %2</translation>
     </message>
     <message>
-        <location filename="../src/sessiondialog.cpp" line="707" />
+        <location filename="../src/sessiondialog.cpp" line="828" />
         <source>Atemzyklen:</source>
         <translation>Breathing cycles:</translation>
     </message>
     <message>
-        <location filename="../src/sessiondialog.cpp" line="708" />
+        <location filename="../src/sessiondialog.cpp" line="828" />
+        <source>Wiederholungen:</source>
+        <translation>Repetitions:</translation>
+    </message>
+    <message>
+        <location filename="../src/sessiondialog.cpp" line="829" />
         <source>Status:</source>
         <translation>Status:</translation>
     </message>
     <message>
-        <location filename="../src/sessiondialog.cpp" line="708" />
+        <location filename="../src/sessiondialog.cpp" line="829" />
         <source>vollständig</source>
         <translation>complete</translation>
     </message>
     <message>
-        <location filename="../src/sessiondialog.cpp" line="708" />
+        <location filename="../src/sessiondialog.cpp" line="829" />
         <source>vorzeitig beendet</source>
         <translation>stopped early</translation>
     </message>
     <message>
-        <location filename="../src/sessiondialog.cpp" line="712" />
+        <location filename="../src/sessiondialog.cpp" line="833" />
         <source>Messwerte</source>
         <translation>Measurements</translation>
     </message>
     <message>
-        <location filename="../src/sessiondialog.cpp" line="712" />
+        <location filename="../src/sessiondialog.cpp" line="833" />
         <source>vorher</source>
         <translation>before</translation>
     </message>
     <message>
-        <location filename="../src/sessiondialog.cpp" line="712" />
+        <location filename="../src/sessiondialog.cpp" line="833" />
         <source>nachher</source>
         <translation>after</translation>
     </message>
     <message>
-        <location filename="../src/sessiondialog.cpp" line="755" />
+        <location filename="../src/sessiondialog.cpp" line="881" />
         <source>Fenster schließen, ohne die Übungseinheit im Tagebuch zu speichern?</source>
         <translation>Close the window without saving the session to the diary?</translation>
     </message>
@@ -2874,21 +3301,42 @@ Continue without music?</translation>
     </message>
     <message>
         <location filename="../src/measuredialog.cpp" line="137" />
-        <source>Atemzyklen:</source>
-        <translation>Breathing cycles:</translation>
+        <source>Atemzyklen bzw. Wiederholungen:</source>
+        <translation>Breathing cycles or repetitions:</translation>
     </message>
     <message>
-        <location filename="../src/measuredialog.cpp" line="141" />
+        <location filename="../src/measuredialog.cpp" line="142" />
+        <location filename="../src/measuredialog.cpp" line="144" />
+        <source> Bälle</source>
+        <translation> balls</translation>
+    </message>
+    <message>
+        <location filename="../src/measuredialog.cpp" line="144" />
+        <source> Ball</source>
+        <translation> ball</translation>
+    </message>
+    <message>
+        <location filename="../src/measuredialog.cpp" line="149" />
+        <source> s gehalten</source>
+        <translation> s held</translation>
+    </message>
+    <message>
+        <location filename="../src/measuredialog.cpp" line="154" />
+        <source>Atemtrainer:</source>
+        <translation>Breathing trainer:</translation>
+    </message>
+    <message>
+        <location filename="../src/measuredialog.cpp" line="158" />
         <source>Vor der Übung</source>
         <translation>Before the exercise</translation>
     </message>
     <message>
-        <location filename="../src/measuredialog.cpp" line="148" />
+        <location filename="../src/measuredialog.cpp" line="165" />
         <source>Nach der Übung</source>
         <translation>After the exercise</translation>
     </message>
     <message>
-        <location filename="../src/measuredialog.cpp" line="156" />
+        <location filename="../src/measuredialog.cpp" line="173" />
         <source>Notiz:</source>
         <translation>Note:</translation>
     </message>
@@ -3080,6 +3528,110 @@ Continue without music?</translation>
         <location filename="../src/settingsdialog.cpp" line="237" />
         <source>Datenbank: %1</source>
         <translation>Database: %1</translation>
+    </message>
+</context>
+<context>
+    <name>SleepPlanDialog</name>
+    <message>
+        <location filename="../src/alarmpage.cpp" line="130" />
+        <source>Einschlafen bearbeiten</source>
+        <translation>Edit sleep entry</translation>
+    </message>
+    <message>
+        <location filename="../src/alarmpage.cpp" line="130" />
+        <source>Neuer Einschlaf-Eintrag</source>
+        <translation>New sleep entry</translation>
+    </message>
+    <message>
+        <location filename="../src/alarmpage.cpp" line="134" />
+        <source>z. B. Wochentags, Wochenende, Meeresrauschen</source>
+        <translation>e.g. weekdays, weekend, ocean waves</translation>
+    </message>
+    <message>
+        <location filename="../src/alarmpage.cpp" line="135" />
+        <source>Bezeichnung:</source>
+        <translation>Label:</translation>
+    </message>
+    <message>
+        <location filename="../src/alarmpage.cpp" line="139" />
+        <source>Musik:</source>
+        <translation>Music:</translation>
+    </message>
+    <message>
+        <location filename="../src/alarmpage.cpp" line="140" />
+        <source>Zufällige Reihenfolge</source>
+        <translation>Shuffle</translation>
+    </message>
+    <message>
+        <location filename="../src/alarmpage.cpp" line="145" />
+        <source>Lautstärke:</source>
+        <translation>Volume:</translation>
+    </message>
+    <message>
+        <location filename="../src/alarmpage.cpp" line="149" />
+        <location filename="../src/alarmpage.cpp" line="154" />
+        <source> min</source>
+        <translation> min</translation>
+    </message>
+    <message>
+        <location filename="../src/alarmpage.cpp" line="151" />
+        <source>Wiedergabedauer:</source>
+        <translation>Playing time:</translation>
+    </message>
+    <message>
+        <location filename="../src/alarmpage.cpp" line="156" />
+        <source>davon leiser werden:</source>
+        <translation>fade out during the last:</translation>
+    </message>
+    <message>
+        <location filename="../src/alarmpage.cpp" line="157" />
+        <source>keine Übung – nur Musik</source>
+        <translation>no exercise – music only</translation>
+    </message>
+    <message>
+        <location filename="../src/alarmpage.cpp" line="158" />
+        <source>Vorher üben:</source>
+        <translation>Exercise first:</translation>
+    </message>
+    <message>
+        <location filename="../src/alarmpage.cpp" line="160" />
+        <source>Planen</source>
+        <translation>Schedule</translation>
+    </message>
+    <message>
+        <location filename="../src/alarmpage.cpp" line="162" />
+        <source>zu einer festen Uhrzeit anbieten</source>
+        <translation>offer at a fixed time</translation>
+    </message>
+    <message>
+        <location filename="../src/alarmpage.cpp" line="167" />
+        <source>Uhrzeit:</source>
+        <translation>Time:</translation>
+    </message>
+    <message>
+        <location filename="../src/alarmpage.cpp" line="170" />
+        <source>Tage:</source>
+        <translation>Days:</translation>
+    </message>
+    <message>
+        <location filename="../src/alarmpage.cpp" line="171" />
+        <source>ohne Rückfrage automatisch starten</source>
+        <translation>start automatically without asking</translation>
+    </message>
+    <message>
+        <location filename="../src/alarmpage.cpp" line="173" />
+        <source>Sonst erinnert VitaBreathe zur Uhrzeit und fragt, ob die Einschlaffunktion starten soll.</source>
+        <translation>Otherwise VitaBreathe reminds you at the set time and asks whether the sleep function should start.</translation>
+    </message>
+    <message>
+        <location filename="../src/alarmpage.cpp" line="189" />
+        <source>Bitte eine Bezeichnung eingeben.</source>
+        <translation>Please enter a label.</translation>
+    </message>
+    <message>
+        <location filename="../src/alarmpage.cpp" line="193" />
+        <source>Bitte mindestens einen Wochentag wählen.</source>
+        <translation>Please select at least one weekday.</translation>
     </message>
 </context>
 <context>

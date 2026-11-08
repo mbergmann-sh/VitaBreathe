@@ -8,7 +8,7 @@ import xml.etree.ElementTree as ET
 
 here = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, here)
-from translations_en import EN, EN_CONTEXT  # noqa: E402
+from translations_en import EN, EN_CONTEXT, DE_NUMERUS  # noqa: E402
 
 ts = os.path.join(here, '..', 'translations', 'vitabreathe_en.ts')
 tree = ET.parse(ts)
@@ -44,6 +44,33 @@ with open(ts, encoding='utf-8') as f:
 data = data.replace("<?xml version='1.0' encoding='utf-8'?>", '<?xml version="1.0" encoding="utf-8"?>\n<!DOCTYPE TS>', 1)
 with open(ts, 'w', encoding='utf-8') as f:
     f.write(data)
+
+# Deutsche Mehrzahlformen (Quellsprache): translations/vitabreathe_de.ts enthält nur %n-Texte.
+# Erzeugen:  lupdate -pluralonly -no-obsolete src -ts translations/vitabreathe_de.ts
+ts_de = os.path.join(here, '..', 'translations', 'vitabreathe_de.ts')
+if os.path.exists(ts_de):
+    tde = ET.parse(ts_de)
+    for ctx in tde.getroot().findall('context'):
+        for msg in ctx.findall('message'):
+            src = msg.find('source').text or ''
+            forms = DE_NUMERUS.get(src)
+            if forms is None:
+                missing.append(('de:' + ctx.find('name').text, src))
+                continue
+            tr = msg.find('translation')
+            for child in list(tr):
+                tr.remove(child)
+            tr.text = None
+            tr.attrib.pop('type', None)
+            for fm in forms:
+                ET.SubElement(tr, 'numerusform').text = fm
+    tde.write(ts_de, encoding='utf-8', xml_declaration=True)
+    with open(ts_de, encoding='utf-8') as fh:
+        d = fh.read()
+    d = d.replace("<?xml version='1.0' encoding='utf-8'?>", '<?xml version="1.0" encoding="utf-8"?>\n<!DOCTYPE TS>', 1)
+    with open(ts_de, 'w', encoding='utf-8') as fh:
+        fh.write(d)
+
 print(f'{done} übersetzt, {len(missing)} fehlen')
 for c, s in missing:
     print(f'  FEHLT [{c}]: {s!r}')

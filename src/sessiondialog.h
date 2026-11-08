@@ -58,6 +58,7 @@ private:
     void showSummary();
     void togglePause();
     void toggleFullScreen();
+    void setSoundOn(bool on);       // Signaltöne während der Übung ein/aus (wird gespeichert)
 
     qint64              m_userId;
     const ModuleDef    *m_module;
@@ -69,11 +70,12 @@ private:
     QLabel             *m_tips;
     QCheckBox          *m_showTips;
     QSpinBox           *m_total;
+    QComboBox          *m_target = nullptr;     // Atemtrainer: Ziel-Bälle
     QVector<QDoubleSpinBox *> m_phaseSpins;
     QList<QSpinBox *>       m_repeatSpins;   // je Abschnitt (nullptr = fest)
     QLabel             *m_cycleInfo = nullptr;
     QComboBox          *m_event;
-    QCheckBox          *m_signal, *m_distinct, *m_vibrate;
+    QCheckBox          *m_signal, *m_distinct, *m_vibrate, *m_gong;
     QSlider            *m_signalVol;
     QGroupBox          *m_musicBox;
     MusicFileEdit      *m_musicFile;
@@ -86,7 +88,7 @@ private:
     BreathEngine       *m_engine;
     BreathView         *m_view;
     QLabel             *m_runTitle, *m_runInfo;
-    QPushButton        *m_pauseBtn, *m_stopBtn, *m_fullBtn, *m_nextBtn = nullptr;
+    QPushButton        *m_pauseBtn, *m_stopBtn, *m_fullBtn, *m_nextBtn = nullptr, *m_soundBtn = nullptr;
     QSlider            *m_runMusicVol;
     QLabel             *m_runMusicIcon = nullptr;
     QWidget            *m_runBar, *m_runTop;
@@ -94,5 +96,6 @@ private:
     ModuleSettings      m_settings;
     // Zusammenfassung
     QLabel             *m_summary;
+    QSpinBox           *m_devBalls = nullptr, *m_devHold = nullptr;   // Atemtrainer-Ergebnis
     QPlainTextEdit     *m_note;
 };

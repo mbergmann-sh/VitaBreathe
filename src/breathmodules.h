@@ -60,8 +60,14 @@ struct StepDef {
     QString   segmentTitle;
 };
 
+// Ein Schritt einer bebilderten Anleitung (Bild: resources/illustrations/<image>.svg)
+struct GuideStep {
+    QString image;
+    QString text;
+};
+
 struct ModuleDef {
-    enum class Visual { Box, Circle };
+    enum class Visual { Box, Circle, TriBall };
     QString           id;
     QString           name;          // "Box-Atmen (4-4-4-4)"
     QString           shortName;     // "Box-Atmen"
@@ -79,6 +85,10 @@ struct ModuleDef {
     QString           emergencyNote; // deutlicher Hinweis während der Übung
     bool              quickHelp = false;   // Schnellstart ohne Vorbereitungsseite
     bool              airway = false;      // Übung aus der Atemphysiotherapie (Asthma/COPD)
+    bool              deviceTraining = false;  // Training mit Atemtrainer: Ergebnis (Bälle, Haltezeit) erfassen
+    bool              singleRound = false;     // eine Runde = ganze Übung (Wiederholungen statt Gesamtdauer)
+    QString           postureImage;        // Bild zur Haltung (resources/illustrations)
+    QList<GuideStep>  guide;               // bebilderte Schritt-für-Schritt-Anleitung
 
     QList<SegmentDef> effectiveSegments() const;
     bool hasSegments() const { return !segments.isEmpty(); }
@@ -100,7 +110,8 @@ struct ModuleSettings {
     QVector<double> phaseSec;          // je Phase des Moduls
     QVector<int>    repeats;           // je Abschnitt
     int     totalSec = 300;
-    bool    signal = true;             // Signalton beim Phasenwechsel
+    bool    signal = true;             // Signalton (Beep) beim Phasenwechsel
+    bool    doneGong = true;           // Gong am Ende der Übung
     bool    distinctTones = true;      // unterschiedliche Töne je Phase
     int     signalVolume = 70;
     bool    vibrate = true;            // nur auf Android-Geräten
@@ -111,6 +122,7 @@ struct ModuleSettings {
     bool    askSpo2 = true, askPeakFlow = true, askPulse = true, askFeeling = true;
     QString eventName;
     bool    showTips = true;
+    int     deviceTarget = 1;          // Atemtrainer: Ziel – wie viele Bälle anheben (1–3)
 
     static ModuleSettings defaults(const ModuleDef &m);
     static ModuleSettings load(qint64 userId, const ModuleDef &m);

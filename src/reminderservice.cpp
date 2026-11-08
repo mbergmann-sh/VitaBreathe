@@ -136,6 +136,11 @@ QString ReminderService::nextText(qint64 userId) const
         const QDateTime n = Schedule::next(a.time, a.weekdays);
         if (n.isValid() && (!best.isValid() || n < best)) { best = n; what = tr("Wecker"); }
     }
+    for (const SleepPlan &p : Database::instance().sleepPlans(userId)) {
+        if (!p.scheduled) continue;
+        const QDateTime n = Schedule::next(p.time, p.weekdays);
+        if (n.isValid() && (!best.isValid() || n < best)) { best = n; what = p.label; }
+    }
     if (!best.isValid()) return {};
     return tr("%1 %2").arg(what, Schedule::relative(best));
 }
@@ -154,15 +159,27 @@ void ReminderService::check()
         if (e.enabled && Schedule::dueBetween(e.time, e.weekdays, from, now)) remind(e);
     for (const Alarm &a : db.alarms())
         if (a.enabled && Schedule::dueBetween(a.time, a.weekdays, from, now)) ringAlarm(a);
+    for (const SleepPlan &p : db.sleepPlans())
+        if (p.scheduled && Schedule::dueBetween(p.time, p.weekdays, from, now)) {
+            if (p.autoStart) {
+                emit trayMessage(tr("Einschlafen: %1").arg(p.label), tr("Gute Nacht!"));
+                emit sleepRequested(p);
+            } else {
+                offerSleep(p);
+            }
+        }
 
     // Schlummern / später erinnern
     for (int i = m_snoozes.size() - 1; i >= 0; --i) {
         const Snooze s = m_snoozes.at(i);
         if (s.at > now) continue;
         m_snoozes.removeAt(i);
-        if (s.alarm) {
+        if (s.kind == Kind::Alarm) {
             for (const Alarm &a : db.alarms())
                 if (a.id == s.id) ringAlarm(a);
+        } else if (s.kind == Kind::Sleep) {
+            for (const SleepPlan &p : db.sleepPlans())
+                if (p.id == s.id) offerSleep(p);
         } else {
             for (const BreathEvent &e : db.events())
                 if (e.id == s.id) remind(e);
@@ -178,6 +195,7 @@ void ReminderService::remind(const BreathEvent &e)
     emit trayMessage(tr("Zeit für: %1").arg(e.name), tr("%1 – %2").arg(userName, BreathModules::displayName(e.moduleId)));
 
     auto *dlg = new QDialog;
+    dlg->setObjectName(QStringLiteral("ReminderDialog"));
     dlg->setAttribute(Qt::WA_DeleteOnClose);
     dlg->setWindowTitle(tr("Erinnerung – VitaBreathe"));
     dlg->setWindowFlags(dlg->windowFlags() | Qt::WindowStaysOnTopHint);
@@ -211,7 +229,7 @@ void ReminderService::remind(const BreathEvent &e)
         emit startRequested(ev.userId, ev.moduleId, ev.name);
     });
     connect(later, &QPushButton::clicked, dlg, [this, dlg, ev] {
-        m_snoozes << Snooze{ ev.id, false, QDateTime::currentDateTime().addSecs(600) };
+        m_snoozes << Snooze{ ev.id, Kind::Event, QDateTime::currentDateTime().addSecs(600) };
         dlg->accept();
     });
     connect(close, &QPushButton::clicked, dlg, &QDialog::accept);
@@ -227,12 +245,63 @@ void ReminderService::ringAlarm(const Alarm &a)
     auto *dlg = new AlarmRingDialog(a, user ? user->name : QString());
     dlg->setWindowIcon(Icons::app());
     connect(dlg, &AlarmRingDialog::snoozed, this, [this](const Alarm &al) {
-        m_snoozes << Snooze{ al.id, true, QDateTime::currentDateTime().addSecs(al.snoozeMin * 60) };
+        m_snoozes << Snooze{ al.id, Kind::Alarm, QDateTime::currentDateTime().addSecs(al.snoozeMin * 60) };
     });
     connect(dlg, &AlarmRingDialog::exerciseRequested, this, [this](qint64 userId, const QString &moduleId) {
         emit startRequested(userId, moduleId, tr("Morgenroutine"));
     });
     emit trayMessage(tr("Wecker"), a.label.isEmpty() ? a.time.toString(QStringLiteral("HH:mm")) : a.label);
+    dlg->show();
+    dlg->raise();
+    dlg->activateWindow();
+    m_open << dlg;
+}
+
+void ReminderService::offerSleep(const SleepPlan &p)
+{
+    const auto user = Database::instance().user(p.userId);
+    const QString userName = user ? user->name : QString();
+    Tones::play(Tones::Kind::Reminder, 60);
+    emit trayMessage(tr("Einschlafen: %1").arg(p.label), userName);
+
+    auto *dlg = new QDialog;
+    dlg->setObjectName(QStringLiteral("SleepOfferDialog"));
+    dlg->setAttribute(Qt::WA_DeleteOnClose);
+    dlg->setWindowTitle(tr("Einschlafen – VitaBreathe"));
+    dlg->setWindowFlags(dlg->windowFlags() | Qt::WindowStaysOnTopHint);
+    dlg->setWindowIcon(Icons::app());
+    auto *lay = new QVBoxLayout(dlg);
+    auto *head = new QHBoxLayout;
+    auto *icon = new QLabel;
+    icon->setPixmap(Icons::get(QStringLiteral("moon")).pixmap(48, 48));
+    head->addWidget(icon, 0, Qt::AlignTop);
+    QString detail = tr("%n Titel", nullptr, p.playlist.size()) + QStringLiteral(" · ") + tr("%1 min").arg(p.minutes);
+    if (!p.moduleId.isEmpty()) detail += QStringLiteral(" · ") + tr("vorher: %1").arg(BreathModules::displayName(p.moduleId));
+    auto *text = new QLabel(tr("<p style='font-size:large'><b>Zeit zum Einschlafen: %1</b></p><p>für <b>%2</b> · %3</p>")
+                                .arg(p.label.toHtmlEscaped(), userName.toHtmlEscaped(), detail.toHtmlEscaped()));
+    text->setWordWrap(true);
+    head->addWidget(text, 1);
+    lay->addLayout(head);
+    auto *bl = new QHBoxLayout;
+    auto *startBtn = new QPushButton(Icons::get(QStringLiteral("moon")), tr("Jetzt einschlafen"));
+    auto *later = new QPushButton(tr("In 10 Minuten erinnern"));
+    auto *close = new QPushButton(tr("Schließen"));
+    startBtn->setDefault(true);
+    bl->addWidget(startBtn);
+    bl->addWidget(later);
+    bl->addStretch();
+    bl->addWidget(close);
+    lay->addLayout(bl);
+    const SleepPlan plan = p;
+    connect(startBtn, &QPushButton::clicked, dlg, [this, dlg, plan] {
+        dlg->accept();
+        emit sleepRequested(plan);
+    });
+    connect(later, &QPushButton::clicked, dlg, [this, dlg, plan] {
+        m_snoozes << Snooze{ plan.id, Kind::Sleep, QDateTime::currentDateTime().addSecs(600) };
+        dlg->accept();
+    });
+    connect(close, &QPushButton::clicked, dlg, &QDialog::accept);
     dlg->show();
     dlg->raise();
     dlg->activateWindow();

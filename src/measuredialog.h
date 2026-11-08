@@ -47,7 +47,7 @@ private:
     SessionRecord   m_rec;
     QComboBox      *m_module, *m_event;
     QDateTimeEdit  *m_started;
-    QSpinBox       *m_minutes, *m_cycles;
+    QSpinBox       *m_minutes, *m_cycles, *m_devBalls, *m_devHold;
     MeasureForm    *m_before, *m_after;
     QPlainTextEdit *m_note;
 };

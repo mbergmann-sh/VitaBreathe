@@ -17,7 +17,9 @@ SOURCES += \
     $$PWD/src/userdialog.cpp \
     $$PWD/src/settingsdialog.cpp \
     $$PWD/src/playlistwidget.cpp \
-    $$PWD/src/screenfit.cpp
+    $$PWD/src/screenfit.cpp \
+    $$PWD/src/windowstate.cpp \
+    $$PWD/src/guidewidget.cpp
 
 HEADERS += \
     $$PWD/src/logindialog.h \
@@ -34,4 +36,6 @@ HEADERS += \
     $$PWD/src/userdialog.h \
     $$PWD/src/settingsdialog.h \
     $$PWD/src/playlistwidget.h \
-    $$PWD/src/screenfit.h
+    $$PWD/src/screenfit.h \
+    $$PWD/src/windowstate.h \
+    $$PWD/src/guidewidget.h

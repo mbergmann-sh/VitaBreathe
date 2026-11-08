@@ -8,11 +8,15 @@
 
 #include <QColor>
 #include <QIcon>
+#include <QPixmap>
+#include <QSize>
 #include <QString>
 
 namespace Icons {
 QIcon get(const QString &name);
 QIcon app();
+// Illustration aus resources/illustrations (Haltungen, Anleitungen), an das Theme angepasst
+QPixmap illustration(const QString &name, const QSize &size, qreal dpr = 2.0);
 QColor accent();          // Orange
 QColor primary();         // Blau
 void clearCache();

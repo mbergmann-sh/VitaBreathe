@@ -142,6 +142,13 @@ const QList<ModuleDef> &all()
                                  "nicht besser oder schlimmer: sofort Notruf 112.");
         h.quickHelp = true;
         h.airway = true;
+        h.postureImage = QStringLiteral("posture_coachman");
+        h.guide = { { QStringLiteral("posture_coachman"),
+                      BM::tr("Kutschersitz: Oberkörper nach vorn, Unterarme auf den Oberschenkeln, Schultern locker.") },
+                    { QStringLiteral("posture_goalkeeper"),
+                      BM::tr("Im Stehen: Hände auf Tisch, Fensterbank oder Geländer stützen (Torwarthaltung).") },
+                    { QStringLiteral("pursed_lips"),
+                      BM::tr("Lange mit der Lippenbremse ausatmen – Lippen locker aufeinander, nicht pressen.") } };
         l << h;
 
         // 5. Lippenbremse
@@ -163,6 +170,10 @@ const QList<ModuleDef> &all()
         p.defaultEvent = BM::tr("Atemtraining");
         p.posture = BM::tr("Aufrecht sitzen, Schultern locker.");
         p.airway = true;
+        p.postureImage = QStringLiteral("posture_upright");
+        p.guide = { { QStringLiteral("posture_upright"), BM::tr("Aufrecht sitzen, Füße auf dem Boden, Schultern locker.") },
+                    { QStringLiteral("pursed_lips"),
+                      BM::tr("Durch die Nase einatmen, dann lange durch die locker aufeinanderliegenden Lippen ausatmen.") } };
         l << p;
 
         // 6. Bauch- bzw. Zwerchfellatmung
@@ -183,6 +194,10 @@ const QList<ModuleDef> &all()
         d.defaultEvent = BM::tr("Atemtraining");
         d.posture = BM::tr("Bequem sitzen oder auf dem Rücken liegen, Beine angewinkelt.");
         d.airway = true;
+        d.postureImage = QStringLiteral("posture_belly");
+        d.guide = { { QStringLiteral("posture_belly"),
+                      BM::tr("Auf dem Rücken liegen, Beine angewinkelt. Eine Hand auf den Bauch, eine auf die Brust.") },
+                    { QStringLiteral("posture_upright"), BM::tr("Geht auch im Sitzen: aufrecht, Schultern locker.") } };
         l << d;
 
         // 7. Ruhige Nasenatmung (Atemschulung gegen Überatmung)
@@ -204,6 +219,7 @@ const QList<ModuleDef> &all()
         n.defaultEvent = BM::tr("Atemtraining");
         n.posture = BM::tr("Aufrecht und bequem sitzen, Schultern und Kiefer locker.");
         n.airway = true;
+        n.postureImage = QStringLiteral("posture_upright");
         l << n;
 
         // 8. ACBT – aktiver Zyklus von Atemtechniken zum Abhusten
@@ -241,7 +257,52 @@ const QList<ModuleDef> &all()
         a.defaultEvent = BM::tr("Abhusten");
         a.posture = BM::tr("Aufrecht sitzen, Füße auf dem Boden – oder die Lagerung, die Ihre Physiotherapie empfiehlt.");
         a.airway = true;
+        a.postureImage = QStringLiteral("posture_upright");
+        a.guide = { { QStringLiteral("posture_upright"), BM::tr("Aufrecht sitzen, Füße auf dem Boden.") },
+                    { QStringLiteral("huff"),
+                      BM::tr("Huffen: Mund und Rachen weit offen und kräftig aushauchen – wie beim Anhauchen einer Brille.") } };
         l << a;
+
+        // 9. TriBall-Atemtrainer (floworientiert, drei Bälle)
+        ModuleDef t;
+        t.id = QStringLiteral("triball");
+        t.name = BM::tr("Atemtrainer TriBall (Einatemtraining)");
+        t.shortName = BM::tr("TriBall-Training");
+        t.category = airwayCategory();
+        t.description = BM::tr("Training mit dem floworientierten Atemtrainer TriBall: langsam und gleichmäßig durch das "
+                               "Mundstück einatmen, sodass die Bälle steigen, und sie möglichst lange oben halten. Fördert "
+                               "ein tiefes, gleichmäßiges Einatmen. VitaBreathe gibt den Takt vor und zählt die Wiederholungen.");
+        t.tips = QStringList{ BM::tr("Das Gerät beim Üben immer senkrecht halten."),
+                              BM::tr("Niemals in das Gerät hineinblasen – Feuchtigkeit beeinträchtigt die Funktion. Trocken aufbewahren."),
+                              BM::tr("Langsam und gleichmäßig einatmen statt kräftig ruckartig: Ziel ist ein langer, gleichmäßiger Atemzug."),
+                              BM::tr("Steigern Sie erst, wenn das Ziel sicher gelingt: zuerst nur der erste Ball, dann zwei, dann alle drei Bälle."),
+                              BM::tr("Wie oft am Tag und wie viele Wiederholungen, legt am besten Ihre Ärztin, Ihr Arzt oder Ihre "
+                                     "Physiotherapie fest. Bei Schwindel kurz pausieren.") };
+        t.phases = { { PhaseKind::Exhale, 3, 2, 8, BM::tr("normal ausatmen (nicht ins Gerät), dann Mundstück fest mit den Lippen umschließen") },
+                     { PhaseKind::Inhale, 3, 1, 8, BM::tr("langsam und gleichmäßig durch das Mundstück einatmen – die Bälle steigen") },
+                     { PhaseKind::HoldIn, 3, 1, 10, BM::tr("weiter einatmen und die Bälle oben halten") },
+                     { PhaseKind::Exhale, 4, 2, 10, BM::tr("Mundstück absetzen und langsam ausatmen") },
+                     { PhaseKind::Calm, 10, 3, 60, BM::tr("ausruhen und normal atmen") } };
+        SegmentDef rep{ BM::tr("Wiederholungen"), 0, 5, 10, 1, 30, false, {} };
+        t.segments = { rep };
+        t.singleRound = true;
+        t.defaultTotalSec = 60;
+        t.visual = ModuleDef::Visual::TriBall;
+        t.icon = QStringLiteral("triball");
+        t.defaultEvent = BM::tr("Atemtrainer");
+        t.posture = BM::tr("Aufrecht sitzen, das Gerät senkrecht vor sich halten.");
+        t.airway = true;
+        t.deviceTraining = true;
+        t.postureImage = QStringLiteral("triball_sit");
+        t.guide = { { QStringLiteral("triball_sit"), BM::tr("1. Aufrecht sitzen und das Gerät senkrecht vor sich halten.") },
+                    { QStringLiteral("triball_exhale"), BM::tr("2. Normal ausatmen – dabei nicht in das Gerät blasen.") },
+                    { QStringLiteral("triball_seal"), BM::tr("3. Das Mundstück fest mit den Lippen umschließen.") },
+                    { QStringLiteral("triball_inhale"), BM::tr("4. Langsam und gleichmäßig einatmen: Der erste Ball steigt, "
+                                                               "die anderen bleiben unten (Anfangsziel).") },
+                    { QStringLiteral("triball_hold"), BM::tr("5. Weiter einatmen und den Ball möglichst 3 Sekunden oder länger oben halten.") },
+                    { QStringLiteral("triball_rest"), BM::tr("6. Mundstück absetzen, langsam ausatmen und kurz ausruhen. "
+                                                             "Später steigern: zwei, dann drei Bälle.") } };
+        l << t;
 
         // Weitere Module hier ergänzen …
         return l;
@@ -308,8 +369,9 @@ ModuleSettings ModuleSettings::load(qint64 userId, const ModuleDef &m)
     if (rp.size() == segs.size())
         for (int i = 0; i < rp.size(); ++i)
             s.repeats[i] = qBound(segs.at(i).minRepeats, rp.at(i).toInt(), segs.at(i).maxRepeats);
-    s.totalSec = qBound(60, o.value(QStringLiteral("total")).toInt(s.totalSec), m.maxTotalSec);
+    s.totalSec = qBound(m.singleRound ? 10 : 60, o.value(QStringLiteral("total")).toInt(s.totalSec), m.maxTotalSec);
     s.signal = o.value(QStringLiteral("signal")).toBool(s.signal);
+    s.doneGong = o.value(QStringLiteral("gong")).toBool(s.doneGong);
     s.distinctTones = o.value(QStringLiteral("distinct")).toBool(s.distinctTones);
     s.signalVolume = o.value(QStringLiteral("signalVolume")).toInt(s.signalVolume);
     s.vibrate = o.value(QStringLiteral("vibrate")).toBool(s.vibrate);
@@ -323,6 +385,7 @@ ModuleSettings ModuleSettings::load(qint64 userId, const ModuleDef &m)
     s.askFeeling = o.value(QStringLiteral("askFeeling")).toBool(true);
     s.eventName = o.value(QStringLiteral("event")).toString(s.eventName);
     s.showTips = o.value(QStringLiteral("tips")).toBool(s.showTips);
+    s.deviceTarget = qBound(1, o.value(QStringLiteral("deviceTarget")).toInt(s.deviceTarget), 3);
     return s;
 }
 
@@ -333,13 +396,15 @@ void ModuleSettings::save(qint64 userId, const ModuleDef &m) const
     for (int r : repeats) rp << r;
     Database::instance().setUserJson(userId, QStringLiteral("module/") + m.id, QJsonObject{
         { QStringLiteral("phases"), ph }, { QStringLiteral("repeats"), rp }, { QStringLiteral("total"), totalSec },
-        { QStringLiteral("signal"), signal }, { QStringLiteral("distinct"), distinctTones },
+        { QStringLiteral("signal"), signal }, { QStringLiteral("gong"), doneGong },
+        { QStringLiteral("distinct"), distinctTones },
         { QStringLiteral("signalVolume"), signalVolume }, { QStringLiteral("vibrate"), vibrate },
         { QStringLiteral("music"), musicEnabled }, { QStringLiteral("musicFile"), musicFile },
         { QStringLiteral("musicVolume"), musicVolume }, { QStringLiteral("training"), trainingMode },
         { QStringLiteral("askSpo2"), askSpo2 }, { QStringLiteral("askPeakFlow"), askPeakFlow },
         { QStringLiteral("askPulse"), askPulse }, { QStringLiteral("askFeeling"), askFeeling },
-        { QStringLiteral("event"), eventName }, { QStringLiteral("tips"), showTips } });
+        { QStringLiteral("event"), eventName }, { QStringLiteral("tips"), showTips },
+        { QStringLiteral("deviceTarget"), deviceTarget } });
 }
 
 QString ModuleSettings::pattern() const

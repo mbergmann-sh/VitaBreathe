@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180" width="240" height="180">
+<rect x="14.0" y="128.0" width="112.0" height="16.0" rx="6.0" fill="none" stroke="#BLUE" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="20.0" y="40" width="28.0" height="88.0" rx="14.0" fill="none" stroke="#BLUE" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="34.0" cy="53.0" r="9.0" fill="#BLUE"/>
+<rect x="56.0" y="40" width="28.0" height="88.0" rx="14.0" fill="none" stroke="#BLUE" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="70.0" cy="115.0" r="9.0" fill="#GREEN"/>
+<rect x="92.0" y="40" width="28.0" height="88.0" rx="14.0" fill="none" stroke="#BLUE" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="106.0" cy="115.0" r="9.0" fill="#ACCENT"/><circle cx="186" cy="80" r="34" fill="none" stroke="#COLOR" stroke-width="5"/><path d="M186,80 L186,58" fill="none" stroke="#ACCENT" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M186,80 L200,92" fill="none" stroke="#ACCENT" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><text x="186" y="140" font-family="sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#ACCENT">≥ 3 s</text>
+</svg>

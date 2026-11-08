@@ -81,6 +81,30 @@ QIcon get(const QString &name)
     return icon;
 }
 
+QPixmap illustration(const QString &name, const QSize &size, qreal dpr)
+{
+    QFile f(QStringLiteral(":/illustrations/%1.svg").arg(name));
+    if (!f.open(QIODevice::ReadOnly)) return {};
+    QByteArray svg = f.readAll();
+    const QPalette pal = QApplication::palette();
+    const bool dark = pal.color(QPalette::Window).lightness() < 110;
+    svg.replace("#COLOR", pal.color(QPalette::WindowText).name().toLatin1());
+    svg.replace("#ACCENT", dark ? QByteArray("#f58a3c") : accent().name().toLatin1());
+    svg.replace("#BLUE", dark ? QByteArray("#4a9ee0") : primary().name().toLatin1());
+    svg.replace("#GREEN", dark ? QByteArray("#4cc28a") : QByteArray("#2e9e6b"));
+    QSvgRenderer r(svg);
+    QSize target = r.defaultSize();
+    target.scale(size, Qt::KeepAspectRatio);
+    QPixmap pm(int(target.width() * dpr), int(target.height() * dpr));
+    pm.fill(Qt::transparent);
+    QPainter p(&pm);
+    p.setRenderHint(QPainter::Antialiasing);
+    r.render(&p);
+    p.end();
+    pm.setDevicePixelRatio(dpr);
+    return pm;
+}
+
 void clearCache()
 {
     cache().clear();

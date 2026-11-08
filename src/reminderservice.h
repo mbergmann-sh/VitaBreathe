@@ -1,6 +1,6 @@
 // VitaBreathe – Erinnerungssystem und Wecker
 //
-// Prüft alle 15 Sekunden die Ereignisse und Wecker aller Benutzer. Erinnerungen erscheinen als
+// Prüft alle 15 Sekunden die Ereignisse, Wecker und geplanten Einschlaf-Einträge aller Benutzer. Erinnerungen erscheinen als
 // Hinweisfenster (mit Gong) und als Meldung im Infobereich; der Wecker spielt die Wiedergabeliste
 // (sanft lauter werdend) bzw. den eingebauten Weckton, mit Schlummern.
 // SPDX-License-Identifier: MIT
@@ -47,14 +47,17 @@ public:
 signals:
     void startRequested(qint64 userId, const QString &moduleId, const QString &eventName);
     void trayMessage(const QString &title, const QString &text);
+    void sleepRequested(const SleepPlan &plan);   // geplantes Einschlafen starten
 
 private:
     void check();
     void remind(const BreathEvent &e);
+    void offerSleep(const SleepPlan &p);
 
     QTimer   *m_timer;
     QDateTime m_last;
-    struct Snooze { qint64 id; bool alarm; QDateTime at; };
+    enum class Kind { Event, Alarm, Sleep };
+    struct Snooze { qint64 id; Kind kind; QDateTime at; };
     QList<Snooze> m_snoozes;
     QList<QPointer<QDialog>> m_open;
 };

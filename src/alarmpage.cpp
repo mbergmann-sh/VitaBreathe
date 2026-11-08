@@ -18,6 +18,7 @@
 #include <QGroupBox>
 #include <QHBoxLayout>
 #include <QHeaderView>
+#include <QInputDialog>
 #include <QLabel>
 #include <QLineEdit>
 #include <QMessageBox>
@@ -122,7 +123,121 @@ Alarm AlarmDialog::alarm() const
     return a;
 }
 
+// ====================================================================== Einschlaf-Dialog
+
+SleepPlanDialog::SleepPlanDialog(const SleepPlan &p, QWidget *parent) : QDialog(parent), m_plan(p)
+{
+    setWindowTitle(p.id ? tr("Einschlafen bearbeiten") : tr("Neuer Einschlaf-Eintrag"));
+    auto *lay = new QVBoxLayout(this);
+    auto *form = new QFormLayout;
+    m_label = new QLineEdit(p.label);
+    m_label->setPlaceholderText(tr("z. B. Wochentags, Wochenende, Meeresrauschen"));
+    form->addRow(tr("Bezeichnung:"), m_label);
+    m_playlist = new PlaylistWidget;
+    m_playlist->setFiles(p.playlist);
+    m_playlist->setPreviewVolume(p.volume);
+    form->addRow(tr("Musik:"), m_playlist);
+    m_shuffle = new QCheckBox(tr("Zufällige Reihenfolge"));
+    m_shuffle->setChecked(p.shuffle);
+    form->addRow(QString(), m_shuffle);
+    m_volume = slider(p.volume);
+    connect(m_volume, &QSlider::valueChanged, m_playlist, &PlaylistWidget::setPreviewVolume);
+    form->addRow(tr("Lautstärke:"), m_volume);
+    m_minutes = new QSpinBox;
+    m_minutes->setRange(5, 240);
+    m_minutes->setSingleStep(5);
+    m_minutes->setSuffix(tr(" min"));
+    m_minutes->setValue(p.minutes);
+    form->addRow(tr("Wiedergabedauer:"), m_minutes);
+    m_fade = new QSpinBox;
+    m_fade->setRange(0, 60);
+    m_fade->setSuffix(tr(" min"));
+    m_fade->setValue(p.fadeOutMin);
+    form->addRow(tr("davon leiser werden:"), m_fade);
+    m_module = moduleCombo(p.moduleId, tr("keine Übung – nur Musik"));
+    form->addRow(tr("Vorher üben:"), m_module);
+
+    auto *plan = new QGroupBox(tr("Planen"));
+    auto *pf = new QFormLayout(plan);
+    m_scheduled = new QCheckBox(tr("zu einer festen Uhrzeit anbieten"));
+    m_scheduled->setChecked(p.scheduled);
+    pf->addRow(QString(), m_scheduled);
+    m_time = new QTimeEdit(p.time);
+    m_time->setDisplayFormat(QStringLiteral("HH:mm"));
+    pf->addRow(tr("Uhrzeit:"), m_time);
+    m_days = new WeekdayPicker;
+    m_days->setMask(p.weekdays);
+    pf->addRow(tr("Tage:"), m_days);
+    m_autoStart = new QCheckBox(tr("ohne Rückfrage automatisch starten"));
+    m_autoStart->setChecked(p.autoStart);
+    m_autoStart->setToolTip(tr("Sonst erinnert VitaBreathe zur Uhrzeit und fragt, ob die Einschlaffunktion starten soll."));
+    pf->addRow(QString(), m_autoStart);
+    auto syncEnabled = [this] {
+        const bool on = m_scheduled->isChecked();
+        m_time->setEnabled(on);
+        m_days->setEnabled(on);
+        m_autoStart->setEnabled(on);
+    };
+    connect(m_scheduled, &QCheckBox::toggled, this, syncEnabled);
+    syncEnabled();
+    lay->addLayout(form);
+    lay->addWidget(plan);
+
+    auto *bb = new QDialogButtonBox(QDialogButtonBox::Save | QDialogButtonBox::Cancel);
+    connect(bb, &QDialogButtonBox::accepted, this, [this] {
+        if (m_label->text().trimmed().isEmpty()) {
+            QMessageBox::information(this, windowTitle(), tr("Bitte eine Bezeichnung eingeben."));
+            return;
+        }
+        if (m_scheduled->isChecked() && m_days->mask() == 0) {
+            QMessageBox::information(this, windowTitle(), tr("Bitte mindestens einen Wochentag wählen."));
+            return;
+        }
+        accept();
+    });
+    connect(bb, &QDialogButtonBox::rejected, this, &QDialog::reject);
+    lay->addWidget(bb);
+}
+
+SleepPlan SleepPlanDialog::plan() const
+{
+    SleepPlan p = m_plan;
+    p.label = m_label->text().trimmed();
+    p.playlist = m_playlist->files();
+    p.shuffle = m_shuffle->isChecked();
+    p.volume = m_volume->value();
+    p.minutes = m_minutes->value();
+    p.fadeOutMin = qMin(m_fade->value(), p.minutes);
+    p.moduleId = m_module->currentData().toString();
+    p.scheduled = m_scheduled->isChecked();
+    p.time = m_time->time();
+    p.weekdays = m_days->mask();
+    p.autoStart = m_autoStart->isChecked();
+    return p;
+}
+
 // ====================================================================== Seite
+
+namespace {
+QTableWidget *listTable(const QStringList &headers)
+{
+    auto *t = new QTableWidget(0, headers.size());
+    t->setHorizontalHeaderLabels(headers);
+    t->setSelectionBehavior(QAbstractItemView::SelectRows);
+    t->setSelectionMode(QAbstractItemView::SingleSelection);
+    t->setEditTriggers(QAbstractItemView::NoEditTriggers);
+    t->verticalHeader()->setVisible(false);
+    t->horizontalHeader()->setStretchLastSection(true);
+    t->setMinimumHeight(130);
+    return t;
+}
+qint64 selectedId(const QTableWidget *t)
+{
+    const auto rows = t->selectionModel()->selectedRows();
+    if (rows.isEmpty()) return 0;
+    return t->item(rows.first().row(), 0)->data(Qt::UserRole).toLongLong();
+}
+}
 
 AlarmPage::AlarmPage(QWidget *parent) : QWidget(parent)
 {
@@ -134,15 +249,7 @@ AlarmPage::AlarmPage(QWidget *parent) : QWidget(parent)
     // --- Wecker
     auto *wake = new QGroupBox(tr("Weckfunktion"));
     auto *wl = new QVBoxLayout(wake);
-    m_table = new QTableWidget(0, 6);
-    m_table->setHorizontalHeaderLabels({ tr("Weckzeit"), tr("Bezeichnung"), tr("Tage"), tr("Aktiv"), tr("Musik"),
-                                         tr("Nächstes Wecken") });
-    m_table->setSelectionBehavior(QAbstractItemView::SelectRows);
-    m_table->setSelectionMode(QAbstractItemView::SingleSelection);
-    m_table->setEditTriggers(QAbstractItemView::NoEditTriggers);
-    m_table->verticalHeader()->setVisible(false);
-    m_table->horizontalHeader()->setStretchLastSection(true);
-    m_table->setMinimumHeight(140);
+    m_table = listTable({ tr("Weckzeit"), tr("Bezeichnung"), tr("Tage"), tr("Aktiv"), tr("Musik"), tr("Nächstes Wecken") });
     wl->addWidget(m_table);
     auto *bl = new QHBoxLayout;
     auto *add = new QPushButton(Icons::get(QStringLiteral("add")), tr("Neuer Wecker …"));
@@ -162,39 +269,29 @@ AlarmPage::AlarmPage(QWidget *parent) : QWidget(parent)
 
     // --- Einschlafen
     auto *sleep = new QGroupBox(tr("Einschlaffunktion"));
-    auto *sg = new QGridLayout(sleep);
-    sg->addWidget(new QLabel(tr("Musik:")), 0, 0, Qt::AlignTop);
-    m_sleepList = new PlaylistWidget;
-    m_sleepList->setMaximumHeight(170);
-    sg->addWidget(m_sleepList, 0, 1, 1, 3);
-    m_sleepShuffle = new QCheckBox(tr("Zufällige Reihenfolge"));
-    sg->addWidget(m_sleepShuffle, 1, 1, 1, 3);
-    sg->addWidget(new QLabel(tr("Lautstärke:")), 2, 0);
-    m_sleepVolume = slider(50);
-    sg->addWidget(m_sleepVolume, 2, 1, 1, 3);
-    sg->addWidget(new QLabel(tr("Wiedergabedauer:")), 3, 0);
-    m_sleepMinutes = new QSpinBox;
-    m_sleepMinutes->setRange(5, 180);
-    m_sleepMinutes->setSingleStep(5);
-    m_sleepMinutes->setSuffix(tr(" min"));
-    sg->addWidget(m_sleepMinutes, 3, 1);
-    sg->addWidget(new QLabel(tr("davon leiser werden:")), 3, 2, Qt::AlignRight);
-    m_sleepFade = new QSpinBox;
-    m_sleepFade->setRange(0, 30);
-    m_sleepFade->setSuffix(tr(" min"));
-    sg->addWidget(m_sleepFade, 3, 3);
-    sg->addWidget(new QLabel(tr("Vorher üben:")), 4, 0);
-    m_sleepModule = moduleCombo(QString(), tr("keine Übung – nur Musik"));
-    sg->addWidget(m_sleepModule, 4, 1, 1, 3);
+    auto *sl = new QVBoxLayout(sleep);
+    m_sleepTable = listTable({ tr("Bezeichnung"), tr("Geplant"), tr("Tage"), tr("Start"), tr("Musik"), tr("Dauer"),
+                               tr("Vorher üben"), tr("Nächster Termin") });
+    sl->addWidget(m_sleepTable);
     auto *sb = new QHBoxLayout;
-    m_sleepStart = new QPushButton(Icons::get(QStringLiteral("moon")), tr("Einschlafen starten"));
+    auto *sAdd = new QPushButton(Icons::get(QStringLiteral("add")), tr("Neuer Eintrag …"));
+    m_sleepEdit = new QPushButton(Icons::get(QStringLiteral("edit")), tr("Bearbeiten …"));
+    m_sleepDelete = new QPushButton(Icons::get(QStringLiteral("delete")), tr("Löschen"));
+    m_sleepStart = new QPushButton(Icons::get(QStringLiteral("moon")), tr("Jetzt einschlafen"));
     m_sleepStop = new QPushButton(Icons::get(QStringLiteral("stop")), tr("Stopp"));
-    m_sleepStatus = new QLabel;
+    for (QPushButton *b : { sAdd, m_sleepEdit, m_sleepDelete }) sb->addWidget(b);
+    sb->addStretch();
     sb->addWidget(m_sleepStart);
     sb->addWidget(m_sleepStop);
-    sb->addWidget(m_sleepStatus, 1);
-    sg->addLayout(sb, 5, 0, 1, 4);
-    sg->setColumnStretch(1, 1);
+    sl->addLayout(sb);
+    m_sleepStatus = new QLabel;
+    m_sleepStatus->setWordWrap(true);
+    sl->addWidget(m_sleepStatus);
+    auto *sleepInfo = new QLabel(tr("Geplante Einträge erinnern zur Uhrzeit an das Einschlafen oder starten automatisch. "
+                                    "Ungeplante Einträge starten Sie hier, über die Werkzeugleiste oder das Symbol im Infobereich."));
+    sleepInfo->setWordWrap(true);
+    sleepInfo->setEnabled(false);
+    sl->addWidget(sleepInfo);
     lay->addWidget(sleep);
     lay->addStretch();
 
@@ -216,37 +313,43 @@ AlarmPage::AlarmPage(QWidget *parent) : QWidget(parent)
     });
     connect(m_sleepPlayer, &MusicPlayer::trackChanged, this, [this] { updateSleepStatus(); });
 
+    // Wecker
     connect(add, &QPushButton::clicked, this, &AlarmPage::addAlarm);
-    connect(m_edit, &QPushButton::clicked, this, &AlarmPage::editSelected);
-    connect(m_table, &QTableWidget::cellDoubleClicked, this, &AlarmPage::editSelected);
+    connect(m_edit, &QPushButton::clicked, this, &AlarmPage::editAlarm);
+    connect(m_table, &QTableWidget::cellDoubleClicked, this, &AlarmPage::editAlarm);
     connect(m_delete, &QPushButton::clicked, this, [this] {
-        const qint64 id = selectedId();
+        const qint64 id = selectedAlarm();
         if (id && QMessageBox::question(this, tr("Löschen"), tr("Diesen Wecker löschen?")) == QMessageBox::Yes)
             Database::instance().deleteAlarm(id);
     });
     connect(m_test, &QPushButton::clicked, this, [this] {
-        const qint64 id = selectedId();
+        const qint64 id = selectedAlarm();
         for (const Alarm &a : m_alarms)
             if (a.id == id) emit testAlarm(a);
     });
     connect(m_table, &QTableWidget::itemSelectionChanged, this, [this] {
-        const bool sel = selectedId() != 0;
+        const bool sel = selectedAlarm() != 0;
         m_edit->setEnabled(sel);
         m_delete->setEnabled(sel);
         m_test->setEnabled(sel);
     });
-    connect(m_sleepStart, &QPushButton::clicked, this, &AlarmPage::startSleep);
-    connect(m_sleepStop, &QPushButton::clicked, this, &AlarmPage::stopSleep);
-    connect(m_sleepVolume, &QSlider::valueChanged, this, [this](int v) {
-        m_sleepList->setPreviewVolume(v);
-        if (m_sleepPlayer->isPlaying() && !m_sleepFading) m_sleepPlayer->setVolume(v);
-        saveSleep();
+    // Einschlafen
+    connect(sAdd, &QPushButton::clicked, this, &AlarmPage::addSleepPlan);
+    connect(m_sleepEdit, &QPushButton::clicked, this, &AlarmPage::editPlan);
+    connect(m_sleepTable, &QTableWidget::cellDoubleClicked, this, &AlarmPage::editPlan);
+    connect(m_sleepDelete, &QPushButton::clicked, this, [this] {
+        const qint64 id = selectedPlan();
+        if (id && QMessageBox::question(this, tr("Löschen"), tr("Diesen Einschlaf-Eintrag löschen?")) == QMessageBox::Yes)
+            Database::instance().deleteSleepPlan(id);
     });
-    connect(m_sleepList, &PlaylistWidget::changed, this, &AlarmPage::saveSleep);
-    connect(m_sleepShuffle, &QCheckBox::toggled, this, &AlarmPage::saveSleep);
-    connect(m_sleepMinutes, qOverload<int>(&QSpinBox::valueChanged), this, &AlarmPage::saveSleep);
-    connect(m_sleepFade, qOverload<int>(&QSpinBox::valueChanged), this, &AlarmPage::saveSleep);
-    connect(m_sleepModule, qOverload<int>(&QComboBox::currentIndexChanged), this, &AlarmPage::saveSleep);
+    connect(m_sleepStart, &QPushButton::clicked, this, [this] { startSleep(); });
+    connect(m_sleepStop, &QPushButton::clicked, this, &AlarmPage::stopSleep);
+    connect(m_sleepTable, &QTableWidget::itemSelectionChanged, this, [this] {
+        const bool sel = selectedPlan() != 0;
+        m_sleepEdit->setEnabled(sel);
+        m_sleepDelete->setEnabled(sel);
+        updateSleepStatus();
+    });
     if (!MusicPlayer::available()) {
         sleep->setEnabled(false);
         sleep->setToolTip(tr("Ohne Qt Multimedia übersetzt – keine Musikwiedergabe."));
@@ -260,12 +363,8 @@ void AlarmPage::setUser(qint64 userId)
     reload();
 }
 
-qint64 AlarmPage::selectedId() const
-{
-    const auto rows = m_table->selectionModel()->selectedRows();
-    if (rows.isEmpty()) return 0;
-    return m_table->item(rows.first().row(), 0)->data(Qt::UserRole).toLongLong();
-}
+qint64 AlarmPage::selectedAlarm() const { return selectedId(m_table); }
+qint64 AlarmPage::selectedPlan() const { return selectedId(m_sleepTable); }
 
 void AlarmPage::reload()
 {
@@ -289,30 +388,30 @@ void AlarmPage::reload()
     m_delete->setEnabled(false);
     m_test->setEnabled(false);
 
-    // Einschlafen
-    m_loading = true;
-    const SleepSettings s = Database::instance().sleepSettings(m_userId);
-    m_sleepList->setFiles(s.playlist);
-    m_sleepShuffle->setChecked(s.shuffle);
-    m_sleepVolume->setValue(s.volume);
-    m_sleepList->setPreviewVolume(s.volume);
-    m_sleepMinutes->setValue(s.minutes);
-    m_sleepFade->setValue(s.fadeOutMin);
-    m_sleepModule->setCurrentIndex(qMax(0, m_sleepModule->findData(s.moduleId)));
-    m_loading = false;
-}
-
-void AlarmPage::saveSleep()
-{
-    if (m_loading || !m_userId) return;
-    SleepSettings s;
-    s.playlist = m_sleepList->files();
-    s.shuffle = m_sleepShuffle->isChecked();
-    s.volume = m_sleepVolume->value();
-    s.minutes = m_sleepMinutes->value();
-    s.fadeOutMin = qMin(m_sleepFade->value(), s.minutes);
-    s.moduleId = m_sleepModule->currentData().toString();
-    Database::instance().saveSleepSettings(m_userId, s);
+    const qint64 keep = selectedPlan();
+    m_plans = Database::instance().sleepPlans(m_userId);
+    m_sleepTable->setRowCount(m_plans.size());
+    for (int r = 0; r < m_plans.size(); ++r) {
+        const SleepPlan &p = m_plans.at(r);
+        auto *l = new QTableWidgetItem(Icons::get(QStringLiteral("moon")), p.label);
+        l->setData(Qt::UserRole, p.id);
+        m_sleepTable->setItem(r, 0, l);
+        m_sleepTable->setItem(r, 1, new QTableWidgetItem(p.scheduled ? p.time.toString(QStringLiteral("HH:mm")) : tr("nein")));
+        m_sleepTable->setItem(r, 2, new QTableWidgetItem(p.scheduled ? Weekdays::text(p.weekdays) : QStringLiteral("–")));
+        m_sleepTable->setItem(r, 3, new QTableWidgetItem(!p.scheduled ? QStringLiteral("–")
+                                                                       : p.autoStart ? tr("automatisch") : tr("mit Rückfrage")));
+        m_sleepTable->setItem(r, 4, new QTableWidgetItem(tr("%n Titel", nullptr, p.playlist.size())));
+        m_sleepTable->setItem(r, 5, new QTableWidgetItem(tr("%1 min").arg(p.minutes)));
+        m_sleepTable->setItem(r, 6, new QTableWidgetItem(p.moduleId.isEmpty() ? QStringLiteral("–")
+                                                                              : BreathModules::displayName(p.moduleId)));
+        m_sleepTable->setItem(r, 7, new QTableWidgetItem(p.scheduled ? Schedule::relative(Schedule::next(p.time, p.weekdays))
+                                                                     : QStringLiteral("–")));
+        if (p.id == keep) m_sleepTable->selectRow(r);
+    }
+    m_sleepTable->resizeColumnsToContents();
+    m_sleepEdit->setEnabled(selectedPlan() != 0);
+    m_sleepDelete->setEnabled(selectedPlan() != 0);
+    updateSleepStatus();
 }
 
 void AlarmPage::addAlarm()
@@ -326,9 +425,9 @@ void AlarmPage::addAlarm()
     if (!Database::instance().saveAlarm(n, &err)) QMessageBox::warning(this, tr("Wecker"), err);
 }
 
-void AlarmPage::editSelected()
+void AlarmPage::editAlarm()
 {
-    const qint64 id = selectedId();
+    const qint64 id = selectedAlarm();
     for (const Alarm &a : m_alarms) {
         if (a.id != id) continue;
         AlarmDialog dlg(a, this);
@@ -340,30 +439,76 @@ void AlarmPage::editSelected()
     }
 }
 
+void AlarmPage::addSleepPlan()
+{
+    SleepPlan p;
+    p.userId = m_userId;
+    p.label = m_plans.isEmpty() ? tr("Einschlafen") : QString();
+    p.moduleId = QStringLiteral("four_six");
+    SleepPlanDialog dlg(p, this);
+    if (dlg.exec() != QDialog::Accepted) return;
+    SleepPlan n = dlg.plan();
+    QString err;
+    if (!Database::instance().saveSleepPlan(n, &err)) QMessageBox::warning(this, tr("Einschlafen"), err);
+}
+
+void AlarmPage::editPlan()
+{
+    const qint64 id = selectedPlan();
+    for (const SleepPlan &p : m_plans) {
+        if (p.id != id) continue;
+        SleepPlanDialog dlg(p, this);
+        if (dlg.exec() != QDialog::Accepted) return;
+        SleepPlan n = dlg.plan();
+        QString err;
+        if (!Database::instance().saveSleepPlan(n, &err)) QMessageBox::warning(this, tr("Einschlafen"), err);
+        return;
+    }
+}
+
 // ---------------------------------------------------------------- Einschlafen
 
 void AlarmPage::startSleep()
 {
-    if (m_sleepList->files().isEmpty()) {
-        QMessageBox::information(this, tr("Einschlafen"), tr("Bitte zuerst Musik (MP3-Dateien) zur Liste hinzufügen."));
+    if (m_plans.isEmpty()) {
+        if (QMessageBox::question(this, tr("Einschlafen"), tr("Es gibt noch keinen Einschlaf-Eintrag. Jetzt einen anlegen?"))
+            == QMessageBox::Yes)
+            addSleepPlan();
         return;
     }
-    saveSleep();
-    const QString module = m_sleepModule->currentData().toString();
-    if (!module.isEmpty()) emit sleepExerciseRequested(module);   // MainWindow startet danach startSleepMusic()
+    const qint64 sel = selectedPlan();
+    for (const SleepPlan &p : m_plans)
+        if (p.id == sel) { startSleep(p); return; }
+    if (m_plans.size() == 1) { startSleep(m_plans.first()); return; }
+    QStringList names;
+    for (const SleepPlan &p : m_plans) names << p.label;
+    bool ok = false;
+    const QString choice = QInputDialog::getItem(this, tr("Einschlafen"), tr("Welcher Eintrag soll starten?"), names, 0, false, &ok);
+    if (!ok) return;
+    startSleep(m_plans.at(qMax(0, names.indexOf(choice))));
+}
+
+void AlarmPage::startSleep(const SleepPlan &p)
+{
+    if (p.playlist.isEmpty()) {
+        QMessageBox::information(this, tr("Einschlafen"), tr("„%1“ enthält noch keine Musik. Bitte MP3-Dateien hinzufügen.").arg(p.label));
+        return;
+    }
+    m_sleepPlayer->stop();
+    m_active = p;
+    if (!p.moduleId.isEmpty()) emit sleepExerciseRequested(p.moduleId);   // MainWindow startet danach startSleepMusic()
     else startSleepMusic();
 }
 
 void AlarmPage::startSleepMusic()
 {
-    const QStringList files = m_sleepList->files();
-    if (files.isEmpty()) return;
-    m_sleepPlayer->setPlaylist(files, m_sleepShuffle->isChecked());
+    if (m_active.playlist.isEmpty()) return;
+    m_sleepPlayer->setPlaylist(m_active.playlist, m_active.shuffle);
     m_sleepPlayer->setVolume(0);
     m_sleepPlayer->play();
-    m_sleepPlayer->fadeTo(m_sleepVolume->value(), 5000);
+    m_sleepPlayer->fadeTo(m_active.volume, 5000);
     m_sleepFading = false;
-    m_sleepEnd = QDateTime::currentMSecsSinceEpoch() + qint64(m_sleepMinutes->value()) * 60000;
+    m_sleepEnd = QDateTime::currentMSecsSinceEpoch() + qint64(m_active.minutes) * 60000;
     m_sleepTimer->start();
     updateSleepStatus();
 }
@@ -382,21 +527,22 @@ bool AlarmPage::sleepRunning() const
 void AlarmPage::updateSleepStatus()
 {
     const bool running = m_sleepPlayer->isPlaying() && m_sleepEnd > 0;
-    m_sleepStart->setEnabled(!running);
+    m_sleepStart->setEnabled(!running && !m_plans.isEmpty());
     m_sleepStop->setEnabled(running);
     if (!running) {
         m_sleepStatus->setText(m_sleepPlayer->isPlaying() ? tr("wird ausgeblendet …") : QString());
         return;
     }
     const qint64 left = m_sleepEnd - QDateTime::currentMSecsSinceEpoch();
-    const qint64 fadeMs = qint64(m_sleepFade->value()) * 60000;
+    const qint64 fadeMs = qint64(m_active.fadeOutMin) * 60000;
     if (!m_sleepFading && left <= fadeMs) {
         m_sleepFading = true;
         m_sleepPlayer->fadeTo(0, int(qMax<qint64>(1000, left)), true);
     }
     if (left <= 0 && !m_sleepFading) m_sleepPlayer->stop();
     const int sec = int(qMax<qint64>(0, left) / 1000);
-    m_sleepStatus->setText(tr("Gute Nacht – Musik endet in %1:%2 min  ·  %3")
+    m_sleepStatus->setText(tr("<b>%1:</b> Gute Nacht – Musik endet in %2:%3 min  ·  %4")
+                               .arg(m_active.label.toHtmlEscaped())
                                .arg(sec / 60).arg(sec % 60, 2, 10, QLatin1Char('0'))
-                               .arg(QFileInfo(m_sleepPlayer->currentFile()).completeBaseName()));
+                               .arg(QFileInfo(m_sleepPlayer->currentFile()).completeBaseName().toHtmlEscaped()));
 }

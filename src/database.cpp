@@ -195,6 +195,10 @@ bool Database::createSchema(QString *error)
                        " id INTEGER PRIMARY KEY, user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,"
                        " name TEXT NOT NULL, module TEXT, time TEXT, weekdays INTEGER, enabled INTEGER, sound INTEGER,"
                        " note TEXT, uid TEXT, sync_at TEXT)"),
+        QStringLiteral("CREATE TABLE IF NOT EXISTS sleep_plans ("
+                       " id INTEGER PRIMARY KEY, user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,"
+                       " label TEXT, time TEXT, weekdays INTEGER, scheduled INTEGER, auto_start INTEGER, playlist TEXT,"
+                       " shuffle INTEGER, volume INTEGER, minutes INTEGER, fade_out INTEGER, module TEXT, uid TEXT, sync_at TEXT)"),
         QStringLiteral("CREATE TABLE IF NOT EXISTS alarms ("
                        " id INTEGER PRIMARY KEY, user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,"
                        " label TEXT, time TEXT, weekdays INTEGER, enabled INTEGER, playlist TEXT, shuffle INTEGER,"
@@ -209,10 +213,26 @@ bool Database::createSchema(QString *error)
                                "Bitte VitaBreathe aktualisieren.").arg(current);
         return false;
     }
+    // Schema 3: Ergebnisse des Atemtrainers (vor den Abgleich-Triggern, die alle Spalten beobachten)
+    if (!ensureColumn(QStringLiteral("sessions"), QStringLiteral("device_balls"), QStringLiteral("INTEGER"), error)
+        || !ensureColumn(QStringLiteral("sessions"), QStringLiteral("device_hold"), QStringLiteral("INTEGER"), error))
+        return false;
     if (!ensureSyncSchema(error)) return false;
+    if (current < 2) migrateSleepSettings();
     q.prepare(QStringLiteral("INSERT OR REPLACE INTO meta (key, value) VALUES ('schema', ?)"));
     q.addBindValue(kSchemaVersion);
     if (!q.exec()) return fail(q, error);
+    return true;
+}
+
+bool Database::ensureColumn(const QString &table, const QString &column, const QString &type, QString *error)
+{
+    SqlQuery q(db());
+    if (!q.exec(QStringLiteral("PRAGMA table_info(%1)").arg(table))) return fail(q, error);
+    while (q.next())
+        if (q.value(1).toString() == column) return true;
+    q.finish();
+    if (!q.exec(QStringLiteral("ALTER TABLE %1 ADD COLUMN %2 %3").arg(table, column, type))) return fail(q, error);
     return true;
 }
 
@@ -224,6 +244,7 @@ const QList<Database::SyncTable> &Database::syncTables()
         { "sessions",      "user_id" },
         { "events",        "user_id" },
         { "alarms",        "user_id" },
+        { "sleep_plans",   "user_id" },
     };
     return t;
 }
@@ -411,7 +432,7 @@ QList<SessionRecord> Database::sessions(qint64 userId, const QDateTime &from, co
     SqlQuery q(db());
     QString sql = QStringLiteral("SELECT id, user_id, module, event, started, planned_sec, actual_sec, cycles, completed,"
                                  " pattern, spo2_before, spo2_after, pf_before, pf_after, pulse_before, pulse_after,"
-                                 " feeling_before, feeling_after, note FROM sessions WHERE user_id = ?");
+                                 " feeling_before, feeling_after, note, device_balls, device_hold FROM sessions WHERE user_id = ?");
     if (from.isValid()) sql += QStringLiteral(" AND started >= ?");
     if (to.isValid()) sql += QStringLiteral(" AND started < ?");
     sql += QStringLiteral(" ORDER BY started DESC");
@@ -441,6 +462,8 @@ QList<SessionRecord> Database::sessions(qint64 userId, const QDateTime &from, co
         s.feelingBefore = optInt(q.value(16));
         s.feelingAfter = optInt(q.value(17));
         s.note = q.value(18).toString();
+        s.deviceBalls = optInt(q.value(19));
+        s.deviceHoldSec = optInt(q.value(20));
         l << s;
     }
     return l;
@@ -451,15 +474,16 @@ bool Database::saveSession(SessionRecord &s, QString *error)
     SqlQuery q(db());
     const QString cols = QStringLiteral("user_id, module, event, started, planned_sec, actual_sec, cycles, completed, pattern,"
                                         " spo2_before, spo2_after, pf_before, pf_after, pulse_before, pulse_after,"
-                                        " feeling_before, feeling_after, note");
+                                        " feeling_before, feeling_after, note, device_balls, device_hold");
     if (s.id == 0)
-        q.prepare(QStringLiteral("INSERT INTO sessions (%1) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)").arg(cols));
+        q.prepare(QStringLiteral("INSERT INTO sessions (%1) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)").arg(cols));
     else
-        q.prepare(QStringLiteral("UPDATE sessions SET (%1) = (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) WHERE id = ?").arg(cols));
+        q.prepare(QStringLiteral("UPDATE sessions SET (%1) = (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) WHERE id = ?").arg(cols));
     for (const QVariant &v : QVariantList{ s.userId, s.moduleId, s.eventName, iso(s.started), s.plannedSec, s.actualSec,
                                            s.cycles, s.completed ? 1 : 0, s.pattern, opt(s.spo2Before), opt(s.spo2After),
                                            opt(s.pfBefore), opt(s.pfAfter), opt(s.pulseBefore), opt(s.pulseAfter),
-                                           opt(s.feelingBefore), opt(s.feelingAfter), s.note })
+                                           opt(s.feelingBefore), opt(s.feelingAfter), s.note, opt(s.deviceBalls),
+                                           opt(s.deviceHoldSec) })
         q.addBindValue(v);
     if (s.id != 0) q.addBindValue(s.id);
     if (!q.exec()) return fail(q, error);
@@ -606,26 +630,81 @@ bool Database::deleteAlarm(qint64 id, QString *error)
 
 // ---------------------------------------------------------------- Einschlafen
 
-SleepSettings Database::sleepSettings(qint64 userId)
+QList<SleepPlan> Database::sleepPlans(qint64 userId)
 {
-    const QJsonObject o = userJson(userId, QStringLiteral("sleep"));
-    SleepSettings s;
-    for (const QJsonValue &v : o.value(QStringLiteral("playlist")).toArray()) s.playlist << v.toString();
-    s.shuffle = o.value(QStringLiteral("shuffle")).toBool(false);
-    s.volume = o.value(QStringLiteral("volume")).toInt(50);
-    s.minutes = o.value(QStringLiteral("minutes")).toInt(30);
-    s.fadeOutMin = o.value(QStringLiteral("fadeOut")).toInt(5);
-    s.moduleId = o.value(QStringLiteral("module")).toString(QStringLiteral("four_six"));
-    return s;
+    QList<SleepPlan> l;
+    SqlQuery q(db());
+    q.prepare(QStringLiteral("SELECT id, user_id, label, time, weekdays, scheduled, auto_start, playlist, shuffle, volume,"
+                             " minutes, fade_out, module FROM sleep_plans")
+              + (userId ? QStringLiteral(" WHERE user_id = ?") : QString())
+              + QStringLiteral(" ORDER BY scheduled DESC, time, label COLLATE NOCASE"));
+    if (userId) q.addBindValue(userId);
+    if (!q.exec()) return l;
+    while (q.next()) {
+        SleepPlan p;
+        p.id = q.value(0).toLongLong();
+        p.userId = q.value(1).toLongLong();
+        p.label = q.value(2).toString();
+        p.time = QTime::fromString(q.value(3).toString(), QStringLiteral("HH:mm"));
+        p.weekdays = q.value(4).toInt();
+        p.scheduled = q.value(5).toInt() != 0;
+        p.autoStart = q.value(6).toInt() != 0;
+        for (const QJsonValue &v : QJsonDocument::fromJson(q.value(7).toString().toUtf8()).array()) p.playlist << v.toString();
+        p.shuffle = q.value(8).toInt() != 0;
+        p.volume = q.value(9).toInt();
+        p.minutes = q.value(10).toInt();
+        p.fadeOutMin = q.value(11).toInt();
+        p.moduleId = q.value(12).toString();
+        l << p;
+    }
+    return l;
 }
 
-void Database::saveSleepSettings(qint64 userId, const SleepSettings &s)
+bool Database::saveSleepPlan(SleepPlan &p, QString *error)
 {
-    setUserJson(userId, QStringLiteral("sleep"),
-                QJsonObject{ { QStringLiteral("playlist"), QJsonArray::fromStringList(s.playlist) },
-                             { QStringLiteral("shuffle"), s.shuffle },
-                             { QStringLiteral("volume"), s.volume },
-                             { QStringLiteral("minutes"), s.minutes },
-                             { QStringLiteral("fadeOut"), s.fadeOutMin },
-                             { QStringLiteral("module"), s.moduleId } });
+    SqlQuery q(db());
+    const QString cols = QStringLiteral("user_id, label, time, weekdays, scheduled, auto_start, playlist, shuffle, volume,"
+                                        " minutes, fade_out, module");
+    if (p.id == 0) q.prepare(QStringLiteral("INSERT INTO sleep_plans (%1) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)").arg(cols));
+    else q.prepare(QStringLiteral("UPDATE sleep_plans SET (%1) = (?,?,?,?,?,?,?,?,?,?,?,?) WHERE id = ?").arg(cols));
+    const QString pl = QString::fromUtf8(QJsonDocument(QJsonArray::fromStringList(p.playlist)).toJson(QJsonDocument::Compact));
+    for (const QVariant &v : QVariantList{ p.userId, p.label, p.time.toString(QStringLiteral("HH:mm")), p.weekdays,
+                                           p.scheduled ? 1 : 0, p.autoStart ? 1 : 0, pl, p.shuffle ? 1 : 0, p.volume,
+                                           p.minutes, p.fadeOutMin, p.moduleId })
+        q.addBindValue(v);
+    if (p.id) q.addBindValue(p.id);
+    if (!q.exec()) return fail(q, error);
+    if (!p.id) p.id = q.lastInsertId().toLongLong();
+    emit changed();
+    return true;
+}
+
+bool Database::deleteSleepPlan(qint64 id, QString *error)
+{
+    SqlQuery q(db());
+    q.prepare(QStringLiteral("DELETE FROM sleep_plans WHERE id = ?"));
+    q.addBindValue(id);
+    if (!q.exec()) return fail(q, error);
+    emit changed();
+    return true;
+}
+
+void Database::migrateSleepSettings()
+{
+    // Version 0.2: eine Einstellung "sleep" je Benutzer → erster gespeicherter Eintrag (nicht geplant)
+    for (const User &u : users()) {
+        const QJsonObject o = userJson(u.id, QStringLiteral("sleep"));
+        if (o.isEmpty() || !sleepPlans(u.id).isEmpty()) continue;
+        SleepPlan p;
+        p.userId = u.id;
+        p.label = tr("Einschlafen");
+        for (const QJsonValue &v : o.value(QStringLiteral("playlist")).toArray()) p.playlist << v.toString();
+        p.shuffle = o.value(QStringLiteral("shuffle")).toBool(false);
+        p.volume = o.value(QStringLiteral("volume")).toInt(50);
+        p.minutes = o.value(QStringLiteral("minutes")).toInt(30);
+        p.fadeOutMin = o.value(QStringLiteral("fadeOut")).toInt(5);
+        p.moduleId = o.value(QStringLiteral("module")).toString();
+        saveSleepPlan(p);
+        removeUserSetting(u.id, QStringLiteral("sleep"));
+    }
 }

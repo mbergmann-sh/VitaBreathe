@@ -7,6 +7,7 @@
 #include "eventspage.h"
 #include "historypage.h"
 #include "i18n.h"
+#include "guidewidget.h"
 #include "icons.h"
 #include "reminderservice.h"
 #include "schedule.h"
@@ -117,6 +118,11 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
         startExercise(module, tr("Einschlafübung"));
         m_alarms->startSleepMusic();
     });
+    connect(m_reminders, &ReminderService::sleepRequested, this, [this](const SleepPlan &plan) {
+        selectUser(plan.userId);
+        m_tabs->setCurrentIndex(TabAlarm);
+        m_alarms->startSleep(plan);
+    });
     connect(m_reminders, &ReminderService::startRequested, this,
             [this](qint64 userId, const QString &module, const QString &event) {
                 showNormal();
@@ -142,6 +148,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
 
     QSettings s;
     restoreGeometry(s.value(QStringLiteral("ui/geometry")).toByteArray());
+    restoreState(s.value(QStringLiteral("ui/state")).toByteArray());
     m_tabs->setCurrentIndex(s.value(QStringLiteral("ui/tab"), 0).toInt());
     if (!s.contains(QStringLiteral("ui/geometry"))) resize(1100, 760);
 }
@@ -200,6 +207,10 @@ void MainWindow::buildMenus()
     rem->addAction(Icons::get(QStringLiteral("alarm")), tr("Neuer &Wecker …"), this, [this] {
         m_tabs->setCurrentIndex(TabAlarm);
         m_alarms->addAlarm();
+    });
+    rem->addAction(Icons::get(QStringLiteral("moon")), tr("Neuer Ein&schlaf-Eintrag …"), this, [this] {
+        m_tabs->setCurrentIndex(TabAlarm);
+        m_alarms->addSleepPlan();
     });
     rem->addAction(Icons::get(QStringLiteral("moon")), tr("E&inschlafen starten"), this, [this] {
         m_tabs->setCurrentIndex(TabAlarm);
@@ -346,7 +357,10 @@ void MainWindow::refreshExerciseCards()
         for (const SessionRecord &s : recent)
             if (s.moduleId == m.id) { last = Schedule::relative(s.started); break; }
         QStringList parts;
-        if (m.hasSegments()) {
+        if (m.singleRound) {
+            parts << tr("%n Wiederholung(en)", nullptr, st.repeats.value(0, 1));
+            if (m.deviceTraining) parts << tr("Ziel: %n Ball/Bälle", nullptr, st.deviceTarget);
+        } else if (m.hasSegments()) {
             QStringList segs;
             const QList<SegmentDef> sd = m.effectiveSegments();
             for (int g = 0; g < sd.size(); ++g)
@@ -360,7 +374,7 @@ void MainWindow::refreshExerciseCards()
                     phases << QStringLiteral("%1 %2 s").arg(phaseName(m.phases.at(i).kind), formatSeconds(st.phaseSec.value(i)));
             parts << phases.join(QStringLiteral(" → "));
         }
-        parts << tr("%1 min").arg(st.totalSec / 60);
+        if (!m.singleRound) parts << tr("%1 min").arg(st.totalSec / 60);
         if (st.musicEnabled && !st.musicFile.isEmpty()) parts << tr("mit Musik");
         if (st.trainingMode) parts << tr("Trainingsmodus");
         auto *mine = new QLabel(tr("<b>Ihre Einstellung:</b> %1").arg(parts.join(QStringLiteral(" · ")).toHtmlEscaped())
@@ -380,7 +394,21 @@ void MainWindow::refreshExerciseCards()
             btn->setFont(bf);
         }
         connect(btn, &QPushButton::clicked, this, [this, id = m.id] { startExercise(id); });
-        cl->addWidget(btn, 0, Qt::AlignVCenter);
+        if (!m.guide.isEmpty()) {
+            auto *bcol = new QVBoxLayout;
+            bcol->addStretch();
+            bcol->addWidget(btn);
+            auto *guideBtn = new QPushButton(Icons::get(QStringLiteral("info")), tr("Anleitung …"));
+            guideBtn->setToolTip(tr("Bebilderte Anleitung anzeigen"));
+            connect(guideBtn, &QPushButton::clicked, this, [this, id = m.id] {
+                if (const ModuleDef *def = BreathModules::find(id)) GuideDialog(*def, this).exec();
+            });
+            bcol->addWidget(guideBtn);
+            bcol->addStretch();
+            cl->addLayout(bcol);
+        } else {
+            cl->addWidget(btn, 0, Qt::AlignVCenter);
+        }
         m_cardsLayout->addWidget(card);
     }
     auto *more = new QLabel(tr("Weitere Übungsmodule folgen in künftigen Versionen. VitaBreathe ist ein persönliches "
@@ -488,7 +516,11 @@ void MainWindow::setupTray()
             showNormal();
             startExercise(id);
         });
-    menu->addAction(Icons::get(QStringLiteral("moon")), tr("Einschlafen starten"), this, [this] { m_alarms->startSleep(); });
+    menu->addAction(Icons::get(QStringLiteral("moon")), tr("Einschlafen starten"), this, [this] {
+        showNormal();
+        m_tabs->setCurrentIndex(TabAlarm);
+        m_alarms->startSleep();
+    });
     menu->addSeparator();
     menu->addAction(Icons::get(QStringLiteral("quit")), tr("Beenden"), this, [this] {
         m_quitting = true;
@@ -519,7 +551,8 @@ void MainWindow::changeEvent(QEvent *e)
 void MainWindow::closeEvent(QCloseEvent *e)
 {
     QSettings s;
-    s.setValue(QStringLiteral("ui/geometry"), saveGeometry());
+    if (!isFullScreen() && !isMinimized()) s.setValue(QStringLiteral("ui/geometry"), saveGeometry());
+    s.setValue(QStringLiteral("ui/state"), saveState());
     s.setValue(QStringLiteral("ui/tab"), m_tabs->currentIndex());
     const bool tray = m_tray && m_tray->isVisible() && s.value(QStringLiteral("ui/tray"), true).toBool();
     if (!m_quitting && tray) {

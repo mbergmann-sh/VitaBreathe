@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180" width="240" height="180">
+<rect x="34.0" y="128.0" width="112.0" height="16.0" rx="6.0" fill="none" stroke="#BLUE" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="40.0" y="40" width="28.0" height="88.0" rx="14.0" fill="none" stroke="#BLUE" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="54.0" cy="53.0" r="9.0" fill="#BLUE"/>
+<rect x="76.0" y="40" width="28.0" height="88.0" rx="14.0" fill="none" stroke="#BLUE" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="90.0" cy="115.0" r="9.0" fill="#GREEN"/>
+<rect x="112.0" y="40" width="28.0" height="88.0" rx="14.0" fill="none" stroke="#BLUE" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="126.0" cy="115.0" r="9.0" fill="#ACCENT"/>
+<path d="M146.0,132.0 C174.0,128.0 174.0,60.0 190.0,52.0" fill="none" stroke="#BLUE" stroke-width="8.0" stroke-linecap="round"/>
+<rect x="186.0" y="42.0" width="24.0" height="16.0" rx="4.0" fill="none" stroke="#BLUE" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M222,40 L196,44" fill="none" stroke="#ACCENT" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M203.15029902158122,38.53435969881163 L196,44 L204.46250077585375,47.06367110158299" fill="none" stroke="#ACCENT" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><text x="112" y="172" font-family="sans-serif" font-size="13" text-anchor="middle" fill="#ACCENT">600 ml/s</text>
+</svg>

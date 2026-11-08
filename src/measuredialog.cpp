@@ -134,7 +134,24 @@ SessionEditDialog::SessionEditDialog(const SessionRecord &s, QWidget *parent) : 
     m_cycles = new QSpinBox;
     m_cycles->setRange(0, 999);
     m_cycles->setValue(s.cycles);
-    form->addRow(tr("Atemzyklen:"), m_cycles);
+    form->addRow(tr("Atemzyklen bzw. Wiederholungen:"), m_cycles);
+    auto *dev = new QHBoxLayout;
+    m_devBalls = new QSpinBox;
+    m_devBalls->setRange(-1, 3);
+    m_devBalls->setSpecialValueText(QStringLiteral("–"));
+    m_devBalls->setSuffix(tr(" Bälle"));
+        connect(m_devBalls, QOverload<int>::of(&QSpinBox::valueChanged), m_devBalls,
+                [sb = m_devBalls](int v) { sb->setSuffix(v == 1 ? tr(" Ball") : tr(" Bälle")); });
+    m_devBalls->setValue(s.deviceBalls >= 0 ? s.deviceBalls : -1);
+    m_devHold = new QSpinBox;
+    m_devHold->setRange(-1, 60);
+    m_devHold->setSpecialValueText(QStringLiteral("–"));
+    m_devHold->setSuffix(tr(" s gehalten"));
+    m_devHold->setValue(s.deviceHoldSec >= 0 ? s.deviceHoldSec : -1);
+    dev->addWidget(m_devBalls);
+    dev->addWidget(m_devHold);
+    dev->addStretch();
+    form->addRow(tr("Atemtrainer:"), dev);
     lay->addLayout(form);
 
     auto *meas = new QHBoxLayout;
@@ -187,5 +204,7 @@ SessionRecord SessionEditDialog::record() const
     s.pulseAfter = m_after->pulse();
     s.feelingAfter = m_after->feeling();
     s.note = m_note->toPlainText().trimmed();
+    s.deviceBalls = m_devBalls->value() >= 0 ? m_devBalls->value() : kNoValue;
+    s.deviceHoldSec = m_devHold->value() >= 0 ? m_devHold->value() : kNoValue;
     return s;
 }

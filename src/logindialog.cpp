@@ -206,6 +206,7 @@ void LoginDialog::chooseDatabase()
 void LoginDialog::downloadFromServer()
 {
     QDialog d(this);
+    d.setObjectName(QStringLiteral("ServerDownloadDialog"));
     d.setWindowTitle(tr("Datenbank vom Server laden"));
     auto *lay = new QVBoxLayout(&d);
     auto *info = new QLabel(tr("Geben Sie die Adresse Ihres Abgleich-Servers und den Zugangsschlüssel ein "

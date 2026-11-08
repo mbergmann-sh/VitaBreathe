@@ -18,7 +18,7 @@ class QPainter;
 struct ChartSpec {
     QDate from, to;                    // inklusive
     QList<SessionRecord> sessions;
-    bool showMinutes = true, showSpo2 = true, showPeakFlow = true, showPulse = true;
+    bool showMinutes = true, showSpo2 = true, showPeakFlow = true, showPulse = true, showDevice = true;
 };
 
 namespace ChartRenderer {
@@ -31,13 +31,15 @@ class ChartWidget : public QWidget
     Q_OBJECT
 public:
     explicit ChartWidget(QWidget *parent = nullptr);
-    void setSpec(const ChartSpec &s) { m_spec = s; update(); }
+    void setSpec(const ChartSpec &s);
     const ChartSpec &spec() const { return m_spec; }
-    QSize minimumSizeHint() const override { return { 360, 260 }; }
+    // Mindesthöhe wächst mit der Zahl der Bereiche (in der Verlaufsseite scrollbar)
+    QSize minimumSizeHint() const override { return { 360, qMax(260, 60 + 85 * m_panels) }; }
 
 protected:
     void paintEvent(QPaintEvent *) override;
 
 private:
     ChartSpec m_spec;
+    int m_panels = 0;
 };

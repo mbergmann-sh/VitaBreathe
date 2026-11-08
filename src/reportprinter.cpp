@@ -74,9 +74,15 @@ void render(QPrinter *printer, const User &user, const ChartSpec &spec, const Op
                                "<thead><tr style='background-color:#e8f1f8'>");
         const QStringList heads = { ReportTr::tr("Datum / Uhrzeit"), ReportTr::tr("Übung"), ReportTr::tr("Anlass"), ReportTr::tr("Muster"), ReportTr::tr("Dauer"),
                                     ReportTr::tr("Zyklen"), ReportTr::tr("SpO₂ vor/nach"), ReportTr::tr("Peak Flow vor/nach"), ReportTr::tr("Puls vor/nach"),
-                                    ReportTr::tr("Befinden vor/nach") };
+                                    ReportTr::tr("Befinden vor/nach"), ReportTr::tr("Atemtrainer") };
         for (const QString &h : heads) html += QStringLiteral("<th>%1</th>").arg(esc(h));
         html += QStringLiteral("</tr></thead>");
+        auto device = [](const SessionRecord &r) {
+            QString t;
+            if (r.deviceBalls >= 0) t = ReportTr::tr("%n Ball/Bälle", nullptr, r.deviceBalls);
+            if (r.deviceHoldSec >= 0) t += (t.isEmpty() ? QString() : QStringLiteral(", ")) + QStringLiteral("%1 s").arg(r.deviceHoldSec);
+            return t;
+        };
         auto pair = [](int a, int b) {
             if (a < 0 && b < 0) return QString();
             return QStringLiteral("%1 / %2").arg(a >= 0 ? QString::number(a) : QStringLiteral("–"),
@@ -85,14 +91,14 @@ void render(QPrinter *printer, const User &user, const ChartSpec &spec, const Op
         for (const SessionRecord &s : spec.sessions) {
             html += QStringLiteral("<tr><td>%1</td><td>%2</td><td>%3</td><td>%4</td><td align='right'>%5%6</td>"
                                    "<td align='right'>%7</td><td align='center'>%8</td><td align='center'>%9</td>"
-                                   "<td align='center'>%10</td><td align='center'>%11</td></tr>")
+                                   "<td align='center'>%10</td><td align='center'>%11</td><td align='center'>%12</td></tr>")
                         .arg(QLocale().toString(s.started, QStringLiteral("ddd dd.MM.yyyy HH:mm")),
                              esc(BreathModules::displayName(s.moduleId)), esc(s.eventName), esc(s.pattern),
                              formatDuration(s.actualSec), s.completed ? QString() : QStringLiteral(" *"),
                              QString::number(s.cycles), pair(s.spo2Before, s.spo2After), pair(s.pfBefore, s.pfAfter))
-                        .arg(pair(s.pulseBefore, s.pulseAfter), pair(s.feelingBefore, s.feelingAfter));
+                        .arg(pair(s.pulseBefore, s.pulseAfter), pair(s.feelingBefore, s.feelingAfter), device(s));
             if (o.notes && !s.note.isEmpty())
-                html += QStringLiteral("<tr><td></td><td colspan='9'><i>%1</i></td></tr>").arg(esc(s.note));
+                html += QStringLiteral("<tr><td></td><td colspan='10'><i>%1</i></td></tr>").arg(esc(s.note));
         }
         html += QStringLiteral("</table><p style='font-size:7pt'>%1</p>")
                     .arg(ReportTr::tr("* vorzeitig beendet. SpO₂ in %, Peak Flow in l/min, Puls in Schlägen/min, Befinden 1–10."));

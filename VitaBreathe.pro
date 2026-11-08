@@ -56,6 +56,9 @@ macx:  ICON     = resources/icons/app/vitabreathe.icns
 # Aktualisieren:  lupdate VitaBreathe.pro   –   übersetzen mit Qt Linguist
 # Die .qm-Datei wird beim Bauen automatisch erzeugt und eingebettet (:/i18n/vitabreathe_en.qm).
 TRANSLATIONS = translations/vitabreathe_en.ts
+# Nur deutsche Mehrzahlformen (%n), von lupdate VitaBreathe.pro nicht angefasst:
+#   lupdate -pluralonly -no-obsolete src -ts translations/vitabreathe_de.ts
+EXTRA_TRANSLATIONS = translations/vitabreathe_de.ts
 CONFIG += lrelease embed_translations
 
 # Windows-Installer: Versionsnummer und Datum in die Installer-Dateien übernehmen

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180" width="240" height="180">
+<path transform="translate(-20,10)" d="M72,44 C70,24 90,14 110,16 C130,18 142,32 144,50 L154,66 L144,71 C145,74 145,77 143,79" fill="none" stroke="#COLOR" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path transform="translate(-20,10)" d="M143,87 C144,96 136,106 122,106 L120,128 M72,44 C68,66 76,88 94,98 L96,128" fill="none" stroke="#COLOR" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path transform="translate(-20,10)" d="M143,80 L148,82 L143,86" fill="none" stroke="#COLOR" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><rect x="128" y="86" width="22" height="12" rx="3" fill="none" stroke="#BLUE" stroke-width="4"/><path d="M150,92 C176,92 180,120 186,140" fill="none" stroke="#BLUE" stroke-width="5" stroke-linecap="round"/><rect x="176.2" y="142.4" width="33.6" height="4.8" rx="1.7999999999999998" fill="none" stroke="#BLUE" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="178.0" y="116" width="8.4" height="26.4" rx="4.2" fill="none" stroke="#BLUE" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="182.2" cy="138.50000000000003" r="2.7" fill="#BLUE"/>
+<rect x="188.8" y="116" width="8.4" height="26.4" rx="4.2" fill="none" stroke="#BLUE" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="193.0" cy="138.50000000000003" r="2.7" fill="#GREEN"/>
+<rect x="199.6" y="116" width="8.4" height="26.4" rx="4.2" fill="none" stroke="#BLUE" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="203.79999999999998" cy="138.50000000000003" r="2.7" fill="#ACCENT"/><circle cx="126" cy="92" r="11" fill="none" stroke="#ACCENT" stroke-width="3"/>
+</svg>

@@ -47,12 +47,11 @@ QString install(QCoreApplication &app)
         app.installTranslator(qtTr);
     s_installed << qtTr;
 
-    if (lang == QLatin1String("en")) {
-        auto *appTr = new QTranslator(&app);
-        if (appTr->load(QStringLiteral(":/i18n/vitabreathe_en.qm")))
-            app.installTranslator(appTr);
-        s_installed << appTr;
-    }
+    // Englisch: vollständige Übersetzung; Deutsch: nur die Mehrzahlformen der %n-Texte
+    auto *appTr = new QTranslator(&app);
+    if (appTr->load(QStringLiteral(":/i18n/vitabreathe_%1.qm").arg(lang)))
+        app.installTranslator(appTr);
+    s_installed << appTr;
     return lang;
 }
 

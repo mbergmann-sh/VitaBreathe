@@ -3,8 +3,8 @@
 <!-- Installationssprache: Translations legt die Sprache des Installers fest (unabhängig von Windows) -->
 <Installer>
     <Name>VitaBreathe</Name>
-    <Version>0.2.0</Version>
-    <Title>VitaBreathe 0.2.0</Title>
+    <Version>0.4.0</Version>
+    <Title>VitaBreathe 0.4.0</Title>
     <Publisher>Michael Bergmann</Publisher>
     <ProductUrl>https://github.com/mbergmann-sh</ProductUrl>
     <StartMenuDir>VitaBreathe</StartMenuDir>

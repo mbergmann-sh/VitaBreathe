@@ -33,6 +33,8 @@ struct SessionRecord {
     int       pfBefore = kNoValue, pfAfter = kNoValue;         // l/min
     int       pulseBefore = kNoValue, pulseAfter = kNoValue;   // /min
     int       feelingBefore = kNoValue, feelingAfter = kNoValue; // 1 (schlecht) … 10 (sehr gut)
+    // Atemtrainer (z. B. TriBall): meist erreichte Bälle (1–3) und längste Haltezeit in Sekunden
+    int       deviceBalls = kNoValue, deviceHoldSec = kNoValue;
     QString   note;
     bool hasMeasurements() const {
         return spo2Before >= 0 || spo2After >= 0 || pfBefore >= 0 || pfAfter >= 0
@@ -77,12 +79,20 @@ struct Alarm {
     QString     moduleId;      // optional: Übung nach dem Aufwachen anbieten
 };
 
-// Einschlaffunktion (je Benutzer, als Einstellung gespeichert)
-struct SleepSettings {
+// Einschlaffunktion: beliebig viele gespeicherte Einträge je Benutzer, wahlweise geplant
+// (Uhrzeit + Wochentage → Erinnerung oder automatischer Start) wie beim Wecker
+struct SleepPlan {
+    qint64      id = 0;
+    qint64      userId = 0;
+    QString     label;
+    QTime       time = QTime(22, 30);
+    int         weekdays = Weekdays::kAll;
+    bool        scheduled = false;   // zur Uhrzeit an den Wochentagen anbieten bzw. starten
+    bool        autoStart = false;   // geplant: ohne Rückfrage starten
     QStringList playlist;
     bool        shuffle = false;
     int         volume = 50;
-    int         minutes = 30;      // Wiedergabedauer
-    int         fadeOutMin = 5;    // am Ende leiser werden
-    QString     moduleId;          // optional: vorher eine Übung (z. B. 4-6)
+    int         minutes = 30;        // Wiedergabedauer
+    int         fadeOutMin = 5;      // am Ende leiser werden
+    QString     moduleId;            // optional: vorher eine Übung (z. B. 4-6)
 };

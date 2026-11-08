@@ -5,6 +5,7 @@
 //                               (Master-Passwort "demo"), ohne die eigenen Daten zu berühren
 //   VitaBreathe --screenshots <ordner>   (mit --demo) Bildschirmfotos für Handbuch/README erzeugen
 // SPDX-License-Identifier: MIT
+#include "alarmpage.h"
 #include "audio.h"
 #include "breathengine.h"
 #include "breathmodules.h"
@@ -17,6 +18,7 @@
 #include "screenfit.h"
 #include "sessiondialog.h"
 #include "themes.h"
+#include "windowstate.h"
 
 #include <QAbstractButton>
 #include <QApplication>
@@ -106,6 +108,20 @@ void createDemoData()
             s.pfAfter = s.pfBefore + rng->bounded(25);
             db.saveSession(s);
         }
+        if (d % 2 == 0) {     // TriBall-Training, langsam gesteigert
+            SessionRecord s;
+            s.userId = erika;
+            s.moduleId = QStringLiteral("triball");
+            s.eventName = QObject::tr("Atemtrainer");
+            s.pattern = QStringLiteral("3-3-3-4-10");
+            s.started = QDateTime(day, QTime(16, rng->bounded(60)));
+            s.plannedSec = s.actualSec = 230;
+            s.cycles = 10;
+            s.completed = true;
+            s.deviceBalls = d > 40 ? 1 : d > 15 ? 2 : (rng->bounded(3) ? 2 : 3);
+            s.deviceHoldSec = 2 + (59 - d) / 12 + rng->bounded(2);
+            db.saveSession(s);
+        }
         if (rng->bounded(10) < 3) {
             SessionRecord s;
             s.userId = max;
@@ -132,6 +148,21 @@ void createDemoData()
     a.time = QTime(6, 45);
     a.moduleId = QStringLiteral("box");
     db.saveAlarm(a);
+    SleepPlan sp;
+    sp.userId = erika;
+    sp.label = QObject::tr("Wochentags");
+    sp.scheduled = true;
+    sp.time = QTime(22, 30);
+    sp.weekdays = Weekdays::kWorkdays;
+    sp.minutes = 30;
+    sp.moduleId = QStringLiteral("four_six");
+    db.saveSleepPlan(sp);
+    SleepPlan we;
+    we.userId = erika;
+    we.label = QObject::tr("Wochenende – länger");
+    we.minutes = 60;
+    we.fadeOutMin = 10;
+    db.saveSleepPlan(we);
     db.setDeviceSetting(QStringLiteral("ui/lastUser"), QString::number(erika));
 }
 
@@ -175,6 +206,12 @@ void takeScreenshots(MainWindow *w, const QString &dir)
         shot(w, QStringLiteral("main_%1").arg(i));
     }
     w->tabs()->setCurrentIndex(0);
+    if (!Database::instance().sleepPlans(w->currentUser()).isEmpty()) {
+        SleepPlanDialog sd(Database::instance().sleepPlans(w->currentUser()).first(), w);
+        sd.show();
+        shot(&sd, QStringLiteral("sleep_plan"));
+        sd.reject();
+    }
     for (const ModuleDef &m : BreathModules::all()) {
         SessionDialog dlg(w->currentUser(), m.id, w);
         dlg.resize(720, 760);
@@ -253,6 +290,7 @@ int main(int argc, char *argv[])
 
     Themes::init();
     ScreenFit::install(app);
+    WindowState::install(app);   // nach ScreenFit: erst wiederherstellen, dann an den Bildschirm anpassen
 
     QString path = parser.value(dbOpt);
     if (path.isEmpty()) path = QSettings().value(QStringLiteral("db/path"), Database::defaultPath()).toString();

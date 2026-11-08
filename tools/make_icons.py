@@ -56,6 +56,8 @@ icons = {
  "add": f'<path d="M12 5v14M5 12h14" {S}/>',
  "edit": f'<path d="M4 20h4L19 9l-4-4L4 16z" {S}/><path d="M13.5 6.5l4 4" {S}/>',
  "delete": f'<path d="M4 7h16M10 11v6M14 11v6M6 7l1 14h10l1-14M9 7V4h6v3" {S}/>',
+ "triball": f'<rect x="3.5" y="3" width="4.5" height="15" rx="2.25" {S}/><rect x="9.75" y="3" width="4.5" height="15" rx="2.25" {S}/><rect x="16" y="3" width="4.5" height="15" rx="2.25" {S}/><path d="M2.5 21h19" {S}/><circle cx="5.75" cy="6" r="1.6" fill="#ACCENT"/><circle cx="12" cy="15" r="1.6" fill="#COLOR"/><circle cx="18.25" cy="15" r="1.6" fill="#COLOR"/>',
+ "mute": f'<path d="M4 9h4l5-4v14l-5-4H4z" {S}/><path d="M17 9.5l5 5M22 9.5l-5 5" {A}/>',
  "volume": f'<path d="M4 9h4l5-4v14l-5-4H4z" {S}/><path d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12" {A}/>',
  "event": f'<rect x="3" y="5" width="18" height="16" rx="1.5" {S}/><path d="M3 10h18M8 3v4M16 3v4" {S}/><path d="M8 15l2.5 2.5L16 13" {A}/>',
  "info": f'<circle cx="12" cy="12" r="10" {S}/><path d="M12 11v6" {S}/><circle cx="12" cy="7.5" r="1.1" fill="#COLOR"/>',

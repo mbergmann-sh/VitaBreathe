@@ -22,6 +22,7 @@ public:
     void setModule(const ModuleDef *m, const QVector<double> &phaseSec);
     void setEngine(BreathEngine *e);
     void setShowHints(bool on) { m_hints = on; update(); }
+    void setDeviceTarget(int balls) { m_target = qBound(1, balls, 3); update(); }   // TriBall: Ziel 1–3 Bälle
     QSize sizeHint() const override { return { 520, 520 }; }
     QSize minimumSizeHint() const override { return { 240, 260 }; }
 
@@ -31,10 +32,12 @@ protected:
 private:
     void paintBox(QPainter &p, const QRectF &area);
     void paintCircle(QPainter &p, const QRectF &area);
+    void paintTriBall(QPainter &p, const QRectF &area);
     void paintCaption(QPainter &p, const QRectF &r, const QString &title, const QString &sub);
 
     const ModuleDef        *m_module = nullptr;
     QVector<double>         m_sec;
     QPointer<BreathEngine>  m_engine;
     bool                    m_hints = true;
+    int                     m_target = 1;
 };

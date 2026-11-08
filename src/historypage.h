@@ -34,7 +34,7 @@ private:
     qint64        m_userId = 0;
     QComboBox    *m_period, *m_module;
     QDateEdit    *m_from, *m_to;
-    QCheckBox    *m_cMinutes, *m_cSpo2, *m_cPf, *m_cPulse;
+    QCheckBox    *m_cMinutes, *m_cSpo2, *m_cPf, *m_cPulse, *m_cDevice;
     QTableWidget *m_table;
     ChartWidget  *m_chart;
     QLabel       *m_count;

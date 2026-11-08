@@ -17,6 +17,7 @@
 #include <QLocale>
 #include <QMessageBox>
 #include <QPushButton>
+#include <QScrollArea>
 #include <QSettings>
 #include <QSplitter>
 #include <QStandardPaths>
@@ -26,7 +27,7 @@
 
 namespace {
 enum Col { CDate, CModule, CEvent, CPattern, CDuration, CCycles, CSpo2B, CSpo2A, CPfB, CPfA, CPulseB, CPulseA,
-           CFeelB, CFeelA, CNote, CCount };
+           CFeelB, CFeelA, CDevice, CNote, CCount };
 QTableWidgetItem *item(const QString &t, Qt::Alignment a = Qt::AlignLeft | Qt::AlignVCenter)
 {
     auto *it = new QTableWidgetItem(t);
@@ -83,7 +84,7 @@ HistoryPage::HistoryPage(QWidget *parent) : QWidget(parent)
     m_table->setHorizontalHeaderLabels({ tr("Datum / Uhrzeit"), tr("Übung"), tr("Anlass"), tr("Muster [s]"), tr("Dauer"),
                                          tr("Zyklen"), tr("SpO₂\nvor [%]"), tr("SpO₂\nnach [%]"), tr("Peak Flow\nvor [l/min]"),
                                          tr("Peak Flow\nnach [l/min]"), tr("Puls\nvor"), tr("Puls\nnach"),
-                                         tr("Befinden\nvor"), tr("Befinden\nnach"), tr("Notiz") });
+                                         tr("Befinden\nvor"), tr("Befinden\nnach"), tr("Atemtrainer"), tr("Notiz") });
     m_table->setSelectionBehavior(QAbstractItemView::SelectRows);
     m_table->setSelectionMode(QAbstractItemView::ExtendedSelection);
     m_table->setAlternatingRowColors(true);
@@ -101,8 +102,9 @@ HistoryPage::HistoryPage(QWidget *parent) : QWidget(parent)
     m_cSpo2 = new QCheckBox(tr("SpO₂"));
     m_cPf = new QCheckBox(tr("Peak Flow"));
     m_cPulse = new QCheckBox(tr("Puls"));
+    m_cDevice = new QCheckBox(tr("Atemtrainer"));
     QSettings st;
-    for (QCheckBox *c : { m_cMinutes, m_cSpo2, m_cPf, m_cPulse }) {
+    for (QCheckBox *c : { m_cMinutes, m_cSpo2, m_cPf, m_cPulse, m_cDevice }) {
         c->setChecked(st.value(QStringLiteral("chart/") + c->text(), true).toBool());
         curves->addWidget(c);
         connect(c, &QCheckBox::toggled, this, [this, c](bool on) {
@@ -113,10 +115,19 @@ HistoryPage::HistoryPage(QWidget *parent) : QWidget(parent)
     curves->addStretch();
     cb->addLayout(curves);
     m_chart = new ChartWidget;
-    cb->addWidget(m_chart, 1);
+    auto *chartScroll = new QScrollArea;
+    chartScroll->setWidget(m_chart);
+    chartScroll->setWidgetResizable(true);
+    chartScroll->setFrameShape(QFrame::NoFrame);
+    chartScroll->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    cb->addWidget(chartScroll, 1);
     split->addWidget(chartBox);
     split->setStretchFactor(0, 1);
     split->setStretchFactor(1, 1);
+    split->restoreState(st.value(QStringLiteral("history/splitter")).toByteArray());
+    connect(split, &QSplitter::splitterMoved, this, [split] {
+        QSettings().setValue(QStringLiteral("history/splitter"), split->saveState());
+    });
     lay->addWidget(split, 1);
 
     auto *buttons = new QHBoxLayout;
@@ -221,6 +232,10 @@ void HistoryPage::reload()
         m_table->setItem(r, CPulseA, num(s.pulseAfter));
         m_table->setItem(r, CFeelB, num(s.feelingBefore));
         m_table->setItem(r, CFeelA, num(s.feelingAfter));
+        QString dev;
+        if (s.deviceBalls >= 0) dev = tr("%n Ball/Bälle", nullptr, s.deviceBalls);
+        if (s.deviceHoldSec >= 0) dev += (dev.isEmpty() ? QString() : QStringLiteral(" · ")) + tr("%1 s").arg(s.deviceHoldSec);
+        m_table->setItem(r, CDevice, item(dev, Qt::AlignCenter));
         auto *n = item(s.note.simplified());
         n->setToolTip(s.note);
         m_table->setItem(r, CNote, n);
@@ -242,6 +257,7 @@ ChartSpec HistoryPage::currentSpec() const
     s.showSpo2 = m_cSpo2->isChecked();
     s.showPeakFlow = m_cPf->isChecked();
     s.showPulse = m_cPulse->isChecked();
+    s.showDevice = m_cDevice->isChecked();
     return s;
 }
 
@@ -329,11 +345,11 @@ void HistoryPage::exportCsv()
     auto q = [](QString s) { return QLatin1Char('"') + s.replace(QLatin1Char('"'), QStringLiteral("\"\"")) + QLatin1Char('"'); };
     auto n = [](int v) { return v >= 0 ? QString::number(v) : QString(); };
     out << "Beginn;Uebung;Anlass;Muster;Geplant_s;Dauer_s;Zyklen;Vollstaendig;SpO2_vor;SpO2_nach;PeakFlow_vor;PeakFlow_nach;"
-           "Puls_vor;Puls_nach;Befinden_vor;Befinden_nach;Notiz\n";
+           "Puls_vor;Puls_nach;Befinden_vor;Befinden_nach;Atemtrainer_Baelle;Atemtrainer_Haltezeit_s;Notiz\n";
     for (const SessionRecord &s : m_sessions)
         out << s.started.toString(Qt::ISODate) << ';' << q(BreathModules::displayName(s.moduleId)) << ';' << q(s.eventName)
             << ';' << q(s.pattern) << ';' << s.plannedSec << ';' << s.actualSec << ';' << s.cycles << ';'
             << (s.completed ? 1 : 0) << ';' << n(s.spo2Before) << ';' << n(s.spo2After) << ';' << n(s.pfBefore) << ';'
             << n(s.pfAfter) << ';' << n(s.pulseBefore) << ';' << n(s.pulseAfter) << ';' << n(s.feelingBefore) << ';'
-            << n(s.feelingAfter) << ';' << q(s.note) << '\n';
+            << n(s.feelingAfter) << ';' << n(s.deviceBalls) << ';' << n(s.deviceHoldSec) << ';' << q(s.note) << '\n';
 }

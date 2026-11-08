@@ -621,9 +621,137 @@ EN = {
 'Wochenende': 'Weekend',
 'am Wochenende': 'at weekends',
 'nie': 'never',
+# --- 0.3: Einschlaf-Einträge, abschaltbare Signaltöne
+'Geplant': 'Scheduled',
+'Start': 'Start',
+'Vorher üben': 'Exercise first',
+'Nächster Termin': 'Next time',
+'Neuer Eintrag …': 'New entry …',
+'Jetzt einschlafen': 'Fall asleep now',
+'Es gibt noch keinen Einschlaf-Eintrag. Jetzt einen anlegen?': 'There is no sleep entry yet. Create one now?',
+'Welcher Eintrag soll starten?': 'Which entry should start?',
+'„%1“ enthält noch keine Musik. Bitte MP3-Dateien hinzufügen.': '“%1” does not contain any music yet. Please add MP3 files.',
+'<b>%1:</b> Gute Nacht – Musik endet in %2:%3 min  ·  %4': '<b>%1:</b> Good night – music ends in %2:%3 min  ·  %4',
+'Geplante Einträge erinnern zur Uhrzeit an das Einschlafen oder starten automatisch. Ungeplante Einträge starten Sie hier, über die Werkzeugleiste oder das Symbol im Infobereich.':
+    'Scheduled entries remind you to go to sleep at the set time or start automatically. Start unscheduled entries here, from the toolbar or via the icon in the notification area.',
+'Diesen Einschlaf-Eintrag löschen?': 'Delete this sleep entry?',
+'automatisch': 'automatically',
+'mit Rückfrage': 'after asking',
+'Neuer Ein&schlaf-Eintrag …': 'New s&leep entry …',
+'Wochentags': 'Weekdays',
+'Wochenende – länger': 'Weekend – longer',
+'Einschlafen: %1': 'Sleep: %1',
+'Gute Nacht!': 'Good night!',
+'Einschlafen – VitaBreathe': 'Sleep – VitaBreathe',
+'vorher: %1': 'first: %1',
+"<p style='font-size:large'><b>Zeit zum Einschlafen: %1</b></p><p>für <b>%2</b> · %3</p>":
+    "<p style='font-size:large'><b>Time to go to sleep: %1</b></p><p>for <b>%2</b> · %3</p>",
+'Signaltöne': 'Signal tones',
+'Signalton (Beep) beim Phasenwechsel – so können Sie die Augen schließen': 'Signal tone (beep) when the phase changes – so you can close your eyes',
+'Gong am Ende der Übung': 'Gong at the end of the exercise',
+'Während der Übung schalten Sie die Töne mit der Schaltfläche „Töne“ oder der Taste M ab.':
+    'During the exercise, switch the tones off with the “Tones” button or the M key.',
+'Töne': 'Tones',
+'Signaltöne (Beeps) und Gong ein/aus (M)': 'Signal tones (beeps) and gong on/off (M)',
+'Einschlafen bearbeiten': 'Edit sleep entry',
+'Neuer Einschlaf-Eintrag': 'New sleep entry',
+'z. B. Wochentags, Wochenende, Meeresrauschen': 'e.g. weekdays, weekend, ocean waves',
+'Planen': 'Schedule',
+'zu einer festen Uhrzeit anbieten': 'offer at a fixed time',
+'ohne Rückfrage automatisch starten': 'start automatically without asking',
+'Sonst erinnert VitaBreathe zur Uhrzeit und fragt, ob die Einschlaffunktion starten soll.':
+    'Otherwise VitaBreathe reminds you at the set time and asks whether the sleep function should start.',
+'Bitte eine Bezeichnung eingeben.': 'Please enter a label.',
+# --- 0.4.0: TriBall, bebilderte Anleitungen, Haltungsbilder ---
+'Kutschersitz: Oberkörper nach vorn, Unterarme auf den Oberschenkeln, Schultern locker.':
+    "Coachman's seat: lean forward, forearms resting on your thighs, shoulders relaxed.",
+'Im Stehen: Hände auf Tisch, Fensterbank oder Geländer stützen (Torwarthaltung).':
+    "Standing: rest your hands on a table, windowsill or railing (goalkeeper stance).",
+'Lange mit der Lippenbremse ausatmen – Lippen locker aufeinander, nicht pressen.':
+    'Breathe out slowly through pursed lips – lips loosely together, do not press.',
+'Aufrecht sitzen, Füße auf dem Boden, Schultern locker.': 'Sit upright, feet on the floor, shoulders relaxed.',
+'Durch die Nase einatmen, dann lange durch die locker aufeinanderliegenden Lippen ausatmen.':
+    'Breathe in through your nose, then breathe out slowly through loosely closed lips.',
+'Auf dem Rücken liegen, Beine angewinkelt. Eine Hand auf den Bauch, eine auf die Brust.':
+    'Lie on your back with knees bent. One hand on your belly, one on your chest.',
+'Geht auch im Sitzen: aufrecht, Schultern locker.': 'Also works sitting: upright, shoulders relaxed.',
+'Aufrecht sitzen, Füße auf dem Boden.': 'Sit upright, feet on the floor.',
+'Huffen: Mund und Rachen weit offen und kräftig aushauchen – wie beim Anhauchen einer Brille.':
+    'Huffing: mouth and throat wide open, breathe out forcefully – like fogging up a pair of glasses.',
+'Atemtrainer TriBall (Einatemtraining)': 'TriBall breathing trainer (inspiratory training)',
+'TriBall-Training': 'TriBall training',
+'Training mit dem floworientierten Atemtrainer TriBall: langsam und gleichmäßig durch das Mundstück einatmen, sodass die Bälle steigen, und sie möglichst lange oben halten. Fördert ein tiefes, gleichmäßiges Einatmen. VitaBreathe gibt den Takt vor und zählt die Wiederholungen.':
+    'Training with the flow-oriented TriBall breathing trainer: breathe in slowly and steadily through the mouthpiece so the balls rise, and keep them up as long as possible. Encourages deep, even inhalation. VitaBreathe sets the pace and counts the repetitions.',
+'Das Gerät beim Üben immer senkrecht halten.': 'Always hold the device upright while practising.',
+'Niemals in das Gerät hineinblasen – Feuchtigkeit beeinträchtigt die Funktion. Trocken aufbewahren.':
+    'Never blow into the device – moisture impairs its function. Store it dry.',
+'Langsam und gleichmäßig einatmen statt kräftig ruckartig: Ziel ist ein langer, gleichmäßiger Atemzug.':
+    'Breathe in slowly and steadily rather than in a hard jerk: the goal is one long, even breath.',
+'Steigern Sie erst, wenn das Ziel sicher gelingt: zuerst nur der erste Ball, dann zwei, dann alle drei Bälle.':
+    'Only increase once you reliably reach the goal: first just the first ball, then two, then all three.',
+'Wie oft am Tag und wie viele Wiederholungen, legt am besten Ihre Ärztin, Ihr Arzt oder Ihre Physiotherapie fest. Bei Schwindel kurz pausieren.':
+    'How often per day and how many repetitions is best decided by your doctor or physiotherapist. Pause briefly if you feel dizzy.',
+'normal ausatmen (nicht ins Gerät), dann Mundstück fest mit den Lippen umschließen':
+    'breathe out normally (not into the device), then seal your lips firmly around the mouthpiece',
+'langsam und gleichmäßig durch das Mundstück einatmen – die Bälle steigen':
+    'breathe in slowly and steadily through the mouthpiece – the balls rise',
+'weiter einatmen und die Bälle oben halten': 'keep breathing in and hold the balls up',
+'Mundstück absetzen und langsam ausatmen': 'remove the mouthpiece and breathe out slowly',
+'ausruhen und normal atmen': 'rest and breathe normally',
+'Wiederholungen': 'Repetitions',
+'Atemtrainer': 'Breathing trainer',
+'Aufrecht sitzen, das Gerät senkrecht vor sich halten.': 'Sit upright and hold the device vertically in front of you.',
+'1. Aufrecht sitzen und das Gerät senkrecht vor sich halten.': '1. Sit upright and hold the device vertically in front of you.',
+'2. Normal ausatmen – dabei nicht in das Gerät blasen.': '2. Breathe out normally – do not blow into the device.',
+'3. Das Mundstück fest mit den Lippen umschließen.': '3. Seal your lips firmly around the mouthpiece.',
+'4. Langsam und gleichmäßig einatmen: Der erste Ball steigt, die anderen bleiben unten (Anfangsziel).':
+    '4. Breathe in slowly and steadily: the first ball rises, the others stay down (starting goal).',
+'5. Weiter einatmen und den Ball möglichst 3 Sekunden oder länger oben halten.':
+    '5. Keep breathing in and hold the ball up for 3 seconds or longer if you can.',
+'6. Mundstück absetzen, langsam ausatmen und kurz ausruhen. Später steigern: zwei, dann drei Bälle.':
+    '6. Remove the mouthpiece, breathe out slowly and rest briefly. Increase later: two, then three balls.',
+'Ziel: %n Ball/Bälle oben halten': ['Goal: keep %n ball up', 'Goal: keep %n balls up'],
+'Atemtrainer: erreichte Bälle': 'Breathing trainer: balls reached',
+'Atemtrainer: Haltezeit (s)': 'Breathing trainer: hold time (s)',
+'Anleitung – %1': 'Instructions – %1',
+'%n Ball/Bälle': ['%n ball', '%n balls'],
+'%1 s': '%1 s',
+'%n Wiederholung(en)': ['%n repetition', '%n repetitions'],
+'Ziel: %n Ball/Bälle': ['Goal: %n ball', 'Goal: %n balls'],
+'Anleitung …': 'Instructions …',
+'Bebilderte Anleitung anzeigen': 'Show illustrated instructions',
+'Bebilderte Anleitung': 'Illustrated instructions',
+'Ziel:': 'Goal:',
+'1 Ball (600 ml/s)': '1 ball (600 ml/s)',
+'2 Bälle (900 ml/s)': '2 balls (900 ml/s)',
+'3 Bälle (1200 ml/s)': '3 balls (1200 ml/s)',
+'Wie viele Bälle Sie anheben und oben halten möchten. Erst steigern, wenn das Ziel sicher gelingt.':
+    'How many balls you want to lift and hold up. Only increase once you reliably reach the goal.',
+'Dauer der Übung: etwa %1': 'Duration of the exercise: about %1',
+'Wiederholung %1 von %2 · vergangen %3': 'Repetition %1 of %2 · elapsed %3',
+'Ergebnis mit dem Atemtrainer': 'Result with the breathing trainer',
+' Ball': ' ball',
+' Bälle': ' balls',
+'Meist erreicht:': 'Mostly reached:',
+'Längste Haltezeit:': 'Longest hold:',
+'Wiederholungen:': 'Repetitions:',
+'Atemzyklen bzw. Wiederholungen:': 'Breathing cycles or repetitions:',
+' s gehalten': ' s held',
+'Atemtrainer:': 'Breathing trainer:',
 }
 
 # Abweichende Übersetzungen je Kontext (gleicher deutscher Text, andere Bedeutung)
 EN_CONTEXT = {
     ('SessionDialog', 'Beenden'): 'Stop',
+}
+
+# Deutsche Mehrzahlformen (Einzahl, Mehrzahl) für die Quellsprache
+DE_NUMERUS = {
+    '%n Titel': ['%n Titel', '%n Titel'],
+    'Ziel: %n Ball/Bälle oben halten': ['Ziel: %n Ball oben halten', 'Ziel: %n Bälle oben halten'],
+    '%n Ball/Bälle': ['%n Ball', '%n Bälle'],
+    '%n Übungseinheit(en) endgültig löschen?': ['%n Übungseinheit endgültig löschen?', '%n Übungseinheiten endgültig löschen?'],
+    '%n Wiederholung(en)': ['%n Wiederholung', '%n Wiederholungen'],
+    'Ziel: %n Ball/Bälle': ['Ziel: %n Ball', 'Ziel: %n Bälle'],
+    '<b>Heute:</b> %n Übung(en)': ['<b>Heute:</b> %n Übung', '<b>Heute:</b> %n Übungen'],
 }

@@ -25,6 +25,7 @@ QColor moduleColor(const QString &id)
     if (id == QLatin1String("diaphragm")) return QColor(0xD4, 0x9A, 0x1C);
     if (id == QLatin1String("nasal_calm")) return QColor(0x5D, 0x6D, 0x7E);
     if (id == QLatin1String("acbt")) return QColor(0x8D, 0x5B, 0x3A);
+    if (id == QLatin1String("triball")) return QColor(0xD8, 0x4F, 0x9A);
     // weitere Module: aus der Kennung abgeleitet
     const uint h = qHash(id) % 360;
     return QColor::fromHsv(int(h), 140, 190);
@@ -155,6 +156,13 @@ void paint(QPainter &p, const QRectF &rect, const ChartSpec &spec, bool screen)
                                                                  [](const SessionRecord &s) { return s.pfAfter; }, QColor(0xE0, 0x62, 0x0D)));
     addPanel(spec.showPulse, ChartTr::tr("Puls (/min)"), collect([](const SessionRecord &s) { return s.pulseBefore; },
                                                         [](const SessionRecord &s) { return s.pulseAfter; }, QColor(0xC0, 0x39, 0x2B)));
+    {   // Atemtrainer: erreichte Bälle und Haltezeit je Übung (eigene Bereiche)
+        const auto none = [](const SessionRecord &) { return kNoValue; };
+        QList<Series> balls = collect(none, [](const SessionRecord &r) { return r.deviceBalls; }, QColor(0x2E, 0x86, 0xAB));
+        QList<Series> hold = collect(none, [](const SessionRecord &r) { return r.deviceHoldSec; }, QColor(0x8E, 0x5B, 0xC7));
+        addPanel(spec.showDevice, ChartTr::tr("Atemtrainer: erreichte Bälle"), balls);
+        addPanel(spec.showDevice, ChartTr::tr("Atemtrainer: Haltezeit (s)"), hold);
+    }
     if (panels.isEmpty()) {
         p.setPen(text);
         p.drawText(rect, Qt::AlignCenter, ChartTr::tr("Keine Daten im gewählten Zeitraum."));
@@ -267,6 +275,23 @@ void paint(QPainter &p, const QRectF &rect, const ChartSpec &spec, bool screen)
 }
 
 } // namespace ChartRenderer
+
+void ChartWidget::setSpec(const ChartSpec &s)
+{
+    m_spec = s;
+    bool spo2 = false, pf = false, pulse = false, balls = false, hold = false;
+    for (const SessionRecord &r : s.sessions) {
+        spo2 |= r.spo2Before >= 0 || r.spo2After >= 0;
+        pf |= r.pfBefore >= 0 || r.pfAfter >= 0;
+        pulse |= r.pulseBefore >= 0 || r.pulseAfter >= 0;
+        balls |= r.deviceBalls >= 0;
+        hold |= r.deviceHoldSec >= 0;
+    }
+    m_panels = int(s.showMinutes) + int(s.showSpo2 && spo2) + int(s.showPeakFlow && pf) + int(s.showPulse && pulse)
+               + int(s.showDevice && balls) + int(s.showDevice && hold);
+    updateGeometry();
+    update();
+}
 
 ChartWidget::ChartWidget(QWidget *parent) : QWidget(parent)
 {

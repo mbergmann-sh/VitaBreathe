@@ -4,6 +4,7 @@
 #include "breathengine.h"
 #include "breathview.h"
 #include "database.h"
+#include "guidewidget.h"
 #include "icons.h"
 #include "measuredialog.h"
 #include "playlistwidget.h"
@@ -172,22 +173,57 @@ QWidget *SessionDialog::buildPrepPage()
     tl->addWidget(m_tips);
     connect(m_showTips, &QCheckBox::toggled, m_tips, &QLabel::setVisible);
     lay->addWidget(tipsFrame);
-    if (!m_module->posture.isEmpty()) {
+    if (!m_module->emergencyNote.isEmpty()) lay->addWidget(emergencyLabel(m_module->emergencyNote));
+    if (!m_module->guide.isEmpty()) {
+        auto *gbox = new QGroupBox(tr("Bebilderte Anleitung"));
+        auto *gl = new QVBoxLayout(gbox);
+        auto *show = new QCheckBox(tr("anzeigen"));
+        show->setChecked(true);
+        gl->addWidget(show);
+        auto *guide = new GuideWidget(m_module->guide, 160);
+        gl->addWidget(guide);
+        connect(show, &QCheckBox::toggled, guide, &QWidget::setVisible);
+        lay->addWidget(gbox);
+    } else if (!m_module->posture.isEmpty()) {
+        auto *row = new QHBoxLayout;
+        if (!m_module->postureImage.isEmpty()) {
+            auto *img = new QLabel;
+            img->setPixmap(Icons::illustration(m_module->postureImage, QSize(150, 112)));
+            row->addWidget(img);
+        }
         auto *posture = new QLabel(tr("<b>Haltung:</b> %1").arg(m_module->posture.toHtmlEscaped()));
         posture->setWordWrap(true);
-        lay->addWidget(posture);
+        row->addWidget(posture, 1);
+        lay->addLayout(row);
     }
-    if (!m_module->emergencyNote.isEmpty()) lay->addWidget(emergencyLabel(m_module->emergencyNote));
 
     // Dauer und Phasen
     auto *timing = new QGroupBox(tr("Dauer und Atemrhythmus"));
     auto *tg = new QGridLayout(timing);
-    tg->addWidget(new QLabel(tr("Gesamtdauer:")), 0, 0);
+    auto *totalLabel = new QLabel(tr("Gesamtdauer:"));
+    tg->addWidget(totalLabel, 0, 0);
     m_total = new QSpinBox;
     m_total->setRange(1, 60);
     m_total->setSuffix(tr(" min"));
     tg->addWidget(m_total, 0, 1);
-    m_total->setMaximum(m_module->maxTotalSec / 60);
+    m_total->setMaximum(qMax(1, m_module->maxTotalSec / 60));
+    if (m_module->singleRound) {          // Übung = festgelegte Zahl von Wiederholungen
+        totalLabel->hide();
+        m_total->hide();
+    }
+    if (m_module->deviceTraining) {
+        auto *tl = new QLabel(tr("Ziel:"));
+        tg->addWidget(tl, 0, 0);
+        m_target = new QComboBox;
+        m_target->addItem(tr("1 Ball (600 ml/s)"), 1);
+        m_target->addItem(tr("2 Bälle (900 ml/s)"), 2);
+        m_target->addItem(tr("3 Bälle (1200 ml/s)"), 3);
+        m_target->setToolTip(tr("Wie viele Bälle Sie anheben und oben halten möchten. Erst steigern, wenn das Ziel sicher gelingt."));
+        tg->addWidget(m_target, 0, 1);
+        auto *guideBtn = new QPushButton(Icons::get(QStringLiteral("info")), tr("Anleitung …"));
+        connect(guideBtn, &QPushButton::clicked, this, [this] { GuideDialog(*m_module, this).exec(); });
+        tg->addWidget(guideBtn, 0, 2, Qt::AlignRight);
+    }
     int row = 1;
     const QList<SegmentDef> segs = m_module->effectiveSegments();
     m_phaseSpins.resize(m_module->phases.size());
@@ -240,7 +276,8 @@ QWidget *SessionDialog::buildPrepPage()
                           .arg(m_module->defaultPattern()).arg(m_module->defaultTotalSec / 60));
     connect(reset, &QPushButton::clicked, this, [this] {
         const ModuleSettings d = ModuleSettings::defaults(*m_module);
-        m_total->setValue(d.totalSec / 60);
+        m_total->setValue(qMax(1, d.totalSec / 60));
+        if (m_target) m_target->setCurrentIndex(0);
         for (int i = 0; i < m_phaseSpins.size(); ++i) m_phaseSpins[i]->setValue(d.phaseSec.value(i));
         for (int i = 0; i < m_repeatSpins.size(); ++i)
             if (m_repeatSpins[i]) m_repeatSpins[i]->setValue(d.repeats.value(i, 1));
@@ -259,27 +296,37 @@ QWidget *SessionDialog::buildPrepPage()
     ev->addWidget(m_event, 1);
     lay->addLayout(ev);
 
-    // Signalton
-    auto *sig = new QGroupBox(tr("Signal beim Phasenwechsel"));
+    // Signaltöne
+    auto *sig = new QGroupBox(tr("Signaltöne"));
     auto *sg = new QGridLayout(sig);
-    m_signal = new QCheckBox(tr("Signalton – so können Sie die Augen schließen"));
+    m_signal = new QCheckBox(tr("Signalton (Beep) beim Phasenwechsel – so können Sie die Augen schließen"));
     sg->addWidget(m_signal, 0, 0, 1, 3);
     m_distinct = new QCheckBox(tr("unterschiedliche Töne für Ein-, Ausatmen und Halten"));
     sg->addWidget(m_distinct, 1, 0, 1, 3);
-    sg->addWidget(new QLabel(tr("Lautstärke:")), 2, 0);
+    m_gong = new QCheckBox(tr("Gong am Ende der Übung"));
+    sg->addWidget(m_gong, 2, 0, 1, 3);
+    sg->addWidget(new QLabel(tr("Lautstärke:")), 3, 0);
     m_signalVol = volumeSlider(70);
-    sg->addWidget(m_signalVol, 2, 1);
+    sg->addWidget(m_signalVol, 3, 1);
     auto *test = new QPushButton(Icons::get(QStringLiteral("volume")), tr("Probe"));
     connect(test, &QPushButton::clicked, this, [this] {
         Tones::play(m_distinct->isChecked() ? Tones::Kind::Inhale : Tones::Kind::Phase, m_signalVol->value());
     });
-    sg->addWidget(test, 2, 2);
+    sg->addWidget(test, 3, 2);
+    auto *sigHint = new QLabel(tr("Während der Übung schalten Sie die Töne mit der Schaltfläche „Töne“ oder der Taste M ab."));
+    sigHint->setWordWrap(true);
+    sigHint->setEnabled(false);
+    sg->addWidget(sigHint, 4, 0, 1, 3);
     m_vibrate = new QCheckBox(tr("Vibrationsimpuls (Android-Geräte)"));
     m_vibrate->setVisible(Tones::vibrationAvailable());
-    sg->addWidget(m_vibrate, 3, 0, 1, 3);
+    sg->addWidget(m_vibrate, 5, 0, 1, 3);
     sg->setColumnStretch(1, 1);
-    connect(m_signal, &QCheckBox::toggled, m_distinct, &QWidget::setEnabled);
-    connect(m_signal, &QCheckBox::toggled, m_signalVol, &QWidget::setEnabled);
+    auto syncSignal = [this] {
+        m_distinct->setEnabled(m_signal->isChecked());
+        m_signalVol->setEnabled(m_signal->isChecked() || m_gong->isChecked());
+    };
+    connect(m_signal, &QCheckBox::toggled, this, syncSignal);
+    connect(m_gong, &QCheckBox::toggled, this, syncSignal);
     lay->addWidget(sig);
 
     // Hintergrundmusik
@@ -331,10 +378,11 @@ void SessionDialog::loadSettings(const ModuleSettings &s)
         if (m_repeatSpins[i]) m_repeatSpins[i]->setValue(s.repeats.value(i, 1));
     m_event->setCurrentText(s.eventName);
     m_signal->setChecked(s.signal);
+    m_gong->setChecked(s.doneGong);
     m_distinct->setChecked(s.distinctTones);
     m_distinct->setEnabled(s.signal);
     m_signalVol->setValue(s.signalVolume);
-    m_signalVol->setEnabled(s.signal);
+    m_signalVol->setEnabled(s.signal || s.doneGong);
     m_vibrate->setChecked(s.vibrate);
     m_musicBox->setChecked(s.musicEnabled && MusicPlayer::available());
     m_musicFile->setFile(s.musicFile);
@@ -345,6 +393,7 @@ void SessionDialog::loadSettings(const ModuleSettings &s)
     m_askPf->setChecked(s.askPeakFlow);
     m_askPulse->setChecked(s.askPulse);
     m_askFeeling->setChecked(s.askFeeling);
+    if (m_target) m_target->setCurrentIndex(qMax(0, m_target->findData(s.deviceTarget)));
     m_showTips->setChecked(s.showTips);
     m_tips->setVisible(s.showTips);
     updateCycleInfo();
@@ -359,6 +408,7 @@ ModuleSettings SessionDialog::currentSettings() const
         if (m_repeatSpins.at(i)) s.repeats[i] = m_repeatSpins.at(i)->value();
     s.eventName = m_event->currentText().trimmed();
     s.signal = m_signal->isChecked();
+    s.doneGong = m_gong->isChecked();
     s.distinctTones = m_distinct->isChecked();
     s.signalVolume = m_signalVol->value();
     s.vibrate = m_vibrate->isChecked();
@@ -371,6 +421,8 @@ ModuleSettings SessionDialog::currentSettings() const
     s.askPulse = m_askPulse->isChecked();
     s.askFeeling = m_askFeeling->isChecked();
     s.showTips = m_showTips->isChecked();
+    if (m_target) s.deviceTarget = m_target->currentData().toInt();
+    if (m_module->singleRound) s.totalSec = 10;   // endet nach der einen Runde mit allen Wiederholungen
     return s;
 }
 
@@ -388,6 +440,10 @@ void SessionDialog::updateCycleInfo()
         return;
     }
     const int rounds = qCeil(m_total->value() * 60 / round);
+    if (m_module->singleRound) {
+        m_cycleInfo->setText(tr("Dauer der Übung: etwa %1").arg(formatDuration(int(round + 0.5))));
+        return;
+    }
     if (m_module->hasSegments()) {
         m_cycleInfo->setText(tr("Eine Runde: %1 (ohne Abhusten) · etwa %2 Runden").arg(formatDuration(int(round + 0.5))).arg(rounds));
         return;
@@ -476,10 +532,18 @@ QWidget *SessionDialog::buildRunPage()
 
     if (!m_module->emergencyNote.isEmpty()) lay->addWidget(emergencyLabel(m_module->emergencyNote));
     if (!m_module->posture.isEmpty()) {
+        auto *row = new QHBoxLayout;
+        row->addStretch();
+        if (m_module->quickHelp && !m_module->postureImage.isEmpty()) {
+            auto *img = new QLabel;
+            img->setPixmap(Icons::illustration(m_module->postureImage, QSize(120, 90)));
+            row->addWidget(img);
+        }
         auto *posture = new QLabel(tr("<b>Haltung:</b> %1").arg(m_module->posture.toHtmlEscaped()));
         posture->setWordWrap(true);
-        posture->setAlignment(Qt::AlignCenter);
-        lay->addWidget(posture);
+        row->addWidget(posture);
+        row->addStretch();
+        lay->addLayout(row);
     }
     m_view = new BreathView;
     m_view->setEngine(m_engine);
@@ -504,6 +568,12 @@ QWidget *SessionDialog::buildRunPage()
     bar->addWidget(m_pauseBtn);
     bar->addWidget(m_stopBtn);
     bar->addStretch();
+    m_soundBtn = new QPushButton(Icons::get(QStringLiteral("volume")), tr("Töne"));
+    m_soundBtn->setCheckable(true);
+    m_soundBtn->setToolTip(tr("Signaltöne (Beeps) und Gong ein/aus (M)"));
+    bar->addWidget(m_soundBtn);
+    bar->addSpacing(12);
+    connect(m_soundBtn, &QPushButton::toggled, this, &SessionDialog::setSoundOn);
     auto *mv = m_runMusicIcon = new QLabel;
     mv->setPixmap(Icons::get(QStringLiteral("music")).pixmap(18, 18));
     mv->setToolTip(tr("Lautstärke der Hintergrundmusik"));
@@ -545,7 +615,7 @@ void SessionDialog::startExercise()
     m_rec.userId = m_userId;
     m_rec.moduleId = m_module->id;
     m_rec.eventName = m_settings.eventName;
-    m_rec.plannedSec = m_settings.totalSec;
+    m_rec.plannedSec = m_module->singleRound ? int(m_settings.roundSec(*m_module) + 0.5) : m_settings.totalSec;
     m_rec.pattern = m_settings.pattern();
 
     if (m_settings.trainingMode) {
@@ -561,9 +631,15 @@ void SessionDialog::beginRun()
 {
     m_engine->setup(m_settings.round(*m_module), m_settings.totalSec, m_module->quickHelp ? 1 : 3);
     m_view->setModule(m_module, m_settings.phaseSec);
+    m_view->setDeviceTarget(m_settings.deviceTarget);
     m_runMusicVol->setValue(m_settings.musicVolume);
     m_runMusicVol->setVisible(m_settings.musicEnabled);
     m_runMusicIcon->setVisible(m_settings.musicEnabled);
+    {
+        QSignalBlocker b(m_soundBtn);
+        m_soundBtn->setChecked(m_settings.signal || m_settings.doneGong);
+        m_soundBtn->setIcon(Icons::get(m_soundBtn->isChecked() ? QStringLiteral("volume") : QStringLiteral("mute")));
+    }
     m_rec.started = QDateTime::currentDateTime();
     m_stack->setCurrentIndex(Run);
     m_pauseBtn->setText(tr("Pause"));
@@ -598,6 +674,13 @@ void SessionDialog::updateRunInfo()
     }
     const int el = int(m_engine->elapsed());
     const int rem = int(qCeil(m_engine->remaining()));
+    if (m_module->singleRound) {
+        const int perRep = qMax(1, int(m_engine->steps().size()) / qMax(1, m_settings.repeats.value(0, 1)));
+        const int total = qMax(1, m_settings.repeats.value(0, 1));
+        const int rep = st == BreathEngine::State::Finished ? total : qMin(total, m_engine->phaseIndex() / perRep + 1);
+        m_runInfo->setText(tr("Wiederholung %1 von %2 · vergangen %3").arg(rep).arg(total).arg(formatDuration(el)));
+        return;
+    }
     m_runInfo->setText((m_module->hasSegments() ? tr("Runde %1 · vergangen %2 · noch %3") : tr("Zyklus %1 · vergangen %2 · noch %3"))
                            .arg(m_engine->cycles() + (st == BreathEngine::State::Finished ? 0 : 1))
                            .arg(formatDuration(el), formatDuration(rem)));
@@ -618,6 +701,18 @@ void SessionDialog::togglePause()
     }
 }
 
+void SessionDialog::setSoundOn(bool on)
+{
+    m_settings.signal = on;
+    m_settings.doneGong = on;
+    m_soundBtn->setIcon(Icons::get(on ? QStringLiteral("volume") : QStringLiteral("mute")));
+    // auch für das nächste Mal merken und in der Vorbereitung anzeigen
+    m_signal->setChecked(on);
+    m_gong->setChecked(on);
+    m_settings.save(m_userId, *m_module);
+    m_view->setFocus();
+}
+
 void SessionDialog::toggleFullScreen()
 {
     if (isFullScreen()) showNormal();
@@ -628,10 +723,15 @@ void SessionDialog::onFinished(bool completed)
 {
     m_rec.actualSec = int(m_engine->elapsed() + 0.5);
     m_rec.cycles = m_engine->cycles();
+    if (m_module->singleRound) {           // erledigte Wiederholungen
+        const int total = qMax(1, m_settings.repeats.value(0, 1));
+        const int perRep = qMax(1, int(m_engine->steps().size()) / total);
+        m_rec.cycles = completed ? total : m_engine->phaseIndex() / perRep;
+    }
     m_rec.completed = completed;
     m_nextBtn->setVisible(false);
     m_music->fadeTo(0, completed ? 5000 : 1500, true);
-    if (completed && m_settings.signal) Tones::play(Tones::Kind::Done, m_settings.signalVolume);
+    if (completed && m_settings.doneGong) Tones::play(Tones::Kind::Done, m_settings.signalVolume);
     m_pauseBtn->setEnabled(false);
     m_stopBtn->setEnabled(false);
     QTimer::singleShot(completed ? 2500 : 300, this, [this] {
@@ -658,6 +758,23 @@ QWidget *SessionDialog::buildSummaryPage()
     m_summary->setWordWrap(true);
     m_summary->setTextFormat(Qt::RichText);
     lay->addWidget(m_summary);
+    if (m_module->deviceTraining) {
+        auto *res = new QGroupBox(tr("Ergebnis mit dem Atemtrainer"));
+        auto *rf = new QFormLayout(res);
+        m_devBalls = new QSpinBox;
+        m_devBalls->setRange(-1, 3);
+        m_devBalls->setSpecialValueText(QStringLiteral("–"));
+        m_devBalls->setSuffix(tr(" Bälle"));
+        connect(m_devBalls, QOverload<int>::of(&QSpinBox::valueChanged), m_devBalls,
+                [sb = m_devBalls](int v) { sb->setSuffix(v == 1 ? tr(" Ball") : tr(" Bälle")); });
+        rf->addRow(tr("Meist erreicht:"), m_devBalls);
+        m_devHold = new QSpinBox;
+        m_devHold->setRange(-1, 60);
+        m_devHold->setSpecialValueText(QStringLiteral("–"));
+        m_devHold->setSuffix(tr(" s"));
+        rf->addRow(tr("Längste Haltezeit:"), m_devHold);
+        lay->addWidget(res);
+    }
     lay->addWidget(new QLabel(tr("Notiz:")));
     m_note = new QPlainTextEdit;
     m_note->setPlaceholderText(tr("Wie ging es Ihnen bei der Übung?"));
@@ -672,6 +789,10 @@ QWidget *SessionDialog::buildSummaryPage()
     auto *again = bb->addButton(tr("Noch einmal"), QDialogButtonBox::ResetRole);
     connect(save, &QPushButton::clicked, this, [this] {
         m_rec.note = m_note->toPlainText().trimmed();
+        if (m_devBalls) {
+            m_rec.deviceBalls = m_devBalls->value() >= 0 ? m_devBalls->value() : kNoValue;
+            m_rec.deviceHoldSec = m_devHold->value() >= 0 ? m_devHold->value() : kNoValue;
+        }
         QString err;
         if (!Database::instance().saveSession(m_rec, &err)) {
             QMessageBox::warning(this, windowTitle(), tr("Speichern fehlgeschlagen: %1").arg(err));
@@ -704,7 +825,7 @@ void SessionDialog::showSummary()
     if (!m_rec.eventName.isEmpty()) row(tr("Anlass:"), m_rec.eventName);
     row(tr("Muster:"), m_rec.pattern + tr(" Sekunden"));
     row(tr("Dauer:"), tr("%1 von geplant %2").arg(formatDuration(m_rec.actualSec), formatDuration(m_rec.plannedSec)));
-    row(tr("Atemzyklen:"), QString::number(m_rec.cycles));
+    row(m_module->singleRound ? tr("Wiederholungen:") : tr("Atemzyklen:"), QString::number(m_rec.cycles));
     row(tr("Status:"), m_rec.completed ? tr("vollständig") : tr("vorzeitig beendet"));
     html += QStringLiteral("</table>");
     if (m_rec.hasMeasurements() || m_rec.feelingBefore >= 0 || m_rec.feelingAfter >= 0) {
@@ -722,6 +843,10 @@ void SessionDialog::showSummary()
         html += QStringLiteral("</table>");
     }
     m_summary->setText(html);
+    if (m_devBalls && m_devBalls->value() < 0) {
+        m_devBalls->setValue(m_settings.deviceTarget);   // Vorschlag: das Ziel
+        m_devHold->setValue(qRound(m_settings.phaseSec.value(2, 3)));
+    }
     m_stack->setCurrentIndex(Summary);
 }
 
@@ -736,6 +861,7 @@ void SessionDialog::keyPressEvent(QKeyEvent *e)
             return;
         }
         if (e->key() == Qt::Key_F11) { toggleFullScreen(); return; }
+        if (e->key() == Qt::Key_M) { m_soundBtn->toggle(); return; }
         if (e->key() == Qt::Key_Escape) {
             if (isFullScreen()) { showNormal(); return; }
             m_engine->stop();
