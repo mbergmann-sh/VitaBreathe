@@ -1,0 +1,15 @@
+.qm/
+.qmake.stash
+build*/
+*.pro.user*
+Makefile*
+*.o
+moc_*
+qrc_*
+*.sqlite
+*.keys
+__pycache__/
+tests/*/build/
+installer/qtifw/data/
+installer/qtifw/packages_*/
+installer/Output/

@@ -1,0 +1,54 @@
+<!DOCTYPE RCC>
+<RCC version="1.0">
+    <qresource prefix="/icons">
+        <file alias="vitabreathe.png">icons/app/vitabreathe.png</file>
+        <file alias="vitabreathe.svg">icons/app/vitabreathe.svg</file>
+        <file alias="ui/acbt.svg">icons/ui/acbt.svg</file>
+        <file alias="ui/add.svg">icons/ui/add.svg</file>
+        <file alias="ui/alarm.svg">icons/ui/alarm.svg</file>
+        <file alias="ui/bell.svg">icons/ui/bell.svg</file>
+        <file alias="ui/belly.svg">icons/ui/belly.svg</file>
+        <file alias="ui/box.svg">icons/ui/box.svg</file>
+        <file alias="ui/chart.svg">icons/ui/chart.svg</file>
+        <file alias="ui/circle.svg">icons/ui/circle.svg</file>
+        <file alias="ui/database.svg">icons/ui/database.svg</file>
+        <file alias="ui/delete.svg">icons/ui/delete.svg</file>
+        <file alias="ui/edit.svg">icons/ui/edit.svg</file>
+        <file alias="ui/event.svg">icons/ui/event.svg</file>
+        <file alias="ui/fullscreen.svg">icons/ui/fullscreen.svg</file>
+        <file alias="ui/help.svg">icons/ui/help.svg</file>
+        <file alias="ui/history.svg">icons/ui/history.svg</file>
+        <file alias="ui/info.svg">icons/ui/info.svg</file>
+        <file alias="ui/lips.svg">icons/ui/lips.svg</file>
+        <file alias="ui/lock.svg">icons/ui/lock.svg</file>
+        <file alias="ui/lungs.svg">icons/ui/lungs.svg</file>
+        <file alias="ui/measure.svg">icons/ui/measure.svg</file>
+        <file alias="ui/moon.svg">icons/ui/moon.svg</file>
+        <file alias="ui/music.svg">icons/ui/music.svg</file>
+        <file alias="ui/nose.svg">icons/ui/nose.svg</file>
+        <file alias="ui/pause.svg">icons/ui/pause.svg</file>
+        <file alias="ui/pdf.svg">icons/ui/pdf.svg</file>
+        <file alias="ui/play.svg">icons/ui/play.svg</file>
+        <file alias="ui/print.svg">icons/ui/print.svg</file>
+        <file alias="ui/quit.svg">icons/ui/quit.svg</file>
+        <file alias="ui/reset.svg">icons/ui/reset.svg</file>
+        <file alias="ui/settings.svg">icons/ui/settings.svg</file>
+        <file alias="ui/stop.svg">icons/ui/stop.svg</file>
+        <file alias="ui/sync.svg">icons/ui/sync.svg</file>
+        <file alias="ui/theme.svg">icons/ui/theme.svg</file>
+        <file alias="ui/user-add.svg">icons/ui/user-add.svg</file>
+        <file alias="ui/user.svg">icons/ui/user.svg</file>
+        <file alias="ui/users.svg">icons/ui/users.svg</file>
+        <file alias="ui/volume.svg">icons/ui/volume.svg</file>
+        <file alias="ui/wave.svg">icons/ui/wave.svg</file>
+    </qresource>
+    <qresource prefix="/sounds">
+        <file alias="alarm.wav">sounds/alarm.wav</file>
+        <file alias="done.wav">sounds/done.wav</file>
+        <file alias="exhale.wav">sounds/exhale.wav</file>
+        <file alias="hold.wav">sounds/hold.wav</file>
+        <file alias="inhale.wav">sounds/inhale.wav</file>
+        <file alias="phase.wav">sounds/phase.wav</file>
+        <file alias="reminder.wav">sounds/reminder.wav</file>
+    </qresource>
+</RCC>

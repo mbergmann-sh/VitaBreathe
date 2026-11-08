@@ -1,0 +1,41 @@
+VitaBreathe – Lizenz und Haftungshinweis
+========================================
+
+WICHTIG: VitaBreathe ist ein persönliches Übungs-Tagebuch für Atemübungen und
+KEIN Medizinprodukt. Es stellt keine Diagnosen und ersetzt keine ärztliche
+Beratung oder Atemphysiotherapie. Die Verwendung erfolgt auf eigene Gefahr.
+Brechen Sie eine Übung bei Schwindel, Unwohlsein oder Atemnot sofort ab und
+handeln Sie nach Ihrem ärztlichen Notfallplan.
+
+Die Daten werden mit Ihrem Master-Passwort verschlüsselt gespeichert. Ein
+vergessenes Master-Passwort kann niemand wiederherstellen – legen Sie
+regelmäßig Sicherungen an. Bei der Deinstallation bleiben Ihre Datenbank und
+Ihre Einstellungen erhalten.
+
+VitaBreathe ist freie Software unter der MIT-Lizenz (englischer Originaltext):
+
+MIT License
+
+Copyright (c) 2026 Michael Bergmann
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+Verwendete Bibliotheken: Qt (LGPLv3, dynamisch gelinkt), SQLite3 Multiple
+Ciphers (MIT, Ulrich Telle), SQLite (gemeinfrei), bei Qt Multimedia ggf.
+FFmpeg (LGPL, dynamisch gelinkt). Symbole und Signaltöne: eigene Werke (MIT).

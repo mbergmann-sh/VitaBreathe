@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ERZEUGT von qmake aus config_de.xml.in – Änderungen bitte dort vornehmen -->
+<!-- Installationssprache: Translations legt die Sprache des Installers fest (unabhängig von Windows) -->
+<Installer>
+    <Name>VitaBreathe</Name>
+    <Version>0.2.0</Version>
+    <Title>VitaBreathe 0.2.0</Title>
+    <Publisher>Michael Bergmann</Publisher>
+    <ProductUrl>https://github.com/mbergmann-sh</ProductUrl>
+    <StartMenuDir>VitaBreathe</StartMenuDir>
+    <TargetDir>C:/VitaBreathe</TargetDir>
+    <AdminTargetDir>C:/VitaBreathe</AdminTargetDir>
+    <AllowSpaceInPath>true</AllowSpaceInPath>
+    <AllowNonAsciiCharacters>true</AllowNonAsciiCharacters>
+    <RemoveTargetDir>true</RemoveTargetDir>
+    <MaintenanceToolName>VitaBreathe-Wartung</MaintenanceToolName>
+    <InstallerApplicationIcon>vitabreathe</InstallerApplicationIcon>
+    <InstallerWindowIcon>vitabreathe.png</InstallerWindowIcon>
+    <Logo>logo.png</Logo>
+    <Banner>banner.png</Banner>
+    <Watermark>watermark.png</Watermark>
+    <WizardStyle>Modern</WizardStyle>
+    <WizardDefaultWidth>720</WizardDefaultWidth>
+    <WizardDefaultHeight>520</WizardDefaultHeight>
+    <RunProgram>@TargetDir@/VitaBreathe.exe</RunProgram>
+    <RunProgramDescription>VitaBreathe starten</RunProgramDescription>
+    <Translations>
+        <Translation>ifw_de</Translation>
+        <Translation>qt_de</Translation>
+    </Translations>
+    <ControlScript>controlscript.qs</ControlScript>
+</Installer>
+

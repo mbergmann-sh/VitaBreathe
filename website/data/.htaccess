@@ -1,0 +1,9 @@
+# Interne Ablage (Zugangsschlüssel-Hash, Sperrdatei): nie direkt abrufbar
+Options -Indexes
+<IfModule mod_authz_core.c>
+    Require all denied
+</IfModule>
+<IfModule !mod_authz_core.c>
+    Order deny,allow
+    Deny from all
+</IfModule>

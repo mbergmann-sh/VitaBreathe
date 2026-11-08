@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ERZEUGT von qmake aus package.xml.in – Änderungen bitte dort vornehmen -->
+<Package>
+    <DisplayName>VitaBreathe</DisplayName>
+    <Description>Geführte Atemübungen mit Tagebuch, Erinnerungen, Wecker und Einschlaffunktion</Description>
+    <Version>0.2.0</Version>
+    <ReleaseDate>2026-11-08</ReleaseDate>
+    <Default>true</Default>
+    <ForcedInstallation>true</ForcedInstallation>
+    <SortingPriority>100</SortingPriority>
+    <Licenses>
+        <License name="Lizenz und Haftungshinweis" file="license.txt"/>
+    </Licenses>
+    <Script>installscript.qs</Script>
+</Package>
+
