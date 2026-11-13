@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: PolyForm-Noncommercial-1.0.0
 #include "reminderservice.h"
 #include "audio.h"
 #include "breathmodules.h"
@@ -19,7 +19,7 @@
 AlarmRingDialog::AlarmRingDialog(const Alarm &a, const QString &userName, QWidget *parent)
     : QDialog(parent), m_alarm(a)
 {
-    setWindowTitle(tr("Wecker – VitaBreathe"));
+    setWindowTitle(tr("Wecker – ViviaBreathe"));
     setWindowFlags(windowFlags() | Qt::WindowStaysOnTopHint);
     setAttribute(Qt::WA_DeleteOnClose);
     auto *lay = new QVBoxLayout(this);
@@ -197,7 +197,7 @@ void ReminderService::remind(const BreathEvent &e)
     auto *dlg = new QDialog;
     dlg->setObjectName(QStringLiteral("ReminderDialog"));
     dlg->setAttribute(Qt::WA_DeleteOnClose);
-    dlg->setWindowTitle(tr("Erinnerung – VitaBreathe"));
+    dlg->setWindowTitle(tr("Erinnerung – ViviaBreathe"));
     dlg->setWindowFlags(dlg->windowFlags() | Qt::WindowStaysOnTopHint);
     dlg->setWindowIcon(Icons::app());
     auto *lay = new QVBoxLayout(dlg);
@@ -267,7 +267,7 @@ void ReminderService::offerSleep(const SleepPlan &p)
     auto *dlg = new QDialog;
     dlg->setObjectName(QStringLiteral("SleepOfferDialog"));
     dlg->setAttribute(Qt::WA_DeleteOnClose);
-    dlg->setWindowTitle(tr("Einschlafen – VitaBreathe"));
+    dlg->setWindowTitle(tr("Einschlafen – ViviaBreathe"));
     dlg->setWindowFlags(dlg->windowFlags() | Qt::WindowStaysOnTopHint);
     dlg->setWindowIcon(Icons::app());
     auto *lay = new QVBoxLayout(dlg);

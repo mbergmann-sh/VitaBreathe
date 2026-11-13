@@ -1,5 +1,5 @@
-// VitaBreathe – Verlauf drucken (DIN A4) und als PDF speichern
-// SPDX-License-Identifier: MIT
+// ViviaBreathe – Verlauf drucken (DIN A4) und als PDF speichern
+// SPDX-License-Identifier: PolyForm-Noncommercial-1.0.0
 #pragma once
 
 #include "chartwidget.h"

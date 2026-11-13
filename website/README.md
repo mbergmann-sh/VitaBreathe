@@ -1,6 +1,6 @@
-# VitaBreathe – Abgleich-Server
+# ViviaBreathe – Abgleich-Server
 
-Mit diesem Ordner gleicht VitaBreathe seine Datenbank zwischen mehreren Geräten ab (z. B. Desktop
+Mit diesem Ordner gleicht ViviaBreathe seine Datenbank zwischen mehreren Geräten ab (z. B. Desktop
 im Büro und Laptop zu Hause, später Smartphone/Tablet). Aufbau und Sicherheitskonzept stammen
 aus VitaParms (`api/sync.php`, `api/lib.php`).
 
@@ -20,7 +20,7 @@ aus VitaParms (`api/sync.php`, `api/lib.php`).
 ## Voraussetzungen
 
 - Webspace mit **Apache** (`.htaccess` wird ausgewertet) und **PHP ≥ 7.4**
-- **HTTPS** (Let's Encrypt genügt) – VitaBreathe verbindet sich außer mit `localhost` nur über https
+- **HTTPS** (Let's Encrypt genügt) – ViviaBreathe verbindet sich außer mit `localhost` nur über https
 - keine Datenbank, keine weiteren PHP-Module
 
 ## Installation
@@ -34,13 +34,13 @@ aus VitaParms (`api/sync.php`, `api/lib.php`).
    sync/.htaccess  sync/index.html
    ```
 3. `data/` und `sync/` beschreibbar machen (Rechte `755`, bei manchen Anbietern `775`).
-4. **Erstes Gerät:** VitaBreathe → *Extras → Einstellungen → Abgleich*: *Abgleich einschalten*,
+4. **Erstes Gerät:** ViviaBreathe → *Extras → Einstellungen → Abgleich*: *Abgleich einschalten*,
    Adresse eintragen, **Erzeugen** (Zugangsschlüssel), **Verbindung testen**, **Jetzt abgleichen**.
    Den Zugangsschlüssel sicher notieren.
 5. **Weitere Geräte:** Beim ersten Start im Anmeldefenster **Vom Server laden …** wählen,
    Adresse und Zugangsschlüssel eingeben, danach mit dem **gemeinsamen Master-Passwort** anmelden.
 
-Danach gleicht VitaBreathe automatisch ab: beim Start, etwa eine Minute nach Änderungen und beim
+Danach gleicht ViviaBreathe automatisch ab: beim Start, etwa eine Minute nach Änderungen und beim
 Beenden – von Hand über *Datei → Datenbank abgleichen* (`Strg+Umschalt+A`).
 
 ## Wichtig
@@ -59,6 +59,7 @@ Beenden – von Hand über *Datei → Datenbank abgleichen* (`Strg+Umschalt+A`).
 | `GET api/sync.php?get=db` | verschlüsselte Datenbank |
 | `POST api/sync.php` (`base`, `schema`, Datei `db`) | `200 {rev}`, `409` veraltet, `426` ältere Programmversion |
 
-Alle Aufrufe brauchen den Kopf `X-VitaBreathe-Key`. Lokal testen:
-`php -S 127.0.0.1:8099 -t website` und in VitaBreathe `http://127.0.0.1:8099/` eintragen
+Alle Aufrufe brauchen den Kopf `X-ViviaBreathe-Key` (der Kopf `X-VitaBreathe-Key` der Versionen
+bis 0.4.0 wird weiterhin angenommen). Lokal testen:
+`php -S 127.0.0.1:8099 -t website` und in ViviaBreathe `http://127.0.0.1:8099/` eintragen
 (siehe auch `tests/synctest`).

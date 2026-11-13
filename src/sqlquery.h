@@ -1,9 +1,9 @@
-// VitaBreathe – schlanke Qt-Hülle um die SQLite-C-API (SQLite3 Multiple Ciphers)
+// ViviaBreathe – schlanke Qt-Hülle um die SQLite-C-API (SQLite3 Multiple Ciphers)
 //
 // Bewusst an QSqlQuery angelehnt (prepare/addBindValue/exec/next/value), damit
-// die Datenzugriffe lesbar bleiben. VitaBreathe verwendet nicht den QSQLITE-Treiber
+// die Datenzugriffe lesbar bleiben. ViviaBreathe verwendet nicht den QSQLITE-Treiber
 // von Qt, weil dieser keine Verschlüsselung unterstützt.
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: PolyForm-Noncommercial-1.0.0
 #pragma once
 
 #include <QHash>

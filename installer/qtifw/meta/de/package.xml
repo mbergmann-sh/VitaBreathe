@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- ERZEUGT von qmake aus package.xml.in – Änderungen bitte dort vornehmen -->
 <Package>
-    <DisplayName>VitaBreathe</DisplayName>
+    <DisplayName>ViviaBreathe</DisplayName>
     <Description>Geführte Atemübungen mit Tagebuch, Erinnerungen, Wecker und Einschlaffunktion</Description>
-    <Version>0.4.0</Version>
-    <ReleaseDate>2026-11-08</ReleaseDate>
+    <Version>0.5.0</Version>
+    <ReleaseDate>2026-11-13</ReleaseDate>
     <Default>true</Default>
     <ForcedInstallation>true</ForcedInstallation>
     <SortingPriority>100</SortingPriority>

@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: PolyForm-Noncommercial-1.0.0
 #include "logindialog.h"
 #include "database.h"
 #include "dbsync.h"
@@ -41,15 +41,15 @@ QString LoginDialog::passwordProblem(const QString &pw)
 
 LoginDialog::LoginDialog(const QString &dbPath, QWidget *parent) : QDialog(parent), m_path(dbPath)
 {
-    setWindowTitle(tr("VitaBreathe"));
+    setWindowTitle(tr("ViviaBreathe"));
     setWindowIcon(Icons::app());
     auto *lay = new QVBoxLayout(this);
 
     auto *head = new QHBoxLayout;
     auto *logo = new QLabel;
-    logo->setPixmap(QIcon(QStringLiteral(":/icons/vitabreathe.png")).pixmap(72, 72));
+    logo->setPixmap(QIcon(QStringLiteral(":/icons/viviabreathe.png")).pixmap(72, 72));
     head->addWidget(logo, 0, Qt::AlignTop);
-    auto *title = new QLabel(tr("<p style='font-size:x-large'><b>VitaBreathe</b></p>"
+    auto *title = new QLabel(tr("<p style='font-size:x-large'><b>ViviaBreathe</b></p>"
                                 "<p>Geführte Atemübungen mit Tagebuch – Version %1</p>").arg(vbVersion()));
     head->addWidget(title, 1);
     auto *lang = new QComboBox;
@@ -60,7 +60,7 @@ LoginDialog::LoginDialog(const QString &dbPath, QWidget *parent) : QDialog(paren
     head->addWidget(lang, 0, Qt::AlignTop);
     connect(lang, qOverload<int>(&QComboBox::currentIndexChanged), this, [lang] {
         I18n::setLanguage(lang->currentData().toString());
-        I18n::restartApplication();        // VitaBreathe in der neuen Sprache neu starten
+        I18n::restartApplication();        // ViviaBreathe in der neuen Sprache neu starten
     });
     lay->addLayout(head);
 
@@ -124,7 +124,7 @@ LoginDialog::LoginDialog(const QString &dbPath, QWidget *parent) : QDialog(paren
     m_pathLabel->setTextInteractionFlags(Qt::TextSelectableByMouse);
     lay->addWidget(m_pathLabel);
 
-    auto *notice = new QLabel(tr("VitaBreathe ist ein persönliches Übungs-Tagebuch und <b>kein Medizinprodukt</b>."));
+    auto *notice = new QLabel(tr("ViviaBreathe ist ein persönliches Übungs-Tagebuch und <b>kein Medizinprodukt</b>."));
     notice->setWordWrap(true);
     lay->addWidget(notice);
 
@@ -193,7 +193,7 @@ void LoginDialog::tryAccept()
 void LoginDialog::chooseDatabase()
 {
     QFileDialog dlg(this, tr("Datenbank öffnen oder neu anlegen"), QFileInfo(m_path).absolutePath(),
-                    tr("VitaBreathe-Datenbank (*.sqlite *.vbdb);;Alle Dateien (*)"));
+                    tr("ViviaBreathe-Datenbank (*.sqlite *.vbdb);;Alle Dateien (*)"));
     dlg.setAcceptMode(QFileDialog::AcceptSave);
     dlg.setOption(QFileDialog::DontConfirmOverwrite);
     dlg.setDefaultSuffix(QStringLiteral("sqlite"));
@@ -210,7 +210,7 @@ void LoginDialog::downloadFromServer()
     d.setWindowTitle(tr("Datenbank vom Server laden"));
     auto *lay = new QVBoxLayout(&d);
     auto *info = new QLabel(tr("Geben Sie die Adresse Ihres Abgleich-Servers und den Zugangsschlüssel ein "
-                               "(in VitaBreathe auf dem anderen Gerät unter Extras → Einstellungen → Abgleich). "
+                               "(in ViviaBreathe auf dem anderen Gerät unter Extras → Einstellungen → Abgleich). "
                                "Danach melden Sie sich mit dem gemeinsamen Master-Passwort an."));
     info->setWordWrap(true);
     lay->addWidget(info);

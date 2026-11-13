@@ -3,6 +3,6 @@ QT += core gui widgets network svg
 qtHaveModule(multimedia): QT += multimedia
 CONFIG += c++17 console
 TARGET = enginetest
-DEFINES += VITABREATHE_VERSION=\\\"test\\\"
+DEFINES += VIVIABREATHE_VERSION=\\\"test\\\"
 include(../../core.pri)
 SOURCES += main.cpp

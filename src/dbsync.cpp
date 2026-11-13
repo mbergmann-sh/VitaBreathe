@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: PolyForm-Noncommercial-1.0.0
 #include "dbsync.h"
 #include "database.h"
 #include "sqlquery.h"
@@ -77,8 +77,8 @@ bool mergeFrom(const QString &remotePath, const QString &password, Stats *stats,
     }
     if (const int remote = Database::schemaVersionOf(d, QStringLiteral("r")); remote > Database::kSchemaVersion) {
         detach();
-        return failed(SyncTr::tr("Ein anderes Gerät verwendet eine neuere VitaBreathe-Version (Datenbankformat %1, hier %2). "
-                         "Bitte VitaBreathe auf diesem Gerät aktualisieren.").arg(remote).arg(Database::kSchemaVersion));
+        return failed(SyncTr::tr("Ein anderes Gerät verwendet eine neuere ViviaBreathe-Version (Datenbankformat %1, hier %2). "
+                         "Bitte ViviaBreathe auf diesem Gerät aktualisieren.").arg(remote).arg(Database::kSchemaVersion));
     }
     if (!d.transaction()) { detach(); return failed(d.lastError().text()); }
     SqlQuery q(d);
@@ -193,9 +193,9 @@ QNetworkRequest request(const QString &baseUrl, const QString &key, const QUrlQu
     QUrl u(DbSync::normalizedUrl(baseUrl) + QStringLiteral("api/sync.php"));
     u.setQuery(query);
     QNetworkRequest r(u);
-    r.setRawHeader("X-VitaBreathe-Key", key.toUtf8());
+    r.setRawHeader("X-ViviaBreathe-Key", key.toUtf8());
     r.setRawHeader("Accept-Language", QLocale().bcp47Name().toUtf8());
-    r.setHeader(QNetworkRequest::UserAgentHeader, QStringLiteral("VitaBreathe/%1").arg(vbVersion()));
+    r.setHeader(QNetworkRequest::UserAgentHeader, QStringLiteral("ViviaBreathe/%1").arg(vbVersion()));
     r.setTransferTimeout(120000);
     return r;
 }

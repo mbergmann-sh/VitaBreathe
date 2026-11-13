@@ -1,10 +1,10 @@
-// VitaBreathe – Verlaufsgrafik der Übungseinheiten (eigene QPainter-Zeichnung wie in VitaParms,
+// ViviaBreathe – Verlaufsgrafik der Übungseinheiten (eigene QPainter-Zeichnung wie in VitaParms,
 // ohne Qt Charts – das Modul gibt es in der Open-Source-Variante nur unter GPLv3)
 //
 // Bereiche: Übungsminuten je Tag (Balken, nach Übung gefärbt), SpO2, Peak Flow und Puls jeweils
 // vor (offene Marker, gestrichelt) und nach der Übung (gefüllte Marker). Dieselbe Zeichenroutine
 // dient Bildschirm, Druck und PDF.
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: PolyForm-Noncommercial-1.0.0
 #pragma once
 
 #include "datatypes.h"

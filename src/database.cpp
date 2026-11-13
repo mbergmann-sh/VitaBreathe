@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: PolyForm-Noncommercial-1.0.0
 #include "database.h"
 #include "qtcompat.h"
 
@@ -14,8 +14,8 @@
 
 QString vbVersion()
 {
-#ifdef VITABREATHE_VERSION
-    return QStringLiteral(VITABREATHE_VERSION);
+#ifdef VIVIABREATHE_VERSION
+    return QStringLiteral(VIVIABREATHE_VERSION);
 #else
     return QStringLiteral("0.0");
 #endif
@@ -63,7 +63,7 @@ QString Database::defaultPath()
 {
     const QString dir = QStandardPaths::writableLocation(QStandardPaths::AppDataLocation);
     QDir().mkpath(dir);
-    return dir + QStringLiteral("/vitabreathe.sqlite");
+    return dir + QStringLiteral("/viviabreathe.sqlite");
 }
 
 bool Database::fileHasContent(const QString &path)
@@ -88,7 +88,7 @@ Database::OpenResult Database::open(const QString &path, const QString &password
     rc = sqlite3_exec(h, "SELECT count(*) FROM sqlite_master", nullptr, nullptr, nullptr);
     if (rc == SQLITE_NOTADB) {
         sqlite3_close(h);
-        if (error) *error = tr("Falsches Master-Passwort oder keine VitaBreathe-Datenbank.");
+        if (error) *error = tr("Falsches Master-Passwort oder keine ViviaBreathe-Datenbank.");
         return OpenResult::WrongPassword;
     }
     if (rc != SQLITE_OK) {
@@ -209,8 +209,8 @@ bool Database::createSchema(QString *error)
     SqlDb handle = db();
     const int current = schemaVersionOf(handle, QStringLiteral("main"));
     if (current > kSchemaVersion) {
-        if (error) *error = tr("Die Datenbank stammt von einer neueren VitaBreathe-Version (Format %1). "
-                               "Bitte VitaBreathe aktualisieren.").arg(current);
+        if (error) *error = tr("Die Datenbank stammt von einer neueren ViviaBreathe-Version (Format %1). "
+                               "Bitte ViviaBreathe aktualisieren.").arg(current);
         return false;
     }
     // Schema 3: Ergebnisse des Atemtrainers (vor den Abgleich-Triggern, die alle Spalten beobachten)

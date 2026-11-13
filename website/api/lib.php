@@ -1,6 +1,6 @@
 <?php
-// VitaBreathe – Hilfsfunktionen der Abgleich-Schnittstelle (sync.php), übernommen aus VitaBreathe
-// SPDX-License-Identifier: MIT
+// ViviaBreathe – Hilfsfunktionen der Abgleich-Schnittstelle (sync.php), übernommen aus VitaParms
+// SPDX-License-Identifier: PolyForm-Noncommercial-1.0.0
 
 declare(strict_types=1);
 
@@ -46,7 +46,8 @@ function storedHash(): ?string
 
 function givenKey(): string
 {
-    return trim((string) ($_SERVER['HTTP_X_VITABREATHE_KEY'] ?? ''));
+    // X-VitaBreathe-Key: Kopf der Versionen bis 0.4.0 (vor der Umbenennung), weiterhin angenommen
+    return trim((string) ($_SERVER['HTTP_X_VIVIABREATHE_KEY'] ?? $_SERVER['HTTP_X_VITABREATHE_KEY'] ?? ''));
 }
 
 function ensureDataDir(): void

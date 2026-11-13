@@ -1,6 +1,6 @@
-// VitaBreathe – Hauptfenster (Aufbau wie VitaParms: Menü, Werkzeugleiste mit Benutzerauswahl,
+// ViviaBreathe – Hauptfenster (Aufbau wie VitaParms: Menü, Werkzeugleiste mit Benutzerauswahl,
 // Kopfbereich zur gewählten Person, Reiter, Statuszeile)
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: PolyForm-Noncommercial-1.0.0
 #pragma once
 
 #include <QMainWindow>
@@ -20,6 +20,7 @@ class MainWindow : public QMainWindow
 {
     Q_OBJECT
 public:
+    void showAbout();
     explicit MainWindow(QWidget *parent = nullptr);
     qint64 currentUser() const { return m_userId; }
     void selectUser(qint64 id);
@@ -42,7 +43,6 @@ private:
     void refreshExerciseCards();
     void refreshIcons();
     void setupTray();
-    void showAbout();
     void backup();
     void openSettings(int page);
     void runSync(bool interactive);

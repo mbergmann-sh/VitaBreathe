@@ -1,4 +1,4 @@
-// VitaBreathe – Positionen und Größen der Fenster merken und wiederherstellen
+// ViviaBreathe – Positionen und Größen der Fenster merken und wiederherstellen
 //
 // App-weiter Ereignisfilter: Beim ersten Anzeigen eines Dialogs wird seine zuletzt gespeicherte
 // Geometrie (Position, Größe, ggf. maximiert) wiederhergestellt, beim Schließen bzw. Ausblenden
@@ -8,7 +8,7 @@
 // werden schlichte QDialogs nicht gemerkt). Dialoge von Qt selbst (Datei-, Meldungs- …) bleiben
 // unberührt, ausgenommen die Druckvorschau. Das Hauptfenster speichert sich selbst (MainWindow).
 // Danach passt ScreenFit das Fenster an den aktuellen Bildschirm an (z. B. anderer Monitor).
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: PolyForm-Noncommercial-1.0.0
 #pragma once
 
 class QApplication;

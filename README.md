@@ -1,13 +1,15 @@
-# VitaBreathe
+# ViviaBreathe
 
 Geführte Atemübungen mit audiovisueller Unterstützung und Übungs-Tagebuch – **Deutsch und Englisch**.
-Qt 6 (bzw. Qt 5.15 für ältere macOS-Versionen) / C++17 / qmake – MIT-Lizenz.
+Qt 6 (bzw. Qt 5.15 für ältere macOS-Versionen) / C++17 / qmake –
+[PolyForm Noncommercial License 1.0.0](https://polyformproject.org/licenses/noncommercial/1.0.0).
 Technisch und optisch an [VitaParms](https://github.com/mbergmann-sh/VitaParms) angelehnt.
+Bis Version 0.4.0 hieß das Programm **VitaBreathe** (siehe [Umstieg von VitaBreathe](#umstieg-von-vitabreathe)).
 
-> **Kein Medizinprodukt.** VitaBreathe ist ein persönliches Tagebuch für Atemübungen. Es stellt
+> **Kein Medizinprodukt.** ViviaBreathe ist ein persönliches Tagebuch für Atemübungen. Es stellt
 > keine Diagnosen und ersetzt keine ärztliche Beratung. Die Verwendung erfolgt auf eigene Gefahr.
 
-![VitaBreathe – Hauptfenster mit den Übungsmodulen (Demo-Daten)](docs/images/hauptfenster.png)
+![ViviaBreathe – Hauptfenster mit den Übungsmodulen (Demo-Daten)](docs/images/hauptfenster.png)
 
 | Box-Atmen | 4-7-8-Atmung | Verlauf & Grafik |
 |---|---|---|
@@ -16,8 +18,8 @@ Technisch und optisch an [VitaParms](https://github.com/mbergmann-sh/VitaParms) 
 | ![Atemnot-Hilfe](docs/images/atemnot-hilfe.png) | ![ACBT](docs/images/acbt.png) | ![English](docs/images/mainwindow-en.png) |
 | **Wecker & Einschlafen** | **Einschlaf-Eintrag planen** | **Atemtrainer TriBall** |
 | ![Wecker und Einschlafen](docs/images/wecker-einschlafen.png) | ![Einschlaf-Eintrag](docs/images/einschlaf-eintrag.png) | ![TriBall](docs/images/triball.png) |
-| **TriBall – bebilderte Anleitung** | **Haltungsbilder (Bauchatmung)** | |
-| ![TriBall-Anleitung](docs/images/triball-anleitung.png) | ![Haltung](docs/images/haltung-bauchatmung.png) | |
+| **TriBall – bebilderte Anleitung** | **Haltungsbilder (Bauchatmung)** | **Über ViviaBreathe** |
+| ![TriBall-Anleitung](docs/images/triball-anleitung.png) | ![Haltung](docs/images/haltung-bauchatmung.png) | ![Über](docs/images/ueber.png) |
 
 ## Funktionen
 
@@ -38,12 +40,12 @@ Technisch und optisch an [VitaParms](https://github.com/mbergmann-sh/VitaParms) 
 | **Benutzer** | beliebig viele, Auswahl über die Werkzeugleiste; Einstellungen, Tagebuch, Erinnerungen und Wecker je Benutzer |
 | **Datenschutz** | Datenbank **vollständig verschlüsselt** mit dem **Master-Passwort** (SQLite3 Multiple Ciphers, ChaCha20-Poly1305), Abfrage beim Start, änderbar; Sicherungen ebenso verschlüsselt |
 | **Abgleich** | über die eigene Website (`website/`, PHP) zwischen beliebig vielen Geräten – zeilenweises Zusammenführen wie in VitaParms; weiteres Gerät einrichten per *Vom Server laden …* |
-| **Sprachen** | **Deutsch** (Standard) und **Englisch**, umschaltbar im Anmeldefenster und unter *Extras → Einstellungen → Darstellung*; vollständige Übersetzung (`translations/vitabreathe_en.ts`), Datums- und Zahlenformate passend |
-| **Windows-Installer** | Qt Installer Framework, Zielordner `C:\VitaBreathe`, je ein Setup für **deutsche** und **englische** Installation; setzt die Programmsprache passend, Update über vorhandene Installation – siehe `installer/README.md` |
+| **Sprachen** | **Deutsch** (Standard) und **Englisch**, umschaltbar im Anmeldefenster und unter *Extras → Einstellungen → Darstellung*; vollständige Übersetzung (`translations/viviabreathe_en.ts`), Datums- und Zahlenformate passend |
+| **Windows-Installer** | Qt Installer Framework, Zielordner `C:\ViviaBreathe`, je ein Setup für **deutsche** und **englische** Installation; setzt die Programmsprache passend, Update über vorhandene Installation – siehe `installer/README.md` |
 | **Themes** | alle Qt-Styles der Plattform sowie „Dark“ und „Visual Studio Code Dark“ (aus VitaParms/AmigaED), sofort umschaltbar; Symbole passen sich hell/dunkel an |
 | **Fenster** | Position und Größe des Hauptfensters (inkl. Werkzeugleiste) und aller Dialoge – Übung, Einstellungen, Druckvorschau, Erinnerungen … – sowie die Aufteilung Tabelle/Grafik werden gemerkt und beim nächsten Öffnen wiederhergestellt (je Gerät; passt sich an, wenn ein Bildschirm fehlt) |
 | **Kleine Bildschirme** | Inhalte in rollbaren Flächen; Dialoge werden automatisch an den Bildschirm angepasst (`screenfit` aus VitaParms) |
-| **Demo** | `VitaBreathe --demo`: zwei erfundene Personen mit 60 Tagen Tagebuch in einer eigenen, temporären Datenbank (Master-Passwort `demo`) |
+| **Demo** | `ViviaBreathe --demo`: zwei erfundene Personen mit 60 Tagen Tagebuch in einer eigenen, temporären Datenbank (Master-Passwort `demo`) |
 
 ![Dark-Theme](docs/images/hauptfenster-dark.png)
 
@@ -53,7 +55,7 @@ Benötigt Qt 6.4+ (oder Qt 5.15) mit den Modulen **widgets, printsupport, networ
 sowie `lrelease` (Qt Linguist Tools) – die englische Übersetzung wird beim Bauen erzeugt und eingebettet.
 
 ```sh
-qmake6 VitaBreathe.pro      # bzw. qmake (Qt 5.15)
+qmake6 ViviaBreathe.pro      # bzw. qmake (Qt 5.15)
 make -j8                    # Windows/MSVC: nmake oder jom
 ```
 
@@ -63,15 +65,15 @@ trotzdem gebaut – dann ohne Musik und mit Systempiepton statt Signaltönen.
 
 Unter **Windows** erzeugt ein Release-Build über `installer/windows_deploy.pri` automatisch die
 bereitgestellten DLLs und – wenn das Qt Installer Framework installiert ist – die Installer
-`installer/Output/VitaBreathe-<Version>-Setup-de.exe` und `…-Setup-en.exe` (Details: `installer/README.md`).
+`installer/Output/ViviaBreathe-<Version>-Setup-de.exe` und `…-Setup-en.exe` (Details: `installer/README.md`).
 macOS/Linux: `macdeployqt` bzw. `linuxdeployqt`. Das Programmsymbol liegt als `.ico`, `.icns`,
 `.png` und `.svg` in `resources/icons/app/`.
 
 ### Übersetzung pflegen
 
 ```sh
-lupdate VitaBreathe.pro          # neue/geänderte Texte erfassen
-lupdate -pluralonly -no-obsolete src -ts translations/vitabreathe_de.ts   # deutsche Mehrzahlformen (%n)
+lupdate ViviaBreathe.pro          # neue/geänderte Texte erfassen
+lupdate -pluralonly -no-obsolete src -ts translations/viviabreathe_de.ts   # deutsche Mehrzahlformen (%n)
 python3 tools/fill_ts.py         # Englisch und deutsche Mehrzahlformen aus tools/translations_en.py eintragen
 ```
 Alternativ in Qt Linguist bearbeiten. Quellsprache ist Deutsch.
@@ -84,10 +86,10 @@ VitaParms) und `src/audio.cpp` (QMediaPlayer/QAudioOutput) aus. Getestet mit Qt 
 ## Aufbau
 
 ```
-VitaBreathe.pro      Projektdatei (Desktop)        core.pri  Kern (auch für die spätere mobile App)
+ViviaBreathe.pro      Projektdatei (Desktop)        core.pri  Kern (auch für die spätere mobile App)
 version.pri          Versionsnummer                desktop.pri  Qt-Widgets-Oberfläche
 3rdparty/            sqlite3mc, android_openssl (aus VitaParms)
-resources/           Symbole (SVG → zur Laufzeit eingefärbt), Signaltöne (WAV), vitabreathe.qrc
+resources/           Symbole (SVG → zur Laufzeit eingefärbt), Signaltöne (WAV), viviabreathe.qrc
 src/
   database.*         verschlüsselte Datenbank, Schema, Abgleich-Trigger
   breathmodules.*    Übungsmodule (Phasen, Abschnitte, Haltung, Hinweise) und Einstellungen  ← neue Module hier
@@ -101,14 +103,14 @@ src/
   eventspage.*, alarmpage.*, reminderservice.*, schedule.*   Erinnerungen, Wecker, Einschlafen
   dbsync.*           Abgleich über website/api/sync.php
   themes.*, screenfit.*, sqlquery.*, qtcompat.h   aus VitaParms übernommen
-translations/        vitabreathe_en.ts (Englisch), vitabreathe_de.ts (nur deutsche Mehrzahlformen)
+translations/        viviabreathe_en.ts (Englisch), viviabreathe_de.ts (nur deutsche Mehrzahlformen)
 resources/illustrations/  Anleitungs- und Haltungsbilder (SVG, erzeugt mit tools/make_illustrations.py)
 installer/           Windows-Installer (Qt Installer Framework, DE/EN), siehe installer/README.md
 website/             Abgleich-Server (PHP), siehe website/README.md
 tests/synctest/      Test des Abgleichs gegen einen lokalen PHP-Server
 tests/enginetest/    Test des Taktgebers (Abschnitte, Warten, Pause, Ende nach der Runde)
 tests/windowtest/    Test: Fensterlage merken und wiederherstellen
-tests/migrationtest/ Test: Datenbank aus Version 0.2 (Format 1) auf das aktuelle Format bringen
+tests/migrationtest/ Test: Datenbank aus Version 0.2 (Format 1) umstellen, Übernahme aus VitaBreathe
 tools/               Symbole (make_icons.py), Signaltöne (make_sounds.py), Übersetzung (fill_ts.py)
 ```
 
@@ -139,12 +141,13 @@ Zeitzählung, Ende erst nach der Runde, abgeschaltete Phasen, Pause), `tests/win
 und Wiederherstellen der Fensterlage. Der Abgleich-Test prüft auch geplante Einschlaf-Einträge.
 `tests/migrationtest` baut eine Datenbank auf das Format von Version 0.2 zurück und prüft, dass
 beim Öffnen nichts verloren geht: Tagebuch unverändert, neue Spalten und Tabellen ergänzt, die
-alte Einschlaf-Einstellung wird zum ersten Einschlaf-Eintrag, erneutes Öffnen ist idempotent.
+alte Einschlaf-Einstellung wird zum ersten Einschlaf-Eintrag, erneutes Öffnen ist idempotent;
+außerdem die Übernahme von Einstellungen und Datenbank aus VitaBreathe.
 
 Datenbankformat: 1 = Version 0.2, 2 = 0.3 (Einschlaf-Einträge), 3 = 0.4 (Atemtrainer-Ergebnisse).
 Die Umstellung geschieht automatisch beim ersten Öffnen; vorher empfiehlt sich *Datei → Datenbank sichern …*.
 
-`VitaBreathe --demo --screenshots <ordner>` erzeugt die Bildschirmfotos dieser Seite.
+`ViviaBreathe --demo --screenshots <ordner>` erzeugt die Bildschirmfotos dieser Seite.
 
 ## Noch offen (nach Aufforderung)
 
@@ -152,7 +155,31 @@ Die Umstellung geschieht automatisch beim ersten Öffnen; vorher empfiehlt sich 
 - Mobile App (Android/iOS) – Kern (`core.pri`), android_openssl und die Vibrations-Schnittstelle sind vorbereitet
 - Test des Windows-Installers auf einem echten Windows-Rechner
 
+## Umstieg von VitaBreathe
+
+Beim ersten Start übernimmt ViviaBreathe einmalig alles von der Vorgängerversion VitaBreathe
+(`src/legacyimport.*`):
+
+- **Einstellungen** (Sprache, Fensterlage, Abgleich, Datenbankpfad …) – nur, was unter dem neuen
+  Namen noch fehlt; die vom Installer gesetzte Sprache bleibt also erhalten.
+- **Datenbank**: Lag sie am alten Standardort, wird sie in den neuen Datenordner kopiert
+  (`…/mbergmann-sh/ViviaBreathe/viviabreathe.sqlite`). Lag sie an einem selbst gewählten Ort,
+  öffnet ViviaBreathe sie weiter von dort. Das Master-Passwort bleibt dasselbe.
+- Die alten Dateien und Einstellungen bleiben unverändert als Sicherung liegen.
+- Der Windows-Installer findet eine VitaBreathe-Installation in `C:\VitaBreathe` und bietet an,
+  sie zu entfernen; ViviaBreathe selbst wird nach `C:\ViviaBreathe` installiert.
+- Abgleich: Der Server (`website/`) nimmt den neuen Kopf `X-ViviaBreathe-Key` und weiterhin den
+  alten `X-VitaBreathe-Key` an – Geräte können also nacheinander umgestellt werden. Den Server
+  zuerst aktualisieren.
+
 ## Lizenz
 
-MIT – © 2026 Michael Bergmann. SQLite3 Multiple Ciphers: MIT (Ulrich Telle).
-android_openssl: Apache-2.0 (KDAB). Symbole und Signaltöne sind eigene Werke (MIT).
+© 2026 Michael Bergmann. Quelloffen unter der **PolyForm Noncommercial License 1.0.0**
+(`LICENSE`, <https://polyformproject.org/licenses/noncommercial/1.0.0>): kostenlos für jede
+**nicht-kommerzielle** Nutzung – privat sowie durch gemeinnützige Organisationen, Schulen und
+Behörden –, einschließlich Verändern und Weitergeben. **Kommerzielle Nutzung und Verkauf** nur
+mit Erlaubnis des Autors. Symbole, Signaltöne und Illustrationen sind eigene Werke unter derselben
+Lizenz.
+
+Fremdbestandteile behalten ihre eigenen Lizenzen: SQLite3 Multiple Ciphers (MIT, Ulrich Telle),
+SQLite (gemeinfrei), android_openssl (Apache-2.0, KDAB), Qt (LGPLv3, dynamisch gelinkt).

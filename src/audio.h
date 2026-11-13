@@ -1,8 +1,8 @@
-// VitaBreathe – Audio: Signaltöne und MP3-Wiedergabe (Qt Multimedia, Qt 5.15 und Qt 6)
+// ViviaBreathe – Audio: Signaltöne und MP3-Wiedergabe (Qt Multimedia, Qt 5.15 und Qt 6)
 //
-// Ohne Qt Multimedia übersetzt VitaBreathe trotzdem: Signaltöne werden dann zum
+// Ohne Qt Multimedia übersetzt ViviaBreathe trotzdem: Signaltöne werden dann zum
 // Systempiepton, Musik entfällt (MusicPlayer::available() == false).
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: PolyForm-Noncommercial-1.0.0
 #pragma once
 
 #include <QObject>

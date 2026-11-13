@@ -1,4 +1,4 @@
-// VitaBreathe – Datenhaltung (SQLite3 Multiple Ciphers, mit dem Master-Passwort verschlüsselt)
+// ViviaBreathe – Datenhaltung (SQLite3 Multiple Ciphers, mit dem Master-Passwort verschlüsselt)
 //
 // Die gesamte Datenbank wird mit dem Master-Passwort verschlüsselt (ChaCha20-Poly1305,
 // Schlüsselableitung durch SQLite3 Multiple Ciphers). Ohne das Passwort ist sie unlesbar.
@@ -8,7 +8,7 @@
 // Abgleich zwischen Geräten (siehe dbsync.h): Jede abgeglichene Zeile trägt eine
 // geräteübergreifende Kennung (uid) und den Zeitpunkt der letzten Änderung (sync_at, UTC);
 // Löschungen hinterlassen Löschvermerke (sync_deleted). Gepflegt wird das von Triggern.
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: PolyForm-Noncommercial-1.0.0
 #pragma once
 
 #include "datatypes.h"

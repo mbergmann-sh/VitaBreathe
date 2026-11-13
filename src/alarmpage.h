@@ -1,9 +1,9 @@
-// VitaBreathe – Weckfunktion und Einschlaffunktion
+// ViviaBreathe – Weckfunktion und Einschlaffunktion
 //
 // Beide verwalten beliebig viele gespeicherte Einträge je Benutzer (Wecker bzw. Einschlafen) mit
 // eigener MP3-Wiedergabeliste. Einschlaf-Einträge lassen sich planen (Uhrzeit, Wochentage): Zur
-// Uhrzeit erinnert VitaBreathe daran oder startet sie automatisch (siehe ReminderService).
-// SPDX-License-Identifier: MIT
+// Uhrzeit erinnert ViviaBreathe daran oder startet sie automatisch (siehe ReminderService).
+// SPDX-License-Identifier: PolyForm-Noncommercial-1.0.0
 #pragma once
 
 #include "datatypes.h"

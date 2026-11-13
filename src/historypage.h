@@ -1,5 +1,5 @@
-// VitaBreathe – Verlauf (Tagebuch) und Verlaufsgrafik der Übungseinheiten
-// SPDX-License-Identifier: MIT
+// ViviaBreathe – Verlauf (Tagebuch) und Verlaufsgrafik der Übungseinheiten
+// SPDX-License-Identifier: PolyForm-Noncommercial-1.0.0
 #pragma once
 
 #include "chartwidget.h"

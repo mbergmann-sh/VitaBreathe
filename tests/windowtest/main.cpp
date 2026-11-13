@@ -1,4 +1,5 @@
 // Fenster öffnen, verschieben/vergrößern, schließen – beim nächsten Öffnen dieselbe Lage?
+// SPDX-License-Identifier: PolyForm-Noncommercial-1.0.0
 #include "screenfit.h"
 #include "windowstate.h"
 #include <QApplication>

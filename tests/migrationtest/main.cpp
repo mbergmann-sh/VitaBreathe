@@ -1,9 +1,15 @@
-// Migrationstest: Eine Datenbank im Format 1 (VitaBreathe 0.2 – ohne sleep_plans und ohne
+// Migrationstest: Eine Datenbank im Format 1 (ViviaBreathe 0.2 – ohne sleep_plans und ohne
 // Atemtrainer-Spalten, Einschlaf-Einstellung als Benutzer-JSON "sleep") wird nachgebildet und
 // mit der aktuellen Version geöffnet. Erwartet: Daten bleiben erhalten, neue Tabellen/Spalten
 // sind vorhanden, die Einschlaf-Einstellung wird zum ersten Einschlaf-Eintrag.
+// SPDX-License-Identifier: PolyForm-Noncommercial-1.0.0
 #include "database.h"
 #include "sqlquery.h"
+#include "legacyimport.h"
+#include <QDir>
+#include <QFile>
+#include <QFileInfo>
+#include <QSettings>
 #include <QApplication>
 #include <QJsonArray>
 #include <QJsonObject>
@@ -108,6 +114,51 @@ int main(int argc, char **argv)
     CHECK(db.open(path, "Geheim123!") == Database::OpenResult::Ok, "zweites Öffnen");
     CHECK(db.sleepPlans(uid).size() == 1 && db.sessions(uid).size() == 2, "keine doppelten Einträge");
     db.close();
+
+    // 5) Umbenennung VitaBreathe → ViviaBreathe: Einstellungen und Datenbank übernehmen
+    {
+        const QString org = QStringLiteral("vbtest-legacy");
+        QSettings(org, "Alt").clear();
+        QSettings(org, "Neu").clear();
+        const QString oldDir = tmp.filePath("alt-daten"), newDir = tmp.filePath("neu-daten");
+        QDir().mkpath(oldDir);
+        QFile::copy(path, oldDir + "/vitabreathe.sqlite");
+        {
+            QSettings o(org, "Alt");
+            o.setValue("ui/language", "en");
+            o.setValue("windows/SessionDialog", QByteArray("geo"));
+            o.setValue("sync/url", "https://example.org/");
+            o.setValue("db/path", oldDir + "/vitabreathe.sqlite");
+            QSettings n(org, "Neu");
+            n.setValue("ui/language", "de");   // vom Installer gesetzt
+        }
+        const QString r = LegacyImport::run(org, "Alt", "Neu", oldDir, newDir, "vitabreathe.sqlite", "viviabreathe.sqlite");
+        QSettings n(org, "Neu");
+        CHECK(n.value("ui/language").toString() == "de", "Umbenennung: Sprache des Installers bleibt");
+        CHECK(n.value("sync/url").toString() == "https://example.org/"
+                  && n.value("windows/SessionDialog").toByteArray() == "geo", "Umbenennung: Einstellungen übernommen");
+        CHECK(n.value("db/path").toString() == newDir + "/viviabreathe.sqlite"
+                  && QFileInfo(newDir + "/viviabreathe.sqlite").size() == QFileInfo(oldDir + "/vitabreathe.sqlite").size(),
+              "Umbenennung: Datenbank in den neuen Ordner kopiert");
+        CHECK(QFileInfo::exists(oldDir + "/vitabreathe.sqlite"), "Umbenennung: alte Datenbank bleibt als Sicherung");
+        CHECK(r.contains("Datenbank"), "Umbenennung: Meldung");
+        CHECK(db.open(n.value("db/path").toString(), "Geheim123!") == Database::OpenResult::Ok
+                  && db.sessions(uid).size() == 2, "Umbenennung: übernommene Datenbank öffnet mit allen Einträgen");
+        db.close();
+        n.setValue("sync/url", "https://neu.example.org/");
+        CHECK(LegacyImport::run(org, "Alt", "Neu", oldDir, newDir, "vitabreathe.sqlite", "viviabreathe.sqlite").isEmpty()
+                  && QSettings(org, "Neu").value("sync/url").toString() == "https://neu.example.org/",
+              "Umbenennung: läuft nur einmal");
+
+        // selbst gewählter Datenbankort bleibt
+        QSettings(org, "Alt").clear();
+        QSettings(org, "Neu2").clear();
+        QSettings(org, "Alt").setValue("db/path", path);
+        LegacyImport::run(org, "Alt", "Neu2", oldDir, tmp.filePath("neu2"), "vitabreathe.sqlite", "viviabreathe.sqlite");
+        CHECK(QSettings(org, "Neu2").value("db/path").toString() == path && !QFileInfo::exists(tmp.filePath("neu2/viviabreathe.sqlite")),
+              "Umbenennung: eigener Datenbankort bleibt unverändert");
+        QSettings(org, "Alt").clear(); QSettings(org, "Neu").clear(); QSettings(org, "Neu2").clear();
+    }
 
     std::printf("\n%s (%d Fehler)\n", fails ? "FEHLGESCHLAGEN" : "ALLES OK", fails);
     return fails ? 1 : 0;

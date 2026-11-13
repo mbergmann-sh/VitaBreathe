@@ -1,18 +1,18 @@
 # ---------------------------------------------------------------------------
-#  VitaBreathe – Windows: DLLs bereitstellen und Qt-Installer-Framework-Installer bauen
+#  ViviaBreathe – Windows: DLLs bereitstellen und Qt-Installer-Framework-Installer bauen
 #  (Aufbau wie in VitaParms)
 #
 #  Nach jedem erfolgreichen Windows-Build (Qt Creator oder Konsole):
 #    1. windeployqt kopiert die nötigen Qt-DLLs, Plugins und Übersetzungen neben
-#       VitaBreathe.exe – das Programm startet direkt aus dem Build-Ordner.
+#       ViviaBreathe.exe – das Programm startet direkt aus dem Build-Ordner.
 #  Zusätzlich beim Release-Build:
-#    2. installer/qtifw/data wird neu befüllt: VitaBreathe.exe, alle DLLs und
+#    2. installer/qtifw/data wird neu befüllt: ViviaBreathe.exe, alle DLLs und
 #       windeployqt-Unterordner, LICENSE.txt, README.md
 #    3. Je Sprache ein Paketbaum installer/qtifw/packages_de bzw. packages_en
 #       (gleiche Programmdateien, Beschreibung und Lizenz in der jeweiligen Sprache)
 #    4. Ist das Qt Installer Framework installiert:
-#         installer/Output/VitaBreathe-<Version>-Setup-de.exe   (Installation auf Deutsch)
-#         installer/Output/VitaBreathe-<Version>-Setup-en.exe   (installation in English)
+#         installer/Output/ViviaBreathe-<Version>-Setup-de.exe   (Installation auf Deutsch)
+#         installer/Output/ViviaBreathe-<Version>-Setup-en.exe   (installation in English)
 #       Das Qt Installer Framework legt die Sprache beim Start fest (config.xml → Translations);
 #       eine Umschaltung zur Laufzeit gibt es nicht. Daher je Sprache ein Installer. Beide setzen
 #       die Programmsprache passend und erkennen eine vorhandene Installation der anderen Sprache.
@@ -34,7 +34,7 @@ defineReplace(vbQuote) {
 VB_INST     = $$clean_path($$PWD)
 VB_IFW      = $$VB_INST/qtifw
 VB_DATA     = $$VB_IFW/data
-VB_PKG      = de.mbergmann.vitabreathe
+VB_PKG      = de.mbergmann.viviabreathe
 VB_OUTPUT   = $$VB_INST/Output
 
 VB_WINDEPLOYQT = $$vbQuote($$[QT_INSTALL_BINS]/windeployqt.exe) --verbose 0
@@ -57,7 +57,7 @@ CONFIG(release, debug|release) {
     # 2. Programmdateien für die Installer frisch aufbauen (führendes "-": Fehler ignorieren)
     QMAKE_POST_LINK += $$VB_NL-$$QMAKE_DEL_TREE $$shell_quote($$shell_path($$VB_DATA))
     QMAKE_POST_LINK += $$VB_NL$$VB_WINDEPLOYQT --dir $$vbQuote($$VB_DATA) $$VB_EXE
-    QMAKE_POST_LINK += $$VB_NL$$VB_QINSTALL -exe $$VB_EXE $$vbQuote($$VB_DATA/VitaBreathe.exe)
+    QMAKE_POST_LINK += $$VB_NL$$VB_QINSTALL -exe $$VB_EXE $$vbQuote($$VB_DATA/ViviaBreathe.exe)
     QMAKE_POST_LINK += $$VB_NL$$VB_QINSTALL $$vbQuote($$PWD/../LICENSE) $$vbQuote($$VB_DATA/LICENSE.txt)
     QMAKE_POST_LINK += $$VB_NL$$VB_QINSTALL $$vbQuote($$PWD/../README.md) $$vbQuote($$VB_DATA/README.md)
 
@@ -84,15 +84,15 @@ CONFIG(release, debug|release) {
             for(d, VB_IFW_VERSIONS): exists($$d/bin/binarycreator.exe): VB_BINARYCREATOR = $$d/bin/binarycreator.exe
         }
         !isEmpty(VB_BINARYCREATOR) {
-            message("VitaBreathe: Qt Installer Framework gefunden – $$VB_BINARYCREATOR")
+            message("ViviaBreathe: Qt Installer Framework gefunden – $$VB_BINARYCREATOR")
             QMAKE_POST_LINK += $$VB_NL-$$QMAKE_MKDIR $$shell_quote($$shell_path($$VB_OUTPUT))
             for(lang, $$list(de en)) {
                 QMAKE_POST_LINK += $$VB_NL-$$vbQuote($$VB_BINARYCREATOR) --offline-only --compression 9 \
                     -c $$vbQuote($$VB_IFW/config/config_$${lang}.xml) -p $$vbQuote($$VB_IFW/packages_$$lang) \
-                    $$vbQuote($$VB_OUTPUT/VitaBreathe-$${VERSION}-Setup-$${lang}.exe)
+                    $$vbQuote($$VB_OUTPUT/ViviaBreathe-$${VERSION}-Setup-$${lang}.exe)
             }
         } else {
-            message("VitaBreathe: Qt Installer Framework nicht gefunden – kein Installer (siehe installer/README.md)")
+            message("ViviaBreathe: Qt Installer Framework nicht gefunden – kein Installer (siehe installer/README.md)")
         }
     }
 }

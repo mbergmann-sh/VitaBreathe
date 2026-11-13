@@ -1,5 +1,5 @@
-// VitaBreathe – MP3-Wiedergabeliste bearbeiten (Wecker, Einschlafen) und MP3-Dateiauswahl
-// SPDX-License-Identifier: MIT
+// ViviaBreathe – MP3-Wiedergabeliste bearbeiten (Wecker, Einschlafen) und MP3-Dateiauswahl
+// SPDX-License-Identifier: PolyForm-Noncommercial-1.0.0
 #pragma once
 
 #include <QWidget>

@@ -1,4 +1,4 @@
-// VitaBreathe – Fenster an kleine Bildschirme anpassen (z. B. 1366 × 768)
+// ViviaBreathe – Fenster an kleine Bildschirme anpassen (z. B. 1366 × 768)
 //
 // Für alle Fenster des Programms (app-weiter Ereignisfilter, beim Anzeigen):
 //  * Ist der Inhalt eines Dialogs höher oder breiter als der freie Bildschirmbereich, kommt er in eine
@@ -7,6 +7,7 @@
 //  * Jedes Fenster wird auf den freien Bildschirmbereich begrenzt und so verschoben, dass es ganz
 //    sichtbar ist (auch wenn eine gespeicherte Größe von einem größeren Bildschirm stammt).
 // Dialoge von Qt selbst (Datei-, Druck-, Meldungsdialoge) bleiben unberührt.
+// SPDX-License-Identifier: PolyForm-Noncommercial-1.0.0
 #pragma once
 
 class QWidget;

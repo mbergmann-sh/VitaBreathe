@@ -1,5 +1,6 @@
-# VitaBreathe – englische Übersetzungen (Deutsch → Englisch)
-# Wird von tools/fill_ts.py in translations/vitabreathe_en.ts eingetragen.
+# SPDX-License-Identifier: PolyForm-Noncommercial-1.0.0
+# ViviaBreathe – englische Übersetzungen (Deutsch → Englisch)
+# Wird von tools/fill_ts.py in translations/viviabreathe_en.ts eingetragen.
 # Numerus-Texte (%n) haben eine Liste [Singular, Plural].
 EN = {
 'Wecker bearbeiten': 'Edit alarm',
@@ -31,8 +32,8 @@ EN = {
 'Bearbeiten …': 'Edit …',
 'Löschen': 'Delete',
 'Testen': 'Test',
-'Der Wecker klingelt, solange VitaBreathe läuft (auch minimiert im Infobereich). Bitte verlassen Sie sich nicht allein darauf, wenn Sie einen wichtigen Termin haben.':
-    'The alarm rings as long as VitaBreathe is running (also minimised to the notification area). Please do not rely on it alone when you have an important appointment.',
+'Der Wecker klingelt, solange ViviaBreathe läuft (auch minimiert im Infobereich). Bitte verlassen Sie sich nicht allein darauf, wenn Sie einen wichtigen Termin haben.':
+    'The alarm rings as long as ViviaBreathe is running (also minimised to the notification area). Please do not rely on it alone when you have an important appointment.',
 'Einschlaffunktion': 'Sleep function',
 'Wiedergabedauer:': 'Playing time:',
 'davon leiser werden:': 'fade out during the last:',
@@ -51,7 +52,7 @@ EN = {
 'Bitte zuerst Musik (MP3-Dateien) zur Liste hinzufügen.': 'Please add music (MP3 files) to the list first.',
 'wird ausgeblendet …': 'fading out …',
 'Gute Nacht – Musik endet in %1:%2 min  ·  %3': 'Good night – music ends in %1:%2 min  ·  %3',
-'Wecker – VitaBreathe': 'Alarm – VitaBreathe',
+'Wecker – ViviaBreathe': 'Alarm – ViviaBreathe',
 'Guten Morgen, %1!': 'Good morning, %1!',
 'Schlummern (%1 min)': 'Snooze (%1 min)',
 'Aus': 'Off',
@@ -191,13 +192,13 @@ EN = {
 'Sie können die Augen schließen – ein Signalton kündigt jede neue Phase an.': 'You can close your eyes – a signal tone announces each new phase.',
 'Atmen Sie nie gegen Widerstand. Bei Schwindel, Unwohlsein oder Atemnot brechen Sie die Übung ab.':
     'Never force your breathing. Stop the exercise if you feel dizzy, unwell or short of breath.',
-'VitaBreathe ist ein Übungs-Tagebuch und kein Medizinprodukt; es ersetzt keine ärztliche Beratung.':
-    'VitaBreathe is an exercise diary and not a medical device; it does not replace medical advice.',
+'ViviaBreathe ist ein Übungs-Tagebuch und kein Medizinprodukt; es ersetzt keine ärztliche Beratung.':
+    'ViviaBreathe is an exercise diary and not a medical device; it does not replace medical advice.',
 'Besprechen Sie Atemübungen bei Asthma oder COPD mit Ihrer Ärztin, Ihrem Arzt oder Ihrer Atemphysiotherapie – sie ergänzen die Behandlung, ersetzen aber keine Medikamente.':
     'Discuss breathing exercises for asthma or COPD with your doctor or respiratory physiotherapist – they complement your treatment but do not replace medication.',
 'Brechen Sie ab, wenn Schwindel, Engegefühl oder zunehmende Atemnot auftreten, und handeln Sie nach Ihrem Notfallplan.':
     'Stop if you feel dizzy, tight-chested or increasingly short of breath, and follow your emergency plan.',
-'VitaBreathe ist ein Übungs-Tagebuch und kein Medizinprodukt.': 'VitaBreathe is an exercise diary and not a medical device.',
+'ViviaBreathe ist ein Übungs-Tagebuch und kein Medizinprodukt.': 'ViviaBreathe is an exercise diary and not a medical device.',
 'Bereit': 'Ready',
 'Muster %1': 'Pattern %1',
 "Gleich geht's los …": 'Starting in a moment …',
@@ -217,11 +218,11 @@ EN = {
 'vor der Übung': 'before the exercise',
 'nach der Übung': 'after the exercise',
 'Datei kann nicht geöffnet werden.': 'The file cannot be opened.',
-'Falsches Master-Passwort oder keine VitaBreathe-Datenbank.': 'Wrong master password or not a VitaBreathe database.',
+'Falsches Master-Passwort oder keine ViviaBreathe-Datenbank.': 'Wrong master password or not a ViviaBreathe database.',
 'Zieldatei kann nicht überschrieben werden.': 'The target file cannot be overwritten.',
 'Zieldatei kann nicht angelegt werden.': 'The target file cannot be created.',
-'Die Datenbank stammt von einer neueren VitaBreathe-Version (Format %1). Bitte VitaBreathe aktualisieren.':
-    'The database comes from a newer version of VitaBreathe (format %1). Please update VitaBreathe.',
+'Die Datenbank stammt von einer neueren ViviaBreathe-Version (Format %1). Bitte ViviaBreathe aktualisieren.':
+    'The database comes from a newer version of ViviaBreathe (format %1). Please update ViviaBreathe.',
 'Morgenroutine': 'Morning routine',
 'Konzentration': 'Concentration',
 'Die Datenbank auf dem Server ist mit einem anderen Master-Passwort verschlüsselt. Bitte auf allen Geräten dasselbe Master-Passwort verwenden (Extras → Einstellungen → Master-Passwort).':
@@ -229,8 +230,8 @@ EN = {
 'Die Datenbank des Servers lässt sich nicht öffnen: %1': 'The server database cannot be opened: %1',
 'Die Datenbank auf dem Server hat ein anderes Master-Passwort. Bitte auf allen Geräten dasselbe Master-Passwort verwenden.':
     'The database on the server has a different master password. Please use the same master password on all devices.',
-'Ein anderes Gerät verwendet eine neuere VitaBreathe-Version (Datenbankformat %1, hier %2). Bitte VitaBreathe auf diesem Gerät aktualisieren.':
-    'Another device uses a newer version of VitaBreathe (database format %1, here %2). Please update VitaBreathe on this device.',
+'Ein anderes Gerät verwendet eine neuere ViviaBreathe-Version (Datenbankformat %1, hier %2). Bitte ViviaBreathe auf diesem Gerät aktualisieren.':
+    'Another device uses a newer version of ViviaBreathe (database format %1, here %2). Please update ViviaBreathe on this device.',
 'Auf dem Server fehlt api/sync.php (HTTP 404).': 'api/sync.php is missing on the server (HTTP 404).',
 'Unerwartete Antwort des Servers (HTTP %1).': 'Unexpected response from the server (HTTP %1).',
 'Download fehlgeschlagen (HTTP %1).': 'Download failed (HTTP %1).',
@@ -258,11 +259,11 @@ EN = {
 'Erinnerung aktiv': 'Reminder active',
 'mit Erinnerungston': 'with reminder tone',
 'Notiz:': 'Note:',
-'Zur eingestellten Zeit erinnert VitaBreathe – auch im Hintergrund (Symbol im Infobereich) – und bietet an, die Übung direkt zu starten.':
-    'At the set time, VitaBreathe reminds you – also in the background (icon in the notification area) – and offers to start the exercise right away.',
+'Zur eingestellten Zeit erinnert ViviaBreathe – auch im Hintergrund (Symbol im Infobereich) – und bietet an, die Übung direkt zu starten.':
+    'At the set time, ViviaBreathe reminds you – also in the background (icon in the notification area) – and offers to start the exercise right away.',
 'Bitte einen Namen und mindestens einen Wochentag angeben.': 'Please enter a name and select at least one weekday.',
-'Legen Sie Ereignisse wie „Einschlafübung“ oder „Stressbewältigung“ fest. VitaBreathe erinnert Sie zur gewählten Zeit und startet auf Wunsch gleich die passende Übung.':
-    'Set up events such as “Sleep exercise” or “Stress relief”. VitaBreathe reminds you at the chosen time and starts the matching exercise on request.',
+'Legen Sie Ereignisse wie „Einschlafübung“ oder „Stressbewältigung“ fest. ViviaBreathe erinnert Sie zur gewählten Zeit und startet auf Wunsch gleich die passende Übung.':
+    'Set up events such as “Sleep exercise” or “Stress relief”. ViviaBreathe reminds you at the chosen time and starts the matching exercise on request.',
 'Ereignis': 'Event',
 'Übung': 'Exercise',
 'Uhrzeit': 'Time',
@@ -316,9 +317,9 @@ EN = {
 'Das Master-Passwort muss mindestens 8 Zeichen lang sein.': 'The master password must be at least 8 characters long.',
 'Bitte Buchstaben mit Ziffern oder Sonderzeichen mischen – oder einen langen Satz (ab 14 Zeichen) verwenden.':
     'Please mix letters with digits or special characters – or use a long sentence (14 characters or more).',
-'VitaBreathe': 'VitaBreathe',
-"<p style='font-size:x-large'><b>VitaBreathe</b></p><p>Geführte Atemübungen mit Tagebuch – Version %1</p>":
-    "<p style='font-size:x-large'><b>VitaBreathe</b></p><p>Guided breathing exercises with a diary – version %1</p>",
+'ViviaBreathe': 'ViviaBreathe',
+"<p style='font-size:x-large'><b>ViviaBreathe</b></p><p>Geführte Atemübungen mit Tagebuch – Version %1</p>":
+    "<p style='font-size:x-large'><b>ViviaBreathe</b></p><p>Guided breathing exercises with a diary – version %1</p>",
 'Master-Passwort': 'Master password',
 'Master-Passwort:': 'Master password:',
 'Passwort anzeigen': 'Show password',
@@ -330,7 +331,7 @@ EN = {
 'Mir ist bewusst: Ein vergessenes Master-Passwort kann niemand wiederherstellen – auch nicht der Hersteller.':
     'I understand: nobody can recover a forgotten master password – not even the developer.',
 '✓ Passwort in Ordnung': '✓ Password OK',
-'VitaBreathe ist ein persönliches Übungs-Tagebuch und <b>kein Medizinprodukt</b>.': 'VitaBreathe is a personal exercise diary and <b>not a medical device</b>.',
+'ViviaBreathe ist ein persönliches Übungs-Tagebuch und <b>kein Medizinprodukt</b>.': 'ViviaBreathe is a personal exercise diary and <b>not a medical device</b>.',
 'Öffnen': 'Open',
 'Vom Server laden …': 'Load from server …',
 'Weiteres Gerät einrichten: die Datenbank von Ihrem Abgleich-Server übernehmen': 'Set up another device: take over the database from your sync server',
@@ -342,10 +343,10 @@ EN = {
 'Bitte bestätigen Sie den Hinweis zum Master-Passwort.': 'Please confirm the note about the master password.',
 'Bitte das Master-Passwort eingeben.': 'Please enter the master password.',
 'Datenbank öffnen oder neu anlegen': 'Open or create database',
-'VitaBreathe-Datenbank (*.sqlite *.vbdb);;Alle Dateien (*)': 'VitaBreathe database (*.sqlite *.vbdb);;All files (*)',
+'ViviaBreathe-Datenbank (*.sqlite *.vbdb);;Alle Dateien (*)': 'ViviaBreathe database (*.sqlite *.vbdb);;All files (*)',
 'Datenbank vom Server laden': 'Load database from server',
-'Geben Sie die Adresse Ihres Abgleich-Servers und den Zugangsschlüssel ein (in VitaBreathe auf dem anderen Gerät unter Extras → Einstellungen → Abgleich). Danach melden Sie sich mit dem gemeinsamen Master-Passwort an.':
-    'Enter the address of your sync server and the access key (in VitaBreathe on the other device under Extras → Settings → Synchronisation). Then sign in with the shared master password.',
+'Geben Sie die Adresse Ihres Abgleich-Servers und den Zugangsschlüssel ein (in ViviaBreathe auf dem anderen Gerät unter Extras → Einstellungen → Abgleich). Danach melden Sie sich mit dem gemeinsamen Master-Passwort an.':
+    'Enter the address of your sync server and the access key (in ViviaBreathe on the other device under Extras → Settings → Synchronisation). Then sign in with the shared master password.',
 'Adresse:': 'Address:',
 'Zugangsschlüssel:': 'Access key:',
 'Die vorhandene Datenbank auf diesem Gerät wird ersetzt (eine Kopie bleibt als .bak erhalten). Fortfahren?':
@@ -381,7 +382,7 @@ EN = {
 '&Einstellungen …': '&Settings …',
 '&Theme': '&Theme',
 '&Hilfe': '&Help',
-'Ü&ber VitaBreathe …': '&About VitaBreathe …',
+'Ü&ber ViviaBreathe …': '&About ViviaBreathe …',
 'Über &Qt …': 'About &Qt …',
 'Werkzeugleiste': 'Toolbar',
 ' Benutzer: ': ' User: ',
@@ -402,11 +403,11 @@ EN = {
 'Üben …': 'Practise …',
 'Startet ohne Vorbereitung': 'Starts without preparation',
 'Einstellungen prüfen und Übung starten': 'Check the settings and start the exercise',
-'Weitere Übungsmodule folgen in künftigen Versionen. VitaBreathe ist ein persönliches Übungs-Tagebuch und kein Medizinprodukt – bei Beschwerden fragen Sie bitte Ihre Ärztin oder Ihren Arzt.':
-    'More exercise modules will follow in future versions. VitaBreathe is a personal exercise diary and not a medical device – if you have symptoms, please consult your doctor.',
+'Weitere Übungsmodule folgen in künftigen Versionen. ViviaBreathe ist ein persönliches Übungs-Tagebuch und kein Medizinprodukt – bei Beschwerden fragen Sie bitte Ihre Ärztin oder Ihren Arzt.':
+    'More exercise modules will follow in future versions. ViviaBreathe is a personal exercise diary and not a medical device – if you have symptoms, please consult your doctor.',
 'Bitte zuerst einen Benutzer anlegen.': 'Please create a user first.',
 'Kein Benutzer': 'No user',
-'VitaBreathe – %1': 'VitaBreathe – %1',
+'ViviaBreathe – %1': 'ViviaBreathe – %1',
 'Legen Sie über <i>Benutzer → Neuer Benutzer</i> eine Person an.': 'Create a person via <i>Users → New user</i>.',
 '<b>Heute:</b> %n Übung(en)': ['<b>Today:</b> %n exercise', '<b>Today:</b> %n exercises'],
 ', %1 min': ', %1 min',
@@ -414,24 +415,24 @@ EN = {
 '<b>%1 Tage in Folge</b> geübt': 'practised <b>%1 days in a row</b>',
 '<b>Nächste Erinnerung:</b> %1': '<b>Next reminder:</b> %1',
 "<span style='color:#8e5bc7'><b>Einschlafmusik läuft</b></span>": "<span style='color:#8e5bc7'><b>Sleep music is playing</b></span>",
-'VitaBreathe anzeigen': 'Show VitaBreathe',
+'ViviaBreathe anzeigen': 'Show ViviaBreathe',
 'Beenden': 'Quit',
-'VitaBreathe läuft im Infobereich weiter, damit Erinnerungen und Wecker funktionieren. Beenden über das Symbol oder Datei → Beenden.':
-    'VitaBreathe keeps running in the notification area so that reminders and alarms work. Quit via the icon or File → Quit.',
+'ViviaBreathe läuft im Infobereich weiter, damit Erinnerungen und Wecker funktionieren. Beenden über das Symbol oder Datei → Beenden.':
+    'ViviaBreathe keeps running in the notification area so that reminders and alarms work. Quit via the icon or File → Quit.',
 'Abgleich vor dem Beenden …': 'Synchronising before quitting …',
 'Sprache / Language': 'Language / Sprache',
-'Die Sprache wird nach einem Neustart von VitaBreathe wirksam. Jetzt neu starten?\n\nThe language takes effect after restarting VitaBreathe. Restart now?':
-    'The language takes effect after restarting VitaBreathe. Restart now?\n\nDie Sprache wird nach einem Neustart von VitaBreathe wirksam. Jetzt neu starten?',
+'Die Sprache wird nach einem Neustart von ViviaBreathe wirksam. Jetzt neu starten?\n\nThe language takes effect after restarting ViviaBreathe. Restart now?':
+    'The language takes effect after restarting ViviaBreathe. Restart now?\n\nDie Sprache wird nach einem Neustart von ViviaBreathe wirksam. Jetzt neu starten?',
 'Datenbank sichern': 'Back up database',
-'VitaBreathe-Datenbank (*.sqlite)': 'VitaBreathe database (*.sqlite)',
+'ViviaBreathe-Datenbank (*.sqlite)': 'ViviaBreathe database (*.sqlite)',
 'Sicherung': 'Backup',
 'Die Sicherung wurde gespeichert. Sie ist mit demselben Master-Passwort verschlüsselt.': 'The backup has been saved. It is encrypted with the same master password.',
 'Sicherung fehlgeschlagen: %1': 'Backup failed: %1',
 'Abgleich': 'Synchronisation',
 '%1\n\nJetzt einrichten?': '%1\n\nSet it up now?',
-'Über VitaBreathe': 'About VitaBreathe',
-'<h3>VitaBreathe %1</h3><p>Geführte Atemübungen mit audiovisueller Unterstützung und Übungs-Tagebuch.</p><p><b>Kein Medizinprodukt.</b> VitaBreathe ist ein persönliches Tagebuch. Es stellt keine Diagnosen und ersetzt keine ärztliche Beratung. Die Verwendung erfolgt auf eigene Gefahr.</p><p>© 2026 Michael Bergmann – MIT-Lizenz<br/>Datenbank: SQLite3 Multiple Ciphers (MIT, Ulrich Telle)<br/>Qt %2</p>':
-    '<h3>VitaBreathe %1</h3><p>Guided breathing exercises with audiovisual support and an exercise diary.</p><p><b>Not a medical device.</b> VitaBreathe is a personal diary. It does not make diagnoses and does not replace medical advice. Use at your own risk.</p><p>© 2026 Michael Bergmann – MIT licence<br/>Database: SQLite3 Multiple Ciphers (MIT, Ulrich Telle)<br/>Qt %2</p>',
+'Über ViviaBreathe': 'About ViviaBreathe',
+'<h3>ViviaBreathe %1</h3><p>Geführte Atemübungen mit audiovisueller Unterstützung und Übungs-Tagebuch.</p><p><b>Kein Medizinprodukt.</b> ViviaBreathe ist ein persönliches Tagebuch. Es stellt keine Diagnosen und ersetzt keine ärztliche Beratung. Die Verwendung erfolgt auf eigene Gefahr.</p><p>© 2026 Michael Bergmann<br/>Quelloffen unter der <b>PolyForm Noncommercial License 1.0.0</b>: kostenlos für jede <b>nicht-kommerzielle</b> Nutzung – privat sowie durch gemeinnützige Organisationen, Schulen und Behörden –, einschließlich Verändern und Weitergeben. <b>Kommerzielle Nutzung und Verkauf</b> nur mit Erlaubnis des Autors.<br/><a href="https://polyformproject.org/licenses/noncommercial/1.0.0">polyformproject.org/licenses/noncommercial/1.0.0</a></p><p>Datenbank: SQLite3 Multiple Ciphers (MIT, Ulrich Telle)<br/>Qt %2 (LGPLv3)</p>':
+    '<h3>ViviaBreathe %1</h3><p>Guided breathing exercises with audiovisual support and an exercise diary.</p><p><b>Not a medical device.</b> ViviaBreathe is a personal diary. It does not make diagnoses and does not replace medical advice. Use at your own risk.</p><p>© 2026 Michael Bergmann<br/>Source-available under the <b>PolyForm Noncommercial License 1.0.0</b>: free of charge for any <b>noncommercial</b> use – personal use as well as use by charitable organisations, schools and public authorities –, including changing and redistributing it. <b>Commercial use and sale</b> only with the author\'s permission.<br/><a href="https://polyformproject.org/licenses/noncommercial/1.0.0">polyformproject.org/licenses/noncommercial/1.0.0</a></p><p>Database: SQLite3 Multiple Ciphers (MIT, Ulrich Telle)<br/>Qt %2 (LGPLv3)</p>',
 'Sauerstoffsättigung (Pulsoxymeter)': 'oxygen saturation (pulse oximeter)',
 'bester von drei Blasversuchen': 'best of three blows',
 'z. B. vom Pulsoxymeter': 'e.g. from the pulse oximeter',
@@ -461,20 +462,20 @@ EN = {
 'Arbeitstag': 'Workday',
 'Das Master-Passwort ist falsch.': 'The master password is wrong.',
 'Hinweis': 'Note',
-'<b>VitaBreathe ist kein Medizinprodukt.</b><br/>Es ist ein persönliches Übungs-Tagebuch und ersetzt keine ärztliche Beratung. Brechen Sie eine Übung bei Schwindel, Unwohlsein oder Atemnot sofort ab.':
-    '<b>VitaBreathe is not a medical device.</b><br/>It is a personal exercise diary and does not replace medical advice. Stop an exercise immediately if you feel dizzy, unwell or short of breath.',
+'<b>ViviaBreathe ist kein Medizinprodukt.</b><br/>Es ist ein persönliches Übungs-Tagebuch und ersetzt keine ärztliche Beratung. Brechen Sie eine Übung bei Schwindel, Unwohlsein oder Atemnot sofort ab.':
+    '<b>ViviaBreathe is not a medical device.</b><br/>It is a personal exercise diary and does not replace medical advice. Stop an exercise immediately if you feel dizzy, unwell or short of breath.',
 'Nicht mehr anzeigen': 'Do not show again',
 'Musik (*.mp3 *.MP3 *.m4a *.ogg *.wav *.flac);;Alle Dateien (*)': 'Music (*.mp3 *.MP3 *.m4a *.ogg *.wav *.flac);;All files (*)',
 '%1 %2': '%1 %2',
 'Zeit für: %1': 'Time for: %1',
 '%1 – %2': '%1 – %2',
-'Erinnerung – VitaBreathe': 'Reminder – VitaBreathe',
+'Erinnerung – ViviaBreathe': 'Reminder – ViviaBreathe',
 "<p style='font-size:large'><b>Zeit für: %1</b></p><p>für <b>%2</b> · %3 um %4</p>%5":
     "<p style='font-size:large'><b>Time for: %1</b></p><p>for <b>%2</b> · %3 at %4</p>%5",
 'Jetzt starten': 'Start now',
 'In 10 Minuten erinnern': 'Remind me in 10 minutes',
 'Schließen': 'Close',
-'VitaBreathe – Übungstagebuch': 'VitaBreathe – exercise diary',
+'ViviaBreathe – Übungstagebuch': 'ViviaBreathe – exercise diary',
 '%1 Übungseinheiten, davon %2 vollständig · zusammen %3 Minuten': '%1 sessions, %2 of them complete · %3 minutes in total',
 'Muster': 'Pattern',
 'SpO₂ vor/nach': 'SpO₂ before/after',
@@ -483,8 +484,8 @@ EN = {
 'Befinden vor/nach': 'Well-being before/after',
 '* vorzeitig beendet. SpO₂ in %, Peak Flow in l/min, Puls in Schlägen/min, Befinden 1–10.':
     '* stopped early. SpO₂ in %, peak flow in l/min, pulse in beats/min, well-being 1–10.',
-'Erstellt mit VitaBreathe %1 am %2. VitaBreathe ist ein persönliches Übungs-Tagebuch und kein Medizinprodukt.':
-    'Created with VitaBreathe %1 on %2. VitaBreathe is a personal exercise diary and not a medical device.',
+'Erstellt mit ViviaBreathe %1 am %2. ViviaBreathe ist ein persönliches Übungs-Tagebuch und kein Medizinprodukt.':
+    'Created with ViviaBreathe %1 on %2. ViviaBreathe is a personal exercise diary and not a medical device.',
 'Druckvorschau – Übungstagebuch': 'Print preview – exercise diary',
 '–': '–',
 'heute %1': 'today %1',
@@ -493,7 +494,7 @@ EN = {
 'Weiter zur Übung': 'Continue to the exercise',
 'Weiter': 'Continue',
 'Im Tagebuch speichern': 'Save to diary',
-'%1 – VitaBreathe': '%1 – VitaBreathe',
+'%1 – ViviaBreathe': '%1 – ViviaBreathe',
 'Tipps vor dem Start': 'Tips before you start',
 'anzeigen': 'show',
 '<b>Haltung:</b> %1': '<b>Position:</b> %1',
@@ -564,8 +565,8 @@ EN = {
 'Theme:': 'Theme:',
 'Die Themes entsprechen denen von VitaParms: alle Qt-Styles der Plattform sowie „Dark“ und „Visual Studio Code Dark“. Die Änderung wirkt sofort.':
     'The themes are the same as in VitaParms: all Qt styles of the platform plus “Dark” and “Visual Studio Code Dark”. The change takes effect immediately.',
-'Gleichen Sie VitaBreathe zwischen mehreren Geräten über Ihren eigenen Webserver ab (PHP, Ordner <i>website/</i> aus dem Quelltext). Der Server erhält nur die verschlüsselte Datenbank – alle Geräte verwenden dasselbe Master-Passwort.':
-    'Synchronise VitaBreathe between several devices via your own web server (PHP, folder <i>website/</i> from the source code). The server only receives the encrypted database – all devices use the same master password.',
+'Gleichen Sie ViviaBreathe zwischen mehreren Geräten über Ihren eigenen Webserver ab (PHP, Ordner <i>website/</i> aus dem Quelltext). Der Server erhält nur die verschlüsselte Datenbank – alle Geräte verwenden dasselbe Master-Passwort.':
+    'Synchronise ViviaBreathe between several devices via your own web server (PHP, folder <i>website/</i> from the source code). The server only receives the encrypted database – all devices use the same master password.',
 'Abgleich einschalten': 'Switch on synchronisation',
 'automatisch (beim Start, nach Änderungen, beim Beenden)': 'automatically (at start, after changes, when quitting)',
 'Server-Adresse:': 'Server address:',
@@ -642,7 +643,7 @@ EN = {
 'Wochenende – länger': 'Weekend – longer',
 'Einschlafen: %1': 'Sleep: %1',
 'Gute Nacht!': 'Good night!',
-'Einschlafen – VitaBreathe': 'Sleep – VitaBreathe',
+'Einschlafen – ViviaBreathe': 'Sleep – ViviaBreathe',
 'vorher: %1': 'first: %1',
 "<p style='font-size:large'><b>Zeit zum Einschlafen: %1</b></p><p>für <b>%2</b> · %3</p>":
     "<p style='font-size:large'><b>Time to go to sleep: %1</b></p><p>for <b>%2</b> · %3</p>",
@@ -659,8 +660,8 @@ EN = {
 'Planen': 'Schedule',
 'zu einer festen Uhrzeit anbieten': 'offer at a fixed time',
 'ohne Rückfrage automatisch starten': 'start automatically without asking',
-'Sonst erinnert VitaBreathe zur Uhrzeit und fragt, ob die Einschlaffunktion starten soll.':
-    'Otherwise VitaBreathe reminds you at the set time and asks whether the sleep function should start.',
+'Sonst erinnert ViviaBreathe zur Uhrzeit und fragt, ob die Einschlaffunktion starten soll.':
+    'Otherwise ViviaBreathe reminds you at the set time and asks whether the sleep function should start.',
 'Bitte eine Bezeichnung eingeben.': 'Please enter a label.',
 # --- 0.4.0: TriBall, bebilderte Anleitungen, Haltungsbilder ---
 'Kutschersitz: Oberkörper nach vorn, Unterarme auf den Oberschenkeln, Schultern locker.':
@@ -680,8 +681,8 @@ EN = {
     'Huffing: mouth and throat wide open, breathe out forcefully – like fogging up a pair of glasses.',
 'Atemtrainer TriBall (Einatemtraining)': 'TriBall breathing trainer (inspiratory training)',
 'TriBall-Training': 'TriBall training',
-'Training mit dem floworientierten Atemtrainer TriBall: langsam und gleichmäßig durch das Mundstück einatmen, sodass die Bälle steigen, und sie möglichst lange oben halten. Fördert ein tiefes, gleichmäßiges Einatmen. VitaBreathe gibt den Takt vor und zählt die Wiederholungen.':
-    'Training with the flow-oriented TriBall breathing trainer: breathe in slowly and steadily through the mouthpiece so the balls rise, and keep them up as long as possible. Encourages deep, even inhalation. VitaBreathe sets the pace and counts the repetitions.',
+'Training mit dem floworientierten Atemtrainer TriBall: langsam und gleichmäßig durch das Mundstück einatmen, sodass die Bälle steigen, und sie möglichst lange oben halten. Fördert ein tiefes, gleichmäßiges Einatmen. ViviaBreathe gibt den Takt vor und zählt die Wiederholungen.':
+    'Training with the flow-oriented TriBall breathing trainer: breathe in slowly and steadily through the mouthpiece so the balls rise, and keep them up as long as possible. Encourages deep, even inhalation. ViviaBreathe sets the pace and counts the repetitions.',
 'Das Gerät beim Üben immer senkrecht halten.': 'Always hold the device upright while practising.',
 'Niemals in das Gerät hineinblasen – Feuchtigkeit beeinträchtigt die Funktion. Trocken aufbewahren.':
     'Never blow into the device – moisture impairs its function. Store it dry.',

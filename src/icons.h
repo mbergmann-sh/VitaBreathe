@@ -1,9 +1,9 @@
-// VitaBreathe – Symbole der Oberfläche
+// ViviaBreathe – Symbole der Oberfläche
 //
 // Die Symbole liegen als einfarbige SVG-Strichzeichnungen in resources/icons/ui. Beim Laden
 // wird die Strichfarbe an das aktuelle Theme angepasst (hell/dunkel), die Akzentfarbe ist das
 // Orange des Programmsymbols. Nach einem Theme-Wechsel Icons::clearCache() aufrufen.
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: PolyForm-Noncommercial-1.0.0
 #pragma once
 
 #include <QColor>

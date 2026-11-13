@@ -1,4 +1,5 @@
-# Erzeugt die Signaltöne von VitaBreathe (16 Bit, 44,1 kHz, mono) – eigene Klänge, frei verwendbar
+# SPDX-License-Identifier: PolyForm-Noncommercial-1.0.0
+# Erzeugt die Signaltöne von ViviaBreathe (16 Bit, 44,1 kHz, mono) – eigene Klänge, frei verwendbar
 import math, wave, struct, sys, os
 out = sys.argv[1]; R = 44100
 def write(name, samples):

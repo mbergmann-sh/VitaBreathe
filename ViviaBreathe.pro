@@ -1,12 +1,12 @@
 # ---------------------------------------------------------------------------
-#  VitaBreathe – geführte Atemübungen mit Tagebuch
+#  ViviaBreathe – geführte Atemübungen mit Tagebuch
 #  Copyright (c) 2026 Michael Bergmann – MIT License (siehe LICENSE)
 #
-#  KEIN Medizinprodukt – VitaBreathe ist ein persönliches Übungs-Tagebuch.
+#  KEIN Medizinprodukt – ViviaBreathe ist ein persönliches Übungs-Tagebuch.
 #
-#  Build:   qmake6 VitaBreathe.pro && make        (Linux/macOS)
-#           qmake6 VitaBreathe.pro && nmake/jom   (Windows, MSVC)
-#           qmake (Qt 5.15) VitaBreathe.pro && make – z. B. für macOS 10.13–10.15
+#  Build:   qmake6 ViviaBreathe.pro && make        (Linux/macOS)
+#           qmake6 ViviaBreathe.pro && nmake/jom   (Windows, MSVC)
+#           qmake (Qt 5.15) ViviaBreathe.pro && make – z. B. für macOS 10.13–10.15
 #  Benötigt Qt 6.4 oder neuer bzw. Qt 5.15 mit den Modulen:
 #           widgets printsupport network svg multimedia
 #  (Qt-5/6-Unterschiede gleicht src/qtcompat.h bzw. src/audio.cpp aus)
@@ -14,12 +14,12 @@
 # ---------------------------------------------------------------------------
 
 lessThan(QT_MAJOR_VERSION, 5) | equals(QT_MAJOR_VERSION, 5):lessThan(QT_MINOR_VERSION, 15) {
-    error("VitaBreathe braucht Qt 5.15 oder Qt 6.4 und neuer (gefunden: $$[QT_VERSION])")
+    error("ViviaBreathe braucht Qt 5.15 oder Qt 6.4 und neuer (gefunden: $$[QT_VERSION])")
 }
 equals(QT_MAJOR_VERSION, 6):lessThan(QT_MINOR_VERSION, 4) {
-    error("VitaBreathe braucht unter Qt 6 mindestens Qt 6.4 (gefunden: $$[QT_VERSION])")
+    error("ViviaBreathe braucht unter Qt 6 mindestens Qt 6.4 (gefunden: $$[QT_VERSION])")
 }
-equals(QT_MAJOR_VERSION, 5): message("VitaBreathe: Build mit Qt $$[QT_VERSION] (Qt-5-Kompatibilitaet)")
+equals(QT_MAJOR_VERSION, 5): message("ViviaBreathe: Build mit Qt $$[QT_VERSION] (Qt-5-Kompatibilitaet)")
 macx:equals(QT_MAJOR_VERSION, 5): QMAKE_MACOSX_DEPLOYMENT_TARGET = 10.13
 
 QT       += core gui widgets printsupport network svg
@@ -28,17 +28,17 @@ QT       += core gui widgets printsupport network svg
 qtHaveModule(multimedia) {
     QT      += multimedia
     DEFINES += VB_HAVE_MULTIMEDIA
-    message("VitaBreathe: mit Qt Multimedia (MP3, Signaltoene)")
+    message("ViviaBreathe: mit Qt Multimedia (MP3, Signaltoene)")
 } else {
-    warning("VitaBreathe: OHNE Qt Multimedia - keine Musik, nur Systempiepton")
+    warning("ViviaBreathe: OHNE Qt Multimedia - keine Musik, nur Systempiepton")
 }
 
 CONFIG   += c++17
 TEMPLATE  = app
-TARGET    = VitaBreathe
+TARGET    = ViviaBreathe
 
 include(version.pri)
-DEFINES  += VITABREATHE_VERSION=\\\"$$VERSION\\\"
+DEFINES  += VIVIABREATHE_VERSION=\\\"$$VERSION\\\"
 greaterThan(QT_MAJOR_VERSION, 5): DEFINES += QT_DISABLE_DEPRECATED_UP_TO=0x060400
 
 # Gemeinsamer Kern (später auch für die mobile App unter mobile/)
@@ -46,19 +46,19 @@ include(core.pri)
 # Desktop-Oberfläche (Qt Widgets)
 include(desktop.pri)
 
-RESOURCES += resources/vitabreathe.qrc
+RESOURCES += resources/viviabreathe.qrc
 
 # Programmsymbol
-win32: RC_ICONS = resources/icons/app/vitabreathe.ico
-macx:  ICON     = resources/icons/app/vitabreathe.icns
+win32: RC_ICONS = resources/icons/app/viviabreathe.ico
+macx:  ICON     = resources/icons/app/viviabreathe.icns
 
 # Übersetzungen: Quellsprache Deutsch, Englisch als zweite Sprache.
-# Aktualisieren:  lupdate VitaBreathe.pro   –   übersetzen mit Qt Linguist
-# Die .qm-Datei wird beim Bauen automatisch erzeugt und eingebettet (:/i18n/vitabreathe_en.qm).
-TRANSLATIONS = translations/vitabreathe_en.ts
-# Nur deutsche Mehrzahlformen (%n), von lupdate VitaBreathe.pro nicht angefasst:
-#   lupdate -pluralonly -no-obsolete src -ts translations/vitabreathe_de.ts
-EXTRA_TRANSLATIONS = translations/vitabreathe_de.ts
+# Aktualisieren:  lupdate ViviaBreathe.pro   –   übersetzen mit Qt Linguist
+# Die .qm-Datei wird beim Bauen automatisch erzeugt und eingebettet (:/i18n/viviabreathe_en.qm).
+TRANSLATIONS = translations/viviabreathe_en.ts
+# Nur deutsche Mehrzahlformen (%n), von lupdate ViviaBreathe.pro nicht angefasst:
+#   lupdate -pluralonly -no-obsolete src -ts translations/viviabreathe_de.ts
+EXTRA_TRANSLATIONS = translations/viviabreathe_de.ts
 CONFIG += lrelease embed_translations
 
 # Windows-Installer: Versionsnummer und Datum in die Installer-Dateien übernehmen

@@ -1,5 +1,5 @@
 # ---------------------------------------------------------------------------
-#  VitaBreathe – gemeinsamer Kern: Datenbank, Verschlüsselung, Übungsmodule,
+#  ViviaBreathe – gemeinsamer Kern: Datenbank, Verschlüsselung, Übungsmodule,
 #  Audio, Abgleich. Wird vom Desktop-Programm eingebunden und später von der
 #  mobilen App (Android/iOS) wiederverwendet.
 # ---------------------------------------------------------------------------
@@ -17,7 +17,8 @@ SOURCES += \
     $$PWD/src/dbsync.cpp \
     $$PWD/src/themes.cpp \
     $$PWD/src/icons.cpp \
-    $$PWD/src/i18n.cpp
+    $$PWD/src/i18n.cpp \
+    $$PWD/src/legacyimport.cpp
 
 HEADERS += \
     $$PWD/src/qtcompat.h \
@@ -31,4 +32,5 @@ HEADERS += \
     $$PWD/src/dbsync.h \
     $$PWD/src/themes.h \
     $$PWD/src/icons.h \
-    $$PWD/src/i18n.h
+    $$PWD/src/i18n.h \
+    $$PWD/src/legacyimport.h

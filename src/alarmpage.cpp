@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: PolyForm-Noncommercial-1.0.0
 #include "alarmpage.h"
 #include "audio.h"
 #include "breathmodules.h"
@@ -170,7 +170,7 @@ SleepPlanDialog::SleepPlanDialog(const SleepPlan &p, QWidget *parent) : QDialog(
     pf->addRow(tr("Tage:"), m_days);
     m_autoStart = new QCheckBox(tr("ohne Rückfrage automatisch starten"));
     m_autoStart->setChecked(p.autoStart);
-    m_autoStart->setToolTip(tr("Sonst erinnert VitaBreathe zur Uhrzeit und fragt, ob die Einschlaffunktion starten soll."));
+    m_autoStart->setToolTip(tr("Sonst erinnert ViviaBreathe zur Uhrzeit und fragt, ob die Einschlaffunktion starten soll."));
     pf->addRow(QString(), m_autoStart);
     auto syncEnabled = [this] {
         const bool on = m_scheduled->isChecked();
@@ -260,7 +260,7 @@ AlarmPage::AlarmPage(QWidget *parent) : QWidget(parent)
     bl->addStretch();
     bl->addWidget(m_test);
     wl->addLayout(bl);
-    auto *wakeInfo = new QLabel(tr("Der Wecker klingelt, solange VitaBreathe läuft (auch minimiert im Infobereich). "
+    auto *wakeInfo = new QLabel(tr("Der Wecker klingelt, solange ViviaBreathe läuft (auch minimiert im Infobereich). "
                                    "Bitte verlassen Sie sich nicht allein darauf, wenn Sie einen wichtigen Termin haben."));
     wakeInfo->setWordWrap(true);
     wakeInfo->setEnabled(false);

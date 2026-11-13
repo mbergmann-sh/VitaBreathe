@@ -21,12 +21,12 @@
 <context>
     <name>HistoryPage</name>
     <message numerus="yes">
-        <location filename="../src/historypage.cpp" line="230" />
+        <location filename="../src/historypage.cpp" line="236" />
         <source>%n Ball/Bälle</source>
         <translation><numerusform>%n Ball</numerusform><numerusform>%n Bälle</numerusform></translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/historypage.cpp" line="294" />
+        <location filename="../src/historypage.cpp" line="300" />
         <source>%n Übungseinheit(en) endgültig löschen?</source>
         <translation><numerusform>%n Übungseinheit endgültig löschen?</numerusform><numerusform>%n Übungseinheiten endgültig löschen?</numerusform></translation>
     </message>

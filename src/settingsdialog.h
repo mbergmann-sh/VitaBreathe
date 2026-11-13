@@ -1,5 +1,5 @@
-// VitaBreathe – Einstellungen: Darstellung (Themes), Abgleich, Master-Passwort, Allgemeines
-// SPDX-License-Identifier: MIT
+// ViviaBreathe – Einstellungen: Darstellung (Themes), Abgleich, Master-Passwort, Allgemeines
+// SPDX-License-Identifier: PolyForm-Noncommercial-1.0.0
 #pragma once
 
 #include <QDialog>

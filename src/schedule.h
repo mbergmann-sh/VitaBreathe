@@ -1,5 +1,5 @@
-// VitaBreathe – Termine von Ereignissen und Weckern berechnen
-// SPDX-License-Identifier: MIT
+// ViviaBreathe – Termine von Ereignissen und Weckern berechnen
+// SPDX-License-Identifier: PolyForm-Noncommercial-1.0.0
 #pragma once
 
 #include <QDateTime>

@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: PolyForm-Noncommercial-1.0.0
 #include "sessiondialog.h"
 #include "audio.h"
 #include "breathengine.h"
@@ -91,7 +91,7 @@ SessionDialog::SessionDialog(qint64 userId, const QString &moduleId, QWidget *pa
     : QDialog(parent), m_userId(userId), m_module(BreathModules::find(moduleId))
 {
     if (!m_module) m_module = &BreathModules::all().first();
-    setWindowTitle(tr("%1 – VitaBreathe").arg(m_module->name));
+    setWindowTitle(tr("%1 – ViviaBreathe").arg(m_module->name));
     setWindowFlags(windowFlags() | Qt::WindowMaximizeButtonHint | Qt::WindowMinimizeButtonHint);
     setWindowIcon(Icons::get(m_module->icon));
     m_engine = new BreathEngine(this);

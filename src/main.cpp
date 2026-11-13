@@ -1,10 +1,10 @@
-// VitaBreathe – Programmstart
+// ViviaBreathe – Programmstart
 //
-//   VitaBreathe                 normaler Start (Master-Passwort-Abfrage)
-//   VitaBreathe --demo          Demo mit erfundenen Daten in einer eigenen, temporären Datenbank
+//   ViviaBreathe                 normaler Start (Master-Passwort-Abfrage)
+//   ViviaBreathe --demo          Demo mit erfundenen Daten in einer eigenen, temporären Datenbank
 //                               (Master-Passwort "demo"), ohne die eigenen Daten zu berühren
-//   VitaBreathe --screenshots <ordner>   (mit --demo) Bildschirmfotos für Handbuch/README erzeugen
-// SPDX-License-Identifier: MIT
+//   ViviaBreathe --screenshots <ordner>   (mit --demo) Bildschirmfotos für Handbuch/README erzeugen
+// SPDX-License-Identifier: PolyForm-Noncommercial-1.0.0
 #include "alarmpage.h"
 #include "audio.h"
 #include "breathengine.h"
@@ -12,6 +12,7 @@
 #include "database.h"
 #include "dbsync.h"
 #include "i18n.h"
+#include "legacyimport.h"
 #include "icons.h"
 #include "logindialog.h"
 #include "mainwindow.h"
@@ -206,6 +207,13 @@ void takeScreenshots(MainWindow *w, const QString &dir)
         shot(w, QStringLiteral("main_%1").arg(i));
     }
     w->tabs()->setCurrentIndex(0);
+    QTimer::singleShot(300, [shot]() {   // Über-Fenster (modal) aufnehmen und schließen
+        if (QWidget *about = QApplication::activeModalWidget()) {
+            shot(about, QStringLiteral("about"));
+            about->close();
+        }
+    });
+    w->showAbout();
     if (!Database::instance().sleepPlans(w->currentUser()).isEmpty()) {
         SleepPlanDialog sd(Database::instance().sleepPlans(w->currentUser()).first(), w);
         sd.show();
@@ -267,13 +275,13 @@ int main(int argc, char *argv[])
 #endif
     QApplication app(argc, argv);
     QApplication::setOrganizationName(QStringLiteral("mbergmann-sh"));
-    QApplication::setApplicationName(QStringLiteral("VitaBreathe"));
+    QApplication::setApplicationName(QStringLiteral("ViviaBreathe"));
     QApplication::setApplicationVersion(vbVersion());
     QApplication::setWindowIcon(Icons::app());
     QApplication::setQuitOnLastWindowClosed(false);
 
     QCommandLineParser parser;
-    parser.setApplicationDescription(QStringLiteral("VitaBreathe – geführte Atemübungen mit Tagebuch"));
+    parser.setApplicationDescription(QStringLiteral("ViviaBreathe – geführte Atemübungen mit Tagebuch"));
     parser.addHelpOption();
     parser.addVersionOption();
     QCommandLineOption demo(QStringLiteral("demo"), QStringLiteral("Demo mit erfundenen Daten (Master-Passwort: demo)"));
@@ -283,7 +291,10 @@ int main(int argc, char *argv[])
     parser.addOptions({ demo, shots, dbOpt });
     parser.process(app);
     const bool isDemo = parser.isSet(demo);
-    if (isDemo) QApplication::setApplicationName(QStringLiteral("VitaBreathe-Demo"));   // eigene Einstellungen
+    if (isDemo) QApplication::setApplicationName(QStringLiteral("ViviaBreathe-Demo"));   // eigene Einstellungen
+
+    // Bis 0.4.0 hieß das Programm „VitaBreathe“: Einstellungen und Datenbank einmalig übernehmen
+    if (!isDemo) LegacyImport::run();
 
     // Sprache (Vorgabe Deutsch, alternativ Englisch) – vor dem ersten Fenster
     I18n::install(app);
@@ -294,7 +305,7 @@ int main(int argc, char *argv[])
 
     QString path = parser.value(dbOpt);
     if (path.isEmpty()) path = QSettings().value(QStringLiteral("db/path"), Database::defaultPath()).toString();
-    if (isDemo) path = QDir::temp().filePath(QStringLiteral("vitabreathe-demo.sqlite"));
+    if (isDemo) path = QDir::temp().filePath(QStringLiteral("viviabreathe-demo.sqlite"));
     if (!openDatabase(path, isDemo)) return 0;
     if (!isDemo) QSettings().setValue(QStringLiteral("db/path"), Database::instance().path());
 
@@ -315,7 +326,7 @@ int main(int argc, char *argv[])
             QMessageBox box(&w);
             box.setWindowTitle(QObject::tr("Hinweis"));
             box.setIcon(QMessageBox::Information);
-            box.setText(QObject::tr("<b>VitaBreathe ist kein Medizinprodukt.</b><br/>Es ist ein persönliches Übungs-Tagebuch "
+            box.setText(QObject::tr("<b>ViviaBreathe ist kein Medizinprodukt.</b><br/>Es ist ein persönliches Übungs-Tagebuch "
                                     "und ersetzt keine ärztliche Beratung. Brechen Sie eine Übung bei Schwindel, Unwohlsein "
                                     "oder Atemnot sofort ab."));
             auto *dont = new QCheckBox(QObject::tr("Nicht mehr anzeigen"));

@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: PolyForm-Noncommercial-1.0.0
 #include "audio.h"
 
 #include <QApplication>
@@ -103,7 +103,7 @@ QString builtinAlarmFile()
 {
     const QString dir = QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation);
     QDir().mkpath(dir);
-    const QString f = dir + QStringLiteral("/vitabreathe-alarm.wav");
+    const QString f = dir + QStringLiteral("/viviabreathe-alarm.wav");
     QFile src(QStringLiteral(":/sounds/alarm.wav"));
     if (!QFile::exists(f) || QFileInfo(f).size() != src.size()) {
         QFile::remove(f);

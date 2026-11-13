@@ -1,4 +1,5 @@
 // Taktgeber-Test mit verkürzten Phasen
+// SPDX-License-Identifier: PolyForm-Noncommercial-1.0.0
 #include "breathengine.h"
 #include "breathmodules.h"
 #include <QApplication>

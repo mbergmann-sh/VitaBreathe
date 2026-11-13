@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: PolyForm-Noncommercial-1.0.0
 #include "eventspage.h"
 #include "breathmodules.h"
 #include "database.h"
@@ -93,7 +93,7 @@ EventDialog::EventDialog(const BreathEvent &e, QWidget *parent) : QDialog(parent
     m_note->setMaximumHeight(70);
     form->addRow(tr("Notiz:"), m_note);
     lay->addLayout(form);
-    auto *info = new QLabel(tr("Zur eingestellten Zeit erinnert VitaBreathe – auch im Hintergrund (Symbol im Infobereich) – "
+    auto *info = new QLabel(tr("Zur eingestellten Zeit erinnert ViviaBreathe – auch im Hintergrund (Symbol im Infobereich) – "
                                "und bietet an, die Übung direkt zu starten."));
     info->setWordWrap(true);
     info->setEnabled(false);
@@ -128,7 +128,7 @@ BreathEvent EventDialog::breathEvent() const
 EventsPage::EventsPage(QWidget *parent) : QWidget(parent)
 {
     auto *lay = new QVBoxLayout(this);
-    auto *intro = new QLabel(tr("Legen Sie Ereignisse wie „Einschlafübung“ oder „Stressbewältigung“ fest. VitaBreathe "
+    auto *intro = new QLabel(tr("Legen Sie Ereignisse wie „Einschlafübung“ oder „Stressbewältigung“ fest. ViviaBreathe "
                                 "erinnert Sie zur gewählten Zeit und startet auf Wunsch gleich die passende Übung."));
     intro->setWordWrap(true);
     lay->addWidget(intro);

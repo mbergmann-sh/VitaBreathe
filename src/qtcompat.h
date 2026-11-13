@@ -1,4 +1,4 @@
-// VitaBreathe – Hilfen, damit derselbe Code mit Qt 5.15 und Qt 6 übersetzt.
+// ViviaBreathe – Hilfen, damit derselbe Code mit Qt 5.15 und Qt 6 übersetzt.
 //
 // Qt 5.15 ist die letzte Qt-Version für ältere macOS-Versionen (10.13–10.15). Unterschiede, die
 // hier ausgeglichen werden:
@@ -10,7 +10,7 @@
 //   * Qt::SingleShotConnection (Qt 6)           → vpConnectOnce()
 // Überladene Signale (QComboBox::currentIndexChanged, QSpinBox::valueChanged …) werden im Code
 // mit qOverload<…>() eindeutig gemacht – das gilt in beiden Versionen.
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: PolyForm-Noncommercial-1.0.0
 #pragma once
 
 #include <QtGlobal>

@@ -1,4 +1,5 @@
 // Abgleich-Test: zwei Geräte (A, B) gleichen über den lokalen Server ab
+// SPDX-License-Identifier: PolyForm-Noncommercial-1.0.0
 #include "database.h"
 #include "dbsync.h"
 #include <QApplication>

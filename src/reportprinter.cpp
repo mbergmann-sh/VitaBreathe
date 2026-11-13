@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: PolyForm-Noncommercial-1.0.0
 #include "reportprinter.h"
 #include "breathmodules.h"
 #include "database.h"
@@ -47,7 +47,7 @@ void render(QPrinter *printer, const User &user, const ChartSpec &spec, const Op
         if (s.completed) ++complete;
     }
     QString html = QStringLiteral("<html><body>");
-    html += QStringLiteral("<h2 style='color:#1474BC'>%1</h2>").arg(ReportTr::tr("VitaBreathe – Übungstagebuch"));
+    html += QStringLiteral("<h2 style='color:#1474BC'>%1</h2>").arg(ReportTr::tr("ViviaBreathe – Übungstagebuch"));
     html += QStringLiteral("<p><b>%1</b> &nbsp;·&nbsp; %2 %3 – %4<br/>%5</p>")
                 .arg(esc(user.name), ReportTr::tr("Zeitraum:"), QLocale().toString(spec.from, QLocale::ShortFormat),
                      QLocale().toString(spec.to, QLocale::ShortFormat),
@@ -104,7 +104,7 @@ void render(QPrinter *printer, const User &user, const ChartSpec &spec, const Op
                     .arg(ReportTr::tr("* vorzeitig beendet. SpO₂ in %, Peak Flow in l/min, Puls in Schlägen/min, Befinden 1–10."));
     }
     html += QStringLiteral("<p style='font-size:7pt;color:#666'>%1</p></body></html>")
-                .arg(ReportTr::tr("Erstellt mit VitaBreathe %1 am %2. VitaBreathe ist ein persönliches Übungs-Tagebuch und kein "
+                .arg(ReportTr::tr("Erstellt mit ViviaBreathe %1 am %2. ViviaBreathe ist ein persönliches Übungs-Tagebuch und kein "
                         "Medizinprodukt.").arg(vbVersion(), QLocale().toString(QDateTime::currentDateTime(), QLocale::ShortFormat)));
     doc.setHtml(html);
     doc.print(printer);
@@ -127,8 +127,8 @@ bool savePdf(QWidget *, const User &user, const ChartSpec &spec, const Options &
     QPrinter printer(QPrinter::HighResolution);
     printer.setOutputFormat(QPrinter::PdfFormat);
     printer.setOutputFileName(file);
-    printer.setDocName(ReportTr::tr("VitaBreathe – Übungstagebuch"));
-    printer.setCreator(QStringLiteral("VitaBreathe %1").arg(vbVersion()));
+    printer.setDocName(ReportTr::tr("ViviaBreathe – Übungstagebuch"));
+    printer.setCreator(QStringLiteral("ViviaBreathe %1").arg(vbVersion()));
     setupPage(&printer);
     render(&printer, user, spec, o);
     return QFile::exists(file);

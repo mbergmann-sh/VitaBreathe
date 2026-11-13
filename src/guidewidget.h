@@ -1,5 +1,5 @@
-// VitaBreathe – bebilderte Anleitung eines Übungsmoduls (Haltung, Schritte mit Atemtrainer)
-// SPDX-License-Identifier: MIT
+// ViviaBreathe – bebilderte Anleitung eines Übungsmoduls (Haltung, Schritte mit Atemtrainer)
+// SPDX-License-Identifier: PolyForm-Noncommercial-1.0.0
 #pragma once
 
 #include "breathmodules.h"

@@ -1,4 +1,4 @@
-// VitaBreathe – Ablauf einer Atemsitzung
+// ViviaBreathe – Ablauf einer Atemsitzung
 //
 //  1. Vorbereitung & Einstellungen: Tipps, Gesamtdauer, Atemdauer je Phase (mit Reset),
 //     Anlass, Signalton, Hintergrundmusik (MP3, eigene Lautstärke), Trainingsmodus
@@ -6,7 +6,7 @@
 //  3. Übung: minimalistische Animation, Phase, Restzeit – Pause/Beenden, Vollbild
 //  4. Trainingsmodus: Messwerte nach der Übung
 //  5. Zusammenfassung: Notiz, im Tagebuch speichern
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: PolyForm-Noncommercial-1.0.0
 #pragma once
 
 #include "breathmodules.h"

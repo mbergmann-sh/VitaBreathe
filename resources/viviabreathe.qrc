@@ -1,8 +1,8 @@
 <!DOCTYPE RCC>
 <RCC version="1.0">
     <qresource prefix="/icons">
-        <file alias="vitabreathe.png">icons/app/vitabreathe.png</file>
-        <file alias="vitabreathe.svg">icons/app/vitabreathe.svg</file>
+        <file alias="viviabreathe.png">icons/app/viviabreathe.png</file>
+        <file alias="viviabreathe.svg">icons/app/viviabreathe.svg</file>
         <file alias="ui/acbt.svg">icons/ui/acbt.svg</file>
         <file alias="ui/add.svg">icons/ui/add.svg</file>
         <file alias="ui/alarm.svg">icons/ui/alarm.svg</file>

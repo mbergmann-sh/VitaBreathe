@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: PolyForm-Noncommercial-1.0.0
 #include "i18n.h"
 #include "qtcompat.h"
 
@@ -14,14 +14,14 @@ namespace I18n {
 // Immer die Einstellungen des normalen Programms (auch im Demo-Modus mit eigenem Namen)
 QString language()
 {
-    const QString l = QSettings(QCoreApplication::organizationName(), QStringLiteral("VitaBreathe"))
+    const QString l = QSettings(QCoreApplication::organizationName(), QStringLiteral("ViviaBreathe"))
                           .value(QStringLiteral("ui/language"), QStringLiteral("de")).toString().left(2).toLower();
     return l == QLatin1String("en") ? QStringLiteral("en") : QStringLiteral("de");
 }
 
 void setLanguage(const QString &lang)
 {
-    QSettings(QCoreApplication::organizationName(), QStringLiteral("VitaBreathe"))
+    QSettings(QCoreApplication::organizationName(), QStringLiteral("ViviaBreathe"))
         .setValue(QStringLiteral("ui/language"), lang == QLatin1String("en") ? QStringLiteral("en") : QStringLiteral("de"));
 }
 
@@ -49,7 +49,7 @@ QString install(QCoreApplication &app)
 
     // Englisch: vollständige Übersetzung; Deutsch: nur die Mehrzahlformen der %n-Texte
     auto *appTr = new QTranslator(&app);
-    if (appTr->load(QStringLiteral(":/i18n/vitabreathe_%1.qm").arg(lang)))
+    if (appTr->load(QStringLiteral(":/i18n/viviabreathe_%1.qm").arg(lang)))
         app.installTranslator(appTr);
     s_installed << appTr;
     return lang;

@@ -1,10 +1,10 @@
-// VitaBreathe – Animation einer Atemübung
+// ViviaBreathe – Animation einer Atemübung
 //
 //  * Box: Ein farbiger Punkt wandert im Uhrzeigersinn, beginnend links oben, von Ecke zu Ecke
 //    eines andersfarbigen Quadrats – jede Seite ist eine Phase. Unter dem Quadrat steht die Phase.
 //  * Kreis: Die Grafik dehnt sich beim Einatmen aus, bleibt beim Halten stehen und zieht sich
 //    beim Ausatmen zusammen. Die Geschwindigkeit folgt den eingestellten Phasendauern.
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: PolyForm-Noncommercial-1.0.0
 #pragma once
 
 #include "breathmodules.h"

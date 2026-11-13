@@ -1,10 +1,10 @@
-// VitaBreathe – Taktgeber einer Atemsitzung
+// ViviaBreathe – Taktgeber einer Atemsitzung
 //
 // Läuft unabhängig von der Darstellung: Vorlauf (3-2-1), dann Runden aus Schritten (siehe
 // ModuleSettings::round()), bis die Gesamtdauer erreicht ist. Die Übung endet nicht mitten in
 // einem Atemzug, sondern nach der laufenden Runde. Ein Schritt "Ready" wartet, bis der Benutzer
 // proceed() aufruft (z. B. nach dem Abhusten); Wartezeit zählt wie eine Pause nicht mit.
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: PolyForm-Noncommercial-1.0.0
 #pragma once
 
 #include "breathmodules.h"

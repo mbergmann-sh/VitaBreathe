@@ -1,4 +1,4 @@
-// VitaBreathe – Abgleich der Datenbank zwischen Geräten über einen eigenen Webserver
+// ViviaBreathe – Abgleich der Datenbank zwischen Geräten über einen eigenen Webserver
 //
 // Aufbau wie in VitaParms: Der Server (website/api/sync.php) verwahrt nur die verschlüsselte
 // Datenbank; er zählt eine Revision hoch und lehnt veraltete Uploads ab (HTTP 409).
@@ -10,7 +10,7 @@
 //     Änderungen, neue Zeilen beider Seiten bleiben erhalten
 //
 // Gerätebezogen (nicht abgeglichen): Tabelle "device" (Abgleich-Einstellungen, letzter Benutzer).
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: PolyForm-Noncommercial-1.0.0
 #pragma once
 
 #include <QDateTime>

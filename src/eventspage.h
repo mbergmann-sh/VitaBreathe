@@ -1,5 +1,5 @@
-// VitaBreathe – Ereignisse mit Erinnerung (z. B. "Einschlafübung" täglich 21:30)
-// SPDX-License-Identifier: MIT
+// ViviaBreathe – Ereignisse mit Erinnerung (z. B. "Einschlafübung" täglich 21:30)
+// SPDX-License-Identifier: PolyForm-Noncommercial-1.0.0
 #pragma once
 
 #include "datatypes.h"

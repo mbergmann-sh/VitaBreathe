@@ -161,8 +161,8 @@
     </message>
     <message>
         <location filename="../src/alarmpage.cpp" line="263" />
-        <source>Der Wecker klingelt, solange VitaBreathe läuft (auch minimiert im Infobereich). Bitte verlassen Sie sich nicht allein darauf, wenn Sie einen wichtigen Termin haben.</source>
-        <translation>The alarm rings as long as VitaBreathe is running (also minimised to the notification area). Please do not rely on it alone when you have an important appointment.</translation>
+        <source>Der Wecker klingelt, solange ViviaBreathe läuft (auch minimiert im Infobereich). Bitte verlassen Sie sich nicht allein darauf, wenn Sie einen wichtigen Termin haben.</source>
+        <translation>The alarm rings as long as ViviaBreathe is running (also minimised to the notification area). Please do not rely on it alone when you have an important appointment.</translation>
     </message>
     <message>
         <location filename="../src/alarmpage.cpp" line="271" />
@@ -312,8 +312,8 @@
     <name>AlarmRingDialog</name>
     <message>
         <location filename="../src/reminderservice.cpp" line="22" />
-        <source>Wecker – VitaBreathe</source>
-        <translation>Alarm – VitaBreathe</translation>
+        <source>Wecker – ViviaBreathe</source>
+        <translation>Alarm – ViviaBreathe</translation>
     </message>
     <message>
         <location filename="../src/reminderservice.cpp" line="37" />
@@ -895,8 +895,8 @@
     </message>
     <message>
         <location filename="../src/breathmodules.cpp" line="272" />
-        <source>Training mit dem floworientierten Atemtrainer TriBall: langsam und gleichmäßig durch das Mundstück einatmen, sodass die Bälle steigen, und sie möglichst lange oben halten. Fördert ein tiefes, gleichmäßiges Einatmen. VitaBreathe gibt den Takt vor und zählt die Wiederholungen.</source>
-        <translation>Training with the flow-oriented TriBall breathing trainer: breathe in slowly and steadily through the mouthpiece so the balls rise, and keep them up as long as possible. Encourages deep, even inhalation. VitaBreathe sets the pace and counts the repetitions.</translation>
+        <source>Training mit dem floworientierten Atemtrainer TriBall: langsam und gleichmäßig durch das Mundstück einatmen, sodass die Bälle steigen, und sie möglichst lange oben halten. Fördert ein tiefes, gleichmäßiges Einatmen. ViviaBreathe gibt den Takt vor und zählt die Wiederholungen.</source>
+        <translation>Training with the flow-oriented TriBall breathing trainer: breathe in slowly and steadily through the mouthpiece so the balls rise, and keep them up as long as possible. Encourages deep, even inhalation. ViviaBreathe sets the pace and counts the repetitions.</translation>
     </message>
     <message>
         <location filename="../src/breathmodules.cpp" line="275" />
@@ -1010,8 +1010,8 @@
     </message>
     <message>
         <location filename="../src/breathmodules.cpp" line="331" />
-        <source>VitaBreathe ist ein Übungs-Tagebuch und kein Medizinprodukt; es ersetzt keine ärztliche Beratung.</source>
-        <translation>VitaBreathe is an exercise diary and not a medical device; it does not replace medical advice.</translation>
+        <source>ViviaBreathe ist ein Übungs-Tagebuch und kein Medizinprodukt; es ersetzt keine ärztliche Beratung.</source>
+        <translation>ViviaBreathe is an exercise diary and not a medical device; it does not replace medical advice.</translation>
     </message>
     <message>
         <location filename="../src/breathmodules.cpp" line="336" />
@@ -1025,8 +1025,8 @@
     </message>
     <message>
         <location filename="../src/breathmodules.cpp" line="340" />
-        <source>VitaBreathe ist ein Übungs-Tagebuch und kein Medizinprodukt.</source>
-        <translation>VitaBreathe is an exercise diary and not a medical device.</translation>
+        <source>ViviaBreathe ist ein Übungs-Tagebuch und kein Medizinprodukt.</source>
+        <translation>ViviaBreathe is an exercise diary and not a medical device.</translation>
     </message>
 </context>
 <context>
@@ -1149,8 +1149,8 @@
     </message>
     <message>
         <location filename="../src/database.cpp" line="91" />
-        <source>Falsches Master-Passwort oder keine VitaBreathe-Datenbank.</source>
-        <translation>Wrong master password or not a VitaBreathe database.</translation>
+        <source>Falsches Master-Passwort oder keine ViviaBreathe-Datenbank.</source>
+        <translation>Wrong master password or not a ViviaBreathe database.</translation>
     </message>
     <message>
         <location filename="../src/database.cpp" line="140" />
@@ -1164,8 +1164,8 @@
     </message>
     <message>
         <location filename="../src/database.cpp" line="212" />
-        <source>Die Datenbank stammt von einer neueren VitaBreathe-Version (Format %1). Bitte VitaBreathe aktualisieren.</source>
-        <translation>The database comes from a newer version of VitaBreathe (format %1). Please update VitaBreathe.</translation>
+        <source>Die Datenbank stammt von einer neueren ViviaBreathe-Version (Format %1). Bitte ViviaBreathe aktualisieren.</source>
+        <translation>The database comes from a newer version of ViviaBreathe (format %1). Please update ViviaBreathe.</translation>
     </message>
     <message>
         <location filename="../src/database.cpp" line="507" />
@@ -1222,8 +1222,8 @@
     </message>
     <message>
         <location filename="../src/dbsync.cpp" line="80" />
-        <source>Ein anderes Gerät verwendet eine neuere VitaBreathe-Version (Datenbankformat %1, hier %2). Bitte VitaBreathe auf diesem Gerät aktualisieren.</source>
-        <translation>Another device uses a newer version of VitaBreathe (database format %1, here %2). Please update VitaBreathe on this device.</translation>
+        <source>Ein anderes Gerät verwendet eine neuere ViviaBreathe-Version (Datenbankformat %1, hier %2). Bitte ViviaBreathe auf diesem Gerät aktualisieren.</source>
+        <translation>Another device uses a newer version of ViviaBreathe (database format %1, here %2). Please update ViviaBreathe on this device.</translation>
     </message>
     <message>
         <location filename="../src/dbsync.cpp" line="223" />
@@ -1355,8 +1355,8 @@
     </message>
     <message>
         <location filename="../src/eventspage.cpp" line="96" />
-        <source>Zur eingestellten Zeit erinnert VitaBreathe – auch im Hintergrund (Symbol im Infobereich) – und bietet an, die Übung direkt zu starten.</source>
-        <translation>At the set time, VitaBreathe reminds you – also in the background (icon in the notification area) – and offers to start the exercise right away.</translation>
+        <source>Zur eingestellten Zeit erinnert ViviaBreathe – auch im Hintergrund (Symbol im Infobereich) – und bietet an, die Übung direkt zu starten.</source>
+        <translation>At the set time, ViviaBreathe reminds you – also in the background (icon in the notification area) – and offers to start the exercise right away.</translation>
     </message>
     <message>
         <location filename="../src/eventspage.cpp" line="104" />
@@ -1368,8 +1368,8 @@
     <name>EventsPage</name>
     <message>
         <location filename="../src/eventspage.cpp" line="131" />
-        <source>Legen Sie Ereignisse wie „Einschlafübung“ oder „Stressbewältigung“ fest. VitaBreathe erinnert Sie zur gewählten Zeit und startet auf Wunsch gleich die passende Übung.</source>
-        <translation>Set up events such as “Sleep exercise” or “Stress relief”. VitaBreathe reminds you at the chosen time and starts the matching exercise on request.</translation>
+        <source>Legen Sie Ereignisse wie „Einschlafübung“ oder „Stressbewältigung“ fest. ViviaBreathe erinnert Sie zur gewählten Zeit und startet auf Wunsch gleich die passende Übung.</source>
+        <translation>Set up events such as “Sleep exercise” or “Stress relief”. ViviaBreathe reminds you at the chosen time and starts the matching exercise on request.</translation>
     </message>
     <message>
         <location filename="../src/eventspage.cpp" line="136" />
@@ -1456,270 +1456,270 @@
 <context>
     <name>HistoryPage</name>
     <message>
-        <location filename="../src/historypage.cpp" line="52" />
+        <location filename="../src/historypage.cpp" line="53" />
         <source>Zeitraum:</source>
         <translation>Period:</translation>
     </message>
     <message>
-        <location filename="../src/historypage.cpp" line="54" />
+        <location filename="../src/historypage.cpp" line="55" />
         <source>Letzte 7 Tage</source>
         <translation>Last 7 days</translation>
     </message>
     <message>
-        <location filename="../src/historypage.cpp" line="55" />
+        <location filename="../src/historypage.cpp" line="56" />
         <source>Letzte 30 Tage</source>
         <translation>Last 30 days</translation>
     </message>
     <message>
-        <location filename="../src/historypage.cpp" line="56" />
+        <location filename="../src/historypage.cpp" line="57" />
         <source>Letzte 90 Tage</source>
         <translation>Last 90 days</translation>
     </message>
     <message>
-        <location filename="../src/historypage.cpp" line="57" />
+        <location filename="../src/historypage.cpp" line="58" />
         <source>Letztes Jahr</source>
         <translation>Last year</translation>
     </message>
     <message>
-        <location filename="../src/historypage.cpp" line="58" />
+        <location filename="../src/historypage.cpp" line="59" />
         <source>Alles</source>
         <translation>All</translation>
     </message>
     <message>
-        <location filename="../src/historypage.cpp" line="59" />
+        <location filename="../src/historypage.cpp" line="60" />
         <source>Frei wählen</source>
         <translation>Custom</translation>
     </message>
     <message>
-        <location filename="../src/historypage.cpp" line="71" />
+        <location filename="../src/historypage.cpp" line="72" />
         <source>Übung:</source>
         <translation>Exercise:</translation>
     </message>
     <message>
-        <location filename="../src/historypage.cpp" line="73" />
+        <location filename="../src/historypage.cpp" line="74" />
         <source>alle</source>
         <translation>all</translation>
     </message>
     <message>
-        <location filename="../src/historypage.cpp" line="83" />
+        <location filename="../src/historypage.cpp" line="84" />
         <source>Datum / Uhrzeit</source>
         <translation>Date / time</translation>
     </message>
     <message>
-        <location filename="../src/historypage.cpp" line="83" />
+        <location filename="../src/historypage.cpp" line="84" />
         <source>Übung</source>
         <translation>Exercise</translation>
     </message>
     <message>
-        <location filename="../src/historypage.cpp" line="83" />
+        <location filename="../src/historypage.cpp" line="84" />
         <source>Anlass</source>
         <translation>Occasion</translation>
     </message>
     <message>
-        <location filename="../src/historypage.cpp" line="83" />
+        <location filename="../src/historypage.cpp" line="84" />
         <source>Muster [s]</source>
         <translation>Pattern [s]</translation>
     </message>
     <message>
-        <location filename="../src/historypage.cpp" line="83" />
+        <location filename="../src/historypage.cpp" line="84" />
         <source>Dauer</source>
         <translation>Duration</translation>
     </message>
     <message>
-        <location filename="../src/historypage.cpp" line="84" />
+        <location filename="../src/historypage.cpp" line="85" />
         <source>Zyklen</source>
         <translation>Cycles</translation>
     </message>
     <message>
-        <location filename="../src/historypage.cpp" line="84" />
+        <location filename="../src/historypage.cpp" line="85" />
         <source>SpO₂
 vor [%]</source>
         <translation>SpO₂
 before [%]</translation>
     </message>
     <message>
-        <location filename="../src/historypage.cpp" line="84" />
+        <location filename="../src/historypage.cpp" line="85" />
         <source>SpO₂
 nach [%]</source>
         <translation>SpO₂
 after [%]</translation>
     </message>
     <message>
-        <location filename="../src/historypage.cpp" line="84" />
+        <location filename="../src/historypage.cpp" line="85" />
         <source>Peak Flow
 vor [l/min]</source>
         <translation>Peak flow
 before [l/min]</translation>
     </message>
     <message>
-        <location filename="../src/historypage.cpp" line="85" />
+        <location filename="../src/historypage.cpp" line="86" />
         <source>Peak Flow
 nach [l/min]</source>
         <translation>Peak flow
 after [l/min]</translation>
     </message>
     <message>
-        <location filename="../src/historypage.cpp" line="85" />
+        <location filename="../src/historypage.cpp" line="86" />
         <source>Puls
 vor</source>
         <translation>Pulse
 before</translation>
     </message>
     <message>
-        <location filename="../src/historypage.cpp" line="85" />
+        <location filename="../src/historypage.cpp" line="86" />
         <source>Puls
 nach</source>
         <translation>Pulse
 after</translation>
     </message>
     <message>
-        <location filename="../src/historypage.cpp" line="86" />
+        <location filename="../src/historypage.cpp" line="87" />
         <source>Befinden
 vor</source>
         <translation>Well-being
 before</translation>
     </message>
     <message>
-        <location filename="../src/historypage.cpp" line="86" />
+        <location filename="../src/historypage.cpp" line="87" />
         <source>Befinden
 nach</source>
         <translation>Well-being
 after</translation>
     </message>
     <message>
-        <location filename="../src/historypage.cpp" line="86" />
+        <location filename="../src/historypage.cpp" line="87" />
         <source>Notiz</source>
         <translation>Note</translation>
     </message>
     <message>
-        <location filename="../src/historypage.cpp" line="86" />
-        <location filename="../src/historypage.cpp" line="104" />
+        <location filename="../src/historypage.cpp" line="87" />
+        <location filename="../src/historypage.cpp" line="105" />
         <source>Atemtrainer</source>
         <translation>Breathing trainer</translation>
     </message>
     <message>
-        <location filename="../src/historypage.cpp" line="99" />
+        <location filename="../src/historypage.cpp" line="100" />
         <source>Grafik:</source>
         <translation>Chart:</translation>
     </message>
     <message>
-        <location filename="../src/historypage.cpp" line="100" />
+        <location filename="../src/historypage.cpp" line="101" />
         <source>Übungsminuten</source>
         <translation>Exercise minutes</translation>
     </message>
     <message>
-        <location filename="../src/historypage.cpp" line="101" />
+        <location filename="../src/historypage.cpp" line="102" />
         <source>SpO₂</source>
         <translation>SpO₂</translation>
     </message>
     <message>
-        <location filename="../src/historypage.cpp" line="102" />
+        <location filename="../src/historypage.cpp" line="103" />
         <source>Peak Flow</source>
         <translation>Peak flow</translation>
     </message>
     <message>
-        <location filename="../src/historypage.cpp" line="103" />
+        <location filename="../src/historypage.cpp" line="104" />
         <source>Puls</source>
         <translation>Pulse</translation>
     </message>
     <message>
-        <location filename="../src/historypage.cpp" line="128" />
+        <location filename="../src/historypage.cpp" line="134" />
         <source>Nachtragen …</source>
         <translation>Add later …</translation>
     </message>
     <message>
-        <location filename="../src/historypage.cpp" line="129" />
+        <location filename="../src/historypage.cpp" line="135" />
         <source>Bearbeiten …</source>
         <translation>Edit …</translation>
     </message>
     <message>
-        <location filename="../src/historypage.cpp" line="130" />
-        <location filename="../src/historypage.cpp" line="294" />
+        <location filename="../src/historypage.cpp" line="136" />
+        <location filename="../src/historypage.cpp" line="300" />
         <source>Löschen</source>
         <translation>Delete</translation>
     </message>
     <message>
-        <location filename="../src/historypage.cpp" line="135" />
+        <location filename="../src/historypage.cpp" line="141" />
         <source>Verlauf drucken …</source>
         <translation>Print history …</translation>
     </message>
     <message>
-        <location filename="../src/historypage.cpp" line="136" />
+        <location filename="../src/historypage.cpp" line="142" />
         <source>Als PDF speichern …</source>
         <translation>Save as PDF …</translation>
     </message>
     <message>
-        <location filename="../src/historypage.cpp" line="137" />
+        <location filename="../src/historypage.cpp" line="143" />
         <source>CSV exportieren …</source>
         <translation>Export CSV …</translation>
     </message>
     <message>
-        <location filename="../src/historypage.cpp" line="218" />
+        <location filename="../src/historypage.cpp" line="224" />
         <source>vorzeitig beendet</source>
         <translation>stopped early</translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/historypage.cpp" line="230" />
+        <location filename="../src/historypage.cpp" line="236" />
         <source>%n Ball/Bälle</source>
         <translation><numerusform>%n ball</numerusform><numerusform>%n balls</numerusform></translation>
     </message>
     <message>
-        <location filename="../src/historypage.cpp" line="231" />
+        <location filename="../src/historypage.cpp" line="237" />
         <source>%1 s</source>
         <translation>%1 s</translation>
     </message>
     <message>
-        <location filename="../src/historypage.cpp" line="238" />
+        <location filename="../src/historypage.cpp" line="244" />
         <source>%1 Übungseinheit(en) · %2 min</source>
         <translation>%1 session(s) · %2 min</translation>
     </message>
     <message>
-        <location filename="../src/historypage.cpp" line="271" />
+        <location filename="../src/historypage.cpp" line="277" />
         <source>Nachtragen</source>
         <translation>Add later</translation>
     </message>
     <message>
-        <location filename="../src/historypage.cpp" line="285" />
+        <location filename="../src/historypage.cpp" line="291" />
         <source>Bearbeiten</source>
         <translation>Edit</translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/historypage.cpp" line="294" />
+        <location filename="../src/historypage.cpp" line="300" />
         <source>%n Übungseinheit(en) endgültig löschen?</source>
         <translation><numerusform>Permanently delete %n session?</numerusform><numerusform>Permanently delete %n sessions?</numerusform></translation>
     </message>
     <message>
-        <location filename="../src/historypage.cpp" line="316" />
+        <location filename="../src/historypage.cpp" line="322" />
         <source>Verlauf als PDF speichern</source>
         <translation>Save history as PDF</translation>
     </message>
     <message>
-        <location filename="../src/historypage.cpp" line="316" />
+        <location filename="../src/historypage.cpp" line="322" />
         <source>PDF (*.pdf)</source>
         <translation>PDF (*.pdf)</translation>
     </message>
     <message>
-        <location filename="../src/historypage.cpp" line="319" />
+        <location filename="../src/historypage.cpp" line="325" />
         <source>PDF</source>
         <translation>PDF</translation>
     </message>
     <message>
-        <location filename="../src/historypage.cpp" line="319" />
+        <location filename="../src/historypage.cpp" line="325" />
         <source>Die PDF-Datei konnte nicht geschrieben werden.</source>
         <translation>The PDF file could not be written.</translation>
     </message>
     <message>
-        <location filename="../src/historypage.cpp" line="324" />
+        <location filename="../src/historypage.cpp" line="330" />
         <source>Verlauf als CSV exportieren</source>
         <translation>Export history as CSV</translation>
     </message>
     <message>
-        <location filename="../src/historypage.cpp" line="327" />
+        <location filename="../src/historypage.cpp" line="333" />
         <source>CSV (*.csv)</source>
         <translation>CSV (*.csv)</translation>
     </message>
     <message>
-        <location filename="../src/historypage.cpp" line="331" />
+        <location filename="../src/historypage.cpp" line="337" />
         <source>CSV</source>
         <translation>CSV</translation>
     </message>
@@ -1738,13 +1738,13 @@ after</translation>
     </message>
     <message>
         <location filename="../src/logindialog.cpp" line="44" />
-        <source>VitaBreathe</source>
-        <translation>VitaBreathe</translation>
+        <source>ViviaBreathe</source>
+        <translation>ViviaBreathe</translation>
     </message>
     <message>
         <location filename="../src/logindialog.cpp" line="52" />
-        <source>&lt;p style='font-size:x-large'&gt;&lt;b&gt;VitaBreathe&lt;/b&gt;&lt;/p&gt;&lt;p&gt;Geführte Atemübungen mit Tagebuch – Version %1&lt;/p&gt;</source>
-        <translation>&lt;p style='font-size:x-large'&gt;&lt;b&gt;VitaBreathe&lt;/b&gt;&lt;/p&gt;&lt;p&gt;Guided breathing exercises with a diary – version %1&lt;/p&gt;</translation>
+        <source>&lt;p style='font-size:x-large'&gt;&lt;b&gt;ViviaBreathe&lt;/b&gt;&lt;/p&gt;&lt;p&gt;Geführte Atemübungen mit Tagebuch – Version %1&lt;/p&gt;</source>
+        <translation>&lt;p style='font-size:x-large'&gt;&lt;b&gt;ViviaBreathe&lt;/b&gt;&lt;/p&gt;&lt;p&gt;Guided breathing exercises with a diary – version %1&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../src/logindialog.cpp" line="73" />
@@ -1794,8 +1794,8 @@ after</translation>
     </message>
     <message>
         <location filename="../src/logindialog.cpp" line="127" />
-        <source>VitaBreathe ist ein persönliches Übungs-Tagebuch und &lt;b&gt;kein Medizinprodukt&lt;/b&gt;.</source>
-        <translation>VitaBreathe is a personal exercise diary and &lt;b&gt;not a medical device&lt;/b&gt;.</translation>
+        <source>ViviaBreathe ist ein persönliches Übungs-Tagebuch und &lt;b&gt;kein Medizinprodukt&lt;/b&gt;.</source>
+        <translation>ViviaBreathe is a personal exercise diary and &lt;b&gt;not a medical device&lt;/b&gt;.</translation>
     </message>
     <message>
         <location filename="../src/logindialog.cpp" line="132" />
@@ -1855,8 +1855,8 @@ after</translation>
     </message>
     <message>
         <location filename="../src/logindialog.cpp" line="196" />
-        <source>VitaBreathe-Datenbank (*.sqlite *.vbdb);;Alle Dateien (*)</source>
-        <translation>VitaBreathe database (*.sqlite *.vbdb);;All files (*)</translation>
+        <source>ViviaBreathe-Datenbank (*.sqlite *.vbdb);;Alle Dateien (*)</source>
+        <translation>ViviaBreathe database (*.sqlite *.vbdb);;All files (*)</translation>
     </message>
     <message>
         <location filename="../src/logindialog.cpp" line="210" />
@@ -1865,8 +1865,8 @@ after</translation>
     </message>
     <message>
         <location filename="../src/logindialog.cpp" line="212" />
-        <source>Geben Sie die Adresse Ihres Abgleich-Servers und den Zugangsschlüssel ein (in VitaBreathe auf dem anderen Gerät unter Extras → Einstellungen → Abgleich). Danach melden Sie sich mit dem gemeinsamen Master-Passwort an.</source>
-        <translation>Enter the address of your sync server and the access key (in VitaBreathe on the other device under Extras → Settings → Synchronisation). Then sign in with the shared master password.</translation>
+        <source>Geben Sie die Adresse Ihres Abgleich-Servers und den Zugangsschlüssel ein (in ViviaBreathe auf dem anderen Gerät unter Extras → Einstellungen → Abgleich). Danach melden Sie sich mit dem gemeinsamen Master-Passwort an.</source>
+        <translation>Enter the address of your sync server and the access key (in ViviaBreathe on the other device under Extras → Settings → Synchronisation). Then sign in with the shared master password.</translation>
     </message>
     <message>
         <location filename="../src/logindialog.cpp" line="221" />
@@ -2058,8 +2058,8 @@ after</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="238" />
-        <source>Ü&amp;ber VitaBreathe …</source>
-        <translation>&amp;About VitaBreathe …</translation>
+        <source>Ü&amp;ber ViviaBreathe …</source>
+        <translation>&amp;About ViviaBreathe …</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="239" />
@@ -2193,8 +2193,8 @@ after</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="414" />
-        <source>Weitere Übungsmodule folgen in künftigen Versionen. VitaBreathe ist ein persönliches Übungs-Tagebuch und kein Medizinprodukt – bei Beschwerden fragen Sie bitte Ihre Ärztin oder Ihren Arzt.</source>
-        <translation>More exercise modules will follow in future versions. VitaBreathe is a personal exercise diary and not a medical device – if you have symptoms, please consult your doctor.</translation>
+        <source>Weitere Übungsmodule folgen in künftigen Versionen. ViviaBreathe ist ein persönliches Übungs-Tagebuch und kein Medizinprodukt – bei Beschwerden fragen Sie bitte Ihre Ärztin oder Ihren Arzt.</source>
+        <translation>More exercise modules will follow in future versions. ViviaBreathe is a personal exercise diary and not a medical device – if you have symptoms, please consult your doctor.</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="425" />
@@ -2208,8 +2208,8 @@ after</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="468" />
-        <source>VitaBreathe – %1</source>
-        <translation>VitaBreathe – %1</translation>
+        <source>ViviaBreathe – %1</source>
+        <translation>ViviaBreathe – %1</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="470" />
@@ -2248,8 +2248,8 @@ after</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="509" />
-        <source>VitaBreathe anzeigen</source>
-        <translation>Show VitaBreathe</translation>
+        <source>ViviaBreathe anzeigen</source>
+        <translation>Show ViviaBreathe</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="519" />
@@ -2263,8 +2263,8 @@ after</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="563" />
-        <source>VitaBreathe läuft im Infobereich weiter, damit Erinnerungen und Wecker funktionieren. Beenden über das Symbol oder Datei → Beenden.</source>
-        <translation>VitaBreathe keeps running in the notification area so that reminders and alarms work. Quit via the icon or File → Quit.</translation>
+        <source>ViviaBreathe läuft im Infobereich weiter, damit Erinnerungen und Wecker funktionieren. Beenden über das Symbol oder Datei → Beenden.</source>
+        <translation>ViviaBreathe keeps running in the notification area so that reminders and alarms work. Quit via the icon or File → Quit.</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="574" />
@@ -2278,12 +2278,12 @@ after</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="596" />
-        <source>Die Sprache wird nach einem Neustart von VitaBreathe wirksam. Jetzt neu starten?
+        <source>Die Sprache wird nach einem Neustart von ViviaBreathe wirksam. Jetzt neu starten?
 
-The language takes effect after restarting VitaBreathe. Restart now?</source>
-        <translation>The language takes effect after restarting VitaBreathe. Restart now?
+The language takes effect after restarting ViviaBreathe. Restart now?</source>
+        <translation>The language takes effect after restarting ViviaBreathe. Restart now?
 
-Die Sprache wird nach einem Neustart von VitaBreathe wirksam. Jetzt neu starten?</translation>
+Die Sprache wird nach einem Neustart von ViviaBreathe wirksam. Jetzt neu starten?</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="609" />
@@ -2292,8 +2292,8 @@ Die Sprache wird nach einem Neustart von VitaBreathe wirksam. Jetzt neu starten?
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="610" />
-        <source>VitaBreathe-Datenbank (*.sqlite)</source>
-        <translation>VitaBreathe database (*.sqlite)</translation>
+        <source>ViviaBreathe-Datenbank (*.sqlite)</source>
+        <translation>ViviaBreathe database (*.sqlite)</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="614" />
@@ -2328,13 +2328,13 @@ Set it up now?</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="644" />
-        <source>Über VitaBreathe</source>
-        <translation>About VitaBreathe</translation>
+        <source>Über ViviaBreathe</source>
+        <translation>About ViviaBreathe</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="647" />
-        <source>&lt;h3&gt;VitaBreathe %1&lt;/h3&gt;&lt;p&gt;Geführte Atemübungen mit audiovisueller Unterstützung und Übungs-Tagebuch.&lt;/p&gt;&lt;p&gt;&lt;b&gt;Kein Medizinprodukt.&lt;/b&gt; VitaBreathe ist ein persönliches Tagebuch. Es stellt keine Diagnosen und ersetzt keine ärztliche Beratung. Die Verwendung erfolgt auf eigene Gefahr.&lt;/p&gt;&lt;p&gt;© 2026 Michael Bergmann – MIT-Lizenz&lt;br/&gt;Datenbank: SQLite3 Multiple Ciphers (MIT, Ulrich Telle)&lt;br/&gt;Qt %2&lt;/p&gt;</source>
-        <translation>&lt;h3&gt;VitaBreathe %1&lt;/h3&gt;&lt;p&gt;Guided breathing exercises with audiovisual support and an exercise diary.&lt;/p&gt;&lt;p&gt;&lt;b&gt;Not a medical device.&lt;/b&gt; VitaBreathe is a personal diary. It does not make diagnoses and does not replace medical advice. Use at your own risk.&lt;/p&gt;&lt;p&gt;© 2026 Michael Bergmann – MIT licence&lt;br/&gt;Database: SQLite3 Multiple Ciphers (MIT, Ulrich Telle)&lt;br/&gt;Qt %2&lt;/p&gt;</translation>
+        <source>&lt;h3&gt;ViviaBreathe %1&lt;/h3&gt;&lt;p&gt;Geführte Atemübungen mit audiovisueller Unterstützung und Übungs-Tagebuch.&lt;/p&gt;&lt;p&gt;&lt;b&gt;Kein Medizinprodukt.&lt;/b&gt; ViviaBreathe ist ein persönliches Tagebuch. Es stellt keine Diagnosen und ersetzt keine ärztliche Beratung. Die Verwendung erfolgt auf eigene Gefahr.&lt;/p&gt;&lt;p&gt;© 2026 Michael Bergmann&lt;br/&gt;Quelloffen unter der &lt;b&gt;PolyForm Noncommercial License 1.0.0&lt;/b&gt;: kostenlos für jede &lt;b&gt;nicht-kommerzielle&lt;/b&gt; Nutzung – privat sowie durch gemeinnützige Organisationen, Schulen und Behörden –, einschließlich Verändern und Weitergeben. &lt;b&gt;Kommerzielle Nutzung und Verkauf&lt;/b&gt; nur mit Erlaubnis des Autors.&lt;br/&gt;&lt;a href="https://polyformproject.org/licenses/noncommercial/1.0.0"&gt;polyformproject.org/licenses/noncommercial/1.0.0&lt;/a&gt;&lt;/p&gt;&lt;p&gt;Datenbank: SQLite3 Multiple Ciphers (MIT, Ulrich Telle)&lt;br/&gt;Qt %2 (LGPLv3)&lt;/p&gt;</source>
+        <translation>&lt;h3&gt;ViviaBreathe %1&lt;/h3&gt;&lt;p&gt;Guided breathing exercises with audiovisual support and an exercise diary.&lt;/p&gt;&lt;p&gt;&lt;b&gt;Not a medical device.&lt;/b&gt; ViviaBreathe is a personal diary. It does not make diagnoses and does not replace medical advice. Use at your own risk.&lt;/p&gt;&lt;p&gt;© 2026 Michael Bergmann&lt;br/&gt;Source-available under the &lt;b&gt;PolyForm Noncommercial License 1.0.0&lt;/b&gt;: free of charge for any &lt;b&gt;noncommercial&lt;/b&gt; use – personal use as well as use by charitable organisations, schools and public authorities –, including changing and redistributing it. &lt;b&gt;Commercial use and sale&lt;/b&gt; only with the author's permission.&lt;br/&gt;&lt;a href="https://polyformproject.org/licenses/noncommercial/1.0.0"&gt;polyformproject.org/licenses/noncommercial/1.0.0&lt;/a&gt;&lt;/p&gt;&lt;p&gt;Database: SQLite3 Multiple Ciphers (MIT, Ulrich Telle)&lt;br/&gt;Qt %2 (LGPLv3)&lt;/p&gt;</translation>
     </message>
 </context>
 <context>
@@ -2457,90 +2457,90 @@ Set it up now?</translation>
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../src/main.cpp" line="48" />
+        <location filename="../src/main.cpp" line="49" />
         <source>Erika Mustermann</source>
         <translation>Jane Doe</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="49" />
+        <location filename="../src/main.cpp" line="50" />
         <source>Max Mustermann</source>
         <translation>John Doe</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="60" />
-        <location filename="../src/main.cpp" line="138" />
+        <location filename="../src/main.cpp" line="61" />
+        <location filename="../src/main.cpp" line="139" />
         <source>Einschlafübung</source>
         <translation>Sleep exercise</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="60" />
+        <location filename="../src/main.cpp" line="61" />
         <source>Entspannung</source>
         <translation>Relaxation</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="78" />
+        <location filename="../src/main.cpp" line="79" />
         <source>Sehr ruhig geworden, schnell eingeschlafen.</source>
         <translation>Became very calm, fell asleep quickly.</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="85" />
-        <location filename="../src/main.cpp" line="140" />
+        <location filename="../src/main.cpp" line="86" />
+        <location filename="../src/main.cpp" line="141" />
         <source>Stressbewältigung</source>
         <translation>Stress relief</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="98" />
+        <location filename="../src/main.cpp" line="99" />
         <source>Atemtraining</source>
         <translation>Breathing training</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="115" />
+        <location filename="../src/main.cpp" line="116" />
         <source>Atemtrainer</source>
         <translation>Breathing trainer</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="129" />
-        <location filename="../src/main.cpp" line="141" />
+        <location filename="../src/main.cpp" line="130" />
+        <location filename="../src/main.cpp" line="142" />
         <source>Konzentration</source>
         <translation>Concentration</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="139" />
+        <location filename="../src/main.cpp" line="140" />
         <source>Im Bett, Licht aus</source>
         <translation>In bed, lights off</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="147" />
+        <location filename="../src/main.cpp" line="148" />
         <source>Arbeitstag</source>
         <translation>Workday</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="153" />
+        <location filename="../src/main.cpp" line="154" />
         <source>Wochentags</source>
         <translation>Weekdays</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="162" />
+        <location filename="../src/main.cpp" line="163" />
         <source>Wochenende – länger</source>
         <translation>Weekend – longer</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="192" />
+        <location filename="../src/main.cpp" line="193" />
         <source>Das Master-Passwort ist falsch.</source>
         <translation>The master password is wrong.</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="316" />
+        <location filename="../src/main.cpp" line="320" />
         <source>Hinweis</source>
         <translation>Note</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="318" />
-        <source>&lt;b&gt;VitaBreathe ist kein Medizinprodukt.&lt;/b&gt;&lt;br/&gt;Es ist ein persönliches Übungs-Tagebuch und ersetzt keine ärztliche Beratung. Brechen Sie eine Übung bei Schwindel, Unwohlsein oder Atemnot sofort ab.</source>
-        <translation>&lt;b&gt;VitaBreathe is not a medical device.&lt;/b&gt;&lt;br/&gt;It is a personal exercise diary and does not replace medical advice. Stop an exercise immediately if you feel dizzy, unwell or short of breath.</translation>
+        <location filename="../src/main.cpp" line="322" />
+        <source>&lt;b&gt;ViviaBreathe ist kein Medizinprodukt.&lt;/b&gt;&lt;br/&gt;Es ist ein persönliches Übungs-Tagebuch und ersetzt keine ärztliche Beratung. Brechen Sie eine Übung bei Schwindel, Unwohlsein oder Atemnot sofort ab.</source>
+        <translation>&lt;b&gt;ViviaBreathe is not a medical device.&lt;/b&gt;&lt;br/&gt;It is a personal exercise diary and does not replace medical advice. Stop an exercise immediately if you feel dizzy, unwell or short of breath.</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="321" />
+        <location filename="../src/main.cpp" line="325" />
         <source>Nicht mehr anzeigen</source>
         <translation>Do not show again</translation>
     </message>
@@ -2586,8 +2586,8 @@ Set it up now?</translation>
     </message>
     <message>
         <location filename="../src/reminderservice.cpp" line="200" />
-        <source>Erinnerung – VitaBreathe</source>
-        <translation>Reminder – VitaBreathe</translation>
+        <source>Erinnerung – ViviaBreathe</source>
+        <translation>Reminder – ViviaBreathe</translation>
     </message>
     <message>
         <location filename="../src/reminderservice.cpp" line="208" />
@@ -2618,8 +2618,8 @@ Set it up now?</translation>
     </message>
     <message>
         <location filename="../src/reminderservice.cpp" line="270" />
-        <source>Einschlafen – VitaBreathe</source>
-        <translation>Sleep – VitaBreathe</translation>
+        <source>Einschlafen – ViviaBreathe</source>
+        <translation>Sleep – ViviaBreathe</translation>
     </message>
     <message numerus="yes">
         <location filename="../src/reminderservice.cpp" line="278" />
@@ -2652,8 +2652,8 @@ Set it up now?</translation>
     <message>
         <location filename="../src/reportprinter.cpp" line="50" />
         <location filename="../src/reportprinter.cpp" line="130" />
-        <source>VitaBreathe – Übungstagebuch</source>
-        <translation>VitaBreathe – exercise diary</translation>
+        <source>ViviaBreathe – Übungstagebuch</source>
+        <translation>ViviaBreathe – exercise diary</translation>
     </message>
     <message>
         <location filename="../src/reportprinter.cpp" line="52" />
@@ -2732,8 +2732,8 @@ Set it up now?</translation>
     </message>
     <message>
         <location filename="../src/reportprinter.cpp" line="107" />
-        <source>Erstellt mit VitaBreathe %1 am %2. VitaBreathe ist ein persönliches Übungs-Tagebuch und kein Medizinprodukt.</source>
-        <translation>Created with VitaBreathe %1 on %2. VitaBreathe is a personal exercise diary and not a medical device.</translation>
+        <source>Erstellt mit ViviaBreathe %1 am %2. ViviaBreathe ist ein persönliches Übungs-Tagebuch und kein Medizinprodukt.</source>
+        <translation>Created with ViviaBreathe %1 on %2. ViviaBreathe is a personal exercise diary and not a medical device.</translation>
     </message>
     <message>
         <location filename="../src/reportprinter.cpp" line="118" />
@@ -2762,40 +2762,40 @@ Set it up now?</translation>
 <context>
     <name>SessionDialog</name>
     <message>
-        <location filename="../src/main.cpp" line="235" />
+        <location filename="../src/main.cpp" line="236" />
         <location filename="../src/sessiondialog.cpp" line="349" />
         <source>Trainingsmodus: Messwerte vor und nach der Übung erfassen</source>
         <translation>Training mode: record measurements before and after the exercise</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="236" />
+        <location filename="../src/main.cpp" line="237" />
         <location filename="../src/sessiondialog.cpp" line="363" />
         <source>Übung starten</source>
         <translation>Start exercise</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="240" />
+        <location filename="../src/main.cpp" line="241" />
         <location filename="../src/sessiondialog.cpp" line="486" />
         <source>Weiter zur Übung</source>
         <translation>Continue to the exercise</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="251" />
+        <location filename="../src/main.cpp" line="252" />
         <location filename="../src/sessiondialog.cpp" line="486" />
         <location filename="../src/sessiondialog.cpp" line="561" />
         <source>Weiter</source>
         <translation>Continue</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="255" />
+        <location filename="../src/main.cpp" line="256" />
         <location filename="../src/sessiondialog.cpp" line="785" />
         <source>Im Tagebuch speichern</source>
         <translation>Save to diary</translation>
     </message>
     <message>
         <location filename="../src/sessiondialog.cpp" line="94" />
-        <source>%1 – VitaBreathe</source>
-        <translation>%1 – VitaBreathe</translation>
+        <source>%1 – ViviaBreathe</source>
+        <translation>%1 – ViviaBreathe</translation>
     </message>
     <message>
         <location filename="../src/sessiondialog.cpp" line="162" />
@@ -3391,8 +3391,8 @@ Continue without music?</translation>
     </message>
     <message>
         <location filename="../src/settingsdialog.cpp" line="81" />
-        <source>Gleichen Sie VitaBreathe zwischen mehreren Geräten über Ihren eigenen Webserver ab (PHP, Ordner &lt;i&gt;website/&lt;/i&gt; aus dem Quelltext). Der Server erhält nur die verschlüsselte Datenbank – alle Geräte verwenden dasselbe Master-Passwort.</source>
-        <translation>Synchronise VitaBreathe between several devices via your own web server (PHP, folder &lt;i&gt;website/&lt;/i&gt; from the source code). The server only receives the encrypted database – all devices use the same master password.</translation>
+        <source>Gleichen Sie ViviaBreathe zwischen mehreren Geräten über Ihren eigenen Webserver ab (PHP, Ordner &lt;i&gt;website/&lt;/i&gt; aus dem Quelltext). Der Server erhält nur die verschlüsselte Datenbank – alle Geräte verwenden dasselbe Master-Passwort.</source>
+        <translation>Synchronise ViviaBreathe between several devices via your own web server (PHP, folder &lt;i&gt;website/&lt;/i&gt; from the source code). The server only receives the encrypted database – all devices use the same master password.</translation>
     </message>
     <message>
         <location filename="../src/settingsdialog.cpp" line="87" />
@@ -3620,8 +3620,8 @@ Continue without music?</translation>
     </message>
     <message>
         <location filename="../src/alarmpage.cpp" line="173" />
-        <source>Sonst erinnert VitaBreathe zur Uhrzeit und fragt, ob die Einschlaffunktion starten soll.</source>
-        <translation>Otherwise VitaBreathe reminds you at the set time and asks whether the sleep function should start.</translation>
+        <source>Sonst erinnert ViviaBreathe zur Uhrzeit und fragt, ob die Einschlaffunktion starten soll.</source>
+        <translation>Otherwise ViviaBreathe reminds you at the set time and asks whether the sleep function should start.</translation>
     </message>
     <message>
         <location filename="../src/alarmpage.cpp" line="189" />

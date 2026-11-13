@@ -1,4 +1,5 @@
-# Erzeugt die Illustrationen von VitaBreathe (Haltungen, TriBall-Anleitung) als SVG-Strichzeichnungen.
+# SPDX-License-Identifier: PolyForm-Noncommercial-1.0.0
+# Erzeugt die Illustrationen von ViviaBreathe (Haltungen, TriBall-Anleitung) als SVG-Strichzeichnungen.
 # Platzhalter: #COLOR (Strich, an das Theme angepasst), #ACCENT (Orange), #BLUE (Blau), #GREEN (Grün).
 # Aufruf: python3 tools/make_illustrations.py .
 import os

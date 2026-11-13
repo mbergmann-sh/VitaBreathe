@@ -1,5 +1,5 @@
-// VitaBreathe – Erscheinungsbild (Qt-Styles der Plattform + Dark Themes aus AmigaED 4.0)
-// SPDX-License-Identifier: MIT
+// ViviaBreathe – Erscheinungsbild (Qt-Styles der Plattform + Dark Themes aus AmigaED 4.0)
+// SPDX-License-Identifier: PolyForm-Noncommercial-1.0.0
 #pragma once
 
 #include <QString>

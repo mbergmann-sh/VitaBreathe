@@ -1,4 +1,5 @@
-# Erzeugt die SVG-Symbole von VitaBreathe (App-Symbol + Werkzeugleiste)
+# SPDX-License-Identifier: PolyForm-Noncommercial-1.0.0
+# Erzeugt die SVG-Symbole von ViviaBreathe (App-Symbol + Werkzeugleiste)
 import os, sys
 root = sys.argv[1]
 ui = os.path.join(root, "resources/icons/ui"); app = os.path.join(root, "resources/icons/app")
@@ -26,7 +27,7 @@ APP = f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="2
 </svg>
 '''
 os.makedirs(app, exist_ok=True); os.makedirs(ui, exist_ok=True)
-open(os.path.join(app, "vitabreathe.svg"), "w").write(APP)
+open(os.path.join(app, "viviabreathe.svg"), "w").write(APP)
 
 S = 'fill="none" stroke="#COLOR" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"'
 A = 'fill="none" stroke="#ACCENT" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"'

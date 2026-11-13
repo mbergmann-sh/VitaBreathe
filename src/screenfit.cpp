@@ -1,4 +1,5 @@
-// VitaBreathe – Fenster an kleine Bildschirme anpassen (siehe screenfit.h)
+// ViviaBreathe – Fenster an kleine Bildschirme anpassen (siehe screenfit.h)
+// SPDX-License-Identifier: PolyForm-Noncommercial-1.0.0
 #include "screenfit.h"
 
 #include <QApplication>

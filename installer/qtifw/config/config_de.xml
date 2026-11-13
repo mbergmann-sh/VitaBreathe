@@ -2,28 +2,28 @@
 <!-- ERZEUGT von qmake aus config_de.xml.in – Änderungen bitte dort vornehmen -->
 <!-- Installationssprache: Translations legt die Sprache des Installers fest (unabhängig von Windows) -->
 <Installer>
-    <Name>VitaBreathe</Name>
-    <Version>0.4.0</Version>
-    <Title>VitaBreathe 0.4.0</Title>
+    <Name>ViviaBreathe</Name>
+    <Version>0.5.0</Version>
+    <Title>ViviaBreathe 0.5.0</Title>
     <Publisher>Michael Bergmann</Publisher>
     <ProductUrl>https://github.com/mbergmann-sh</ProductUrl>
-    <StartMenuDir>VitaBreathe</StartMenuDir>
-    <TargetDir>C:/VitaBreathe</TargetDir>
-    <AdminTargetDir>C:/VitaBreathe</AdminTargetDir>
+    <StartMenuDir>ViviaBreathe</StartMenuDir>
+    <TargetDir>C:/ViviaBreathe</TargetDir>
+    <AdminTargetDir>C:/ViviaBreathe</AdminTargetDir>
     <AllowSpaceInPath>true</AllowSpaceInPath>
     <AllowNonAsciiCharacters>true</AllowNonAsciiCharacters>
     <RemoveTargetDir>true</RemoveTargetDir>
-    <MaintenanceToolName>VitaBreathe-Wartung</MaintenanceToolName>
-    <InstallerApplicationIcon>vitabreathe</InstallerApplicationIcon>
-    <InstallerWindowIcon>vitabreathe.png</InstallerWindowIcon>
+    <MaintenanceToolName>ViviaBreathe-Wartung</MaintenanceToolName>
+    <InstallerApplicationIcon>viviabreathe</InstallerApplicationIcon>
+    <InstallerWindowIcon>viviabreathe.png</InstallerWindowIcon>
     <Logo>logo.png</Logo>
     <Banner>banner.png</Banner>
     <Watermark>watermark.png</Watermark>
     <WizardStyle>Modern</WizardStyle>
     <WizardDefaultWidth>720</WizardDefaultWidth>
     <WizardDefaultHeight>520</WizardDefaultHeight>
-    <RunProgram>@TargetDir@/VitaBreathe.exe</RunProgram>
-    <RunProgramDescription>VitaBreathe starten</RunProgramDescription>
+    <RunProgram>@TargetDir@/ViviaBreathe.exe</RunProgram>
+    <RunProgramDescription>ViviaBreathe starten</RunProgramDescription>
     <Translations>
         <Translation>ifw_de</Translation>
         <Translation>qt_de</Translation>

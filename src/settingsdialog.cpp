@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: PolyForm-Noncommercial-1.0.0
 #include "settingsdialog.h"
 #include "database.h"
 #include "dbsync.h"
@@ -78,7 +78,7 @@ QWidget *SettingsDialog::syncPage()
     const DbSync::Config c = DbSync::config();
     auto *w = new QWidget;
     auto *lay = new QVBoxLayout(w);
-    auto *info = new QLabel(tr("Gleichen Sie VitaBreathe zwischen mehreren Geräten über Ihren eigenen Webserver ab "
+    auto *info = new QLabel(tr("Gleichen Sie ViviaBreathe zwischen mehreren Geräten über Ihren eigenen Webserver ab "
                                "(PHP, Ordner <i>website/</i> aus dem Quelltext). Der Server erhält nur die "
                                "verschlüsselte Datenbank – alle Geräte verwenden dasselbe Master-Passwort."));
     info->setWordWrap(true);

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- ERZEUGT von qmake aus package.xml.in – Änderungen bitte dort vornehmen -->
 <Package>
-    <DisplayName>VitaBreathe</DisplayName>
+    <DisplayName>ViviaBreathe</DisplayName>
     <Description>Geführte Atemübungen mit Tagebuch, Erinnerungen, Wecker und Einschlaffunktion</Description>
     <Version>@VP_VERSION@</Version>
     <ReleaseDate>@VP_RELEASE_DATE@</ReleaseDate>

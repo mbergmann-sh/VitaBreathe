@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: PolyForm-Noncommercial-1.0.0
 #include "icons.h"
 
 #include <QAbstractButton>
@@ -46,7 +46,7 @@ QColor primary() { return QColor(0x14, 0x74, 0xBC); }
 QIcon app()
 {
     QIcon i;
-    i.addFile(QStringLiteral(":/icons/vitabreathe.png"));
+    i.addFile(QStringLiteral(":/icons/viviabreathe.png"));
     return i;
 }
 

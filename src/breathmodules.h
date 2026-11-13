@@ -1,4 +1,4 @@
-// VitaBreathe – Übungsmodule (Atemmuster)
+// ViviaBreathe – Übungsmodule (Atemmuster)
 //
 // Jedes Modul beschreibt ein Atemmuster: Phasen (Einatmen, Halten, Ausatmen, Halten, ruhig
 // atmen, Huffen) mit Standarddauern, Standard-Übungsdauer, Tipps und die Art der Animation.
@@ -9,7 +9,7 @@
 // Neue Module werden in breathmodules.cpp (BreathModules::all()) ergänzt – Einstellungen,
 // Hintergrundmusik, Signaltöne, Trainingsmodus, Erinnerungen und Verlauf stehen ihnen
 // automatisch zur Verfügung.
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: PolyForm-Noncommercial-1.0.0
 #pragma once
 
 #include <QColor>

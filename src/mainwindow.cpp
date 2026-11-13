@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: PolyForm-Noncommercial-1.0.0
 #include "mainwindow.h"
 #include "alarmpage.h"
 #include "breathmodules.h"
@@ -46,7 +46,7 @@ enum Tab { TabExercises, TabHistory, TabEvents, TabAlarm };
 
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
 {
-    setWindowTitle(QStringLiteral("VitaBreathe"));
+    setWindowTitle(QStringLiteral("ViviaBreathe"));
     setWindowIcon(Icons::app());
     m_reminders = new ReminderService(this);
 
@@ -59,7 +59,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
     head->setFrameShadow(QFrame::Sunken);
     auto *hl = new QHBoxLayout(head);
     auto *logo = new QLabel;
-    logo->setPixmap(QIcon(QStringLiteral(":/icons/vitabreathe.png")).pixmap(44, 44));
+    logo->setPixmap(QIcon(QStringLiteral(":/icons/viviabreathe.png")).pixmap(44, 44));
     hl->addWidget(logo, 0, Qt::AlignTop);
     auto *ht = new QVBoxLayout;
     m_headName = new QLabel;
@@ -235,7 +235,7 @@ void MainWindow::buildMenus()
     });
 
     QMenu *help = menuBar()->addMenu(tr("&Hilfe"));
-    help->addAction(Icons::get(QStringLiteral("info")), tr("Ü&ber VitaBreathe …"), this, &MainWindow::showAbout);
+    help->addAction(Icons::get(QStringLiteral("info")), tr("Ü&ber ViviaBreathe …"), this, &MainWindow::showAbout);
     help->addAction(tr("Über &Qt …"), qApp, &QApplication::aboutQt);
 }
 
@@ -411,7 +411,7 @@ void MainWindow::refreshExerciseCards()
         }
         m_cardsLayout->addWidget(card);
     }
-    auto *more = new QLabel(tr("Weitere Übungsmodule folgen in künftigen Versionen. VitaBreathe ist ein persönliches "
+    auto *more = new QLabel(tr("Weitere Übungsmodule folgen in künftigen Versionen. ViviaBreathe ist ein persönliches "
                                "Übungs-Tagebuch und kein Medizinprodukt – bei Beschwerden fragen Sie bitte Ihre Ärztin oder Ihren Arzt."));
     more->setWordWrap(true);
     more->setEnabled(false);
@@ -465,7 +465,7 @@ void MainWindow::refreshHeader()
 {
     const auto u = Database::instance().user(m_userId);
     m_headName->setText(u ? u->name : tr("Kein Benutzer"));
-    setWindowTitle(u ? tr("VitaBreathe – %1").arg(u->name) : QStringLiteral("VitaBreathe"));
+    setWindowTitle(u ? tr("ViviaBreathe – %1").arg(u->name) : QStringLiteral("ViviaBreathe"));
     if (!u) {
         m_headInfo->setText(tr("Legen Sie über <i>Benutzer → Neuer Benutzer</i> eine Person an."));
         return;
@@ -504,9 +504,9 @@ void MainWindow::setupTray()
 {
     if (!QSystemTrayIcon::isSystemTrayAvailable()) return;
     m_tray = new QSystemTrayIcon(Icons::app(), this);
-    m_tray->setToolTip(QStringLiteral("VitaBreathe"));
+    m_tray->setToolTip(QStringLiteral("ViviaBreathe"));
     auto *menu = new QMenu(this);
-    menu->addAction(tr("VitaBreathe anzeigen"), this, [this] {
+    menu->addAction(tr("ViviaBreathe anzeigen"), this, [this] {
         showNormal();
         raise();
         activateWindow();
@@ -559,8 +559,8 @@ void MainWindow::closeEvent(QCloseEvent *e)
         hide();
         if (!m_trayHintShown) {
             m_trayHintShown = true;
-            m_tray->showMessage(QStringLiteral("VitaBreathe"),
-                                tr("VitaBreathe läuft im Infobereich weiter, damit Erinnerungen und Wecker funktionieren. "
+            m_tray->showMessage(QStringLiteral("ViviaBreathe"),
+                                tr("ViviaBreathe läuft im Infobereich weiter, damit Erinnerungen und Wecker funktionieren. "
                                    "Beenden über das Symbol oder Datei → Beenden."),
                                 Icons::app(), 8000);
         }
@@ -593,8 +593,8 @@ void MainWindow::openSettings(int page)
     dlg.exec();
     if (!languageChanged) return;
     if (QMessageBox::question(this, tr("Sprache / Language"),
-                              tr("Die Sprache wird nach einem Neustart von VitaBreathe wirksam. Jetzt neu starten?\n\n"
-                                 "The language takes effect after restarting VitaBreathe. Restart now?"))
+                              tr("Die Sprache wird nach einem Neustart von ViviaBreathe wirksam. Jetzt neu starten?\n\n"
+                                 "The language takes effect after restarting ViviaBreathe. Restart now?"))
         != QMessageBox::Yes)
         return;
     m_quitting = true;
@@ -605,9 +605,9 @@ void MainWindow::openSettings(int page)
 void MainWindow::backup()
 {
     const QString def = QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation)
-                        + QStringLiteral("/VitaBreathe-Sicherung_%1.sqlite").arg(QDate::currentDate().toString(Qt::ISODate));
+                        + QStringLiteral("/ViviaBreathe-Sicherung_%1.sqlite").arg(QDate::currentDate().toString(Qt::ISODate));
     const QString f = QFileDialog::getSaveFileName(this, tr("Datenbank sichern"), def,
-                                                   tr("VitaBreathe-Datenbank (*.sqlite)"));
+                                                   tr("ViviaBreathe-Datenbank (*.sqlite)"));
     if (f.isEmpty()) return;
     QString err;
     if (Database::instance().backupTo(f, &err))
@@ -641,15 +641,22 @@ void MainWindow::runSync(bool interactive)
 void MainWindow::showAbout()
 {
     QMessageBox box(this);
-    box.setWindowTitle(tr("Über VitaBreathe"));
-    box.setIconPixmap(QIcon(QStringLiteral(":/icons/vitabreathe.png")).pixmap(96, 96));
+    box.setWindowTitle(tr("Über ViviaBreathe"));
+    box.setIconPixmap(QIcon(QStringLiteral(":/icons/viviabreathe.png")).pixmap(96, 96));
     box.setTextFormat(Qt::RichText);
-    box.setText(tr("<h3>VitaBreathe %1</h3>"
+    box.setText(tr("<h3>ViviaBreathe %1</h3>"
                    "<p>Geführte Atemübungen mit audiovisueller Unterstützung und Übungs-Tagebuch.</p>"
-                   "<p><b>Kein Medizinprodukt.</b> VitaBreathe ist ein persönliches Tagebuch. Es stellt keine Diagnosen "
+                   "<p><b>Kein Medizinprodukt.</b> ViviaBreathe ist ein persönliches Tagebuch. Es stellt keine Diagnosen "
                    "und ersetzt keine ärztliche Beratung. Die Verwendung erfolgt auf eigene Gefahr.</p>"
-                   "<p>© 2026 Michael Bergmann – MIT-Lizenz<br/>"
-                   "Datenbank: SQLite3 Multiple Ciphers (MIT, Ulrich Telle)<br/>"
-                   "Qt %2</p>").arg(vbVersion(), QString::fromLatin1(qVersion())));
+                   "<p>© 2026 Michael Bergmann<br/>"
+                   "Quelloffen unter der <b>PolyForm Noncommercial License 1.0.0</b>: kostenlos für jede "
+                   "<b>nicht-kommerzielle</b> Nutzung – privat sowie durch gemeinnützige Organisationen, Schulen "
+                   "und Behörden –, einschließlich Verändern und Weitergeben. <b>Kommerzielle Nutzung und Verkauf</b> "
+                   "nur mit Erlaubnis des Autors.<br/>"
+                   "<a href=\"https://polyformproject.org/licenses/noncommercial/1.0.0\">"
+                   "polyformproject.org/licenses/noncommercial/1.0.0</a></p>"
+                   "<p>Datenbank: SQLite3 Multiple Ciphers (MIT, Ulrich Telle)<br/>"
+                   "Qt %2 (LGPLv3)</p>").arg(vbVersion(), QString::fromLatin1(qVersion())));
+    box.setTextInteractionFlags(Qt::TextBrowserInteraction);   // Link anklickbar
     box.exec();
 }

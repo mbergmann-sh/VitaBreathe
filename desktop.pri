@@ -1,5 +1,5 @@
 # ---------------------------------------------------------------------------
-#  VitaBreathe – Desktop-Oberfläche (Qt Widgets)
+#  ViviaBreathe – Desktop-Oberfläche (Qt Widgets)
 # ---------------------------------------------------------------------------
 SOURCES += \
     $$PWD/src/main.cpp \

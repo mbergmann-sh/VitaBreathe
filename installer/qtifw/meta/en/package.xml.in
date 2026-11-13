@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- ERZEUGT von qmake aus package.xml.in – Änderungen bitte dort vornehmen -->
 <Package>
-    <DisplayName>VitaBreathe</DisplayName>
+    <DisplayName>ViviaBreathe</DisplayName>
     <Description>Guided breathing exercises with diary, reminders, alarm clock and sleep function</Description>
     <Version>@VP_VERSION@</Version>
     <ReleaseDate>@VP_RELEASE_DATE@</ReleaseDate>
@@ -9,7 +9,7 @@
     <ForcedInstallation>true</ForcedInstallation>
     <SortingPriority>100</SortingPriority>
     <Licenses>
-        <License name="Licence and disclaimer" file="license.txt"/>
+        <License name="License and disclaimer" file="license.txt"/>
     </Licenses>
     <Script>installscript.qs</Script>
 </Package>

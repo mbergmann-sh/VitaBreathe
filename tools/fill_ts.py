@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
-# Trägt die englischen Übersetzungen aus tools/translations_en.py in translations/vitabreathe_en.ts ein.
-# Ablauf nach Textänderungen:  lupdate VitaBreathe.pro  →  python3 tools/fill_ts.py  →  bauen
+# SPDX-License-Identifier: PolyForm-Noncommercial-1.0.0
+# Trägt die englischen Übersetzungen aus tools/translations_en.py in translations/viviabreathe_en.ts ein.
+# Ablauf nach Textänderungen:  lupdate ViviaBreathe.pro  →  python3 tools/fill_ts.py  →  bauen
 # Fehlende Übersetzungen werden gemeldet und bleiben „unfinished“ (dann zeigt das Programm den deutschen Text).
 import os
 import sys
@@ -10,7 +11,7 @@ here = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, here)
 from translations_en import EN, EN_CONTEXT, DE_NUMERUS  # noqa: E402
 
-ts = os.path.join(here, '..', 'translations', 'vitabreathe_en.ts')
+ts = os.path.join(here, '..', 'translations', 'viviabreathe_en.ts')
 tree = ET.parse(ts)
 missing = []
 done = 0
@@ -45,9 +46,9 @@ data = data.replace("<?xml version='1.0' encoding='utf-8'?>", '<?xml version="1.
 with open(ts, 'w', encoding='utf-8') as f:
     f.write(data)
 
-# Deutsche Mehrzahlformen (Quellsprache): translations/vitabreathe_de.ts enthält nur %n-Texte.
-# Erzeugen:  lupdate -pluralonly -no-obsolete src -ts translations/vitabreathe_de.ts
-ts_de = os.path.join(here, '..', 'translations', 'vitabreathe_de.ts')
+# Deutsche Mehrzahlformen (Quellsprache): translations/viviabreathe_de.ts enthält nur %n-Texte.
+# Erzeugen:  lupdate -pluralonly -no-obsolete src -ts translations/viviabreathe_de.ts
+ts_de = os.path.join(here, '..', 'translations', 'viviabreathe_de.ts')
 if os.path.exists(ts_de):
     tde = ET.parse(ts_de)
     for ctx in tde.getroot().findall('context'):

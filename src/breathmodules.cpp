@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: PolyForm-Noncommercial-1.0.0
 #include "breathmodules.h"
 #include "database.h"
 
@@ -271,7 +271,7 @@ const QList<ModuleDef> &all()
         t.category = airwayCategory();
         t.description = BM::tr("Training mit dem floworientierten Atemtrainer TriBall: langsam und gleichmäßig durch das "
                                "Mundstück einatmen, sodass die Bälle steigen, und sie möglichst lange oben halten. Fördert "
-                               "ein tiefes, gleichmäßiges Einatmen. VitaBreathe gibt den Takt vor und zählt die Wiederholungen.");
+                               "ein tiefes, gleichmäßiges Einatmen. ViviaBreathe gibt den Takt vor und zählt die Wiederholungen.");
         t.tips = QStringList{ BM::tr("Das Gerät beim Üben immer senkrecht halten."),
                               BM::tr("Niemals in das Gerät hineinblasen – Feuchtigkeit beeinträchtigt die Funktion. Trocken aufbewahren."),
                               BM::tr("Langsam und gleichmäßig einatmen statt kräftig ruckartig: Ziel ist ein langer, gleichmäßiger Atemzug."),
@@ -328,7 +328,7 @@ QStringList generalTips()
     return { BM::tr("Setzen oder legen Sie sich bequem hin und lockern Sie enge Kleidung."),
              BM::tr("Sie können die Augen schließen – ein Signalton kündigt jede neue Phase an."),
              BM::tr("Atmen Sie nie gegen Widerstand. Bei Schwindel, Unwohlsein oder Atemnot brechen Sie die Übung ab."),
-             BM::tr("VitaBreathe ist ein Übungs-Tagebuch und kein Medizinprodukt; es ersetzt keine ärztliche Beratung.") };
+             BM::tr("ViviaBreathe ist ein Übungs-Tagebuch und kein Medizinprodukt; es ersetzt keine ärztliche Beratung.") };
 }
 
 QStringList airwayTips()
@@ -337,7 +337,7 @@ QStringList airwayTips()
                     "Atemphysiotherapie – sie ergänzen die Behandlung, ersetzen aber keine Medikamente."),
              BM::tr("Brechen Sie ab, wenn Schwindel, Engegefühl oder zunehmende Atemnot auftreten, und handeln Sie "
                     "nach Ihrem Notfallplan."),
-             BM::tr("VitaBreathe ist ein Übungs-Tagebuch und kein Medizinprodukt.") };
+             BM::tr("ViviaBreathe ist ein Übungs-Tagebuch und kein Medizinprodukt.") };
 }
 
 } // namespace BreathModules

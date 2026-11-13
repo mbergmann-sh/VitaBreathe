@@ -1,5 +1,5 @@
 <?php
-// VitaBreathe – Datenbank-Abgleich zwischen Geräten (Desktop, später Smartphone/Tablet)
+// ViviaBreathe – Datenbank-Abgleich zwischen Geräten (Desktop, später Smartphone/Tablet)
 // (Aufbau übernommen aus VitaParms)
 //
 // Der Server verwahrt nur die verschlüsselte Datenbank (SQLite3 Multiple Ciphers, Master-Passwort).
@@ -12,9 +12,9 @@
 //        → 200 {rev}  bzw. 409, wenn inzwischen ein anderes Gerät hochgeladen hat
 //        → 426, wenn das Gerät ein älteres Datenbankformat hat als der Server-Stand
 //
-// Alle Aufrufe brauchen den Kopf "X-VitaBreathe-Key" (Zugangsschlüssel). Der erste Upload
+// Alle Aufrufe brauchen den Kopf "X-ViviaBreathe-Key" (Zugangsschlüssel). Der erste Upload
 // legt den Schlüssel fest (gespeichert nur als Hash).
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: PolyForm-Noncommercial-1.0.0
 
 require __DIR__ . '/lib.php';
 
@@ -75,7 +75,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     }
     $what = (string) ($_GET['get'] ?? '');
     if ($what === 'db') {
-        sendFile(DB_FILE, 'vitabreathe.vbdb');
+        sendFile(DB_FILE, 'viviabreathe.vbdb');
     }
     fail(400, 'Unbekannte Anfrage.', 'Unknown request.');
 }
@@ -98,9 +98,9 @@ $base = (int) ($_POST['base'] ?? -1);
 $schema = (int) ($_POST['schema'] ?? 0);
 if ($schema < (int) $state['schema']) {
     reply(426, ['ok' => false, 'schema' => (int) $state['schema'],
-                'error' => t('Ein anderes Gerät verwendet eine neuere VitaBreathe-Version. Bitte VitaBreathe auf diesem Gerät '
+                'error' => t('Ein anderes Gerät verwendet eine neuere ViviaBreathe-Version. Bitte ViviaBreathe auf diesem Gerät '
                              . 'aktualisieren – erst dann ist ein Abgleich möglich, ohne dass Daten verloren gehen.',
-                             'Another device uses a newer VitaBreathe version. Please update VitaBreathe on this device – '
+                             'Another device uses a newer ViviaBreathe version. Please update ViviaBreathe on this device – '
                              . 'only then can it synchronise without losing data.')]);
 }
 if ($base !== (int) $state['rev']) {

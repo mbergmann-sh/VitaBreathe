@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: PolyForm-Noncommercial-1.0.0
 #include "historypage.h"
 #include "breathmodules.h"
 #include "database.h"
@@ -317,7 +317,7 @@ void HistoryPage::savePdf()
     const auto u = Database::instance().user(m_userId);
     if (!u) return;
     const QString def = QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation)
-                        + QStringLiteral("/VitaBreathe_%1_%2.pdf").arg(QString(u->name).replace(QLatin1Char(' '), QLatin1Char('_')),
+                        + QStringLiteral("/ViviaBreathe_%1_%2.pdf").arg(QString(u->name).replace(QLatin1Char(' '), QLatin1Char('_')),
                                                                        QDate::currentDate().toString(Qt::ISODate));
     const QString f = QFileDialog::getSaveFileName(this, tr("Verlauf als PDF speichern"), def, tr("PDF (*.pdf)"));
     if (f.isEmpty()) return;
@@ -329,7 +329,7 @@ void HistoryPage::exportCsv()
 {
     const QString f = QFileDialog::getSaveFileName(this, tr("Verlauf als CSV exportieren"),
                                                    QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation)
-                                                       + QStringLiteral("/VitaBreathe.csv"),
+                                                       + QStringLiteral("/ViviaBreathe.csv"),
                                                    tr("CSV (*.csv)"));
     if (f.isEmpty()) return;
     QFile file(f);
